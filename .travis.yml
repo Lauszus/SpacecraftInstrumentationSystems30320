@@ -1,5 +1,10 @@
 sudo: required
 
+# Blacklist Sharelatex branches
+branches:
+    except:
+        - /^sharelatex-.*$/
+
 install:
     - sudo apt-get install -y --no-install-recommends texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
 
