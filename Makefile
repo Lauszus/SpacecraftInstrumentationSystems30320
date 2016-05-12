@@ -1,7 +1,7 @@
 RM = /bin/rm
 
 PREFIX ?= /usr/bin/
-LATEX = $(PREFIX)pdflatex -interaction=nonstopmode -halt-on-error -file-line-error
+LATEX = $(PREFIX)pdflatex -halt-on-error -file-line-error
 BIBTEX = $(PREFIX)bibtex
 DETEX = $(PREFIX)detex
 
