@@ -26,6 +26,71 @@
 
 * Measure conductivity of the water.
 
+
+\section{RTG design (Ricard)}
+\subsection{Radiation from Pu238}
+After looking at the different materials, Plutonium-238 (Pu238) is radioactive material that is going to be used for the mission due to the the half-life of 87.7 and the minimum radiation of gamma and neutrons. 
+
+The probability of a alpha-decay from a Pu238-atom is close to 100\%: 
+\begin{equation}
+^{238}\text{Ph} \quad \rightarrow \quad ^{234}\text{U} \quad + \quad ^4 \text{He}
+\end{equation}
+The alpha particle is relatively big with two protons and two neutrons and is therefore easy to shield against. Even if the possibility of an alpha decay is close to almost certain, there is a small possibility of either a spontaneous fission or a cluster decay. A spontaneous fission happens for heavy atoms, where the atom split into two almost equal sized daughter atoms and a number of free neutrons. The possibility of a spontaneous fission for Pu238 is $1.9 \cdot 10^{-7}\%$, but with more than $10^{24}$ atoms for each kg of plutonium, it is certain to happen. The daughter atoms can vary. A cluster decay is something between an alpha decay and spontaneous decay where a cluster of protons and neutrons are emitted. For the Pu238 there is a $1.4 \cdot 10^{-14}\%$ chance that a Si32-atom is emitted leaving a Hg206-atom, and a $6 \cdot 10^{-15}\%$ chance that a Mg30-atom and a Mg28-atom is emitted leaving an Yb180-atom. The daughter isotopes are also radioactive and are most likely to emit a beta-particle. This particle is either an electron or a positron depending on the charge of the particle with a mass much smaller than neutron or proton but since it has an electric charge it can rather easily be stop by a shielding metal. 
+
+A bigger problem is the free neutrons that for example are emitted due to a spontaneous fission.  The neutrons do not have any electric charge and therefore they will not be stopped by an electric field making them extremely penetrating. To stop a neutron is has to be absorbed by a nucleus or collide with a particle with same speed but opposite velocity and mass as the neutron. Since the materials used to shield alpha and beta particles, for example lead, has a rather small cross-section and hew nuclei per unit mass, hence the neutron can easily pass trough the shielding. Furthermore if the neutron is absorbed to the atom it is likely that the new atom is radioactive as well. Therefore it is important to stop the neutrons, because they can cause a lot of damage if they hit the instruments on board the penetrator. In order to do so protium, a hydrogen atom with no neutron, can be used to absorb the neutron creating in deuterium. Water has a high number density to mass ratio, and is hereby optimal to use as a shielding against the free neutrons. 
+
+
+\subsection{Shielding}
+As mentioned a typical shielding material is lead, but for this case zirconium would be a better choice, first of all because it has a melting temperature that is three times higher than lead, and second of all because the material is lighter. It is still not possible to stop the free neutrons, where we instead will use water. First the Plutonium will be surrounded by the zirconium, afterwards a layer of water and in the end some thermocouplers will generate electricity from the heat. 
+
+\subsection{Heat generation}
+
+To calculate how much energy one alpha decay will produce, the energy equation derived from Einstein is used:
+\begin{equation}
+\begin{aligned} 
+\text{$E_{atom}$} & ={} mc^2 \\
+& = (m_{Pu238} - [m_{U234} + m_{He4}]) \cdot c^2 \\
+& = (238.049559894U - [234.040952088U + 4.00150646649U])\\
+& \cdot 1.66053904020\cdot 10^{-27}\text{kg} \cdot 2.99\cdot 10^8 \text{m/s}\\
+& = 1.06\cdot 10^{-12} J 
+\end{aligned}
+\end{equation}
+
+When knowing how much one decay will produce of thermal energy, the number of decays in a radioactive material can be calculated as following:
+\begin{equation}
+A = A_0 \cdot 2^{\frac{t}{\tau}}
+\end{equation}
+where \textit{$A_0$} is the initial number of atoms in a lump of a radioactive material, \textit{A} is the atoms left in the material after a specific time, \textit{t}, with a half-life of  \textit{$\tau$}. The energy produced by one kg of Pu238 over a timespan of one second will then be: 
+\begin{equation}
+\begin{aligned} 
+\text{$E_{kg}$} & ={} E_{atom} \cdot [A_0 - A] \\
+& = E_{atom} \cdot \left[A_0 - A_0 \cdot 2^{\frac{t}{\tau}}\right] \\
+& = E_{atom}  \cdot \left[\frac{1}{m_{Pu238}} - \frac{2^{\frac{t}{\tau}}}{m_{Pu238}} \right] \\
+& = 671 J
+\end{aligned}
+\end{equation}
+
+We here see that for each kg of Pu238, 671W energy is generated in form of thermal energy. Since the amount of Pu238 decreases for each decay, the generated energy will also decrease, but rather slowly since the half life is 87.7 years. 
+After the decay to U234, the uranium is also radioactive, undergoing an alpha decay as well. The lifetime is more than 2400 years and therefore the decay from this isotope is much more protracted. The decay chain from Pu238 will end with the stable isotope Pb206 after 12 decays from either alpha or beta decay. \\
+
+Since we need 2kW of thermal energy and around 100W as electrical energy for the instruments on the penetrator we would need around 5 kg of plutonium. Some extra plutonium is needed because the amount of radioactive material decreases with time, and since the mission takes a couple of years the heat generation have decreased a factor 
+\begin{equation}
+N = N_t \left(\frac{1}{2}\right)^{t/\tau} 
+\end{equation}
+
+
+With a density of 19816 kg$/m^3$, with a mass of 5 kg we would need a a plutonium rod that is 30 cm long and 1.65 cm in radius. It is a good idea that the plutonium has a high surface area compared to the volume, because the heat was to be distributed to the water running in the heat pipes(maybe). Furthermore it is a good thing that the plutonium has the same shape as the penetrator. (Explanation to come) 
+
+
+\subsection{Heat pipes}
+To distribute the heat that is generated from the plutonium. In order to do so, the water will be under high pressure. If the pressure inside the pipe system is 50 bar, or around 5 MPa, the water has a boiling temperature at $264^\circ$C. This will give some advantages for the system in the sense that it is almost impossible to maintain a temperature below $100^\circ$C which is waters normal boiling point, when transporting 2kW of heat. 
+
+The pipe system will consist of pipes surrounding the RTG in the bottom and middle of the penetrator. Since the RTG is 30 cm long the pipes will be this as well with 18 tubes cut in half. The water will then flow out to the 18 tubes in the outer part of the RTG. Since most of the heat of generated should be directed downwards 12 of the tubes only cover the lowest $1/4$ of the penetrator. The other 6 tubes will go all the way to the top of the penetrator in order to ensure that the penetrator will not freeze in because the top of the penetrator is too cold. With an internal pressure of 5MPa, the thickness of the tubes that have water in them will be around 1 mm depending on the material if the other radius of the tubes are 1.48 cm. The heat pipe system will then weight around 6 kg. Furthermore the system will take up 6.5 liters of space. 
+
+Insert image of top view of the pipe system and RTG. 
+Insert image of a sideways look of the system.
+
+
 \section{Selected Design}
 
 * Sketch of overall design (use 3D models for the ice melting simulations)
@@ -38,26 +103,9 @@
 
 * How do we protect the rest of the instruments against the radiation?
 
-\subsection{RTG design (Ricard)}
-
-After looking at the different materials, Plutonium is radioactive material that is going to be used. With the half-life of 87.7 years it is optimal to a mission that is going to take several years. 
 
 
 
-
-•	What material is used? We will assume plutonium, half-life of 87.7 years \\
-
-•	How much power do we need? 2kW for melting and 150W for electrical power \\
-
-•	How big should the RTG then be? How long could it provide this power (with that mass) \\
-
-•	Radiation should be absorbed (there are three kinds of radiation: radiowaves, alpha, beta, nutrions (the dangerous ones)) \\
-
-
-
-* Can we make it smaller?
-
-* Thermal design
 
 \subsection{Thermal Design}
 
