@@ -6,7 +6,7 @@ branches:
         - /^sharelatex-.*$/
 
 install:
-    - sudo apt-get install -y --no-install-recommends texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
+    - sudo apt-get install -y --no-install-recommends texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-lang-german
 
 script:
     - make all
