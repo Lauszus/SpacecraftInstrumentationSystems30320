@@ -44,4 +44,6 @@ wc:
 	- @echo
 	- @echo "Current word count: "
 	- @$(DETEX) $(FILES) | wc -w
+	- @echo "Current page count: "
+	- @$(DETEX) $(FILES) | tr -d ' \t\r\n' | echo "scale=3; `wc -m`/2200" | bc -l | sed 's/^/    /'
 	- @echo
