@@ -19,11 +19,40 @@
 \usepackage{mcode}  % Maltab code
 \usepackage{authblk} % Multiple authors
 
-\date{June 2016}
+% DTU frieze
+\usepackage{eso-pic}
+\newcommand{\frieze}{%
+    \AddToShipoutPicture*{
+        \put(0,0){
+            \parbox[b][\paperheight]{\paperwidth}{%
+                \includegraphics[trim=130mm 0 0 0,width=0.9\textwidth]{figures/DTU-frise-SH-15}
+                \vspace*{2.5cm}
+            }
+        }
+    }
+}
 
-\begin{document}
+\newcommand{\prefrontmatter}{
+	\pagenumbering{alph} % Set prefrontmatter numbering style
+    \thispagestyle{empty} % Front page (inside cover)
+	\maketitle
+    \newpage % Back of front page
+    \thispagestyle{empty}
+	\frieze % Added watermark
+	\hspace*{-2.5cm}
+	\parbox[b][\paperheight]{\paperwidth}{%
+		{\sf Technical University of Denmark}\\
+		{\sf DTU Space}\\
+		{\sf National Space Institute}\\
+		{\sf Elektrovej, building 327-328}\\ 
+		{\sf 2800 Kongens Lyngby, Denmark}
+	    \vspace*{12cm}
+	}
+}
 
-\title{\textbf{Spacecraft Instrumentation Europa Life Finder Mission}}
+\date{Kongens Lyngby, June 2016}
+
+\title{\huge\textbf{Spacecraft Instrumentation: \\ Europa Life Finder Mission}}
 
 \author{Jean-Paul Breuer}
 \author{Aaron Gornott}
@@ -44,16 +73,18 @@
 \author{Kristian Sloth Lauszus}
 
 \affil{National Space Institute, Technical University of Denmark}
-
-\setcounter{Maxaffil}{0}
 \renewcommand\Affilfont{\itshape\small}
+\setcounter{Maxaffil}{0}
 
-\maketitle
+\begin{document}
+
+\prefrontmatter
 
 \frontmatter
 
 \include{Abstract}
 
+\pdfbookmark{\contentsname}{toc}
 \tableofcontents
 
 \mainmatter
