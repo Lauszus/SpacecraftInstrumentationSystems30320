@@ -21,6 +21,8 @@
 \usepackage{authblk} % Multiple authors
 \usepackage[section]{placeins}
 
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % \HRule for special horizontal line
+
 % Use this command to add chapter authors
 \makeatletter
 \newcommand{\chapterauthor}[1]{%
@@ -35,7 +37,7 @@
 \usepackage{eso-pic}
 \newcommand{\frieze}{%
     \AddToShipoutPicture*{
-        \put(0,0){
+        \put(-5,-30){
             \parbox[b][\paperheight]{\paperwidth}{%
                 \includegraphics[trim=130mm 0 0 0,width=0.9\textwidth]{figures/DTU-frise-SH-15}
                 \vspace*{2.5cm}
@@ -44,10 +46,36 @@
     }
 }
 
+\newcommand{\logoElektro}{%
+    \AddToShipoutPicture*{
+        \put(20,-50){
+            \parbox[b][\paperheight]{\paperwidth}{%
+                \includegraphics[width=0.6\textwidth]{figures/tex_dtu_space_a_uk}
+                \vspace*{2.5cm}
+            }
+        }
+    }
+}
+
+\makeatletter
 \newcommand{\prefrontmatter}{
-	\pagenumbering{alph} % Set prefrontmatter numbering style
-    \thispagestyle{empty} % Front page (inside cover)
-	\maketitle
+	\pagestyle{empty}
+	\begin{center}
+	\vspace*{1cm}
+	\large\textsc{Technical University of Denmark}
+	\HRule \\[1cm]
+	\@title\\[0.7cm]
+	\HRule \\%[1cm]
+	\begin{center}
+       	\includegraphics[width=0.2\textwidth]{figures/tex_dtu_logo}
+	\end{center}
+%	\vspace{0.7cm}	
+	\normalsize \@author
+	\vfill
+	{\normalfont \large \@date}
+	\end{center}
+	\frieze
+	\logoElektro
     \newpage % Back of front page
     \thispagestyle{empty}
 	\frieze % Added watermark
@@ -61,10 +89,11 @@
 	    \vspace*{12cm}
 	}
 }
+\makeatother
 
 \date{Kongens Lyngby, June 2016}
 
-\title{\huge\textbf{Spacecraft Instrumentation: \\ Europa Life Finder Mission}}
+\title{\huge{Spacecraft Instrumentation Systems \\ Europa Life Finder Mission}}
 
 \author{Jean-Paul Breuer}
 \author{Aaron Gornott}
