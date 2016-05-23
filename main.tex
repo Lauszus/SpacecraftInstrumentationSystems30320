@@ -1,6 +1,7 @@
 \documentclass[10pt,twoside]{book}
 
-\usepackage{graphicx}
+
+
 \usepackage[space]{grffile}
 \usepackage{latexsym}
 \usepackage{textcomp}
@@ -15,6 +16,30 @@
 \newif\iflatexml\latexmlfalse
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman,english]{babel}
+\usepackage{rotating}
+
+\usepackage[english]{babel}
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsfonts,amssymb}
+%\usepackage[bold]{hhtensor}
+\usepackage{textcomp}
+\usepackage{graphicx, float, wrapfig}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{textcomp}
+\usepackage{parskip}
+\usepackage{pdfpages}
+\usepackage{caption, subcaption}
+\usepackage{appendix}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{color,xcolor,colortbl}
+\usepackage{filecontents}
+\usepackage{import} %allows import of tex files
+\usepackage[noabbrev,nameinlink]{cleveref}   % Clever references. Options: "fig. [1]" --> "[Figure 1]"
+\usepackage{epstopdf}	
 
 \date{June 2016}
 
@@ -28,31 +53,32 @@
 
 \frontmatter
 
-\include{Abstract}
+%\include{Abstract}
 
 \tableofcontents
 
 \mainmatter
 
-\include{Introduction}
+%\include{Introduction}
 
 \include{ProblemFormulation}
 
-\include{Theory}
+%\include{Theory}
 
-\include{Strawman}
+%\include{Strawman}
 
-\include{Orbiter}
+%\include{Orbiter}
 
-\include{CommunicationSystems}
+%\include{CommunicationSystems}
 
-\include{Lander}
+%\include{Lander}
+\include{melting}
 
-\include{Penetrator}
+%\include{Penetrator}
 
-\include{InstrumentSuite}
+%\include{InstrumentSuite}
 
-\include{Analysis}
+%\include{Analysis}
 
 \include{Conclusion}
 

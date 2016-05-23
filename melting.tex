@@ -1,0 +1,146 @@
+\section{Melting ice with a rocket}
+
+Once the EDL is successfully completed and the landing module has landed on the desired location and the surface antennas have been deployed, the next step of the mission is commenced. In order to get our instruments out of the extreme radiation environment, an extra engine is used to melt a hole in the ice immediately below the hatch on the lander. When the hole has been melted the penetrator is dropped into the hole, and thereby shielded from the radiation by the surrounding ice. 
+
+\subsection{Ice shielding}
+
+As mentioned in previous chapters, the radiation dose on Europas surface is asymmetrical. The leading hemisphere, the side that faces the direction of motion around Jupiter, receives less radiation than the trailing hemisphere especially from electrons with energies between about 100 keV and
+25 MeV which have much less impact on the leading hemisphere. As the energies of the electrons increase more of them will impact the leading hemisphere. Many asymmetries such as this one influence the radiation environment on the surface of Europa, however his will not be discussed in this chapter. 
+
+
+Water ice is an excellent radiation shield allowing the majority of the ions (with energies up to 10 keV) to penetrate no deeper than 0.3 $\mu$m into the surface. Higher energy particles (with energies up to 10 MeV) can penetrate up till approximately 24 $\mu$m. \cite{Paranicas_2009}
+
+The penetration depth of charged particles into ice depends on factors such as particle type and energy. To evaluate the dose that our equipment would receive after being dropped into the ice, these factors are treated separately in the paper by  \cite{Paranicas_2009}.
+
+The graph shown in figure \ref{icerad} shows the dose rate in rad/s vs. depth in the ice. 
+It is seen that at depths of ~ 1 m the radiation dose rate is ~ 10$^{-5}$ rad/s. Assuming that our electronics are rad-hard and able to survive doses up to ~1 Mrad, the electronics would survive thousands of years. This is without considering the shielding from the titanium structure of the penetrator. 
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.5]{figures/icerad}
+\caption{Graph from \cite{Paranicas_2009}. Shows the radiation dose rate vs. depth in the ice. The curve labeled “trailing hemisphere” includes the dose rate of 1–20 MeV electrons only, whereas the curve below it labeled leading hemisphere displays the dose rate of 20–40 MeV electrons. The two uppermost curves show the dose rate corresponding to electrons from 10 keV to 100 MeV (top curve) and the dose rate from protons between 10 keV and 100 MeV. The graph also shows times in years, that correspond to a chemically significant (most bonds
+are broken at least once) dose of 60 Gigarads.}
+\label{icerad}
+\end{center}
+\end{figure}
+
+Since the radiation has essentially no penetration depth in the ice, the payload will only receive radiation that passes through the landing module and down the hole. From this it is clear that getting the payload into the ice as quickly as possible is vital to the received radiation dose. 
+
+
+\subsection{Ice melting}
+
+The feasibility of melting the preliminary hole in the ice using a rocket engine depends on factors such as the sublimation energy of the ice vs. the energy content in the propellant, the coupling coefficient between the ice and the exhaust plume, and the ability to melt a slim deep hole that can fit the ice penetrating module in a vertical position. 
+
+The process can be compared to the process of oxy fuel cutting, which is used to cut thick plates of mild steel. This process is well known and one important relationship that is assumed to hold for ice melting as well, is the increase of the kerf with plate thickness/depth of hole. Kerf is the width of the material that is removed during cutting/melting. It is seen from table 3 in \cite{oxy_fuel}, that the kerf increases with plate thickness regardless of the width of the torch. The kerf is approximately 4\% of the plate thickness. It can very well be assumed that this ratio will be higher for ice, since the binding energy of ice is much lower than of steel. Therefore a hole of 20 cm in diameter and 2 m deep can be achieved  with a torch/jet that is substantially thinner than 20 cm. 
+
+\subsubsection{Nozzle design}
+
+Two choices of engines have been considered for this purpose. 
+
+First was to gimble the secondary (22 N) engines to make them point toward the center of the lander and use them to melt the hole. This would required the engines to have a large throttling range, in order to assure that the lander does not lift of the surface during the melting and to avoid stagnant flow. This option would decrease complexity and weight because of the use of already existing rockets. However the degree of gimbling and throttling that is needed might not be possible. Because we are in a near vacuum environment we should not expect to be able to throttle down to lower than 60\% of the maximum thrust without risking chugging or combustion instabilities due to the low ambient pressure. \cite{jonas} 
+
+Another option is to carry an extra engine just for this purpose. The engine could be placed as close as possible to the center of the lander, right next to the hatch that will drop the descent vehicle. This engine should have a very thin jet and be turnable to avoid stagnant flow. It is difficult, if not impossible to get a thin exhaust jet in a vacuum environment, because the low ambient pressure gives rise to under expanded flows \cite{spacecraft}. Figure \ref{jetflows} illustrates the issue. In low ambient pressures the exhaust plume will continue to expand past the nozzle resulting in a wide inefficient jet, as seen in figure \ref{jetflows}a. The exhaust plume will expand even more  than what is seen in figure \ref{jetflows}a, in the near vacuum environment of Europa. 
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.8]{figures/nozzle.png}
+\caption{This figure shows the effect of nozzle design on the exhaust plume. a) Under Expanded nozzle $p_e>p_a$. b) Ideally Expanded nozzle $p_e=p_1$. c) Over Expanded nozzle $p_e<p_a$. }
+\label{jetflows}
+\end{center}
+\end{figure}
+
+The optimization of the nozzle design for operation in vacuum is evaluated through the rocket thrust equation, which is given by \cite{spacecraft}
+
+\begin{equation}
+F=mV_e+A_e(p_e-p_a)
+\end{equation}
+
+here $m$ is the propellant mass flow rate,$V_e$ is the velocity of the exhaust gasses, $A_e$ is the area of nozzle exit and $p_a$ and $p_e$ is the ambient pressure and the pressure at the nozzle exit respectively. 
+
+The incremental parameter changes are related by
+
+\begin{equation}
+\delta F=m\delta V_e +\delta A_e(p_e-p_a) +\delta p_e A_e
+\end{equation}
+
+Because conservation of momentum states that 
+
+\begin{equation}
+m\delta V_e+\delta p_e A_e=0
+\end{equation}
+
+we get the following equation for the maximum thrust
+
+\begin{equation}
+\dfrac{\delta F}{\delta A_e}=p_e-p_a=0 
+\end{equation}
+
+Maximum thrust occurs when $p_e$=$p_a$. Nozzle exit pressure, $p_a$, can be increased/decreased by smaller/larger expansion ratio, $\dfrac{A_e}{A_t}$, where $A_t$ is the area of the throat. 
+
+In vacuum the thinnest theoretical jet plume and the maximum performance would be realized by an ideal nozzle with infinite exit area that would expand the combustion gases to zero pressure thereby attaining the maximum gas velocity, limited to the area below the nozzle. Therefore the best result is obtained with an engine with a large expansion ratio. This can be achieved by attaching a large nozzle to an already existing engine. Also, the kinetic energy in the jet plume should be high enough for the plume to reach the ice surface before it expands too much. 
+
+
+\subsubsection{Coupling coefficient}
+The heat in the rocket plume is energy stored in the temperature-dependent motion of particles. Heat is transferred to and from matter by the heat transfer processes (or kinetics) which are governed by the rates at which various physical phenomena occur, such as, for example, the collision rate of particles. 
+
+One way to evaluate the rates that will govern the heat transfer processes during the melting of the ice, is to determine the coupling coefficient between the rocket plume and the ice. A rough estimate of the coupling coefficient has been experimentally determined during the preliminary work on our project by Lukas Christensen. The experiment was performed by melting an ice cube with a butane torch lighter. The experimental setup and calculations are shown in the Appendix \ref{App:coupling}. The obtained coupling coefficient is 0.70.
+
+
+Losses decrease as the hole gets deeper
+
+Other losses. 
+
+\subsubsection{Sublimation energy}
+
+Because of the low pressure on the surface of Europa, the melted ice can not exist in its liquid phase, but will sublimate into gas phase immediately. The sublimation energy of water ice is 51059 J/mole \cite{ice properties}. One mole of water weighs 18.0155 g. The smallest amount of water that should be sublimated is a cylinder of 10 cm radius and 2 m depth. This corresponds to the volume:
+
+\begin{equation}
+\mathrm{V_{ice}}=0.1 \mathrm{m}^2 \cdot \pi \cdot 2 \mathrm{m} = 0.0628 \mathrm{m}^3
+\end{equation}
+
+The density of ice is 934 kg/m$^3$ therefore the mass of the ice cylinder is 58.7 kg. This results in $1.66\cdot 10^8$ J, needed to sublimate the cylinder shaped hole. 
+
+To account for the coupling coefficient and other losses, we assume 50 \% loss of energy. This results in: $3.4 \cdot 10^8$ J. This is a fairly conservative estimate, as the losses experienced during the melting will decrease significantly as the hole gets deeper. 
+
+
+
+
+\subsubsection{Energy efficiency of the rocket}
+
+LMP-103S is a blend of Ammonium DiNitrimide (ADN), water, methanol and ammonia \cite{Walter_2014}. In formulation 60-65 \% ADN, 15-20\% methanol, 3-6\% ammonia and 9-22\% water. \cite{Taylor_2013}
+
+
+
+The thermochemical software GUIPEP is used to evaluate the energy efficiency of the propellant in regards to melting the ice. The theoretical performance of liquid or solid rocket propellants can be calculated using this software developed by Arthur J. Lekstutis. http://www.spl.ch/software/ The input is a list of propellant ingredients (and the mass of each), as well as chamber pressure and nozzle exit pressure. The output includes average exhaust Energy and velocity. \ref{GUIPEP} $http://www.nakka-rocketry.net/th_prope.html$
+
+ECAPS has built and tested more than 60 HPGP thrusters with thrust levels ranging from 0.5 N to 220 N.
+Demonstrations of the HPGP technology includes the in-space demonstration of a 1 N HPGP propulsion system on
+the PRISMA mission, which was launched in 2010 and is still operational [23]. Hot-firing demonstrations for
+NASA and various commercial aerospace firms have been successfully performed with a 5 N HPGP thruster by
+ATK in Elkton, MD on numerous occasions in 2012 using LMP-103S blended in the U.S., shown in Figure 2. http://www.psi-pci.com/
+\subsection{Actual process}
+
+As the hole gets deeper the losses will decrease. 
+
+Inside the hole, the molecules from the exhaust plume and the water molecules will exert a pressure, and therefore inside the hole there will no longer be a vacuum. The pressure will narrow the plume, and it could be expected that the hole will be slimmer with depth and become triangular in shape. Not only because the jet plume will get thinner with increasing depth and thereby pressure, but also because the jet will have melted more of the ice from higher layers during the melting process. 
+
+The pressured conditions inside the hole will allow the water to exist in its liquid phase. It would be interesting to examine if the water could be used to cut a slim deep hole. An example could be to suck the water into a container with some sort of pump and then produce a high velocity jet of water to cut the ice like a water jet cutter. 
+
+A shielding could be lowered from around the nozzle down to the ice surface. This way a pressure would quickly be reached inside the shielding and the hole and a thinner jet plume would be achieved. The idea is sketched in figure \ref{meltshielding}.
+It would be very interesting to experiment with the process of melting the preliminary hole to examine what actually happens when ice is sublimated in vaccum using a rocket engine. 
+
+
+The water vapor particles leave the hole and would stick to the landing module making it very heavy and possibly breking it, if the module is not heated. Luckily the module is heated by the RTG inside the penetrator and the water vapor molecules cannot deposit on the lander. 
+
+Check steel cutting out
+
+How thin is the torch /jet how wide is the hole?
+
+
+The jet should be turnable to avoid stagnant flow. 
+
+Where do the high energy molecules go? The go up, and can freeze our lander, but luckily the lander is heated by the RTG and the shield has a temperature 
+
+The issue is that is it very hard to get a thin jet in vacuum. 
+
+Block equation - wind speed

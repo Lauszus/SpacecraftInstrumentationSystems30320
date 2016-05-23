@@ -362,9 +362,11 @@ A radar altimeter such as the miniature radar altimeter MRA type 1, has been con
 
 The main driving forces in the process of choosing the sensors for the GNC system have been to ensure an autonomous soft pin-point landing within a radius of 100 meters of a predetermined landing spot. The sensors should meet these requirements in a somewhat redundant manner while being both weight and power efficient. 
 
-Optical systems provide the information needed for deep space autonomous navigation. Although having to rely on ambient weight, they are intrinsically more accurate and less demanding, in terms of power and mass/size budgets, than the corresponding radar and laser systems. They are easier to operate and more robust because they passively acquire the signal coming from the observed surface rather than actively track it. For these reasons the relative navigation system and hazard avoidance system will rely on optical systems, more specifically the The $\mu$ASC system, with appropriately designed CHU's and in combination with other light weight sensors such as the MIRU and a compact laser ranger.
+Optical systems provide the information needed for autonomous navigation. Although having to rely on ambient weight, they are intrinsically more accurate and less demanding, in terms of power and mass budgets, than the corresponding radar and laser systems. They are easier to operate and more robust because they passively acquire the signal coming from the observed surface rather than actively tracking it. For these reasons the relative navigation system and hazard avoidance system will rely on optical systems, more specifically on the $\mu$ASC system, with appropriately designed CHU's and in combination with other light weight sensors such as the MIRU and a compact laser ranger.
 
-Since the orientation of the spacecraft will be different during different phases of descent and landing, it may be difficult to accommodate the cameras such that they will have a clear view of the ground during the approach phase (< 2km altitude), when it needs to perform hazard avoidance functions, as well as powered descent phase (20 km – 10 km altitude), when Altimetry and terrain relative navigation functions need to be performed. This is the advantage of having two CHU's dedicated to terrain imaging. One with 
+Since the orientation of the spacecraft will be different during different phases of descent and landing, it may be difficult to accommodate the cameras such that they will have a clear view of the ground during the approach phase (< 100 m altitude), when it needs to perform hazard avoidance functions, as well as early descent phase (at high altitudes), when altimetry and terrain relative navigation functions need to be performed. This is the advantage of having two CHU's dedicated to terrain imaging. One with long focal length for the early descent phase and one with shorter focal length for the final phase. Because the can be placed on different position on the spacecraft.
+
+ 
 \subsection{Final guidance and navigation control system}
 Initially, the navigation system uses one of the CHU's as a surface camera together with a database of known surface
 features (craters, cracks and ridges), two CHU's as star trackers and the integrated IMU system $\mu$IRU. The surface camera is designed to optimize the FOV and resolution for this purpose. This ensures direct position and attitude determination in a Europa fixed frame of reference.
@@ -385,13 +387,10 @@ Final instruments are
 
 \subsection{Power supply}
 
-RTG
+The Guidance Navigation and Control system will be powered by a small RTG. The total system requires 
 
-We considered using solar panels with fresnel lenses to concentrate the relativelt low solar flux at Europa. However the extreme radiation environment if too harsh for the solar cells to survive fot longer periods of time. An option would be to deploy the solar cells down into the ice, and only have the fresnell lens in the radiation environment. The process of deploying the large amount of solar cells into the ice was rejected due to its complicated nature. 
+We considered using solar panels with Fresnel lenses to concentrate the relatively low solar flux at Europa ($51 W/m^2$). However the extreme radiation environment is too harsh for the solar cells to survive for longer periods of time. An option would be to deploy the solar cells down into the ice, and only have the Fresnel lenses in the radiation environment. The process of deploying the large amount of solar cells into the ice was rejected due to its complicated nature. 
 
-\section{TEST}
-????
-Has this been done on previous missions??
 
 
 
@@ -399,20 +398,4 @@ Has this been done on previous missions??
 
 
 
-\section{Conclusion}
-Repeat of strawman with results from test 
 
-
-\section{Safe landing}
-
-\section{Energy source}
-
-* Solar panels
-
-* RTG
-
-* What else?
-
-* We also need heating/cooling
-
-\section{Pre-drilling of the hole for the penetrator}
