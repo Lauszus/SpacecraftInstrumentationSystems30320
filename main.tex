@@ -1,7 +1,7 @@
-\documentclass[10pt,twoside]{book}
+\documentclass[12pt,twoside,openright,a4paper,final]{book}
 
-
-
+\usepackage{subfig}
+\usepackage{graphicx}
 \usepackage[space]{grffile}
 \usepackage{latexsym}
 \usepackage{textcomp}
@@ -11,81 +11,118 @@
 \usepackage{natbib}
 \usepackage{url}
 \usepackage{hyperref}
+\usepackage{wrapfig}
 \hypersetup{colorlinks=false,pdfborder={0 0 0}}
 % You can conditionalize code for latexml or normal latex using this.
 \newif\iflatexml\latexmlfalse
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman,english]{babel}
 \usepackage{rotating}
+\usepackage{epstopdf}
+\usepackage{mcode} % Maltab code
+\usepackage{authblk} % Multiple authors
+\usepackage[section]{placeins}
 
-\usepackage[english]{babel}
-\usepackage{lipsum}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath,amsfonts,amssymb}
-%\usepackage[bold]{hhtensor}
-\usepackage{textcomp}
-\usepackage{graphicx, float, wrapfig}
-\usepackage[margin=2.5cm]{geometry}
-\usepackage{textcomp}
-\usepackage{parskip}
-\usepackage{pdfpages}
-\usepackage{caption, subcaption}
-\usepackage{appendix}
-\usepackage{enumitem}
-\usepackage{tabularx}
-\usepackage{booktabs}
-\usepackage{color,xcolor,colortbl}
-\usepackage{filecontents}
-\usepackage{import} %allows import of tex files
-\usepackage[noabbrev,nameinlink]{cleveref}   % Clever references. Options: "fig. [1]" --> "[Figure 1]"
-\usepackage{epstopdf}	
+% DTU frieze
+\usepackage{eso-pic}
+\newcommand{\frieze}{%
+    \AddToShipoutPicture*{
+        \put(0,0){
+            \parbox[b][\paperheight]{\paperwidth}{%
+                \includegraphics[trim=130mm 0 0 0,width=0.9\textwidth]{figures/DTU-frise-SH-15}
+                \vspace*{2.5cm}
+            }
+        }
+    }
+}
 
-\date{June 2016}
+\newcommand{\prefrontmatter}{
+	\pagenumbering{alph} % Set prefrontmatter numbering style
+    \thispagestyle{empty} % Front page (inside cover)
+	\maketitle
+    \newpage % Back of front page
+    \thispagestyle{empty}
+	\frieze % Added watermark
+	\hspace*{-2.5cm}
+	\parbox[b][\paperheight]{\paperwidth}{%
+		{\sf Technical University of Denmark}\\
+		{\sf DTU Space}\\
+		{\sf National Space Institute}\\
+		{\sf Elektrovej, building 327-328}\\ 
+		{\sf 2800 Kongens Lyngby, Denmark}
+	    \vspace*{12cm}
+	}
+}
+
+\date{Kongens Lyngby, June 2016}
+
+\title{\huge\textbf{Spacecraft Instrumentation: \\ Europa Life Finder Mission}}
+
+\author{Jean-Paul Breuer}
+\author{Aaron Gornott}
+\author{Yannis Nissopoulos}
+\author{Fruzsina Bacsó}
+\author{Ricard Lladó Grove}
+\author{Sridhar Remma}
+\author{Gustavo Feijóo Carrillo}
+\author{Johannes Linde}
+\author{Maja Tomicic}
+\author{Agge Winther}
+\author{Paul Connetable}
+\author{Rasmus Lundby Pedersen}
+\author{Bhaaeddin Alhomsi}
+\author{Ifikratis Kamenidis}
+\author{Paschalis Dalampiras}
+\author{Mark David Wigh}
+\author{Lukas Christensen}
+\author{Kristian Sloth Lauszus}
+
+\affil{National Space Institute, Technical University of Denmark}
+\renewcommand\Affilfont{\itshape\small}
+\setcounter{Maxaffil}{0}
 
 \begin{document}
 
-\author{JP Breuer\\ Affiliation not available  \and Awaiting Activation\\ Affiliation not available \and Awaiting Activation\\ Affiliation not available \and Aaron\\ Affiliation not available \and Yannis\\ Affiliation not available \and FruzsinaBacso\\ Affiliation not available \and Ricard\\ Affiliation not available \and Awaiting Activation\\ Affiliation not available \and Sridhar Remma\\ Affiliation not available \and Gustavo Feijóo\\ Affiliation not available \and Kristian Sloth Lauszus\\ Affiliation not available \and Johannes Linde\\ Affiliation not available \and Maja\\ Affiliation not available \and Agge Winther\\ Affiliation not available \and Paul Connetable\\ Affiliation not available \and Rasmus Lundby Pedersen\\ Affiliation not available}
-
-\title{Spacecraft Instrumentation Europa Life Finder Mission}
-
-\maketitle
+\prefrontmatter
 
 \frontmatter
 
-%\include{Abstract}
+\include{Abstract}
 
+\pdfbookmark{\contentsname}{toc}
 \tableofcontents
 
 \mainmatter
 
-%\include{Introduction}
+\include{Introduction}
 
 \include{ProblemFormulation}
 
-%\include{Theory}
+\include{Theory}
 
-%\include{Strawman}
+\include{Strawman}
 
-%\include{Orbiter}
+\include{Orbiter}
 
-%\include{CommunicationSystems}
+\include{CommunicationSystems}
 
-%\include{Lander}
+\include{Lander}
 \include{melting}
 
-%\include{Penetrator}
+\include{Penetrator}
 
-%\include{InstrumentSuite}
+\include{InstrumentSuite}
 
-%\include{Analysis}
+\include{Analysis}
 
 \include{Conclusion}
 
 \include{FutureWork}
 
+\backmatter
 \bibliographystyle{plain}
-\bibliography{bibliography/biblio.bib}
+\bibliography{bibliography/biblio}
+\addcontentsline{toc}{chapter}{Bibliography} % Add bibliography to toc (and bookmarks)
 
 \appendix
 \include{AppendixA}
