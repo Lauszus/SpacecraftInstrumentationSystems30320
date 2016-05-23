@@ -21,6 +21,16 @@
 \usepackage{authblk} % Multiple authors
 \usepackage[section]{placeins}
 
+% Use this command to add chapter authors
+\makeatletter
+\newcommand{\chapterauthor}[1]{%
+	{\parindent0pt\vspace*{-10pt}%
+  	\linespread{1.1}\small\scshape#1%
+  	\par\nobreak\vspace*{10pt}}
+  	\@afterheading%
+}
+\makeatother
+
 % DTU frieze
 \usepackage{eso-pic}
 \newcommand{\frieze}{%
