@@ -1,89 +1,4 @@
-<<<<<<< HEAD
-\documentclass[12pt,twoside,openright,a4paper,final]{book}
-
-\usepackage{subfig}
-\usepackage{graphicx}
-\usepackage[space]{grffile}
-\usepackage{latexsym}
-\usepackage{textcomp}
-\usepackage{longtable}
-\usepackage{multirow,booktabs}
-\usepackage{amsfonts,amsmath,amssymb}
-\usepackage{natbib}
-\usepackage{url}
-\usepackage{hyperref}
-\usepackage{wrapfig}
-\hypersetup{colorlinks=false,pdfborder={0 0 0}}
-% You can conditionalize code for latexml or normal latex using this.
-\newif\iflatexml\latexmlfalse
-\usepackage[utf8]{inputenc}
-\usepackage[ngerman,english]{babel}
-\usepackage{rotating}
-\usepackage{epstopdf}
-\usepackage{mcode} % Maltab code
-\usepackage{authblk} % Multiple authors
-\usepackage[section]{placeins}
-
-% DTU frieze
-\usepackage{eso-pic}
-\newcommand{\frieze}{%
-    \AddToShipoutPicture*{
-        \put(0,0){
-            \parbox[b][\paperheight]{\paperwidth}{%
-                \includegraphics[trim=130mm 0 0 0,width=0.9\textwidth]{figures/DTU-frise-SH-15}
-                \vspace*{2.5cm}
-            }
-        }
-    }
-}
-
-\newcommand{\prefrontmatter}{
-	\pagenumbering{alph} % Set prefrontmatter numbering style
-    \thispagestyle{empty} % Front page (inside cover)
-	\maketitle
-    \newpage % Back of front page
-    \thispagestyle{empty}
-	\frieze % Added watermark
-	\hspace*{-2.5cm}
-	\parbox[b][\paperheight]{\paperwidth}{%
-		{\sf Technical University of Denmark}\\
-		{\sf DTU Space}\\
-		{\sf National Space Institute}\\
-		{\sf Elektrovej, building 327-328}\\ 
-		{\sf 2800 Kongens Lyngby, Denmark}
-	    \vspace*{12cm}
-	}
-}
-
-\date{Kongens Lyngby, June 2016}
-
-\title{\huge\textbf{Spacecraft Instrumentation: \\ Europa Life Finder Mission}}
-
-\author{Jean-Paul Breuer}
-\author{Aaron Gornott}
-\author{Yannis Nissopoulos}
-\author{Fruzsina Bacsó}
-\author{Ricard Lladó Grove}
-\author{Sridhar Remma}
-\author{Gustavo Feijóo Carrillo}
-\author{Johannes Linde}
-\author{Maja Tomicic}
-\author{Agge Winther}
-\author{Paul Connetable}
-\author{Rasmus Lundby Pedersen}
-\author{Bhaaeddin Alhomsi}
-\author{Ifikratis Kamenidis}
-\author{Paschalis Dalampiras}
-\author{Mark David Wigh}
-\author{Lukas Christensen}
-\author{Kristian Sloth Lauszus}
-
-\affil{National Space Institute, Technical University of Denmark}
-\renewcommand\Affilfont{\itshape\small}
-\setcounter{Maxaffil}{0}
-=======
 \input{preamble}
->>>>>>> c10e41b29c964f608610478e3a11e65f7f5bcf04
 
 \begin{document}
 
@@ -103,7 +18,7 @@
 \include{ProblemFormulation}
 
 \include{Theory}
-	\input{Lander/AaronDescentTheory}
+\input{Lander/AaronDescentTheory}
 
 \include{Strawman}
 
