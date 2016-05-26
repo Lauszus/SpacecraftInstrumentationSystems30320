@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 \documentclass[12pt,twoside,openright,a4paper,final]{book}
 
 \usepackage{subfig}
@@ -18,17 +17,27 @@
 \newif\iflatexml\latexmlfalse
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman,english]{babel}
-\usepackage{rotating}
-\usepackage{epstopdf}
 \usepackage{mcode} % Maltab code
 \usepackage{authblk} % Multiple authors
 \usepackage[section]{placeins}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % \HRule for special horizontal line
+
+% Use this command to add chapter authors
+\makeatletter
+\newcommand{\chapterauthor}[1]{%
+	{\parindent0pt\vspace*{-10pt}%
+  	\linespread{1.1}\small\scshape#1%
+  	\par\nobreak\vspace*{10pt}}
+  	\@afterheading%
+}
+\makeatother
 
 % DTU frieze
 \usepackage{eso-pic}
 \newcommand{\frieze}{%
     \AddToShipoutPicture*{
-        \put(0,0){
+        \put(-5,-30){
             \parbox[b][\paperheight]{\paperwidth}{%
                 \includegraphics[trim=130mm 0 0 0,width=0.9\textwidth]{figures/DTU-frise-SH-15}
                 \vspace*{2.5cm}
@@ -37,10 +46,36 @@
     }
 }
 
+\newcommand{\logoElektro}{%
+    \AddToShipoutPicture*{
+        \put(20,-50){
+            \parbox[b][\paperheight]{\paperwidth}{%
+                \includegraphics[width=0.6\textwidth]{figures/tex_dtu_space_a_uk}
+                \vspace*{2.5cm}
+            }
+        }
+    }
+}
+
+\makeatletter
 \newcommand{\prefrontmatter}{
-	\pagenumbering{alph} % Set prefrontmatter numbering style
-    \thispagestyle{empty} % Front page (inside cover)
-	\maketitle
+	\pagestyle{empty}
+	\begin{center}
+	\vspace*{1cm}
+	\large\textsc{Technical University of Denmark}
+	\HRule \\[1cm]
+	\@title\\[0.7cm]
+	\HRule \\%[1cm]
+	\begin{center}
+       	\includegraphics[width=0.2\textwidth]{figures/tex_dtu_logo}
+	\end{center}
+%	\vspace{0.7cm}	
+	\normalsize \@author
+	\vfill
+	{\normalfont \large \@date}
+	\end{center}
+	\frieze
+	\logoElektro
     \newpage % Back of front page
     \thispagestyle{empty}
 	\frieze % Added watermark
@@ -51,13 +86,14 @@
 		{\sf National Space Institute}\\
 		{\sf Elektrovej, building 327-328}\\ 
 		{\sf 2800 Kongens Lyngby, Denmark}
-	    \vspace*{12cm}
+	    \vspace*{10cm}
 	}
 }
+\makeatother
 
 \date{Kongens Lyngby, June 2016}
 
-\title{\huge\textbf{Spacecraft Instrumentation: \\ Europa Life Finder Mission}}
+\title{\huge{Spacecraft Instrumentation Systems \\ Europa Life Finder Mission}}
 
 \author{Jean-Paul Breuer}
 \author{Aaron Gornott}
@@ -76,60 +112,10 @@
 \author{Paschalis Dalampiras}
 \author{Mark David Wigh}
 \author{Lukas Christensen}
+\author{Morten Lykke Hilligsøe}
+\author{Søren Jeppesen}
 \author{Kristian Sloth Lauszus}
 
 \affil{National Space Institute, Technical University of Denmark}
 \renewcommand\Affilfont{\itshape\small}
 \setcounter{Maxaffil}{0}
-=======
-\input{preamble}
->>>>>>> c10e41b29c964f608610478e3a11e65f7f5bcf04
-
-\begin{document}
-
-\prefrontmatter
-
-\frontmatter
-
-\include{Abstract}
-
-\pdfbookmark{\contentsname}{toc}
-\tableofcontents
-
-\mainmatter
-
-\include{Introduction}
-
-\include{ProblemFormulation}
-
-\include{Theory}
-	\input{Lander/AaronDescentTheory}
-
-\include{Strawman}
-
-\include{Orbiter}
-
-\include{CommunicationSystems}
-
-\include{Lander}
-\include{melting}
-
-\include{Penetrator}
-
-\include{InstrumentSuite}
-
-\include{Analysis}
-
-\include{Conclusion}
-
-\include{FutureWork}
-
-\backmatter
-\bibliographystyle{plain}
-\bibliography{bibliography/biblio}
-\addcontentsline{toc}{chapter}{Bibliography} % Add bibliography to toc (and bookmarks)
-
-\appendix
-\include{AppendixA}
-
-\end{document}
