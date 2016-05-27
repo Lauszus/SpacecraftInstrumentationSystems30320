@@ -1,57 +1,182 @@
 \subsection{Ice temperature profile}
 \chapterauthor{Kristian Sloth Lauszus and Lukas Christensen}
 
-* Indirect: salinity, melting speed
-* Drill sample
-* Passive screw in the tip
-	* Thermal isolated
-* Measure heat conductivity of the water
-	* Can be used to estimate the salinity of the water
-		* Melting speed
+%* Indirect: salinity, melting speed
+%* Drill sample
+%* Passive screw in the tip
+%	* Thermal isolated
+%* Measure heat conductivity of the water
+%	* Can be used to estimate the salinity of the water
+%		* Melting speed
+%
+%* "back of the envelope" calculations
 
-* "back of the envelope" calculations
-
+In order to estimate the descent time it is important to know the ice temperature profile i.e. the temperature change as a function of the depth. The thermal conductivity of polycrystalline ice can be calculated according to the following equation\cite[(2.3)]{article:thermalConductivity}:
+\begin{equation}
+	k(T) = \frac{a_1}{T} + a_0
+\end{equation}
+Where the constants $a_1$ and $a_0$ are given by:
+\begin{align}
+	a_1 &= \unitfrac[4.88 \e7]{ergs}{cm \, s} \\ \nonumber
+		&= \unitfrac[488]{W}{m} \\
+	a_0 &= \unitfrac[4.68 \e4]{ergs}{cm \, K \, s} \\ \nonumber
+		&= \unitfrac[0.468]{W}{m \, K}
+\end{align}
+The boundary conditions for the temperature is simply given by 273.15 K at the transition between the water and ice and 100 K at the surface of the moon\cite{article:thermalConductivity}. Thus the temperature difference can be calculated:
+\begin{align}
+	& T_m = \unit[273.15]{K} \\
+	& T_s = \unit[100]{K} \\
+	& T_\Delta = T_m - T_s = \unit[173.15]{K}
+\end{align}
+Figure \ref{fig:T_vs_k} shows two plots of the thermal conductivity as a function of the temperature. Figure \ref{fig:T_vs_k_full} shows the thermal conductivity from 0 K to 273.15 K, figure \ref{fig:T_vs_k_zoom} on the other hand shows only shows the thermal conductivity in the range of the boundary conditions.
 \begin{figure}[htb]
 	\centering
-	\subfloat[TODO: Caption]{
-		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_k.png}
+	\subfloat[From 0 K to 273.15 K]{
+		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_k}
+		\label{fig:T_vs_k_full}
 	}
-	\subfloat[TODO: Caption]{
-		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_k_zoom.png}
+	\subfloat[From $T_s$ to $T_m$]{
+		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_k_zoom}
+		\label{fig:T_vs_k_zoom}
 	}
-	\caption{TODO: Caption}
+	\caption{Thermal conductivity as a function of the temperature}
 	\label{fig:T_vs_k}
 \end{figure}
+The conductive heat transfer can be calculated fairly easily using Fourier's Law\cite{website:conductiveHeatTransfer}:
+\begin{align}
+	q(d) &= \frac{k(T) A T_\Delta}{d}
+\end{align}
+The area $A$ is the area of the penetrator facing the ice and by assuming a cylinder with a radius of 10 cm the area is given by:
+\begin{align}
+	A &= \pi \, 0.1^2 \approx \unit[0.03]{m^2}
+\end{align}
+Figure \ref{fig:T_vs_q} shows a plot of the conductive heat transfer as a function of the temperature.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_q}
+	\caption{Conductive heat transfer as a function of the temperature}
+	\label{fig:T_vs_q}
+\end{figure}
+Notice how both the conductive heat transfer $q$ and the thermal conductivity $k$ is approximately constant doing the interval, thus they can both be approximated by the average over the interval, thus the further calculations can be simplified by simply taking the mean value in the interval:
+\begin{align}
+	\bar{k} &= \unitfrac[3.80]{W}{m \, K} \\
+	\bar{q} &= \unit[0.0099]{W}
+\end{align}
+Now the temperature as a function of the depth $d$ can be calculated assuming that the heat transfer is constant throughout the ice:
+\begin{align}\label{eq:T_d}
+	T(d) &= T_s + d \frac{\bar{q}}{\bar{k} A} = 100 K + \unitfrac[0.087 d]{K}{m}
+\end{align}
+Figure \ref{fig:d_vs_T} shows a plot of the temperature as a function of the depth into the ice. The thickness of the ice $d$ is assumed to be 2 km.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=.48\textwidth]{figures/temperature/d_vs_T}
+	\caption{Temperature as a function of the depth}
+	\label{fig:d_vs_T}
+\end{figure}
+\\
+Figure \ref{fig:T_vs_rho} shows the density of ice as a function of the temperature using the values found in Table \ref{tab:ice_density}. This is be approximated by a linear second order function:
+\begin{equation}\label{eq:rho_approx}
+	\rho(T) = 931.21 - 0.68 \e{-3} T - 0.19 \e{-3} T^2
+\end{equation}
+Figure \ref{fig:T_vs_rho_approx} shows a plot of the approximated density of ice as a function of the temperature.
+
+\begin{wraptable}{r}{3cm}
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		T (K) & $\rho$ ($\unitfrac{kg}{m^3}$) \\ \hline
+		273.15 & 916.2 \\ \hline
+		268.15 & 917.5 \\ \hline
+		263.15 & 918.9 \\ \hline
+		258.15 & 919.4 \\ \hline
+		253.15 & 919.4 \\ \hline
+		248.15 & 919.6 \\ \hline
+		243.15 & 920.0 \\ \hline
+		238.15 & 920.4 \\ \hline
+		233.15 & 920.8 \\ \hline
+		223.15 & 921.6 \\ \hline
+		213.15 & 922.4 \\ \hline
+		203.15 & 923.3 \\ \hline
+		193.15 & 924.1 \\ \hline
+		183.15 & 924.9 \\ \hline
+		173.15 & 925.7 \\ \hline
+	\end{tabular}
+	\caption{Density of ice for different temperatures\cite{website:iceDensity}}
+	\label{tab:ice_density}
+\end{wraptable}
 
 \begin{figure}[htb]
 	\centering
-	\subfloat[TODO: Caption]{
-		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_q.png}
+	\subfloat[Density from Table \ref{tab:ice_density}]{
+		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_rho}
+		\label{fig:T_vs_rho}
 	}
-	\subfloat[TODO: Caption]{
-		\includegraphics[width=.48\textwidth]{figures/temperature/d_vs_T.png}
+	\subfloat[Approximated ice density using \eqref{eq:rho_approx}]{
+		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_rho_approx}
+		\label{fig:T_vs_rho_approx}
 	}
-	\caption{TODO: Caption}
-	\label{fig:T_vs_q_d_vs_T}
+	\caption{Density of ice as a function of the temperature}
 \end{figure}
-
+Now the density as a function of the distance can be calculated by inserting \eqref{eq:T_d} into \eqref{eq:rho_approx}:
+\begin{equation}\label{eq:rho_approx_d}
+	\rho(d) = 929.29 - 0.33 \e{-2} d - 0.14 \e{-5} d^2
+\end{equation}
+The amount the temperature needs to be raised as a function of the distance is given by:
+\begin{equation}\label{eq:T_diff}
+	T_\Delta(d) = T_m - T(d) = 173.15 K - \unitfrac[0.087 d]{K}{m}
+\end{equation}
+A plot of \eqref{eq:rho_approx_d} and \eqref{eq:T_diff} can be seen in Figure \ref{fig:d_vs_rho} and Figure \ref{fig:d_vs_T_delta} respectively.
 \begin{figure}[htb]
 	\centering
-	\subfloat[TODO: Caption]{
-		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_rho.png}
+	\captionsetup[subfigure]{width=0.45\textwidth}
+	\subfloat[Ice density as a function of the depth using \eqref{eq:rho_approx_d}]{
+		\includegraphics[width=.48\textwidth]{figures/temperature/d_vs_rho}
+		\label{fig:d_vs_rho}
 	}
-	\subfloat[TODO: Caption]{
-		\includegraphics[width=.48\textwidth]{figures/temperature/d_vs_rho.png}
+	\subfloat[Temperature difference as a function of the depth]{
+		\includegraphics[width=.48\textwidth]{figures/temperature/d_vs_T_delta}
+		\label{fig:d_vs_T_delta}
 	}
-	\caption{TODO: Caption}
-	\label{fig:T_vs_rho_d_vs_rho}
+	\caption{}
 \end{figure}
+
+The heat capacity of ice is given by\cite{website:iceHeatCapacity}:
+\begin{equation}
+	C_{ice} := \unitfrac[1960]{J}{K \, kg}
+\end{equation}
+
+\begin{equation}
+	E_0 = C_{ice} \, \int_0^{2\e{3}} \! \rho(d) T(d) \, \mathrm{d}d \, A = 9.43 \e{9}
+\end{equation}
+
+The total mass of the ice can is given by:
+\begin{equation}
+	m_{total} = \int_0^{2\e{3}} \! \rho(d) \, \mathrm{d}d \, A = \unit[55449]{kg}
+\end{equation}
+
+Latent heat of melting of ice is given by\cite{website:waterLatentHeat}:
+\begin{equation}
+	L_m = \unitfrac[333.55 \e{3}]{J}{kg}
+\end{equation}
+
+The energy required for the phase change can now be calculated:
+\begin{equation}
+	E_{phase} = L_m m_{total} = 1.85 \e{10}
+\end{equation}
+
+The total amount of energy is then given by:
+\begin{equation}
+	E_{total} = 2.80 \e{10}
+\end{equation}
+
+\newpage
+Assumptions: constant thermal conductivity, conductive heat transfer, isotropic and homogeneous material. Thus a more detailed analysis is needed. This will be discussed more in detail in chapter \ref{sec:temp_simulation}. Phase change at -40 C is not taken into account. Heat capacity is constant.
 
 \subsubsection{Pressure Profile}
 
 * What is the outside pressure?
 
-\subsubsection{Simulation Results}
+\subsubsection{Simulation Results}\label{sec:temp_simulation}
 
 \subsubsection{Simulation Validation}
 
@@ -59,7 +184,7 @@
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=\textwidth]{figures/temperature/temperature_simulation.png}
+	\includegraphics[width=\textwidth]{figures/temperature/temperature_simulation}
 	\caption{TODO: Caption}
 	\label{fig:temperature_simulation}
 \end{figure}
@@ -77,10 +202,10 @@
 \begin{figure}[htb]
 	\centering
 	\subfloat[TODO: Caption]{
-		\includegraphics[width=.48\textwidth]{figures/convection/3d_model.png}
+		\includegraphics[width=.48\textwidth]{figures/convection/3d_model}
 	}\\
 	\subfloat[TODO: Caption]{
-		\includegraphics[width=.48\textwidth]{figures/convection/3d_model_inside.png}
+		\includegraphics[width=.48\textwidth]{figures/convection/3d_model_inside}
 	}
 	\caption{TODO: Caption}
 	\label{fig:3d_model}
@@ -88,7 +213,7 @@
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=.5\textwidth]{figures/convection/water_transportation.png}
+	\includegraphics[width=.5\textwidth]{figures/convection/water_transportation}
 	\caption{TODO: Caption}
 	\label{fig:water_transportation}
 \end{figure}
@@ -102,7 +227,7 @@
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=\textwidth]{figures/convection/simplified_3d_model.png}
+	\includegraphics[width=\textwidth]{figures/convection/simplified_3d_model}
 	\caption{TODO: Caption}
 	\label{fig:simplified_3d_model}
 \end{figure}
@@ -110,10 +235,10 @@
 \begin{figure}[htb]
 	\centering
 	\subfloat[TODO: Caption]{
-		\includegraphics[width=.48\textwidth]{figures/convection/cfd_temperature.png}
+		\includegraphics[width=.48\textwidth]{figures/convection/cfd_temperature}
 	}
 	\subfloat[TODO: Caption]{
-		\includegraphics[width=.48\textwidth]{figures/convection/cfd_velocity.png}
+		\includegraphics[width=.48\textwidth]{figures/convection/cfd_velocity}
 	}
 	\caption{TODO: Caption}
 	\label{fig:cfd}
