@@ -25,7 +25,13 @@
  
 \pagestyle{fancy}
 \fancyhf{}
-\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\; \MakeUppercase{#1}}{}}
+\renewcommand{\chaptermark}[1]{\markboth{
+	\ifnum0\thechapter<1
+		\MakeUppercase{#1}
+	\else
+		\thechapter.\; \MakeUppercase{#1}
+	\fi
+}{}}
 \fancyhead[LE,RO]{\thepage}
 \fancyhead[RE]{\slshape \leftmark}
 \fancyhead[LO]{\slshape \rightmark}
