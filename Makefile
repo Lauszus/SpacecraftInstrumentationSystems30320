@@ -1,11 +1,11 @@
-RM = /bin/rm
+RM ?= $(shell dirname `which rm`)
+PREFIX ?= $(shell dirname `which pdflatex`)
 
-PREFIX ?= /usr/bin/
-LATEX = $(PREFIX)pdflatex -interaction=nonstopmode -halt-on-error -file-line-error
-BIBTEX = $(PREFIX)bibtex
-DETEX = $(PREFIX)detex
+LATEX = $(PREFIX)/pdflatex -interaction=nonstopmode -halt-on-error -file-line-error
+BIBTEX = $(PREFIX)/bibtex
+DETEX = $(PREFIX)/detex
 
-LINT = $(PREFIX)chktex
+LINT = $(PREFIX)/chktex
 LINT_OPTIONS = -q
 
 .SUFFIXES: .tex .dvi .eps .ps .pdf
