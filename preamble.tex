@@ -1,5 +1,6 @@
-\documentclass[10pt,twoside,openright,a4paper,final]{book}
+\documentclass[11pt,twoside,openright,a4paper,final]{book}
 
+\usepackage[margin=1in]{geometry}
 \usepackage{subfig}
 \usepackage{graphicx}
 \usepackage[space]{grffile}
@@ -22,7 +23,7 @@
 \usepackage[section]{placeins}
 \usepackage{units}
 \usepackage{fancyhdr}
- 
+
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\chaptermark}[1]{\markboth{
@@ -86,9 +87,10 @@
 	\begin{center}
        	\includegraphics[width=0.2\textwidth]{figures/tex_dtu_logo}
 	\end{center}
-%	\vspace{0.7cm}	
+%	\vspace{0.7cm}
 	\normalsize \@author
-	\vfill
+%	\vfill
+	\vspace{1.5cm}\\
 	{\normalfont \large \@date}
 	\end{center}
 	\frieze
@@ -96,12 +98,12 @@
     \newpage % Back of front page
     \thispagestyle{empty}
 	\frieze % Added watermark
-	\hspace*{-2.5cm}
+	\hspace*{-1cm}
 	\parbox[b][\paperheight]{\paperwidth}{%
 		{\sf Technical University of Denmark}\\
 		{\sf DTU Space}\\
 		{\sf National Space Institute}\\
-		{\sf Elektrovej, building 327-328}\\ 
+		{\sf Elektrovej, building 327-328}\\
 		{\sf 2800 Kongens Lyngby, Denmark}
 	    \vspace*{10cm}
 	}
