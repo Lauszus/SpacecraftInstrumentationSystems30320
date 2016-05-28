@@ -21,6 +21,14 @@
 \usepackage{authblk} % Multiple authors
 \usepackage[section]{placeins}
 \usepackage{units}
+\usepackage{fancyhdr}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\; \MakeUppercase{#1}}{}}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\slshape \leftmark}
+\fancyhead[LO]{\slshape \rightmark}
 
 \providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
 
