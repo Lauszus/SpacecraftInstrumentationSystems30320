@@ -11,7 +11,7 @@
 %
 %* "back of the envelope" calculations
 
-In order to estimate the descent time it is important to know the ice temperature profile i.e. the temperature change as a function of the depth. The thermal conductivity of polycrystalline ice can be calculated according to the following equation\cite[(2.3)]{article:thermalConductivity}:
+In order to estimate the descent time it is important to know the ice temperature profile i.e. the temperature change as a function of the depth and the energy required in order to melt the column of ice. The thermal conductivity of polycrystalline ice can be calculated according to the following equation\cite[(2.3)]{article:thermalConductivity}:
 \begin{equation}
 	k(T) = \frac{a_1}{T} + a_0
 \end{equation}
@@ -44,29 +44,29 @@ Figure \ref{fig:T_vs_k} shows two plots of the thermal conductivity as a functio
 \end{figure}
 The conductive heat transfer can be calculated fairly easily using Fourier's Law\cite{website:conductiveHeatTransfer}:
 \begin{align}
-	q(d) &= \frac{k(T) A T_\Delta}{d}
+	q(T) &= \frac{k(T) A T_\Delta}{d}
 \end{align}
 The area $A$ is the area of the penetrator facing the ice and by assuming a cylinder with a radius of 10 cm the area is given by:
 \begin{align}
 	A &= \pi \, 0.1^2 \approx \unit[0.03]{m^2}
 \end{align}
-Figure \ref{fig:T_vs_q} shows a plot of the conductive heat transfer as a function of the temperature.
+Figure \ref{fig:T_vs_q} shows a plot of the conductive heat transfer as a function of the temperature. The thickness of the ice $d$ is assumed to be 3 km according to chapter \ref{sec:structural_profile}.
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_q}
 	\caption{Conductive heat transfer as a function of the temperature}
 	\label{fig:T_vs_q}
 \end{figure}
-Notice how both the conductive heat transfer $q$ and the thermal conductivity $k$ is approximately constant doing the interval, thus they can both be approximated by the average over the interval, thus the further calculations can be simplified by simply taking the mean value in the interval:
+Notice how both the conductive heat transfer $q$ and the thermal conductivity $k$ are approximately constant doing the interval $T_s$ to $T_m$, thus they can both be approximated by the average over the interval:
 \begin{align}
 	\bar{k} &= \unitfrac[3.80]{W}{m \, K} \\
-	\bar{q} &= \unit[0.0099]{W}
+	\bar{q} &= \unit[0.0066]{W}
 \end{align}
-Now the temperature as a function of the depth $d$ can be calculated assuming that the heat transfer is constant throughout the ice:
+Now the temperature as a function of the depth $d$ can be calculated assuming that the heat transfer and thermal conductivity are constant throughout the ice:
 \begin{align}\label{eq:T_d}
-	T(d) &= T_s + d \frac{\bar{q}}{\bar{k} A} = 100 K + \unitfrac[0.087 d]{K}{m}
+	T(d) &= T_s + d \frac{\bar{q}}{\bar{k} A} = 100 K + \unitfrac[0.058 d]{K}{m}
 \end{align}
-Figure \ref{fig:d_vs_T} shows a plot of the temperature as a function of the depth into the ice. The thickness of the ice $d$ is assumed to be 2 km.
+Figure \ref{fig:d_vs_T} shows a plot of the temperature as a function of the depth into the ice.
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=.48\textwidth]{figures/temperature/d_vs_T}
@@ -80,7 +80,40 @@ Figure \ref{fig:T_vs_rho} shows the density of ice as a function of the temperat
 \end{equation}
 Figure \ref{fig:T_vs_rho_approx} shows a plot of the approximated density of ice as a function of the temperature.
 
-\begin{wraptable}{r}{3cm}
+\begin{figure}[htb]
+	\centering
+	\subfloat[Density of ice according to Table \ref{tab:ice_density}]{
+		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_rho}
+		\label{fig:T_vs_rho}
+	}
+	\subfloat[Approximated ice density using \eqref{eq:rho_approx}]{
+		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_rho_approx}
+		\label{fig:T_vs_rho_approx}
+	}
+	\caption{Density of ice as a function of the temperature}
+\end{figure}
+
+\noindent
+Now the density as a function of the distance can be calculated by inserting \eqref{eq:T_d} into \eqref{eq:rho_approx}:
+\begin{equation}\label{eq:rho_approx_d}
+	\rho(d) = 929.29 - 0.22 \e{-2} d - 6.19 \e{-7} d^2
+\end{equation}
+%A plot of \eqref{eq:rho_approx_d} and \eqref{eq:T_diff} can be seen in Figure \ref{fig:d_vs_rho} and Figure \ref{fig:d_vs_T_delta} respectively.
+%\begin{figure}[htb]
+%	\centering
+%	\captionsetup[subfigure]{width=0.45\textwidth}
+%	\subfloat[Ice density as a function of the depth using \eqref{eq:rho_approx_d}]{
+%		\includegraphics[width=.48\textwidth]{figures/temperature/d_vs_rho}
+%		\label{fig:d_vs_rho}
+%	}
+%	\subfloat[Temperature difference as a function of the depth]{
+%		\includegraphics[width=.48\textwidth]{figures/temperature/d_vs_T_delta}
+%		\label{fig:d_vs_T_delta}
+%	}
+%	\caption{}
+%\end{figure}
+
+\begin{wraptable}{R}{0pt}
 	\centering
 	\begin{tabular}{|c|c|}
 		\hline
@@ -104,73 +137,95 @@ Figure \ref{fig:T_vs_rho_approx} shows a plot of the approximated density of ice
 	\caption{Density of ice for different temperatures\cite{website:iceDensity}}
 	\label{tab:ice_density}
 \end{wraptable}
-
-\begin{figure}[htb]
-	\centering
-	\subfloat[Density from Table \ref{tab:ice_density}]{
-		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_rho}
-		\label{fig:T_vs_rho}
-	}
-	\subfloat[Approximated ice density using \eqref{eq:rho_approx}]{
-		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_rho_approx}
-		\label{fig:T_vs_rho_approx}
-	}
-	\caption{Density of ice as a function of the temperature}
-\end{figure}
-Now the density as a function of the distance can be calculated by inserting \eqref{eq:T_d} into \eqref{eq:rho_approx}:
-\begin{equation}\label{eq:rho_approx_d}
-	\rho(d) = 929.29 - 0.33 \e{-2} d - 0.14 \e{-5} d^2
+\noindent
+Figure \ref{fig:T_vs_Cice} shows the specific heat capacity of ice plotted using the data found in Table \ref{tab:ice_heat_capacity}. Again this is approximated using a linear second order function:
+\begin{equation}\label{eq:Cice_approx}
+	C_{ice}(T) = -372.95 + 12.34 T - 0.013 T^2
 \end{equation}
+The specific heat capacity of ice as a function of the distance can be calculated by inserting \eqref{eq:T_d} into \eqref{eq:Cice_approx}:
+\begin{equation}\label{eq:Cice_approx_d}
+	C_{ice}(d) = 734.76 + 0.57 d - 0.42 \e{-4} d^2
+\end{equation}
+A plot of the approximated specific heat capacity can be seen in Figure \ref{fig:T_vs_Cice_approx}.
+
+\begin{wraptable}{R}{0pt}
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		T (K) & $C_{ice}$ ($\unitfrac{J}{K \, kg}$) \\ \hline
+		273.15 & 2050 \\ \hline
+		268.15 & 2027 \\ \hline
+		263.15 & 2000 \\ \hline
+		258.15 & 1972 \\ \hline
+		253.15 & 1943 \\ \hline
+		248.15 & 1913 \\ \hline
+		243.15 & 1882 \\ \hline
+		238.15 & 1851 \\ \hline
+		233.15 & 1818 \\ \hline
+		223.15 & 1751 \\ \hline
+		213.15 & 1681 \\ \hline
+		203.15 & 1609 \\ \hline
+		193.15 & 1536 \\ \hline
+		183.15 & 1463 \\ \hline
+		173.15 & 1389 \\ \hline
+	\end{tabular}
+	\caption{Specific heat capacity of ice for different temperatures\cite{website:iceDensity}}
+	\label{tab:ice_heat_capacity}
+\end{wraptable}
+
+\begin{figure}[!b]
+	\centering
+	\subfloat[Specific heat capacity of ice according to Table \ref{tab:ice_heat_capacity}]{
+		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_Cice}
+		\label{fig:T_vs_Cice}
+	}
+	\subfloat[Approximated specific heat capacity of ice using \eqref{eq:Cice_approx}]{
+		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_Cice_approx}
+		\label{fig:T_vs_Cice_approx}
+	}
+	\caption{Specific heat capacity of ice as a function of the temperature}
+\end{figure}
+
+%\begin{figure}[htb]
+%	\centering
+%	\includegraphics[width=.48\textwidth]{figures/temperature/d_vs_C_ice}
+%	\caption{Specific heat capacity of the depth}
+%	\label{fig:d_vs_C_ice}
+%\end{figure}
+
+\noindent
 The amount the temperature needs to be raised as a function of the distance is given by:
 \begin{equation}\label{eq:T_diff}
-	T_\Delta(d) = T_m - T(d) = 173.15 K - \unitfrac[0.087 d]{K}{m}
+	T_\Delta(d) = T_m - T(d) = 173.15 K - \unitfrac[0.058 d]{K}{m}
 \end{equation}
-A plot of \eqref{eq:rho_approx_d} and \eqref{eq:T_diff} can be seen in Figure \ref{fig:d_vs_rho} and Figure \ref{fig:d_vs_T_delta} respectively.
-\begin{figure}[htb]
-	\centering
-	\captionsetup[subfigure]{width=0.45\textwidth}
-	\subfloat[Ice density as a function of the depth using \eqref{eq:rho_approx_d}]{
-		\includegraphics[width=.48\textwidth]{figures/temperature/d_vs_rho}
-		\label{fig:d_vs_rho}
-	}
-	\subfloat[Temperature difference as a function of the depth]{
-		\includegraphics[width=.48\textwidth]{figures/temperature/d_vs_T_delta}
-		\label{fig:d_vs_T_delta}
-	}
-	\caption{}
-\end{figure}
-
-The heat capacity of ice is given by\cite{website:iceHeatCapacity}:
-\begin{equation}
-	C_{ice} := \unitfrac[1960]{J}{K \, kg}
+The energy required to heat up the 3 km cylinder of ice to 0 \textdegree C can now be calculated:
+\begin{align}
+	E_0 &= A \, \int_0^{3\e{3}} \! C_{ice}(d) \, \rho(d) \, T_\Delta(d) \ \mathrm{d}d \\ \nonumber
+	    &= \unit[8.93 \e{9}]{J}
+\end{align}
+The total mass of a 3 km cylinder of ice with an area of $A$ is given by:
+\begin{equation}\label{eq:ice_total_mass}
+	m_{total} = A \, \int_0^{3\e{3}} \! \rho(d) \ \mathrm{d}d = \unit[83174]{kg}
 \end{equation}
-
-\begin{equation}
-	E_0 = C_{ice} \, \int_0^{2\e{3}} \! \rho(d) T(d) \, \mathrm{d}d \, A = 9.43 \e{9}
-\end{equation}
-
-The total mass of the ice can is given by:
-\begin{equation}
-	m_{total} = \int_0^{2\e{3}} \! \rho(d) \, \mathrm{d}d \, A = \unit[55449]{kg}
-\end{equation}
-
 Latent heat of melting of ice is given by\cite{website:waterLatentHeat}:
 \begin{equation}
 	L_m = \unitfrac[333.55 \e{3}]{J}{kg}
 \end{equation}
-
 The energy required for the phase change can now be calculated:
 \begin{equation}
-	E_{phase} = L_m m_{total} = 1.85 \e{10}
+	E_{phase} = L_m m_{total} = \unit[2.77 \e{10}]{J}
 \end{equation}
-
 The total amount of energy is then given by:
-\begin{equation}
-	E_{total} = 2.80 \e{10}
+\begin{equation}\label{eq:E_total}
+	E_{total} = E_0 + E_{phase} = \unit[3.67 \e{10}]{J}
 \end{equation}
+It is noticeable that the energy required for the phase change takes up about 75 \% of the total energy, thus the approximations regarding the thermal conductivity, conductive heat transfer, and heat capacity should not have a huge impact on the result.
 
-\newpage
-Assumptions: constant thermal conductivity, conductive heat transfer, isotropic and homogeneous material. Thus a more detailed analysis is needed. This will be discussed more in detail in chapter \ref{sec:temp_simulation}. Phase change at -40 C is not taken into account. Heat capacity is constant.
+However the model of the ice density has a impact on the energy calculations of the phase change, as seen by \eqref{eq:ice_total_mass}. Thus a better model of the ice density would be beneficial. Further studies of the ice composition will be needed in this case, as the ice is assumed to be an isotropic and homogeneous material in the previous calculations. Furthermore the temperature at which the phase change occurs depends on the pressure as well.
+% This will be discussed more in detail in chapter \ref{sec:temp_simulation}.
+% Heat capacity and density is approximated below -100 C.
+
+It is also noticeable that the energy required to melt the ice will be higher in practice than the total energy calculated in \eqref{eq:E_total}, as their will never be a 100 \% thermal energy transportation efficiency between the melting-device and the ice.
 
 \subsubsection{Pressure Profile}
 
