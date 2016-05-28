@@ -20,6 +20,14 @@
 \usepackage{mcode} % Maltab code
 \usepackage{authblk} % Multiple authors
 \usepackage[section]{placeins}
+\usepackage{fancyhdr}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\; \MakeUppercase{#1}}{}}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\slshape \leftmark}
+\fancyhead[LO]{\slshape \rightmark}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % \HRule for special horizontal line
 
