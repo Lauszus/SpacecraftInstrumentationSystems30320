@@ -43,7 +43,7 @@ clean:
 wc:
 	- @echo
 	- @echo "Current word count: "
-	- @$(DETEX) $(FILES) | wc -w
+	- @$(DETEX) $(MAIN).tex | wc -w | sed 's/^[ \t]*/    /'
 	- @echo "Current page count: "
-	- @$(DETEX) $(FILES) | tr -d ' \t\r\n' | echo "scale=3; `wc -m`/2200" | bc -l | sed 's/^/    /'
+	- @$(DETEX) $(MAIN).tex | tr -d ' \t\r\n' | echo "scale=3; `wc -m`/2200" | bc -l | sed 's/^[ \t]*/    /'
 	- @echo
