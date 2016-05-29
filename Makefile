@@ -1,7 +1,7 @@
 RM ?= $(shell dirname `which rm`)
 PREFIX ?= $(shell dirname `which pdflatex`)
 
-LATEX = $(PREFIX)/texfot $(PREFIX)/pdflatex -interaction=nonstopmode -halt-on-error -file-line-error
+LATEX = ./texfot.pl $(PREFIX)/pdflatex -interaction=nonstopmode -halt-on-error -file-line-error
 BIBTEX = $(PREFIX)/bibtex
 DETEX = $(PREFIX)/detex
 
