@@ -1,4 +1,5 @@
-\subsection{Melting ice with a rocket}
+\subsection{Melting of preliminary hole}
+\chapterauthor{Maja Tomicic}
 
 Once the EDL is successfully completed and the landing module has landed on the desired location and the surface antennas have been deployed, the next step of the mission is commenced. In order to get our instruments out of the extreme radiation environment, an extra engine is used to melt a hole in the ice immediately below the hatch on the lander. When the hole has been melted the penetrator is dropped into the hole, and thereby shielded from the radiation by the surrounding ice. 
 
@@ -32,6 +33,29 @@ Since the radiation has essentially no penetration depth in the ice, the payload
 The feasibility of melting the preliminary hole in the ice using a rocket engine depends on factors such as the sublimation energy of the ice vs. the energy content in the propellant, the coupling coefficient between the ice and the exhaust plume, and the ability to melt a slim deep hole that can fit the ice penetrating module in a vertical position. 
 
 The process can be compared to the process of oxy fuel cutting, which is used to cut thick plates of mild steel. This process is well known, and one important relationship, that is assumed to hold for ice melting as well, is the increase of the kerf with plate thickness/depth of hole. The kerf is the width of the material that is removed during cutting/melting. It is seen from table 3 in \cite{oxy_fuel}, that the kerf increases with plate thickness regardless of the width of the torch. The kerf is approximately 4\% of the plate thickness. It can very well be assumed that this ratio will be higher for ice, since the binding energy of ice is much lower than of steel. Therefore a hole of 20 cm in diameter and 2 m deep can be achieved  with a torch/jet that is substantially thinner than 20 cm. 
+
+\subsubsection{Coupling coefficient and losses}
+The heat in the rocket plume is energy stored in the temperature-dependent motion of particles. Heat is transferred to and from matter by the heat transfer processes (or kinetics) which are governed by the rates at which various physical phenomena occur, such as, for example, the collision rate of particles. 
+
+One way to evaluate the rates that will govern the heat transfer processes during the melting of the ice, is to determine the coupling coefficient between the rocket plume and the ice. A rough estimate of the coupling coefficient has been experimentally determined during the preliminary work on our project by Lukas Christensen. The experiment was performed by melting an ice cube with a butane torch lighter. The experimental setup and calculations are shown in the Appendix \ref{App:coupling}. The obtained coupling coefficient is 0.7. It should be noted that this experiment was not conducted in vacuum, and the results might be different under other conditions. \\
+
+There will also be energy losses occurring from the exhaust particles that couple with the ice. The water molecules that are separated from the ice through sublimation will carry kinetic energy. This energy can either be wasted if the molecules leave the system or exploited for melting. In the beginning of the melting process most of the sublimated molecules will travel away from the system, thus wasting their energy. As the hole gets deeper, more molecules of high kinetic energy will hit the sides of the hole, instead of traveling away from the system, thereby transferring their energy to molecules in the ice and detaching them from the ice, thus helping the process along. Thus as the hole gets deeper the energy losses will decrease. Considering this along with the coupling coefficient of 0.7 a total loss of 50$\%$ of the energy from the fuel is assumed. 
+
+
+\subsubsection{Sublimation energy}
+
+Because of the low pressure on the surface of Europa, the melted ice can not exist in its liquid phase, but will sublimate into gas phase immediately. The sublimation energy of water ice is 51059 J/mole \cite{water_prop}. One mole of water weighs 18.0155 g. The smallest amount of water that should be sublimated is a cylinder of 10 cm radius and 2 m depth. This corresponds to the volume:
+
+\begin{equation}
+\mathrm{V_{ice}}=0.1 \mathrm{m}^2 \cdot \pi \cdot 2 \mathrm{m} = 0.0628 \mathrm{m}^3
+\end{equation}
+
+The density of ice is 934 kg/m$^3$ therefore the mass of the ice cylinder is 58.7 kg. This results in $1.66\cdot 10^8$ J, needed to sublimate the cylinder shaped hole. \\
+
+To account for the coupling coefficient and other losses, we assume 50 \% loss of energy. This results in: $3.4 \cdot 10^8$ J. This is a fairly conservative estimate, as the losses experienced during the melting will decrease significantly as the hole gets deeper. 
+
+
+
 
 \subsubsection{Nozzle design}
 
@@ -82,27 +106,6 @@ Maximum thrust occurs when $p_e$=$p_a$. Nozzle exit pressure, $p_a$, can be incr
 In vacuum the thinnest theoretical jet plume and the maximum performance would be realized by an ideal nozzle with infinite exit area that would expand the combustion gases to zero pressure thereby attaining the maximum gas velocity, limited to the area below the nozzle. Therefore the best result is obtained with an engine with a large expansion ratio. This can be achieved by attaching a large nozzle to an already existing engine. Also, the kinetic energy in the jet plume should be high enough for the plume to reach the ice surface before it expands too much. 
 
 
-\subsubsection{Coupling coefficient and losses}
-The heat in the rocket plume is energy stored in the temperature-dependent motion of particles. Heat is transferred to and from matter by the heat transfer processes (or kinetics) which are governed by the rates at which various physical phenomena occur, such as, for example, the collision rate of particles. 
-
-One way to evaluate the rates that will govern the heat transfer processes during the melting of the ice, is to determine the coupling coefficient between the rocket plume and the ice. A rough estimate of the coupling coefficient has been experimentally determined during the preliminary work on our project by Lukas Christensen. The experiment was performed by melting an ice cube with a butane torch lighter. The experimental setup and calculations are shown in the Appendix \ref{App:coupling}. The obtained coupling coefficient is 0.7. It should be noted that this experiment was not conducted in vacuum, and the results might be different under other conditions. \\
-
-There will also be energy losses occurring from the exhaust particles that couple with the ice. The water molecules that are separated from the ice through sublimation will carry kinetic energy. This energy can either be wasted if the molecules leave the system or exploited for melting. In the beginning of the melting process most of the sublimated molecules will travel away from the system, thus wasting their energy. As the hole gets deeper, more molecules of high kinetic energy will hit the sides of the hole, instead of traveling away from the system, thereby transferring their energy to molecules in the ice and detaching them from the ice, thus helping the process along. Thus as the hole gets deeper the energy losses will decrease. Considering this along with the coupling coefficient of 0.7 a total loss of 50$\%$ of the energy from the fuel is assumed. 
-
-
-\subsubsection{Sublimation energy}
-
-Because of the low pressure on the surface of Europa, the melted ice can not exist in its liquid phase, but will sublimate into gas phase immediately. The sublimation energy of water ice is 51059 J/mole \cite{water_prop}. One mole of water weighs 18.0155 g. The smallest amount of water that should be sublimated is a cylinder of 10 cm radius and 2 m depth. This corresponds to the volume:
-
-\begin{equation}
-\mathrm{V_{ice}}=0.1 \mathrm{m}^2 \cdot \pi \cdot 2 \mathrm{m} = 0.0628 \mathrm{m}^3
-\end{equation}
-
-The density of ice is 934 kg/m$^3$ therefore the mass of the ice cylinder is 58.7 kg. This results in $1.66\cdot 10^8$ J, needed to sublimate the cylinder shaped hole. \\
-
-To account for the coupling coefficient and other losses, we assume 50 \% loss of energy. This results in: $3.4 \cdot 10^8$ J. This is a fairly conservative estimate, as the losses experienced during the melting will decrease significantly as the hole gets deeper. 
-
-
 
 
 \subsubsection{Energy efficiency of the rocket}
@@ -115,7 +118,7 @@ The energy efficiency of the propellant in low pressure environment depending on
 
 This result should be taken into consideration along with the the previously mentioned optimization of expansion ratio, which can be achieved with a long nozzle, when choosing or designing a suitable engine. Also the engine should be turnable in the low pressure to avoid stagnant flow and to be efficient for all depths of the hole. ECAPS has built and tested more than 60 HPGP thrusters with thrust levels ranging from 0.5 N to 220 N. The technology has been demonstrated in-space in the propulsion system for the PRISMA mission launched in 2009 \cite{Walter_2014}.
 
-\subsection{Actual process}
+\subsubsection{Actual process}
 
 
 Inside the hole, the molecules from the exhaust plume and the water molecules will exert a pressure, and therefore inside the hole there will no longer be a vacuum. The pressure will narrow the plume, and it could be expected that the hole will be slimmer with depth and become triangular in shape. Not only because the jet plume will get thinner with increasing depth and thereby pressure, but also because the jet will have melted more of the ice from higher layers during the melting process. 
@@ -129,3 +132,5 @@ It would be very interesting to experiment with the process of melting the preli
 The water vapor particles leave the hole and if possible they would deposit to the landing module making it very heavy and possibly breaking it. However, the module is heated by the RTG inside the penetrator and the water vapor molecules cannot deposit on the lander.
 
 \subsubsection{Future Work}
+
+Much further work needs to be done concerning the process of melting a hole in the ice with a rocket engine. Due to lack in both time and resources no experiments have been performed in this area, and many questions are therefore left unanswered. 

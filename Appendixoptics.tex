@@ -1,0 +1,56 @@
+\chapter{Appendix Optical camera}\label{app:majamatlab}
+
+This is the matlab code used for calculating FOV and GSD of cameras used for optical navigation. The sensor used is sthe $\mu$ASC sensor. 
+
+\begin{lstlisting}
+%% Geometric optics considerations for FOV and GSD 
+f=[0.003  0.005 0.007  0.009  0.011  0.013 0.015]; %Focal lenght
+pix=8.6*10^(-6)*752; %detector size
+
+viewangler=2*atan(pix./(2*(f)));%view angle in rad
+viewangled=viewangler*180/pi; %view angle in degrees
+
+for n=1:length(viewangler)
+dist=[10 100 1000 10000 100000 200000];
+for j=1:length(dist)
+
+FOV(n,j)=(2*dist(j)*(tan(1/2*viewangler(n))));
+end 
+end 
+
+figure
+for n=1:length(viewangler)
+
+semilogy(FOV(n,:))
+xlabel('Altitude [m]' );
+ylabel('Ground FOV [m]');
+set(gca,'XTick',[1 2 3 4 5 6] ); %This are going to be the only values affected.
+set(gca,'XTickLabel',[10^1 10^2 10^3 10^4 10^5 2*10^5] )
+h=legend('3 mm', '5 mm', '7 mm', '9 mm', '11 mm', '13 mm', '15 mm','Location','northwest');
+ %v = get(h,'title');
+ %set(v,'string','Focal Length');
+hold on
+%
+end 
+print -dbmp16m 'FOV.png'
+hold off
+%%
+%Find ground sampling distance in m/pix
+figure
+for n=1:length(viewangler)
+    GSD= FOV(n,:)/(752/2); 
+    semilogy(GSD)
+    xlabel('Altitude [m]' );
+ylabel('GSD [m/pixel]');
+set(gca,'XTick',[1 2 3 4 5 6] ); %This are going to be the only values affected.
+set(gca,'XTickLabel',[10^1 10^2 10^3 10^4 10^5 2*10^5] )
+h=legend('3 mm', '5 mm', '7 mm', '9 mm', '11 mm', '13 mm', '15 mm','Location','northwest');
+    hold on 
+    
+end
+print -dbmp16m 'GSD.png'
+
+\end{lstlisting}
+
+% One can also include a script directly like so:
+	% \lstinputlisting{path/script.m}
