@@ -1,11 +1,11 @@
-RM = /bin/rm
+RM ?= $(shell dirname `which rm`)
+PREFIX ?= $(shell dirname `which pdflatex`)
 
-PREFIX ?= /usr/bin/
-LATEX = $(PREFIX)pdflatex -interaction=nonstopmode -halt-on-error -file-line-error
-BIBTEX = $(PREFIX)bibtex
-DETEX = $(PREFIX)detex
+LATEX = $(PREFIX)/pdflatex -interaction=nonstopmode -halt-on-error -file-line-error
+BIBTEX = $(PREFIX)/bibtex
+DETEX = $(PREFIX)/detex
 
-LINT = $(PREFIX)chktex
+LINT = $(PREFIX)/chktex
 LINT_OPTIONS = -q
 
 .SUFFIXES: .tex .dvi .eps .ps .pdf
@@ -43,7 +43,7 @@ clean:
 wc:
 	- @echo
 	- @echo "Current word count: "
-	- @$(DETEX) $(FILES) | wc -w
+	- @$(DETEX) $(MAIN).tex | wc -w | sed 's/^[ \t]*/    /'
 	- @echo "Current page count: "
-	- @$(DETEX) $(FILES) | tr -d ' \t\r\n' | echo "scale=3; `wc -m`/2200" | bc -l | sed 's/^/    /'
+	- @$(DETEX) $(MAIN).tex | tr -d ' \t\r\n' | echo "scale=3; `wc -m`/2200" | bc -l | sed 's/^[ \t]*/    /'
 	- @echo
