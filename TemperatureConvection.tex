@@ -206,55 +206,75 @@ It is also noticeable that the energy required to melt the ice will be higher in
 
 \autsubsection{Water convection}{Kristian Sloth Lauszus and Lukas Christensen}
 
-* Flow from tip to tail
-* Passive water intake
-	* Guided water intake
-	* Flute shapes guides water as well
-* Simulation
-	* 3D model
-	* CFD analysis
+In this section the concept of natural convection will be presented and CFD (computational fluid dynamics) simulations will be used in order to estimate the natural convection for the penetrator.
+\\
+\\
+Natural convection is interesting as it might be a means of transporting the water from the tip to inside the penetrator passively, guiding the water to the different instruments.  This is needed, as it would be interesting to analyse the salinity and various other elements in the melted water as the penetrator descents. The passive system would eliminate the needs for a pump system, which will add to the complexity and mass of the penetrator.
 
+A sketch of the proposed water transportation system can be seen in Figure \ref{fig:water_transportation}. The intentions is to have the water flow from the intake to the end of the penetrator while running pass the different instruments placed in chambers along the exterior of the penetrator. The flute shape in the tip is intended to guide the water to the intakes in the side. This shape will also be useful in order to guide dirt, small rocks and other small items away from the front of the penetrator, which will improve the heat transfer efficiency between the tip and the ice. Furthermore the screw in the tip, as shown in Figure \ref{fig:water_transportation}, can be used for direct measurement of the temperature of the ice. However it will be important to thermally isolate this from the melter and/or compensate for its effect on the temperature measurement, so the true temperature of the ice can be obtained. Another option would be to have an active screw going into the ice a certain intervals, but the passive system is desirable due to simplicity of this design. % TODO: YouTube video
 \begin{figure}[htb]
 	\centering
-	\subfloat[TODO: Caption]{
-		\includegraphics[width=.48\textwidth]{figures/convection/3d_model}
-	}\\
-	\subfloat[TODO: Caption]{
-		\includegraphics[width=.48\textwidth]{figures/convection/3d_model_inside}
+	\captionsetup[subfigure]{width=0.25\textwidth}
+	\subfloat[Sketch of the penetrator with flute shape used for dirt removal and water redirection]{
+		\includegraphics[width=.3\textwidth]{figures/convection/penetrator_model_cropped}
+		\label{fig:penetrator_model}
 	}
-	\caption{TODO: Caption}
-	\label{fig:3d_model}
+	\subfloat[Cross-section showing the passive water transportation system]{
+		\includegraphics[width=.3\textwidth]{figures/convection/water_transportation}
+		\label{fig:water_transportation}
+	}
+	\caption{Sketch of the penetrator design}
+%	\label{fig:}
 \end{figure}
+\\
+Natural convection is caused by density gradients due to temperature differences in a fluid. In this example the water near the tip will be warmer than the water located at behind the penetrator this will cause the less dense water in the bottom to rise with a certain velocity, thus we can take advantage of this effect and redirect the water from the tip to the inside of the penetrator, as explained earlier\cite{website:naturalConvectionPdf}.
 
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=.5\textwidth]{figures/convection/water_transportation}
-	\caption{TODO: Caption}
-	\label{fig:water_transportation}
-\end{figure}
+An important number associated with natural convection is the so-called Rayleigh number $\mathbf{Ra}$, which is given by\cite{website:naturalConvectionWiki}:
+\begin{equation}
+	\mathbf{Ra} = \frac{\Delta\rho g L^3}{\alpha \mu}
+\end{equation}
+$\Delta\rho$ is the difference in density. It can be approximated using the temperature at the bottom and top of the penetrator and then inserting them into \eqref{eq:rho_approx}. $g$ is the local gravitational acceleration. In this case it is 0.134 g on Europa\cite{website:europaGravity}. $L$ is the characteristic length and can be approximated as the length of the penetrator. This is only an approximation as the water column above will also effect the convection. $\alpha$ and $\mu$ are the thermal diffusivity and dynamic viscosity of the fluid.
+
+If the Rayleigh number is larger than a certain critical value, natural convection occurs. Note that the length of the penetrator will have a huge impact on the water flow, as the the Rayleigh number is proportional to the characteristic length third, thus the natural convection can be increased a lot by increasing the length of the penetrator.
+
+% TODO:
+	% How to measure melting speed
+	% Measure heat conductivity of the water
+		% Can be used to estimate salinity - can perhaps be used to estimate the melting speed?
 
 \subsubsection{CFD analysis}
 
-* It is not enough!
-	* Low Gravity!
-	* 0.4 cm/s => 200 s/L
-	* We will have to use a pump system
-
+Figure \ref{fig:3d_model} shows a CAD model of the penetrator design. The model was simplified to have a channels having the same effect as the flute resulting in guiding the water into the intakes into the penetrator. However due to the complexity a even simpler model was made, as shows in Figure \ref{fig:simplified_3d_model}. The simplified model simply contains of a heating element in the front of a hollow cylinder surrounded by solid ice along the sides. In the back the water column is simulated infinite long. % TODO: How many watts was the RTG assumed to be?
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=\textwidth]{figures/convection/simplified_3d_model}
-	\caption{TODO: Caption}
-	\label{fig:simplified_3d_model}
+	\subfloat{
+		\includegraphics[width=.48\textwidth]{figures/convection/3d_model}
+	}\\
+	\subfloat{
+		\includegraphics[width=.48\textwidth]{figures/convection/3d_model_inside}
+	}
+	\caption{3D model of the penetrator design}
+	\label{fig:3d_model}
 \end{figure}
+\\
+By using these boundaries conditions and CFD analysis was made, as can be seen in Figure \ref{fig:cfd}. It can be seen the tip gets about 100 \textdegree C. Resulting in a natural convection through the penetrator at only 0.4 cm/s or 200 s/L, thus a pump system such as a peristaltic pump is properly needed, this will be discussed more in detail in chapter \ref{sec:water_flow}.
+
+% TODO: Comment on different assumptions
+	% I følge simuleringen så bliver den cirka 100 grader (celsius). Reelt vil det nok være mindre, fordi varmen skal fordeles rundt i hele penetratoren
+	% Cirka 10-15 grader, hvis vi følger CFD simuleringen, hvilket passer meget godt med smelte-simuleringen
 
 \begin{figure}[htb]
 	\centering
-	\subfloat[TODO: Caption]{
-		\includegraphics[width=.48\textwidth]{figures/convection/cfd_temperature}
+	\subfloat[Simplified 3D model used for CFD analysis]{
+		\includegraphics[width=.6\textwidth]{figures/convection/simplified_3d_model}
+		\label{fig:simplified_3d_model}
+	}\\
+	\subfloat[CFD temperature simulation results]{
+		\includegraphics[width=.6\textwidth]{figures/convection/cfd_temperature}
+	}\\
+	\subfloat[CFD velocity simulation results]{
+		\includegraphics[width=.6\textwidth]{figures/convection/cfd_velocity}
 	}
-	\subfloat[TODO: Caption]{
-		\includegraphics[width=.48\textwidth]{figures/convection/cfd_velocity}
-	}
-	\caption{TODO: Caption}
+	\caption{CFD simulation results}
 	\label{fig:cfd}
 \end{figure}
