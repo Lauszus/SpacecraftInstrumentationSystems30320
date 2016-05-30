@@ -1,0 +1,110 @@
+\autsection{Descent Vehicle overall Architecture}{Aaron Gornott}
+
+The overall design of the lander is influenced by the payload it carries, but a huge design driver is also the chosen descent profile. Since the descent profile itself is driven by the lander design this definition problem circles around itself. As soon as we try to define one part we have to make assumptions about the other. With this in mind the lander design is introduced first to provide a starting reference to the descent profile, but each section will include assumptions that are eventually justified by their framing counterpart.\\
+\\
+One key aspect of our design is the radiation shielding of our payload. It was decided that the penetrator will be transported vertically with the ground to orbit communication equipment atop. With this approach no mechanism is needed to move both into a fitting orientation when it gets released into a ice hole. By placing the payload in the center of the spacecraft and arranging all other lander components in a symmetric layout around it ensures that the center of mass is at the center of the spacecraft (from a top/bottom view). This provides a solid basis when we have to align the center of the spacecraft with the center of thrust. A tradeoff that follows the decision to orient our payload as a long vertical stick is that top heavy the lander is relative top heavy. The rest of our design choices have to keep this into account.\\
+\\
+The payload is surrounded by a toroidal fuel tank whose walls also acts as radiation shield. Wall thickness of the inner wall is increased to maximize the material to protection ratio (more info in the radiation section). To counteract the top heavy design fuel tank is conical shaped with a broad basis and a narrow plateau at the top that hosts the communication antenna and a star camera. 
+Three types of fuel are used for different purposes and are selected with a focus of long term space storability. Cryogenic propellant like LH + LOX (liquid hydrogen + liquid oxygen) are disqualified, despite their excellent performance, for their quick evaporation and complex temperature demands that increases the risk of tank overpressure. Solid rockets on the other hand are very safe to transport (no fuel sloshing) and provide good storability as well as reliable ignition. Due to the lack of controllability after ignition they are only suitable to address rough delta v changes. We disqualified solid rocket motors as well because they possess a poor specific impulse. The lander need to slow down at least 3.3 km/s  and with a already heavy payload to deliver the fuel is required to have a higher mass to energy density. (Our orbiter + lander total mass constraint in Jupiter orbit is 4.9 tons. Later calculations with higher ISP will show that this mass maximum is already reached and therefore main breaking engines with a ISP less than 300 seconds (solid booster performance) are not a feasible solution.) \\
+To kill the main delta v two component hypergolic propellant will be used and stored in tiers of fuel tanks on top of each other. The conservative  choice of hydrazine + dinitrogen tetroxide enables the  use of broadly available COTS (Commercial of the Shelf) propulsion components. However propulsion components involved in the final touchdown phase will operate with HPGP mono propellant (High Performance Green Propellant (e.g. LMP-103S)). With HPGP landing site contamination of toxic hydrazine is avoided. Especially the propulsive ice melting gains big benefits from this green propellant, particularly avoiding hydrazine which is extreme deadly for Earth water organisms. The RCS (Reaction control System) operates during touchdown and therefore also has to use HPGP. Luckily HPGP is compatible with most construction materials used in Hydrazine COTS components and propulsion systems. In the final phase before touchdown the bipropellant tanks are expected to be empty, to increase stability at surface contact the green propellant fuel tanks will be located at the bottom of the lander to keep a low the center of mass.\\
+Delivering propellant from the tanks to the thrusters in microgravity comes not for free and needs a technical system. Due to the complex conical and toroidal tank shape piston or inflatable bladders will not be practicable. A diaphragm is very adaptable to non trivial shapes and will push the propellant through pipe outlets and opened propellant valves. Helium containing spheres  are responsible to apply pressure on the empty site of the fuel tank diaphragm. It is necessary to regulate tank pressure with a helium valve system.\\
+The lander features three distinctive rocket motor systems with unique rolls: 1 - main breaking engine, 2 - touchdown engine, 3 - RCS.\\
+\\
+1) 
+
+
+intended thrust for the main braking is around 25 kN.  
+
+non gimbaled thrusters
+impulses by the touchdown engines
+
+
+....
+....
+
+
+probe release mechanism 
+launch vehicle orbit adapter
+
+communication with the ice penetrator!!!!
+
+
+The mass allocation for our proposed lander
+
+Payload (Surface module + ice-descent vehicle + power) 180 kg
+Navigation 30 kg
+Propulsion 200 kg
+Weight of fuel tank + shielding 100 kg
+Structure 210 kg
+Landings legs 80 kg
+
++ Margin 50kg
++ Ice melting propellant 150 kg
+
+TOTAL MASS (on the surface) 1000 kg
+
+
+
+
+
+\subsection{Landing Legs}
+Landing legs provide a stable structure for the touchdown, some also absorb the final impact with a suspension mechanism. A short look to into the history shows that a wide spectrum designs were successfully applied.\\
+ Luna 9 was the first probe that landed 1966 on another celestial body. Its minimalistic method was not having a landing structure at all. Instead the descent vehicle approached the surface for a soft touchdown but 5 m above the surface the payload got catapulted a safe distance away before the descent stage crashes or at least tips over. This method was chosen by the soviets because it simplifies the moment of surface contact, when the most precision is needed for a soft landing. There are a couple of reasons why this method will not be suitable for our straw man. Most importantly the orientation of our payload matters and randomly ejecting it away will make it hard to point the penetrator with it RTG downwards. Secondly the propulsive ice melting is logically be executed from the descent vehicle, since it already has fuel tanks to hold everything in place and propulsive components to support the needed thrusters.  Another big argument against sacrificing the descent vehicle is it provides structure that provides additional radiation shielding and serves as communication relay station between the ice penetrator and the orbiter.\\
+\\
+A similar minimalistic approach in not having classical landing legs is simply landing on the vehicles structure. Google Lunar XPRIZE team Moon Express utilizes such a landing platform that is intended to land on in tank structure with an energy absorbing material at its bottom. Not having outstretching legs safes weight and space, but increases the overall risk of tipping over unless the design is not flat and wide (This limits the possible vehicle architectures). Despite these limitation the critical argument against landing on the core structure (or even worse: airbags) is that the propulsive ice melting needs free space for the rocket exhaust and should also avoid accumulating refreezing ice on sensitive vehicle components (like the penetrator release mechanism).\\
+\\
+Outstretching landing legs allow to build taller lander architectures. Most comely are four or three legged designs. The four legged Luna 16 probe or the three legged Surveyor moon probes are a good example for this height to diameter ratio. Surveyors height was 3 m and its footpads extended out 4.3 m. More legs means more stability, therefore design with less legs need increased leg length (and strength) to compare in stability. This implies if you add additional legs you not necessarily add more weight. However longer legs are beneficial by increasing the distance to the exhaust of the propulsive melting. \\
+A three legged design is chosen as suitable lander design for our Europa lander. The three legs itself consisting out of three rods similar to the Luna 16 design. Two rods will spread toward the lower end of the lander and the third one is attached at a higher point. The legs will stretch out 1.3 meter from the spacecrafts fuel tank (2 meter diameter).  Launched under the 5 m Atlas V fairing there is no need for a fold up mechanism.\\
+ \\
+JPL proposed a six legged vehicle in its Europa Lander 2012 Report that features a very useful footpad design. They call it "skid \& tip over mitigation feet" the food is lengthened by a curved tongue that can reduce the tip over risk and adjust the vehicles orientation. We chose to adapt the curved tongue part of the feet that can slide on the ice in case of a suboptimal touchdown, but do not adapt the skid part at the bottom site. Instead of the bottom skid we have some ice spikes cause we have to prevent post landing movement under all circumstances (losing the penetrator/communication hole). Harsh breaking by spikes increases the tip over risk but the tip over mitigation tongue is a useful countermeasure.\\
+\\
+
+Analyses of Landing Profile
+
+
+By numerically analyzing different landing profiles we can compare fuel requirements and 
+
+
+
+bruning fuel
+suspension mechanism
+
+comunication to penetrator mechanism   
+
+
+
+thruster parameters position strength, angle fuel
+
+profile 4
+Staged Mass  - 60 kg
+Staging Mechanism + 10 kg
+
+profile 5
+Staged Mass  - 40 kg
+"Staging Mechanism" + 5 kg 
+"only one engine savings" - 20 kg
+
+
+
+table here!!
+
+
+
+
+860 kg (descent vehicle dry mass)
++ 2318 kg (optimal landing profile propellant)
++ 126 kg (7% propellant for RCS) ==> 2480 kg 
++ 496 kg (20% overall margin) ==>  2976 kg 
++ 150 kg (ice melting propellant)
+ => TOTAL => 3986 kg
+
+Dry mass
+
+landing profile
+overall design with weights 
+	
+	structure
+	material
+	landing legs
+thermal environment
+

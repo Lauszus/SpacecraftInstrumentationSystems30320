@@ -1,0 +1,160 @@
+\documentclass[11pt,twoside,openright,a4paper,final]{book}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+\usepackage{latexsym}
+\usepackage{textcomp}
+\usepackage{longtable}
+\usepackage{multirow,booktabs}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\hypersetup{colorlinks=false,pdfborder={0 0 0}}
+% You can conditionalize code for latexml or normal latex using this.
+\newif\iflatexml\latexmlfalse
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman,english]{babel}
+\usepackage{mcode} % Maltab code
+\usepackage{authblk} % Multiple authors
+\usepackage[section]{placeins}
+\usepackage{fancyhdr}
+\setlength{\headheight}{14pt} % Fix warning
+\usepackage{enumitem}
+
+\setlist[enumerate]{noitemsep}
+\setlist[itemize]{noitemsep}
+
+\makeatletter
+\AtBeginDocument{%
+  \expandafter\renewcommand\expandafter\subsection\expandafter{%
+    \expandafter\@fb@secFB\subsection
+  }%
+}
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{
+	\ifnum0\thechapter<1
+		\MakeUppercase{#1}
+	\else
+		\thechapter.\; \MakeUppercase{#1}
+	\fi
+}{}}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\slshape \leftmark}
+\fancyhead[LO]{\slshape \rightmark}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % \HRule for special horizontal line
+
+\makeatletter
+\newcommand{\addauthorbelowheading}[1]{%
+	{\parindent0pt\vspace*{-10pt}%
+  	\linespread{1.1}\small\scshape#1%
+  	\par\nobreak\vspace*{10pt}}%
+  	\@afterheading%
+}
+\makeatother
+
+% Use theses command to add section and subsection authors
+\newcommand\autsection[2]{%
+  \section[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
+  \addauthorbelowheading{#2}%
+}
+
+\newcommand\autsubsection[2]{%
+  \subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
+  \addauthorbelowheading{#2}%
+}
+
+% DTU frieze
+\usepackage{eso-pic}
+\newcommand{\frieze}{%
+    \AddToShipoutPicture*{
+        \put(-5,-30){
+            \parbox[b][\paperheight]{\paperwidth}{%
+                \includegraphics[trim=130mm 0 0 0,width=0.9\textwidth]{figures/DTU-frise-SH-15}
+                \vspace*{2.5cm}
+            }
+        }
+    }
+}
+
+\newcommand{\logoElektro}{%
+    \AddToShipoutPicture*{
+        \put(20,-50){
+            \parbox[b][\paperheight]{\paperwidth}{%
+                \includegraphics[width=0.6\textwidth]{figures/tex_dtu_space_a_uk}
+                \vspace*{2.5cm}
+            }
+        }
+    }
+}
+
+\makeatletter
+\newcommand{\prefrontmatter}{
+	\thispagestyle{empty}
+	\begin{center}
+	\vspace*{1cm}
+	\large\textsc{Technical University of Denmark}
+	\HRule \\[1cm]
+	\@title\\[0.7cm]
+	\HRule \\%[1cm]
+	\begin{center}
+       	\includegraphics[width=0.2\textwidth]{figures/tex_dtu_logo}
+	\end{center}
+%	\vspace{0.7cm}
+	\normalsize \@author
+%	\vfill
+	\vspace{1.5cm}\\
+	{\normalfont \large \@date}
+	\end{center}
+	\frieze
+	\logoElektro
+    \newpage % Back of front page
+    \thispagestyle{empty}
+	\frieze % Added watermark
+	\hspace*{-1cm}
+	\parbox[b][\paperheight]{\paperwidth}{%
+		{\sf Technical University of Denmark}\\
+		{\sf DTU Space}\\
+		{\sf National Space Institute}\\
+		{\sf Elektrovej, building 327-328}\\
+		{\sf 2800 Kongens Lyngby, Denmark}
+	    \vspace*{10cm}
+	}
+}
+\makeatother
+
+\date{Kongens Lyngby, June 2016}
+
+\title{\huge{Spacecraft Instrumentation Systems \\ Europa Life Finder Mission}}
+
+\author{Jean-Paul Breuer}
+\author{Aaron Gornott}
+\author{Yannis Nissopoulos}
+\author{Fruzsina Bacsó}
+\author{Ricard Lladó Grove}
+\author{Sridhar Remma}
+\author{Gustavo Feijóo Carrillo}
+\author{Johannes Linde}
+\author{Maja Tomicic}
+\author{Agge Winther}
+\author{Paul Connetable}
+\author{Rasmus Lundby Pedersen}
+\author{Bhaaeddin Alhomsi}
+\author{Ifikratis Kamenidis}
+\author{Paschalis Dalampiras}
+\author{Mark David Wigh}
+\author{Lukas Christensen}
+\author{Morten Lykke Hilligsøe}
+\author{Søren Jeppesen}
+\author{Kristian Sloth Lauszus}
+
+\affil{National Space Institute, Technical University of Denmark}
+\renewcommand\Affilfont{\itshape\small}
+\setcounter{Maxaffil}{0}
