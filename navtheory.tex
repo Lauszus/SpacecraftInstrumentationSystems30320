@@ -353,14 +353,17 @@ A radar altimeter such as the miniature radar altimeter MRA type 1, has been con
 
 
 
-\subection{Conclusion}
+\subsubsection{Conclusion}
 
 The main driving forces in the process of choosing the sensors for the GNC system have been to ensure an autonomous soft pin-point landing within a radius of 100 meters of a predetermined landing spot. The sensors should meet these requirements in a somewhat redundant manner while being both weight and power efficient. 
 
 Optical systems provide the information needed for autonomous navigation. Although having to rely on ambient light, they are intrinsically more accurate and less demanding, in terms of power and mass budgets, than the corresponding radar and laser systems. They are easier to operate and more robust because they passively acquire the signal coming from the observed surface rather than actively tracking it. For these reasons the relative navigation system and hazard avoidance system will rely on optical systems, more specifically on the $\mu$ASC system, with appropriately designed CHU's and in combination with other light weight sensors such as the MIRU and a compact laser ranger. The choice of focal lenght for the CHU will be a compromise between FOV and GSD. For high altitudes a focal length of 13 mm would yield a FOV of $\sim$50 km$^2$ and a GSD of $\sim$130 m/px, which is acceptable . For the final descent, the CHU used for hazard avoidance will have a focal length of 7 mm which yields a FOV of $\sim$ 10 m$^2$ and GSD of $\sim$ 2.5 cm at 10 m altitude. 
 
-
 Since the orientation of the spacecraft will be different during different phases of descent and landing, it may be difficult to accommodate the cameras such that they will have a clear view of the ground during the approach phase (< 100 m altitude), when it needs to perform hazard avoidance functions, as well as early descent phase (at high altitudes), when altimetry and terrain relative navigation functions need to be performed. This is the advantage of having two CHU's dedicated to terrain imaging. One with long focal length for the early descent phase and one with shorter focal length for the final phase. Because the can be placed on different position on the spacecraft.
+
+The altitude of the spacecraft can be obtained through analysis of optical images in combination with attitude measurements for the initial phases of the landing. Since very precise information is necessary for the final stage, a light weight laser altimeter will be placed on the face of the spacecraft pointing downwards during this stage. 
+
+It has to be evaluated whether an extra flight computer is necessary. The two redundant DPU's should theoretically be able to handle all the processing needs of the landing, however most conventional systems carry an extra flight computer for communication, power, altitude, fail safe conditions etc.
 
  
 \subsubsection{Final guidance and navigation control system}
@@ -375,7 +378,7 @@ relative to a hazard free landing spot using the last CHU as a surface camera, w
 
 Final instruments are 
 
--$\mu$ASC system (including four CHU's with build in IMU (MIRU) and two redundant data processing units )
+-$\mu$ASC system (including four CHU's with build in IMU (MIRU) and two redundant data processing units (total of four DPU's) )
 -two of the cameras are used as star trackers and two as surface cameras with different FOV and resolution (one for high altitudes and one for final landing)
 -One laser to be combined with one of the cameras to make a structured light hazard avoidance system
 -One laser ranger (range approx. 100 m)

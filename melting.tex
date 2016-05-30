@@ -41,6 +41,8 @@ One way to evaluate the rates that will govern the heat transfer processes durin
 
 There will also be energy losses occurring from the exhaust particles that couple with the ice. The water molecules that are separated from the ice through sublimation will carry kinetic energy. This energy can either be wasted if the molecules leave the system or exploited for melting. In the beginning of the melting process most of the sublimated molecules will travel away from the system, thus wasting their energy. As the hole gets deeper, more molecules of high kinetic energy will hit the sides of the hole, instead of traveling away from the system, thereby transferring their energy to molecules in the ice and detaching them from the ice, thus helping the process along. Thus as the hole gets deeper the energy losses will decrease. Considering this along with the coupling coefficient of 0.7 a total loss of 50$\%$ of the energy from the fuel is assumed. 
 
+Inside the hole, the molecules from the exhaust plume and the water molecules will exert a pressure, and therefore inside the hole there will no longer be a vacuum. The pressure will narrow the plume, and it could be expected that the hole will be slimmer with depth and become triangular in shape. Not only because the jet plume will get thinner with increasing depth and thereby pressure, but also because the jet will have melted more of the ice from higher layers during the melting process. 
+
 
 \subsubsection{Sublimation energy}
 
@@ -61,15 +63,15 @@ To account for the coupling coefficient and other losses, we assume 50 \% loss o
 
 Two choices of engines have been considered for this purpose. 
 
-First was to gimble the secondary (22 N) engines to make them point toward the center of the lander and use them to melt the hole. This would required the engines to have a large gimbeling and throttling range, in order to assure that the lander does not tilt over during the melting and to avoid stagnant flow. This option would decrease complexity and weight because of the use of already existing rockets. However the degree of gimbling and throttling that is needed might not be possible. Because we are in a near vacuum environment we should not expect to be able to throttle down to lower than 60\% of the maximum thrust without risking chugging or combustion instabilities due to the low ambient pressure.
+First was to gimble the secondary (200 N) engines to make them point toward the center of the lander and use them to melt the hole. This would required the engines to have a large gimbeling and throttling range, in order to assure that the lander does not tilt over or lift of the surface during the melting and to avoid stagnant flow. This option would decrease complexity and weight because of the use of already existing rockets. However the degree of gimbling and throttling that is needed might not be possible. Because we are in a near vacuum environment we should not expect to be able to throttle down to lower than 60\% of the maximum thrust without risking chugging or combustion instabilities due to the low ambient pressure.
 
 Another option is to carry an extra engine just for this purpose. The engine could be placed as close as possible to the center of the lander, right next to the hatch that will drop the descent vehicle. This engine should have a very thin jet and be turnable to avoid stagnant flow. \\
 
 It is difficult, if not impossible to get a thin exhaust jet in a vacuum environment, because the low ambient pressure gives rise to under expanded flows \cite{spacecraft}. Figure \ref{jetflows} illustrates the issue. In low ambient pressures the exhaust plume will continue to expand past the nozzle resulting in a wide inefficient jet, as seen in figure \ref{jetflows}a. The exhaust plume will expand even more  than what is seen in figure \ref{jetflows}a, in the near vacuum environment of Europa. 
 
-\begin{figure}
+\begin{figure}[htb]
 \begin{center}
-\includegraphics[scale=0.8]{figures/navtheory/nozzle}
+\includegraphics[scale=0.5]{figures/navtheory/nozzle}
 \caption{This figure shows the effect of nozzle design on the exhaust plume. a) Under Expanded nozzle $p_e>p_a$. b) Ideally Expanded nozzle $p_e=p_1$. c) Over Expanded nozzle $p_e<p_a$. }
 \label{jetflows}
 \end{center}
@@ -106,11 +108,9 @@ Maximum thrust occurs when $p_e$=$p_a$. Nozzle exit pressure, $p_a$, can be incr
 In vacuum the thinnest theoretical jet plume and the maximum performance would be realized by an ideal nozzle with infinite exit area that would expand the combustion gases to zero pressure thereby attaining the maximum gas velocity, limited to the area below the nozzle. Therefore the best result is obtained with an engine with a large expansion ratio. This can be achieved by attaching a large nozzle to an already existing engine. Also, the kinetic energy in the jet plume should be high enough for the plume to reach the ice surface before it expands too much. 
 
 
-
-
 \subsubsection{Energy efficiency of the rocket}
 
-The melting will be performed using the High Performance Green Propellant that is also used for the last part of the powered landing. This is chosen in order due to its low toxicity to avoid the contamination of the ice that hydrazine XXX would produce. Green Propellant developed by ECAPS also know as LMP-103S is a blend of Ammonium DiNitrimide (ADN), water, methanol and ammonia \cite{Walter_2014}. In formulation 60-65 \% ADN, 15-20\% methanol, 3-6\% ammonia and 9-22\% water. \cite{Taylor_2013}
+The melting will be performed using the High Performance Green Propellant that is also used for the last part of the powered landing. This is chosen in order due to its low toxicity to avoid the contamination of the ice that hydrazine would produce. Green Propellant developed by ECAPS also know as LMP-103S is a blend of Ammonium DiNitrimide (ADN), water, methanol and ammonia \cite{Walter_2014}. In formulation 60-65 \% ADN, 15-20\% methanol, 3-6\% ammonia and 9-22\% water. \cite{Taylor_2013}
 
 The thermochemical software GUIPEP is used to evaluate the energy efficiency of the propellant in regards to melting the ice. The theoretical performance of liquid or solid rocket propellants can be calculated using this software developed by Arthur J. Lekstutis. http://www.spl.ch/software/ The input is a list of propellant ingredients (and the mass of each), as well as chamber pressure and nozzle exit pressure. The output includes average exhaust Energy and velocity. \ref{GUIPEP} $http://www.nakka-rocketry.net/th_prope.html$
 
@@ -118,10 +118,10 @@ The energy efficiency of the propellant in low pressure environment depending on
 
 This result should be taken into consideration along with the the previously mentioned optimization of expansion ratio, which can be achieved with a long nozzle, when choosing or designing a suitable engine. Also the engine should be turnable in the low pressure to avoid stagnant flow and to be efficient for all depths of the hole. ECAPS has built and tested more than 60 HPGP thrusters with thrust levels ranging from 0.5 N to 220 N. The technology has been demonstrated in-space in the propulsion system for the PRISMA mission launched in 2009 \cite{Walter_2014}.
 
-\subsubsection{Actual process}
+From figure \ref{fig:guipep} it is seen that the maximum energy in the exhaust plume is 2kJ/kg . It was estimated that it will cost $3.4 \cdot 10^8$ J to melt the preliminary hole, thus a total amount of 150 kg of HPGP is needed. This is an substantive amount, and since it is not possible to know the exact amount of fuel needed for the final phase of the landing, we must accept to use whatever fuel is left in the tanks after landing. 
 
+\subsubsection{Considerations and future work}
 
-Inside the hole, the molecules from the exhaust plume and the water molecules will exert a pressure, and therefore inside the hole there will no longer be a vacuum. The pressure will narrow the plume, and it could be expected that the hole will be slimmer with depth and become triangular in shape. Not only because the jet plume will get thinner with increasing depth and thereby pressure, but also because the jet will have melted more of the ice from higher layers during the melting process. 
 
 The pressured conditions inside the hole will allow the water to exist in its liquid phase. It would be interesting to examine if the water could be used to cut a slim deep hole. An example could be to suck the water into a container and then produce a high velocity jet of water to cut the ice, similar to the process of water jet cutting. 
 
@@ -131,6 +131,5 @@ It would be very interesting to experiment with the process of melting the preli
 
 The water vapor particles leave the hole and if possible they would deposit to the landing module making it very heavy and possibly breaking it. However, the module is heated by the RTG inside the penetrator and the water vapor molecules cannot deposit on the lander.
 
-\subsubsection{Future Work}
 
 Much further work needs to be done concerning the process of melting a hole in the ice with a rocket engine. Due to lack in both time and resources no experiments have been performed in this area, and many questions are therefore left unanswered. 
