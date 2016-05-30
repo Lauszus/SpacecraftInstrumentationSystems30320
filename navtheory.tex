@@ -1,4 +1,4 @@
-\section{Guidance and Navigation during EDL}
+\autsection{Guidance and Navigation during EDL}{Maja Tomicic}
 
 The main objectives of the entry, descent and landing (EDL) phase have two aspects, first is lowering down the velocity of the lander to achieve the soft landing, second is performing a pinpoint landing on a selected suitable landing site and avoiding the potential obstacles and hazards during the landing. This section will cover the second aspect theoretically and analytically. 
 
@@ -61,7 +61,7 @@ The principle of a laser altimeter also known as laser range finder is the same 
 
 A laser altimeter is composed of an emitter, a receiver and signal processor. Figure \ref{alti} shows an example of a compact laser altimeter. 
 
-The footprint of a laser, is significantly smaller than that of a radar pulse. It depends on the beam divergence and the altitude of laser system. This is illustrated in figure \ref{lidarfoot}.  Because of the small footprint the slope-induced error in the measurements is not a concern.
+The footprint of a laser, is significantly smaller than that of a radar pulse. It depends on the beam divergence and the altitude of laser system. This is illustrated in figure \ref{alti}.  Because of the small footprint the slope-induced error in the measurements is not a concern.
 
 \begin{figure}[htb]
 \begin{center}
@@ -182,6 +182,9 @@ Optical Bandwidth [nm] & Pixel size [$\mu$m] & Detector size [px]\\
 380-760  & 8.6$\times $8.3 & 752 $\times$ 580 \\
 \hline
 \end{tabular}
+
+\caption{Specifications for the CCD $\mu$ASC sensor. From \cite{alessandro}.}
+
 \label{tab:ASC}
 \end{center}
 \end{table}
@@ -190,8 +193,8 @@ From figure \ref{cameramatlab} it is seen that the GSD is improved by increasing
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=\textwidth]{figures/navtheory/FOV} 
-\includegraphics[width=\textwidth]{figures/navtheory/GSD}
+\includegraphics[width=0.7\textwidth]{figures/navtheory/FOV} 
+\includegraphics[width=0.7\textwidth]{figures/navtheory/GSD}
 \caption{FOV (top) and GSD (bottom) at different altitudes as a function of  camera focal length. }
 \label{cameramatlab}
 \end{center}
@@ -289,22 +292,22 @@ Structured light systems can be build very compact,have no moving parts, and con
 In the following a range of sensors which have been considered and analyzed are presented. \\
 
 The following IMU's have been considered: 
-LN-200 FOG Family developed by Northrop Grumman \cite{LN_200}, Miniature Internatial Measurement Unit (MIMU) developed by Honeywell \cite{mimu} and the Micro Intertial Reference Unit (MIRU) developed by DTU Space.
+LN$\-$ 200 FOG Family developed by Northrop Grumman \cite{LN200}, Miniature Internatial Measurement Unit (MIMU) developed by Honeywell \cite{mimu} and the Micro Intertial Reference Unit (MIRU) developed by DTU Space.
 
 As describes previously the IMU cannot stand alone, because it provides attitude information in an inertial frame and the error accumulates over time. By combining it with a star tracker the error is corrected for. 
 
 
-An integrated system, consisting of a $\mu$ ASC star tracker augmented with a novel inertial reference unit is described in \cite{Bjarno} and developed at DTU Space. With both sensors providing attitude measurements the advantage of the combined system is high accuracy and robustness to cases with long periods of vibrations or camera blinding which are undesirable situations for a attitude determination system consisting of stellar reference sensors alone. Figure \ref{miruasc} shows a MIRU augmented $mu$ASC camera head unit. The MIRU is integrated into the camera head unit of the $\mu$ ASC system, making it 40 g heavier and using 130 mW more power, per camera \cite{mirosheet}. 
+An integrated system, consisting of a $\mu$ ASC star tracker augmented with a novel inertial reference unit is described in \cite{Bjarno} and developed at DTU Space. With both sensors providing attitude measurements the advantage of the combined system is high accuracy and robustness to cases with long periods of vibrations or camera blinding which are undesirable situations for a attitude determination system consisting of stellar reference sensors alone. Figure \ref{miruasc} shows a MIRU augmented $mu$ASC camera head unit. The MIRU is integrated into the camera head unit of the $\mu$ ASC system, making it 40 g heavier and using 130 mW more power, per camera \cite{mirusheet}. 
 
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[width=0.5\textwidth]{figures/navtheory/chumiro}
-\caption{This image from \cite{mirosheet}, shows the MIRU augmented $\mu$ASC CHU.}
+\caption{This image from \cite{mirusheet}, shows the MIRU augmented $\mu$ASC CHU.}
 \label{miruasc}
 \end{center}
 \end{figure}
 
-The $\mu$ASC system consists of two separate units, the Data Processing Unit (DPU) and the Camera Head Unit (CHU). Each DPU, which is fully redundant may drive up to four CHU's and each CHU may be connected to more than one DPU depending on the processing demands of the operation. The $\mu$ASC has the capabilities to support external instruments such as magnetometer and sun sensors if this should be relevant. The CHU's are CCD cameras that can be designed as requested, and it is therefor possible to design one CHU for terrain relative navigation from high altitudes $\sim$100 km and one for low altitudes $\sim$ 10 m. The low altitude CHU can be combined with a laser to form a structured light system and thus be used for hazard avoidance. The optical cameras can be used for velocity information as describes in previous sections and in \citep{alessandro}. And by correlating them with cataloque images of the surface the absolute position can also be determined. 
+The $\mu$ASC system consists of two separate units, the Data Processing Unit (DPU) and the Camera Head Unit (CHU). Each DPU, which is fully redundant may drive up to four CHU's and each CHU may be connected to more than one DPU depending on the processing demands of the operation. The $\mu$ASC has the capabilities to support external instruments such as magnetometer and sun sensors if this should be relevant. The CHU's are CCD cameras that can be designed as requested, and it is therefor possible to design one CHU for terrain relative navigation from high altitudes $\sim$100 km and one for low altitudes $\sim$ 10 m. The low altitude CHU can be combined with a laser to form a structured light system and thus be used for hazard avoidance. The optical cameras can be used for velocity information as describes in previous sections and in \cite{alessandro}. And by correlating them with cataloque images of the surface the absolute position can also be determined. 
 
 \begin{sidewaystable}[H]
 \begin{flushleft}
@@ -313,7 +316,7 @@ The $\mu$ASC system consists of two separate units, the Data Processing Unit (DP
 \hline 
 Instrument & Mass [g] & Power [W] &Attitude & Altitude & V. velocity & H. velocity & Terrain relative & Hazard detection\\ 
 \hline
-LN-200 (IMU) & 750 & 12 & Yes & Inertial & Inertial & Inertial & No & No\\
+LN$\-$ 200 (IMU) & 750 & 12 & Yes & Inertial & Inertial & Inertial & No & No\\
 \hline
 MIMU (IMU) & $>$4700 & 22 & Yes& Inertial & Inertial & Inertial & No & No\\
 \hline
@@ -340,17 +343,16 @@ APL CLA (Lidar) & 1000 & 7 & No & Yes & Yes & Yes & No& No \\
 \end{sidewaystable}
 
 
-For altitude measurements a range of Laser and Radar systems have been considered. Their specifications are listed in table \ref{tab:sensors}. These sensors can perform autonomous operation under any lighting conditions and any landing location.
+For altitude measurements a range of Laser and Radar systems have been considered. Their specifications are listed in table \ref{tab:sensors}. These sensors can perform autonomous operation under any lighting conditions and any landing location.\\
 
-Lightware’s SF02 laser ranger is a lightweight module that provides fast and accurate distance measurements from 0-50 meters, using pulsed-laser time-of-flight measurements.\cite{https://www.parallax.com/product/28043}. 
+Lightware’s SF02 laser ranger is a lightweight module that provides fast and accurate distance measurements from 0-50 meters, using pulsed-laser time-of-flight measurements \cite{SF02}. \\
 
-The APL compact laser altimeter (CLA) is a suite consisting of a series of laser ranging sensors paired with  Doppler radar sensors. The laser rangers offer extremely precise vertical distance and surface-relative attitude information, whereas the radars provide equal precision with respect to vertical and horizontal velocities. Additionally, a fourth, nadir-facing sensor pair could offer component redundancy as well as distance information to the landing site directly below the spacecraft \cite{http://www.jhuapl.edu/techdigest/TD/td3004/30_4-Bruzzi.pdf}. 
+The APL compact laser altimeter (CLA) is a suite consisting of a series of laser ranging sensors paired with  Doppler radar sensors. The laser rangers offer extremely precise vertical distance and surface-relative attitude information, whereas the radars provide equal precision with respect to vertical and horizontal velocities. Additionally, a fourth, nadir-facing sensor pair could offer component redundancy as well as distance information to the landing site directly below the spacecraft \cite{APLCLA}. \\
 
 
-The Stereo Imaging Laser Altimeter (SILAT) combines two optical cameras with a low-power photon-counting laser altimeter. The result is a multifunctional instrument suite designed for high resolution images for terrain relative navigation, stereoscopic images that can be used for hazard avoidance, and high accuracy altimetry. This combination of instruments will also provide velocity measurements \citep{SILAT}. The SILAT is quite heavy weighing $\sim$ 5 kg, and is therefore ruled out for this mission.
+The Stereo Imaging Laser Altimeter (SILAT) combines two optical cameras with a low-power photon-counting laser altimeter. The result is a multifunctional instrument suite designed for high resolution images for terrain relative navigation, stereoscopic images that can be used for hazard avoidance, and high accuracy altimetry. This combination of instruments will also provide velocity measurements \cite{SILAT}. The SILAT is quite heavy weighing $\sim$ 5 kg, and is therefore ruled out for this mission.\\
 
-A radar altimeter such as the miniature radar altimeter MRA type 1, has been considered \cite{http://www.miniradalt.com/mra-type-1.html}. However it is developed for drone applications and is therefore not qualified for space use yet. Also, as mentioned earlier the footprint of a radar altimeter is larger than that of a laser altimeter, why laser altimeters are more useful for landing purposes.  
-
+A radar altimeter such as the miniature radar altimeter MRA type 1 \cite{MRA1}, has been considered. However it is developed for drone applications and is therefore not qualified for space use yet. Also, as mentioned earlier the footprint of a radar altimeter is larger than that of a laser altimeter, why laser altimeters are more useful for landing purposes.  
 
 
 \subsection{Conclusion}
