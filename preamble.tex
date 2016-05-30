@@ -24,6 +24,19 @@
 
 \usepackage{rotating}
 \usepackage{fancyhdr}
+\setlength{\headheight}{14pt} % Fix warning
+\usepackage{enumitem}
+
+\setlist[enumerate]{noitemsep}
+\setlist[itemize]{noitemsep}
+
+\makeatletter
+\AtBeginDocument{%
+  \expandafter\renewcommand\expandafter\subsection\expandafter{%
+    \expandafter\@fb@secFB\subsection
+  }%
+}
+\makeatother
 
 \pagestyle{fancy}
 \fancyhf{}
