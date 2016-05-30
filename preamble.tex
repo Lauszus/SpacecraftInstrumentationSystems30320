@@ -23,6 +23,20 @@
 \usepackage[section]{placeins}
 
 \usepackage{rotating}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{
+	\ifnum0\thechapter<1
+		\MakeUppercase{#1}
+	\else
+		\thechapter.\; \MakeUppercase{#1}
+	\fi
+}{}}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\slshape \leftmark}
+\fancyhead[LO]{\slshape \rightmark}
 
 \usepackage{fancyhdr}
 
@@ -42,15 +56,25 @@
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % \HRule for special horizontal line
 
-% Use this command to add chapter authors
 \makeatletter
-\newcommand{\chapterauthor}[1]{%
+\newcommand{\addauthorbelowheading}[1]{%
 	{\parindent0pt\vspace*{-10pt}%
   	\linespread{1.1}\small\scshape#1%
-  	\par\nobreak\vspace*{10pt}}
+  	\par\nobreak\vspace*{10pt}}%
   	\@afterheading%
 }
 \makeatother
+
+% Use theses command to add section and subsection authors
+\newcommand\autsection[2]{%
+  \section[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
+  \addauthorbelowheading{#2}%
+}
+
+\newcommand\autsubsection[2]{%
+  \subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
+  \addauthorbelowheading{#2}%
+}
 
 % DTU frieze
 \usepackage{eso-pic}

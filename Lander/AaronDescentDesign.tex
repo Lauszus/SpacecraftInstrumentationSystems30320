@@ -1,5 +1,5 @@
-\section{Descent Vehicle overall Architecture}
-\chapterauthor{Aaron Gornott}
+\autsection{Descent Vehicle overall Architecture}{Aaron Gornott}
+
 The overall design of the lander is influenced by the payload it carries, but a huge design driver is also the chosen descent profile. Since the descent profile itself is driven by the lander design this definition problem circles around itself. As soon as we try to define one part we have to make assumptions about the other. With this in mind the lander design is introduced first to provide a starting reference to the descent profile, but each section will include assumptions that are eventually justified by their framing counterpart.\\
 \\
 One key aspect of our design is the radiation shielding of our payload. It was decided that the penetrator will be transported vertically with the ground to orbit communication equipment atop. With this approach no mechanism is needed to move both into a fitting orientation when it gets released into a ice hole. By placing the payload in the center of the spacecraft and arranging all other lander components in a symmetric layout around it ensures that the center of mass is at the center of the spacecraft (from a top/bottom view). This provides a solid basis when we have to align the center of the spacecraft with the center of thrust. A tradeoff that follows the decision to orient our payload as a long vertical stick is that top heavy the lander is relative top heavy. The rest of our design choices have to keep this into account.\\
