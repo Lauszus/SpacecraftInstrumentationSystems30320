@@ -21,9 +21,21 @@
 \usepackage{mcode} % Maltab code
 \usepackage{authblk} % Multiple authors
 \usepackage[section]{placeins}
-
 \usepackage{rotating}
 \usepackage{fancyhdr}
+\setlength{\headheight}{14pt} % Fix warning
+\usepackage{enumitem}
+
+\setlist[enumerate]{noitemsep}
+\setlist[itemize]{noitemsep}
+
+\makeatletter
+\AtBeginDocument{%
+  \expandafter\renewcommand\expandafter\subsection\expandafter{%
+    \expandafter\@fb@secFB\subsection
+  }%
+}
+\makeatother
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -37,22 +49,6 @@
 \fancyhead[LE,RO]{\thepage}
 \fancyhead[RE]{\slshape \leftmark}
 \fancyhead[LO]{\slshape \rightmark}
-
-\usepackage{fancyhdr}
-
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\chaptermark}[1]{\markboth{
-	\ifnum0\thechapter<1
-		\MakeUppercase{#1}
-	\else
-		\thechapter.\; \MakeUppercase{#1}
-	\fi
-}{}}
-\fancyhead[LE,RO]{\thepage}
-\fancyhead[RE]{\slshape \leftmark}
-\fancyhead[LO]{\slshape \rightmark}
-
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % \HRule for special horizontal line
 
