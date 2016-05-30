@@ -1,14 +1,35 @@
-\input{preamble}
+\documentclass[10pt,twoside]{book}
+
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+\usepackage{latexsym}
+\usepackage{textcomp}
+\usepackage{longtable}
+\usepackage{multirow,booktabs}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks=false,pdfborder={0 0 0}}
+% You can conditionalize code for latexml or normal latex using this.
+\newif\iflatexml\latexmlfalse
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman,english]{babel}
+
+\date{June 2016}
 
 \begin{document}
 
-\prefrontmatter
+\author{JP Breuer\\ Affiliation not available  \and Awaiting Activation\\ Affiliation not available \and Awaiting Activation\\ Affiliation not available \and Aaron\\ Affiliation not available \and Yannis\\ Affiliation not available \and FruzsinaBacso\\ Affiliation not available \and Ricard\\ Affiliation not available \and Awaiting Activation\\ Affiliation not available \and Sridhar Remma\\ Affiliation not available \and Gustavo Feijóo\\ Affiliation not available \and Kristian Sloth Lauszus\\ Affiliation not available \and Johannes Linde\\ Affiliation not available \and Maja\\ Affiliation not available \and Agge Winther\\ Affiliation not available \and Paul Connetable\\ Affiliation not available \and Rasmus Lundby Pedersen\\ Affiliation not available}
+
+\title{Spacecraft Instrumentation Europa Life Finder Mission}
+
+\maketitle
 
 \frontmatter
 
 \include{Abstract}
 
-\pdfbookmark{\contentsname}{toc}
 \tableofcontents
 
 \mainmatter
@@ -18,7 +39,6 @@
 \include{ProblemFormulation}
 
 \include{Theory}
-	\input{Lander/AaronDescentTheory}
 
 \include{Strawman}
 
@@ -38,10 +58,8 @@
 
 \include{FutureWork}
 
-\backmatter
 \bibliographystyle{plain}
-\bibliography{bibliography/biblio}
-\addcontentsline{toc}{chapter}{Bibliography} % Add bibliography to toc (and bookmarks)
+\bibliography{bibliography/biblio.bib}
 
 \appendix
 \include{AppendixA}
