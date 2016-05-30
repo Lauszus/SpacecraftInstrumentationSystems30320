@@ -1,5 +1,6 @@
-\documentclass[12pt,twoside,openright,a4paper,final]{book}
+\documentclass[11pt,twoside,openright,a4paper,final]{book}
 
+\usepackage[margin=1in]{geometry}
 \usepackage{subfig}
 \usepackage{graphicx}
 \usepackage[space]{grffile}
@@ -20,7 +21,24 @@
 \usepackage{mcode} % Maltab code
 \usepackage{authblk} % Multiple authors
 \usepackage[section]{placeins}
+
 \usepackage{rotating}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{
+	\ifnum0\thechapter<1
+		\MakeUppercase{#1}
+	\else
+		\thechapter.\; \MakeUppercase{#1}
+	\fi
+}{}}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\slshape \leftmark}
+\fancyhead[LO]{\slshape \rightmark}
+
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % \HRule for special horizontal line
 
@@ -60,7 +78,7 @@
 
 \makeatletter
 \newcommand{\prefrontmatter}{
-	\pagestyle{empty}
+	\thispagestyle{empty}
 	\begin{center}
 	\vspace*{1cm}
 	\large\textsc{Technical University of Denmark}
@@ -70,9 +88,10 @@
 	\begin{center}
        	\includegraphics[width=0.2\textwidth]{figures/tex_dtu_logo}
 	\end{center}
-%	\vspace{0.7cm}	
+%	\vspace{0.7cm}
 	\normalsize \@author
-	\vfill
+%	\vfill
+	\vspace{1.5cm}\\
 	{\normalfont \large \@date}
 	\end{center}
 	\frieze
@@ -80,12 +99,12 @@
     \newpage % Back of front page
     \thispagestyle{empty}
 	\frieze % Added watermark
-	\hspace*{-2.5cm}
+	\hspace*{-1cm}
 	\parbox[b][\paperheight]{\paperwidth}{%
 		{\sf Technical University of Denmark}\\
 		{\sf DTU Space}\\
 		{\sf National Space Institute}\\
-		{\sf Elektrovej, building 327-328}\\ 
+		{\sf Elektrovej, building 327-328}\\
 		{\sf 2800 Kongens Lyngby, Denmark}
 	    \vspace*{10cm}
 	}
