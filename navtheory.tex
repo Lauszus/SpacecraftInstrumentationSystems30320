@@ -290,7 +290,6 @@ Structured light systems can be build very compact,have no moving parts, and con
 \subsection{Sensors for GNC during EDL}
 
 In the following a range of sensors which have been considered and analyzed are presented. \\
-
 The following IMU's have been considered: 
 LN$\-$ 200 FOG Family developed by Northrop Grumman \cite{LN200}, Miniature Internatial Measurement Unit (MIMU) developed by Honeywell \cite{mimu} and the Micro Intertial Reference Unit (MIRU) developed by DTU Space.
 
@@ -342,14 +341,9 @@ APL CLA (Lidar) & 1000 & 7 & No & Yes & Yes & Yes & No& No \\
 \end{flushleft}
 \end{sidewaystable}
 
-
 For altitude measurements a range of Laser and Radar systems have been considered. Their specifications are listed in table \ref{tab:sensors}. These sensors can perform autonomous operation under any lighting conditions and any landing location.\\
-
 Lightware’s SF02 laser ranger is a lightweight module that provides fast and accurate distance measurements from 0-50 meters, using pulsed-laser time-of-flight measurements \cite{SF02}. \\
-
 The APL compact laser altimeter (CLA) is a suite consisting of a series of laser ranging sensors paired with  Doppler radar sensors. The laser rangers offer extremely precise vertical distance and surface-relative attitude information, whereas the radars provide equal precision with respect to vertical and horizontal velocities. Additionally, a fourth, nadir-facing sensor pair could offer component redundancy as well as distance information to the landing site directly below the spacecraft \cite{APLCLA}. \\
-
-
 The Stereo Imaging Laser Altimeter (SILAT) combines two optical cameras with a low-power photon-counting laser altimeter. The result is a multifunctional instrument suite designed for high resolution images for terrain relative navigation, stereoscopic images that can be used for hazard avoidance, and high accuracy altimetry. This combination of instruments will also provide velocity measurements \cite{SILAT}. The SILAT is quite heavy weighing $\sim$ 5 kg, and is therefore ruled out for this mission.\\
 
 A radar altimeter such as the miniature radar altimeter MRA type 1 \cite{MRA1}, has been considered. However it is developed for drone applications and is therefore not qualified for space use yet. Also, as mentioned earlier the footprint of a radar altimeter is larger than that of a laser altimeter, why laser altimeters are more useful for landing purposes.  
@@ -378,19 +372,41 @@ the lander velocity with respect to the lunar surface. This is then integrated t
 position. At altitudes of about 100-50 meters from the surface the laser ranger is used to determine a precise height of the spacecraft relative to the surface. This information is used as hazard avoidance as to avoid deep gorges or steep hills. Finally, as the lander gets the intended landing area in sight, it will navigate
 relative to a hazard free landing spot using the last CHU as a surface camera, with optimized optics, together with a laser as a structured light system. 
 
-Final instruments are 
+Final instruments relevant specification are summarized in table \ref{tab:navinst}.
 
--$\mu$ASC system (including four CHU's with build in IMU (MIRU) and two redundant data processing units (total of four DPU's) )
--two of the cameras are used as star trackers and two as surface cameras with different FOV and resolution (one for high altitudes and one for final landing)
--One laser to be combined with one of the cameras to make a structured light hazard avoidance system
--One laser ranger (range approx. 100 m)
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Instrument & Amount & Weight [g] & Power [W]\\
+\hline
+Laser Ranger & 1 & 100 & $\sim$14 \\
+\hline
+CHU & 4 & 1600 & - \\
+\hline
+DPU & 4 & 1200 &$\sim$ 16 \\
+\hline
+IMU & 4 & 40 & $\sim$0.52 \\
+\hline
+Laser & 1 & 100 & $\sim$ 5 \\
+\hline
+Total & 15 & 3040 & $\sim$35.2\\
+\hline
+
+\end{tabular}
+\caption{Table showing the main specifications of the navigation instruments.}
+\label{tab:navinst}
+\end{center}
+\end{table} 
+
+The cables connecting the sensors and DPU's is assumed to weigh no more than 2 kg. 
+
 
 
 \subsection{Power supply on landing module}
 
-The Guidance Navigation and Control system will be powered by a small RTG. The total system requires 
-
-We considered using solar panels with Fresnel lenses to concentrate the relatively low solar flux at Europa ($51 W/m^2$). However the extreme radiation environment is too harsh for the solar cells to survive for longer periods of time. An option would be to deploy the solar cells down into the ice, and only have the Fresnel lenses in the radiation environment. The process of deploying the large amount of solar cells into the ice was rejected due to its complicated nature. 
+The Guidance Navigation and Control system is powered by a RTG system. The total system requires $\sim$ 35 W if all instruments are running. This power is easily supplied by a RTG system resembling the system SNAP-9A or SNAP-19 used on missions such as the Pioneer 10 and 11 \cite{wikirtg}. These systems weighed $\sim$ 10-15 kg. We assume that we can design a lighter generator, however this will not be discussed further, but could be subject to future work. The communication system on the surface will also be supplied by this RTG. \\
+Solar panels were considered as power supply for the landing and communication system. The solar cells would have to be equipped with Fresnel lenses to concentrate the relatively low solar flux at Europa ($51 W/m^2$). A system resembling the ultralight stretched Fresnel lens solar concentrator described in \cite{fresnel} was considered. However the extreme radiation environment is too harsh for the solar cells to survive for longer periods of time. An option would be to deploy the solar cells down into the ice, and only have the Fresnel lenses in the radiation environment. The process of deploying the large amount of solar cells into the ice was rejected due to its complicated nature. 
 
 
 
