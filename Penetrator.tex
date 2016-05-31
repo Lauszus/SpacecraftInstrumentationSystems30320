@@ -172,32 +172,35 @@ Insert image of a sideways look of the system.
 * How do we protect the rest of the instruments against the radiation?
 
 
-
-
-
 \subsection{Thermal Design}
 
 \subsection{Water Convection}
 
-\autsubsection{Anchor Design}{Mark Wigh}
-
-\autsubsubsection{Buoyancy}{Ricard Lladó Grove}
-
+\section{Anchor Design}
+\autsubsection{Buoyancy}{Ricard Lladó Grove}
 One way to anchor the penetrator is trough buoyancy. In general buoyancy is an upward force that is exerted to an object by the surrounded fluid. For an object immersed in a fluid, the force acting on the object is gravity and buoyancy given by:
 
 \begin{subequations}
 \begin{equation}\label{eq:bouyancy1}
-F_{gravity} = m_{object}g
+F_{gravity} = m_{object} \cdot g
 \end{equation}
 \begin{equation} \label{eq:bouyancy2}
-F_{buoyancy} = \rho_{fluid}g V_{immersed} 
+F_{buoyancy} = \rho_{fluid}\cdot g \cdot V_{immersed} 
 \end{equation}
 \end{subequations}
 
 where $g$ is the gravitational acceleration, $\rho$ is density, $V$ is volume of the immersed part of the object and $m$ is mass.  In our case the object is the penetrator and the fluid that the penetrator is immersed into is assumed to be pure water. In order to use buoyancy as the anchor of the penetrator, it has to cancel out the force of the gravity that will pull the penetrator downwards i.e make it sink. We can hereby equal equation \ref{eq:bouyancy1} and \ref{eq:bouyancy2}:
-\begin{equation}
-F_{gravity} = F_{buoyancy} \quad \rightarrow \quad m_{penetrator}g_{Europa} = \rho_{fluid}g_{Europa} V_{immersed}   \quad \rightarrow \quad V_{immersed} = \frac{m_{penetrator}}{\rho_{fluid}}
+
+
+\begin{subequations}
+\begin{equation*}\label{eq:bou1}
+F_{gravity} = F_{buoyancy} \quad \rightarrow \quad m_{penetrator}\cdot g_{Europa} = \rho_{fluid}\cdot g_{Europa} \cdot V_{immersed}   \quad \rightarrow 
+\end{equation*}
+\begin{equation} \label{eq:bou2}
+V_{immersed} = \frac{m_{penetrator}}{\rho_{fluid}}
 \end{equation}
+\end{subequations}
+
 First of all we see that the gravity of Europa cancels out in both equations, which simplifies the expression a lot. It is desired to calculate the volume that is needed in order to cancel out the gravity. The mass of the penetrator is in our mission straw man set to be maximum 180 kg even though it is only an assumption. If the mass of the penetrator increases a higher volume would be needed. The density of the water is set to 1000 $\frac{m^3}{kg}$ which is the one for the 
 
 
@@ -210,6 +213,7 @@ Secondly the gravitational acceleration is set to be $1.314 \frac{m}{s^2}$, and 
 g = \frac{GM}{r^2}
 \end{equation} 
 where $G = 6.67\cdot 10^{-11}\frac{m^3}{s^2 kg}$ is the gravitational constant, $M = 4.8\cdot 10^{22}$kg is the mass of Europa and $r = 1560.8$ km is the radius of Europa.  We see that the further the penetrator melts its way down through the ice the radius decreases. The mass distribution will also change since now there will be mass above you which will pull you in that direction, but on the other hand you will be closer to the mass on the other side of the planet. Therefore the change in gravitational acceleration depends on the distribution of the mass on Europa, and especially how dense the core is which in this case is unknown. 
+
 
 
 
