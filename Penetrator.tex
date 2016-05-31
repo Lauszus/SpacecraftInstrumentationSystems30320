@@ -4,7 +4,75 @@
 
 \section{Drilling Methods}
 
-\subsection{Mechanical Drilling}
+\autsubsection{Mechanical Drilling}{Morten Lykke Hilligsøe}
+On earth, drilling is by far the most common way of penetrating ice and has proved a viable way for recovering ice core samples at depths of up to 3.768km, reaching the underground lake Vostock, much like the mission at hand. Drilling has previously reached depths of 12.262km, and because of e.g. the oil drilling industry, experience and components are readily available. It is therefore obvious to look at the possibility of drilling through the ice on Europa.
+
+To compare with other ice penetration methods, the following key parameters are evaluated:
+\begin{itemize}
+    \item Energy
+	\item Time
+	\item Weight
+\end{itemize}
+The energy required for a drill solution consists of two parts: the cutting energy and the potential energy required to move the ice. To calculate these energies, the following assumptions have been made:
+\begin{itemize}
+	\item Probe length:   $2m$
+	\item Probe diameter:   $30cm$
+	\item Europa surface gravity:   $1,3m/s^2$
+	\item Europa ice density:   $124kg/m^3$
+	\item Specific ice cutting energy:   $16MJ/m^3$
+\end{itemize}
+For cutting energy, the key parameter is the specific cutting energy. This parameter is assumed to be $16MJ/m^3$, as measured by \footnote{Greenland Ice Core: Geophysics, Geochemistry, and the Environment, Volume 33,  Chester C. Langway, Hans Oeschger, W. Dansgaard}. Other sources, e.g. \footnote{Life in Extreme Environments, Ricardo Amils, J. Cynan Ellis-Evans, Helmut Hinghofer-Szalkay}, have measured specific cutting energies of similar size, at $20MJ/m^3$.
+
+The result is a cutting energy of:
+\begin{equation}
+    E_{Cut} = A \cdot E_{Specific}
+\end{equation}
+\begin{equation}
+    E_{Cut} = (0.15m)^2 \cdot \pi \cdot 16MJ/m^3 \cdot 1000m/km = 1.130 MJ/km
+\end{equation}
+The potential energy required to move the ice, will have to at least match the volume of ice which the penetrator probe displaces.  The result is a minimum potential energy of:
+\begin{multline}
+E_{pot} = m \cdot g \cdot h = \rho \cdot V \cdot g \cdot h\\
+ = (0.15m)^2 \cdot \pi \cdot 124kg/m^3 \cdot 1.3m/s^2 \cdot 2m \cdot 1000m/km = 22.8 kJ/km
+\end{multline}
+Where the surface gravity of Europa is provided by \footnote{\url{https://en.wikipedia.org/wiki/Europa_(moon)}}, and the ice density $\rho$ is calculated from the value on earth at -180°C as stated in \footnote{\url{https://en.wikipedia.org/wiki/Properties_of_water}}:
+\begin{equation}
+\rho_{Europa} = \rho_{Earth} \cdot \frac{g_{Europa}}{g_{Earth}}
+\end{equation}
+\begin{equation}
+\rho_{Europa} = 934kg/m^3 \cdot \frac{9.82m/s^2}{1.3m/s^2} = 124kg/m^3
+\end{equation}
+Compared to the cutting energy, the potential energy seems insignificant. However, this might not be a realistic assumption, since the shaved ice will most likely take up more space than the equivalent amount of solid ice, and will therefore have to either be moved additionally, or compressed. Also, the drilling equipment will most likely take up a much greater volume than the probe itself, and this energy must therefore be expected to increase in multifold.
+
+But even if the energy required to drill through the ice is reasonable, drilling time and system weight are key parameters. Table \ref{tab:ice_core_drilling}\footnote{A Fast Mechanical-Access Drill for Polar Glaciology, Paleoclimatology, Geology, Tectonics, and Biology, Gary D. Clow and Bruce Koci}  presents these key parameter for two currently employed methods of ice drilling: Ice Core Drilling (ICD) and Hot-Water Drilling (HWD), as well as a solution based on Coiled Tubing Drillling for Ice (CTDI), which have yet to be employed in ice drilling projects. As seen from this table, drilling a 3.5km borehole can take as little as 6-8 days by using a CTDI system. However, the weights of such systems are in the tens-hundreds of tonnes, making ice drilling systems impossible to bring as payload on a rocket.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/mlh/table_ice_core_drilling}
+  \caption{Comparison of the weights and times required to drill a 3.5-km borehole through ice using ice-coring, hot-water, and CTDI drilling systems.}
+  \label{tab:ice_core_drilling}
+\end{figure}
+
+Figures \ref{fig:ICD}, \ref{fig:HWD} and \ref{fig:CTDI} illustrates the three methods presented in table \ref{tab:ice_core_drilling}.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/mlh/ICD}
+  \caption{The hollow drill of an Ice Core Drilling, which enables researchers to retrieve pure ice core samples.}
+  \label{fig:ICD}
+\end{figure}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/mlh/HWD}
+  \caption{Principles of Hot Water Drilling in ice.}
+  \label{fig:HWD}
+\end{figure}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/mlh/CTDI}
+  \caption{Principles of Coiled Tube Drilling in Ice.}
+  \label{fig:CTDI}
+\end{figure}
 
 \subsection{Chemical Drilling}
 
