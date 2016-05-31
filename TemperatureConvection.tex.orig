@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+\subsection{Ice temperature profile}\label{sec:IceTemperatureProfile}
+\chapterauthor{Kristian Sloth Lauszus and Lukas Christensen}
+=======
 \autsubsection{Ice temperature profile}{Kristian Sloth Lauszus and Lukas Christensen}
-\label{sec:IceTemperatureProfile}
+>>>>>>> origin/Temperature
 
 %* Indirect: salinity, melting speed
 %* Drill sample

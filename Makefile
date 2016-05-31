@@ -1,7 +1,7 @@
 RM ?= $(shell dirname `which rm`)
 PREFIX ?= $(shell dirname `which pdflatex`)
 
-LATEX = $(PREFIX)/pdflatex -interaction=nonstopmode -halt-on-error -file-line-error
+LATEX = ./texfot.pl $(PREFIX)/pdflatex -interaction=nonstopmode -halt-on-error -file-line-error
 BIBTEX = $(PREFIX)/bibtex
 DETEX = $(PREFIX)/detex
 
@@ -27,7 +27,7 @@ all: $(MAIN).pdf
 $(MAIN).pdf: $(MAIN).tex $(FIGURES) $(FILES)
 	$(LATEX) $*.tex;
 	$(BIBTEX) $*;
-	$(LATEX) $*.tex;
+	$(LATEX) $*.tex 1>/dev/null;
 	$(LATEX) $*.tex;
 
 lint:
@@ -37,13 +37,13 @@ clean:
 	- $(RM) -f *.aux \
         $(CHAPDIR)/*.aux \
 		$(MAIN).log $(MAIN).dvi $(MAIN).ps $(MAIN).blg $(MAIN).bbl \
-		$(MAIN).lot $(MAIN).lol $(MAIN).lof $(MAIN).toc $(MAIN).pdf
+		$(MAIN).lot $(MAIN).lol $(MAIN).lof $(MAIN).toc $(MAIN).out $(MAIN).pdf
 
 # Count words in the book
 wc:
 	- @echo
 	- @echo "Current word count: "
-	- @$(DETEX) $(FILES) | wc -w
+	- @$(DETEX) $(MAIN).tex | wc -w | sed 's/^[ \t]*/    /'
 	- @echo "Current page count: "
-	- @$(DETEX) $(FILES) | tr -d ' \t\r\n' | echo "scale=3; `wc -m`/2200" | bc -l | sed 's/^/    /'
+	- @$(DETEX) $(MAIN).tex | tr -d ' \t\r\n' | echo "scale=3; `wc -m`/2200" | bc -l | sed 's/^[ \t]*/    /'
 	- @echo

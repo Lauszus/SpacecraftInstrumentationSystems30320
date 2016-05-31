@@ -221,6 +221,7 @@
 	note         = "{Visited: 27. May 2016}",
 }
 
+<<<<<<< HEAD
 @misc{website:engineeringToolbox,
 	author       = "{The Engineering ToolBox}",
 	title        = "{Resources, Tools and Basic Information for Engineering and Design of Technical Applications}",
@@ -228,6 +229,7 @@
 	note         = "{Visited: 15. March 2016}",
 }
 
+=======
 @misc{website:europaGravity,
 	author       = "{Karl Tate}",
 	title        = "{Latent Heat of Melting of some common Materials}",
@@ -248,3 +250,4 @@
 	howpublished = "\url{http://web2.clarkson.edu/projects/subramanian/ch302/notes/Natural%20Convection.pdf}",
 	note         = "{CH302: Heat Transfer Lecture Notes}",
 }
+>>>>>>> origin/Temperature
