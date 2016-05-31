@@ -1,4 +1,4 @@
-\subsection*{Melting Simulation}
+\subsection*{Melting Simulation}\addauthorbelowheading{Lukas Christensen}
 \label{sec:temp_simulation}
 
 The calculations presented in section \ref{sec:IceTemperatureProfile} provide an initial estimate on the amount of thermal energy that is needed to penetrate the Europan ice sheet. Based on this, it would seem that melting through the ice can be achieved within realistic mission durations, however, more detailed calculations that take thermal loss in to account are needed in order to optimize the design of the mission. \\
@@ -24,7 +24,7 @@ The fourth assumption is most certainly not realistic and it will in all likelih
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=10cm]{figures/LAMC/waterPhase}
+	\includegraphics[width=8cm]{figures/LAMC/waterPhase}
 	\caption{Phase diagram of water. Source: \url{http://math.ucr.edu/home/baez/chemical/725px-Phase_diagram_of_water.svg.png}}
 	\label{fig:waterPhase}
 \end{figure}
@@ -57,7 +57,7 @@ The actual simulation program have been implemented using Matlab as it easily ac
 
  \begin{figure}[ht]
  	\centering
- 	\includegraphics[width=.7\textwidth]{figures/LAMC/iceSimFlowchart.pdf}
+ 	\includegraphics[width=.55\textwidth]{figures/LAMC/iceSimFlowchart.pdf}
  	\caption{Flowchart of the ice melting simulation.}
  	\label{fig:iceSimFlow}
  \end{figure}
@@ -76,7 +76,7 @@ With the temperature and the state of each voxels being determined, the thermal 
 
  \begin{figure}[ht]
  	\centering
- 	\includegraphics[width=0.6\textwidth]{figures/LAMC/snapshot.pdf}
+ 	\includegraphics[width=0.5\textwidth]{figures/LAMC/snapshot.pdf}
  	\caption{Snapshot from the simulation program. This example is running with an ice thickness of 100 m, a linear temperature profile and a heater power of 2000 W. The red pixels indicate where the ice has melted and turned in to water.}
  	\label{fig:simSnapshot}
  \end{figure}
@@ -92,7 +92,7 @@ As soon as the heater voxels are converted to water, the entire simulation windo
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.6\textwidth]{figures/LAMC/iceTempProfiles.pdf}
+	\includegraphics[width=.5\textwidth]{figures/LAMC/iceTempProfiles.pdf}
 	\caption{The two temperature profiles used in the simulation: the linear based on calculations, and an approximated 2-layer profiles based on the literature.}
 	\label{fig:iceTempProfiles}
 \end{figure}
@@ -109,7 +109,7 @@ Running the simulation with a constant heating power for a number of different i
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=\textwidth]{figures/LAMC/simResult.pdf}
+	\includegraphics[width=.9\textwidth]{figures/LAMC/simResult.pdf}
 	\caption{Result of the melting simulation. The left plot shows the penetration time per kilometer of ice for the two temperature profile with varying heating densities, while the right shows the associated losses.}
 	\label{fig:simResults}
 \end{figure}
@@ -146,7 +146,7 @@ With $A=\pi R^2$ being the cross-sectional area of the heater. In the case of th
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=\textwidth]{figures/LAMC/verificationResult.pdf}
+	\includegraphics[width=.9\textwidth]{figures/LAMC/verificationResult.pdf}
 	\caption{Result of solving the loss power equation for different heater densities. The left plot shows the penetration time per kilometer of ice. The right shows the calculated losses. Cross-section of $\SI{0.04}{m^2}$ was used together with a heater length of 0.15 m.}
 	\label{fig:verificationResult}
 \end{figure}
