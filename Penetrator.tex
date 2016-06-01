@@ -95,7 +95,7 @@ Figures \ref{fig:ICD}, \ref{fig:HWD} and \ref{fig:CTDI} illustrates the three me
 
 * Measure conductivity of the water.
 
-\autsection{RTG design}{Ricard Lladó Grove}
+\section{RTG design}
 
 \autsubsection{Radioactive Sources}{Jean-Paul Breuer}
 A Radioisotope Thermal Generator (RTG), is essentially an nuclear battery that uses thermocouplers to convert the heat released by a selected radioactive source into electricity. Many radioactive sources exist which could serve the purpose of fuel for the RTG specific to this mission, but not all of the known radioactive isotopes would be efficient or viable for the task. There are three important characteristics to keep in mind when attempting to select the ideal radioactive isotopes.
@@ -106,7 +106,7 @@ The amount of energy per time released is inversely proportional to its half lif
 
 Given the three main criteria, it is possible to exclude many isotopes immediately, although the most likely candidates are given in Table \ref{tab:isotopes}. 
 
-\begin{table}[h!]
+\begin{table}[h!]r
 	\begin{tabular}{c|c|c|c}
 		Candidate Isotopes & Half-Life & Power & Gamma, Neutron Level & Availability\\
 		\hline
@@ -120,7 +120,7 @@ Given the three main criteria, it is possible to exclude many isotopes immediate
 
 As can be seen from the table, Plutonium-238 and Americium-241 would seem like viable candidates for this mission.
 
-\subsection{Radiation from Pu238}
+\autsubsection{Radiation from Pu238}{Ricard Lladó Grove}
 After looking at the different materials, Plutonium-238 (Pu238) is radioactive material that is going to be used for the mission due to the the half-life of 87.7 and the minimum radiation of gamma and neutrons. 
 
 The probability of a alpha-decay from a Pu238-atom is close to 100\%: 
@@ -132,10 +132,11 @@ The alpha particle is relatively big with two protons and two neutrons and is th
 \noindent
 A bigger problem is the free neutrons that for example are emitted due to a spontaneous fission.  The neutrons do not have any electric charge and therefore they will not be stopped by an electric field making them extremely penetrating. To stop a neutron is has to be absorbed by a nucleus or collide with a particle with same speed but opposite velocity and mass as the neutron. Since the materials used to shield alpha and beta particles, for example lead, has a rather small cross-section and hew nuclei per unit mass, hence the neutron can easily pass trough the shielding. Furthermore if the neutron is absorbed to the atom it is likely that the new atom is radioactive as well. Therefore it is important to stop the neutrons, because they can cause a lot of damage if they hit the instruments on board the penetrator. In order to do so protium, a hydrogen atom with no neutron, can be used to absorb the neutron creating in deuterium. Water has a high number density to mass ratio, and is hereby optimal to use as a shielding against the free neutrons.
 
-\subsection{Shielding}
+
+\autsubsection{Shielding}{Ricard Lladó Grove}
 As mentioned a typical shielding material is lead, but for this case zirconium would be a better choice, first of all because it has a melting temperature that is three times higher than lead, and second of all because the material is lighter. It is still not possible to stop the free neutrons, where we instead will use water. First the Plutonium will be surrounded by the zirconium, afterwards a layer of water and in the end some thermocouplers will generate electricity from the heat. 
 
-\subsection{Heat generation}
+\autsubsection{Heat Generation}{Ricard Lladó Grove}
 To calculate how much energy one alpha decay will produce, the energy equation derived from Einstein is used:
 \begin{equation}
 \begin{aligned} 
@@ -172,7 +173,7 @@ N = N_t \left(\frac{1}{2}\right)^{t/\tau}
 With a density of 19816 kg$/m^3$, with a mass of 5 kg we would need a a plutonium rod that is 30 cm long and 1.65 cm in radius. It is a good idea that the plutonium has a high surface area compared to the volume, because the heat was to be distributed to the water running in the heat pipes(maybe). Furthermore it is a good thing that the plutonium has the same shape as the penetrator. (Explanation to come) 
 
 
-\subsection{Heat pipes}
+\autsubsection{Heat pipes}{Ricard Lladó Grove}
 To distribute the heat that is generated from the plutonium. In order to do so, the water will be under high pressure. If the pressure inside the pipe system is 50 bar, or around 5 MPa, the water has a boiling temperature at $264^\circ$C. This will give some advantages for the system in the sense that it is almost impossible to maintain a temperature below $100^\circ$C which is waters normal boiling point, when transporting 2kW of heat.\\
 
 \noindent
