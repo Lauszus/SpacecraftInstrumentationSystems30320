@@ -38,6 +38,8 @@
 }
 \makeatother
 
+\newcommand{\mycourse}[0]{30320 Spacecraft Instrumentation Systems}
+
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\chaptermark}[1]{\markboth{
@@ -50,6 +52,8 @@
 \fancyhead[LE,RO]{\thepage}
 \fancyhead[RE]{\slshape \leftmark}
 \fancyhead[LO]{\slshape \rightmark}
+\fancyfoot[L]{\begin{footnotesize}{\textsc{Page \thepage{ }of \pageref*{LastPage}}}\end{footnotesize}}
+\fancyfoot[R]{\begin{footnotesize}{\textsc{\mycourse}}\end{footnotesize}}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % \HRule for special horizontal line
 
