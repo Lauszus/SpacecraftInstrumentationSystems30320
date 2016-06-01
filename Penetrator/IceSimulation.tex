@@ -158,7 +158,39 @@ By comparing this to figure \ref{fig:simResults}, it is clear that there are dis
 To generate these graphs a cross-sectional area of $\SI{0.04}{m^2}$ and a heater length of 0.15 m was used. The choice of the heater length is meant to reflect that most of the heating power will be situated in the front of the penetrator. Of course, this is not an entirely physically correct picture, since some power will distributed through the penetrator to keep the instruments at a pleasant temperature and make sure that the top of the does not get stuck in freezing ice. Additionally, the density, heat capacity and thermal conductivity are assumed to be constant throughout the ice, further simplifying the picture. However, seeing as the calculations and the simulations provide very similar results it is probably safe to assume that the results can be trusted to reflect the real world, at the very least as a first approximation.\\
 
 \subsubsection{Salinity} \label{sec:iceSalinity}
-As previously mentioned, the ice will certainly include some amount of salts and other pollutants, however the actual amount and composition is still unknown. The pollutants will definitely have an effect on the penetration time, but it is difficult to find data on the effects salinity have at low temperatures \cite{book:thomas2009sea}
+As previously mentioned, the ice will certainly include some amount of salts and other pollutants, however the actual concentration and composition is still unknown. These pollutants will most definitely have an effect on the penetration time, but it is difficult to find numerical values for the thermal properties at differently salinities and temperatures - especially for other salts than sodium chloride. However, Thomas and Dieckmann (2009)\cite{book:thomas2009sea} states that for sea ice these parameters can be approximated by empirical formulas:\\
+
+\noindent
+For the thermal conductivity, the following relation holds
+\begin{equation}
+K_{si}=\frac{\rho_{si}}{\rho_i}\left(2.11 - 0.011 T + 0.09 \frac{T}{S} - \frac{\rho_{si}-\rho_i}{1000}\right)\SI{}{\frac{W}{m K}}
+\end{equation}
+Where $\rho_{si}$ is the density of sea ice (on average $\SI{910}{\frac{kg}{m^3}}$\cite{article:timco19961}), $\rho_i$ is the density of pure water ice ($\SI{927}{\frac{kg}{m^3}}$), $T$ is the temperature measured in $^\circ C$ and $S$ is the salinity in ppt.\\
+Similarly, the heat capacity can be approximated as
+\begin{equation}
+C_{si} = \left(2.11 + 17.2 \frac{S}{T^2}\right)\SI{}{\frac{kJ}{kg K}}
+\end{equation}
+And finally, the latent heat of fusion is given by
+\begin{equation}
+L_{si}=\left(333.4-2.11T-0.114S+18.1\frac{S}{T}\right)\SI{}{\frac{kJ}{kg}}
+\end{equation}
+
+\noindent
+Plotting these equations for varying temperatures and salinities results in figure \ref{fig:iceSalinity}.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.9\textwidth]{figures/LAMC/salinity}
+	\caption{Thermal parameters of sea ice as a function of temperature and salinity.}
+	\label{fig:iceSalinity}
+\end{figure}
+As can be seen, both the thermal conductivity and the latent heat of fusion decreases with increasing salinity, while the heat capacity increases. \\
+
+\noindent
+The increase of the heat capacity will result in more energy being needed to heat up the ice, which will work towards increasing the penetration time. On the other hand, the decreasing heat of fusion and thermal conductivity will mean that less energy is needed for the melting process and there will be an overall lower loss as less heat is conducted away from the penetrator.\\
+
+\noindent
+Seeing as the latent heat accounts for some 65-80\% of the ideal amount of energy needed to melt through the ice, it would seem that the decrease in the latent heat of fusion alone would outweigh the increase in heat capacity. Combining this with the decrease in thermal conductivity as well strongly indicates that salinity will actually work in favor of the mission and decrease the penetration time. Of course, these empirical formulas are designed to work with sea ice containing mainly NaCl while the composition of the Europan pollutants is unknown. It seems likely, however, that other salts will have similar effects. 
+
 
 \subsubsection{Future Work}
 
