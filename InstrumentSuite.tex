@@ -4,13 +4,13 @@
 
 * What do we want to measure and why? Explain why some instruments were picked and some were discarded (we can use the notes from when we did that in class)
 
-\section{Up-concentration}
 
-* Petri Dish can be used for cultivation
+\autsection{Sample up-concentration & injection}{Morten Lykke Hilligsøe}
+Although the instruments selected for the mission have high detection rates, up-concentration of the surrounding waters will enable the detection and quantification of low concentration compounds. To do this, the surrounding water is passed through a ceramic nano filter, which retains any microbes such as bacteria and viruses, as well as most particles. The filter was originally developed in collaboration with NASA, for use in water recycling systems on space missions. After running the surrounding water through this filter for an extended period of time, the water flow is reversed and directed to the instrument suite. When reversing the water flow, the particles on the surface of the filter will be extracted relatively quickly, thereby resulting in an up concentrated sample liquid.
 
-\section{Water flow for the instruments} % Figure out a better title?
+In order to reverse the water flow, a pump is needed. Peristaltic pumps are mechanically very simple and reliable, and therefore suitable for space missions. However the HPLC system described in section \ref{sec:hplc}, requires a pump operating at pressures outside the range of most peristaltic pumps. In order to combine the two pumps of the filtration system and HPLC system, a single high pressure pump \cite{} is used. The suggested high pressure pump has a maximum flow rate of 40ml/min at 500 psi, and most likely higher at lower pressures. 40ml/min isn't a lot, but it accumulates to 57,6l of water per day. If 50l of water is filtered in 1 day, and the filter residue can then be extracted into 50ml of sample water, an up-concentration factor of 1000 has been achieved, which should be sufficient for most experiments.
 
-* Water convection is not enough. We need a pump (peristaltic pump).
+To direct the water flow several valves will also be required. Figure \ref{fig:filter} presents a water filtration system, complete with valves and tubing, which can be implemented inside the penetrator, allowing up-concentration of the surrounding water. In this system, a disk-shaped filter is used in combination with a central valve which open or blocks the water flow into the instrument suite, as well as a system of valves (flaps) which opens or blocks external water flow to up-concentrating side of the filter. After the sample reaches the instrument suite, other valves can direct which specific instruments should receive the sample.
 
 \section{Sample handling}
 
@@ -39,6 +39,7 @@
 \section{XRF}
 
 \autsection{HPLC}{Morten Lykke Hilligsøe}
+\label{sec:hplc}
 High-performance liquid chromatography (HPLC and also known as high-pressure liquid chromatography), is a chemical technique commonly used to identify, quantify and separate components of a liquid sample. Most commonly, the technique uses pressure to pump a solvent through a column filled with silica beads covered in carbohydrates. The silica beads typically have a size range of 2–50 micrometers in diameter. By mixing the sample with a polar solvent, such as acetonitrile or methanol, and passing it through the highly non-polar silica beads, each component of the sample will interact differently with the column, thereby affecting flow rates of each compound and making it possible to separate them. 
 
 Many different HPLC techniques exist, including:
@@ -123,7 +124,7 @@ The chosen pump is a displacement piston pump, which are commonly used high pres
 \end{equation}
 Which is then rounded up to 50ml per experiment, because some solvent is also necessary to flush the column before experiments.
 
-Several connectors and peripheral equipment will also be required, resulting in a system which, during operation, requires a power input of approximately 100W, and has a total weight of around 4kg plus approximately 0.05kg of solvent per experiment. The volume of the individual components are quite large when considering the size of the penetrator, but by stripping each component down to the bare minimum, e.g. getting rid of shielding and user interfaces, the size and weight should be low enough for the HPLC solution to be contained within the penetrator. 
+Several connectors and peripheral equipment will also be required, resulting in a system which, during operation, requires a power input of approximately 100W, and has a total weight of around 4kg plus approximately 0.05kg of solvent per experiment. The volume of the individual components are quite large when considering the size of the penetrator, but by stripping each component down to the bare minimum, e.g. getting rid of shielding, user interfaces and AC-DC converters, the size and weight should be low enough for the HPLC solution to be contained within the penetrator. 
 
 The data transfer rates can be calculated from the sampling frequency $f$, the sampling range $l$, the sampling resolution $\delta$, and the bit-size $b$ of each measurement point:
 \begin{equation}
