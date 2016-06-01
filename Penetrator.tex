@@ -98,7 +98,27 @@ Figures \ref{fig:ICD}, \ref{fig:HWD} and \ref{fig:CTDI} illustrates the three me
 \autsection{RTG design}{Ricard Lladó Grove}
 
 \autsubsection{Radioactive Sources}{Jean-Paul Breuer}
+A Radioisotope Thermal Generator (RTG), is essentially an nuclear battery that uses thermocouplers to convert the heat released by a selected radioactive source into electricity. Many radioactive sources exist which could serve the purpose of fuel for the RTG specific to this mission, but not all of the known radioactive isotopes would be efficient or viable for the task. There are three important characteristics to keep in mind when attempting to select the ideal radioactive isotopes.
 
+An important criteria is the half-life time of the selected isotope. The minimum viable time is computed based on highly conservative estimates, where the main condition is that the isotope must still be able to provide sufficient energy for the instrumentation well after the coasting phase and the melting phase. Dependent on which rocket the mission is given, the coasting time could be anywhere between 2 and 8 years, and dependent on which landing site is chosen on the surface of Europa, the melting phase could take between 1 and 10 years (at a 200 day per km of ice melting rate). 
+
+The amount of energy per time released is inversely proportional to its half life, so the ideal radioactive candidate will require a half life in the magnitude of several decades. To sit well within the mass, power, and volume budget, another criteria is that it must produce sufficiently large amount of power per mass and volume. The last criteria is that the type of radiation is easily absorbed and converted into thermal radiation, in other words, maximize the alpha particles released, and minimize the gamma, neutron, and penetrating radiation.
+
+Given the three main criteria, it is possible to exclude many isotopes immediately, although the most likely candidates are given in Table \ref{tab:isotopes}. 
+
+\begin{table}[h!]
+	\begin{tabular}{c|c|c|c}
+		Candidate Isotopes & Half-Life & Power & Gamma, Neutron Level & Availability\\
+		\hline
+		Plutonium-238 & 87.7 years & $\sim$ 671W/kg & Low & Low\\
+		Uranium-235 & 704 million years & $\sim$ & Medium & Low\\
+		Strontium-90 & 28.8 years & $\sim$ & Medium & High\\
+		Americium-241 & 432 years & $\sim$ & Low & High\\
+	\end{tabular}
+	\caption{Table of radioactive sources that can be used for the RTG, half-life, power, and other information are given. \label{tab:isotopes}}
+\end{table}
+
+As can be seen from the table, Plutonium-238 and Americium-241 would seem like viable candidates for this mission.
 
 \subsection{Radiation from Pu238}
 After looking at the different materials, Plutonium-238 (Pu238) is radioactive material that is going to be used for the mission due to the the half-life of 87.7 and the minimum radiation of gamma and neutrons. 
