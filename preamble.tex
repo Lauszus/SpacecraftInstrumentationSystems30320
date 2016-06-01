@@ -26,9 +26,11 @@
 \usepackage{fancyhdr}
 \setlength{\headheight}{14.5pt} % Fix warning
 \usepackage{enumitem}
+\usepackage{lastpage}
 
 \setlist[enumerate]{noitemsep}
 \setlist[itemize]{noitemsep}
+
 
 \makeatletter
 \AtBeginDocument{%
@@ -49,9 +51,10 @@
 		\thechapter.\; \MakeUppercase{#1}
 	\fi
 }{}}
-\fancyhead[LE,RO]{\thepage}
+%\fancyhead[LE,RO]{\thepage}
 \fancyhead[RE]{\slshape \leftmark}
 \fancyhead[LO]{\slshape \rightmark}
+\fancyfoot{}
 \fancyfoot[L]{\begin{footnotesize}{\textsc{Page \thepage{ }of \pageref*{LastPage}}}\end{footnotesize}}
 \fancyfoot[R]{\begin{footnotesize}{\textsc{\mycourse}}\end{footnotesize}}
 
