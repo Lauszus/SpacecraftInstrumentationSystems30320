@@ -192,16 +192,22 @@ Seeing as the latent heat accounts for some 65-80\% of the ideal amount of energ
 
 
 \subsubsection{Future Work}
+The heating simulation that has been developed strongly indicates that total ice sheet penetration can be achieved within realistic time frames, however, there are a number of ways the simulation can be expanded and made to reflect reality closer.\\
 
-motivation 
+\noindent
+Currently, the simulation only operates on a small subsection of the ice at any given time. This means that some accuracy is lost as the cold wave moving from the top of the bore hole towards the penetrator might not be properly realized. A similar issue arises with the heat wave expanding radially outward from the heater reaches the edges of the window. Additionally, the resolution is fairly coarse meaning that detailed information about the temperature gradient close to the penetrator is not attainable.\\
+These issues could be alleviated by using a larger simulation window and better resolution at the expense of computation time. Implementing a adaptive grid with a spatially varying resolution would be a good way to reduce the computation time considerably and at the same time gain a larger window and a finer resolution where it is needed. It would also be advantageous to use cylindrical coordinates instead of Cartesian given the symmetry of the situation.\\
 
-limitations
+\noindent
+Using the empirical models for sea ice, the simulation could be extended to include the effect of salinity in order to investigate whether the penetration time is indeed lowered as simple analysis suggest. The effects of other compounds than sodium chloride should also be investigated, however, this will likely require extensive experimental work as many different compositions might exists on Europa.\\
 
-implementation
+\noindent
+At the moment, the integration is done in a fairly naive manner by simply adding the calculated time derivative to the current temperature. While this works fine for short time steps, it quickly breaks down causing numerical instabilities as the time step is increased. By implementing more sophisticated integration algorithms the time step could be increased, drastically reducing run times and increasing the accuracy of the simulation simultaneously.\\
 
-results
+\noindent
+The simulation works on a grid with a fixed element size. The result of this is that the volume changes that are associated with the phase change of water are not taken into account. While this should not have a great effect on the ice melting itself, it should be evaluated as it effects how the bore hole refreezes. It will also result in a change in pressure, something that the simulation is currently unable to deal with. These effects should also be accounted for, for the simulation to be as accurate as possible.\\
 
-verification
+\noindent
+Finally, there is the issue of the coupling coefficient. This semi-physical parameter has an enormous influence on the amount of energy loss and by extension the penetration time. As mentioned, this was more or less arbitrarily chosen to best match the result of the analytical expressions for the power loss as well as possible. However, this is not exactly ideal as it is hard to determine how well this reflects reality. Experiments should be conductor to determine how this coefficient varies as the configuration of the heater is changed.     
 
-salinity considerations
 
