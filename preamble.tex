@@ -40,10 +40,12 @@
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\chaptermark}[1]{\markboth{
-	\ifnum0\thechapter<1
-		\MakeUppercase{#1}
-	\else
-		\thechapter.\; \MakeUppercase{#1}
+	\if@mainmatter
+		\ifnum0\thechapter<1
+			\MakeUppercase{#1}
+		\else
+			\thechapter.\; \MakeUppercase{#1}
+		\fi
 	\fi
 }{}}
 \fancyhead[LE,RO]{\thepage}
