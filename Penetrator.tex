@@ -121,23 +121,19 @@ Given the three main criteria, it is possible to exclude many isotopes immediate
 As can be seen from the table, Plutonium-238 and Americium-241 would seem like viable candidates for this mission; however, Americium requires further shielding due to it releasing gamma radiation along with the alpha particles. Strontium-90 is readily available as side products of nuclear reactors, but also requires heavy shielding due to the gamma particles, else it might damage the remainder of the electronics and instrumentation in the vicinity. Plutonium-238 is the ideal candidate, but is not currently found on Earth in sufficiently high quantities as it is only produced as a side product during enrichment for deployment in nuclear weapons. To get the materials in sufficiently high quantities, it would be required to reopen the nuclear facilities in Savannah River (USA), which would cost a significantly high amount of money and would also require a possibly annoying trudge through politics and policy.
 
 \autsubsection{Radiation from Pu238}{Ricard Lladó Grove}
-After looking at the different materials, Plutonium-238 (Pu238) is radioactive material that is going to be used for the mission due to the the half-life of 87.7 and the minimum radiation of gamma and neutrons. 
+After looking at the different materials, Plutonium-238 (Pu238) is the radioactive material that is going to be used for the mission due to the the half-life of 87.7, power production and the minimum radiation of gamma and neutrons. 
 
 The probability of a alpha-decay from a Pu238-atom is close to 100\%: 
 \begin{equation}
 ^{238}\text{Ph} \quad \rightarrow \quad ^{234}\text{U} \quad + \quad ^4 \text{He}
 \end{equation}
-The alpha particle is relatively big with two protons and two neutrons and is therefore easy to shield against. Even if the possibility of an alpha decay is close to almost certain, there is a small possibility of either a spontaneous fission or a cluster decay. A spontaneous fission happens for heavy atoms, where the atom split into two almost equal sized daughter atoms and a number of free neutrons. The possibility of a spontaneous fission for Pu238 is $1.9 \cdot 10^{-7}\%$, but with more than $10^{24}$ atoms for each kg of plutonium, it is certain to happen. The daughter atoms can vary. A cluster decay is something between an alpha decay and spontaneous decay where a cluster of protons and neutrons are emitted. For the Pu238 there is a $1.4 \cdot 10^{-14}\%$ chance that a Si32-atom is emitted leaving a Hg206-atom, and a $6 \cdot 10^{-15}\%$ chance that a Mg30-atom and a Mg28-atom is emitted leaving an Yb180-atom. The daughter isotopes are also radioactive and are most likely to emit a beta-particle. This particle is either an electron or a positron depending on the charge of the particle with a mass much smaller than neutron or proton but since it has an electric charge it can rather easily be stop by a shielding metal.\\
+The alpha particle is relatively big with two protons and two neutrons and is therefore easy to shield against, even a sheet of paper is enough to shield an alpha particle\cite{website:shielding}. Even if the possibility of an alpha decay is close to almost certain, there is a small possibility that the plutonium238 will either decay as spontaneous fission or a cluster decay\cite{website:plutonium}. A spontaneous fission happens for heavy atoms, where the atom split into two almost equal sized daughter atoms and a number of free neutrons\cite{website:spontaneous fission}. The possibility of a spontaneous fission, SF, for Pu238 is $1.9 \cdot 10^{-7}\%$, but with more than $10^{24}$ atoms for each kg of plutonium, it is certain to happen. The daughter atoms generates by the SF can vary. A cluster decay is a decay mode between an alpha decay and spontaneous decay where a cluster of protons and neutrons are emitted. For the Pu238 there is a $1.4 \cdot 10^{-14}\%$ chance that a Si32-atom is emitted leaving a Hg206-atom, and a $6 \cdot 10^{-15}\%$ chance that a Mg30-atom and a Mg28-atom is emitted leaving an Yb180-atom. The daughter isotopes are also radioactive and are most likely to emit a beta-particle. This particle is either an electron or a positron depending on the charge of the particle with a mass much smaller than neutron or proton but since it has an electric charge it can rather easily be stop by a thin layer of a shielding metal. \\
 
 \noindent
-A bigger problem is the free neutrons that for example are emitted due to a spontaneous fission.  The neutrons do not have any electric charge and therefore they will not be stopped by an electric field making them extremely penetrating. To stop a neutron is has to be absorbed by a nucleus or collide with a particle with same speed but opposite velocity and mass as the neutron. Since the materials used to shield alpha and beta particles, for example lead, has a rather small cross-section and hew nuclei per unit mass, hence the neutron can easily pass trough the shielding. Furthermore if the neutron is absorbed to the atom it is likely that the new atom is radioactive as well. Therefore it is important to stop the neutrons, because they can cause a lot of damage if they hit the instruments on board the penetrator. In order to do so protium, a hydrogen atom with no neutron, can be used to absorb the neutron creating in deuterium. Water has a high number density to mass ratio, and is hereby optimal to use as a shielding against the free neutrons.
-
-
-\autsubsection{Shielding}{Ricard Lladó Grove}
-As mentioned a typical shielding material is lead, but for this case zirconium would be a better choice, first of all because it has a melting temperature that is three times higher than lead, and second of all because the material is lighter. It is still not possible to stop the free neutrons, where we instead will use water. First the Plutonium will be surrounded by the zirconium, afterwards a layer of water and in the end some thermocouplers will generate electricity from the heat. 
+A bigger problem is the free neutrons that for example are emitted due to a spontaneous fission.  Neutrons do not have any electric charge and therefore they will not be stopped by an electric field making neutrons extremely penetrating. To stop a neutron it has to be absorbed by a nucleus or collide with a particle with same speed but opposite velocity and mass as the neutron. Since the materials used to shield alpha and beta particles, i.e. lead, has a rather small cross-section and few nuclei per unit mass, hence the neutron can easily pass trough the shielding. Furthermore if the neutron is absorbed in an atom it is possible that the created atom is radioactive as well. Therefore it is important to stop the neutrons, since they can cause a lot of damage if they hit the instruments on board the penetrator. In order to do so protium, a hydrogen atom with no neutron, can be used to absorb the neutron creating in deuterium. Water has a high number density to mass ratio, and is hereby optimal to use as a shielding against the free neutrons.
 
 \autsubsection{Heat Generation}{Ricard Lladó Grove}
-To calculate how much energy one alpha decay will produce, the energy equation derived from Einstein is used:
+After looking at the radiation from a Plutonium atom it was shown that the probability of an alpha decay is extremely high. Therefore it will in the following when calculating the energy outcome from a radiative decay be assumed that plutonium only radiates as an alpha decay. If a more precise result has to be achieved it is necessary to include the other modes of decay and also the whole decay chain since if Pu238 emits an alpha particle U234 is produced. This isotope is also radioactive even though its lifetime is 2.400 years which means that the thermal energy generated is much lower for U234. It is first after 12 decays that the decay chain ends with the stable isotope of lead: Pb206\cite{website:plutonium}. To calculate how much energy one alpha decay will produce, the energy equation derived from Einstein is used:
 \begin{equation}
 \begin{aligned} 
 \text{$E_{atom}$} & ={} mc^2 \\
@@ -147,11 +143,11 @@ To calculate how much energy one alpha decay will produce, the energy equation d
 & = 1.06\cdot 10^{-12} J 
 \end{aligned}
 \end{equation}
-When knowing how much one decay will produce of thermal energy, the number of decays in a radioactive material can be calculated as following:
+Since the mass of Pu238 is higher than the total mass of U234 and He4 energy will be released when the decay occurs. When knowing how much one decay will produce of thermal energy, the number of decays in a radioactive material can be calculated as following\cite{website:decay}:
 \begin{equation}
 A = A_0 \cdot 2^{\frac{t}{\tau}}
 \end{equation}
-where \textit{$A_0$} is the initial number of atoms in a lump of a radioactive material, \textit{A} is the atoms left in the material after a specific time, \textit{t}, with a half-life of  \textit{$\tau$}. The energy produced by one kg of Pu238 over a timespan of one second will then be: 
+where \textit{$A_0$} is the initial number of atoms in a lump of a radioactive material, \textit{A} is the atoms left in the material after a specific time, \textit{t}, with a half-life of  \textit{$\tau$}. The energy produced by 1 kg of Pu238 over a timespan of one second will then be: 
 \begin{equation}
 \begin{aligned} 
 \text{$E_{kg}$} & ={} E_{atom} \cdot [A_0 - A] \\
@@ -160,26 +156,35 @@ where \textit{$A_0$} is the initial number of atoms in a lump of a radioactive m
 & = 671 J
 \end{aligned}
 \end{equation}
-We here see that for each kg of Pu238, 671W energy is generated in form of thermal energy. Since the amount of Pu238 decreases for each decay, the generated energy will also decrease, but rather slowly since the half life is 87.7 years. 
-After the decay to U234, the uranium is also radioactive, undergoing an alpha decay as well. The lifetime is more than 2400 years and therefore the decay from this isotope is much more protracted. The decay chain from Pu238 will end with the stable isotope Pb206 after 12 decays from either alpha or beta decay. \\
+We here see that for each kg of Pu238, 671W energy is generated in form of thermal energy.  \\
 
 \noindent
 Plutonium is normally not used in its pure form. Normally it is processed into the chemical plutonium dioxide, PuO2 \cite{website:plutoniumoxide}. This ceramic is more stable and in case of an accident at launch or re-entry pure plutonium would be scattered into small pieces on a large area under the accident where PuO2 would more or less stay as one big lump which would make it easy to clean up and prevent a radioactive release. Furthermore the melting temperature is $2.660^oC$ and has a low solubility in water, meaning that it does not easily dissolve in water. When using plutonium dioxide compared to pure plutonium the power produced per kg will also decrease. Pu238 weights about 238 atomic units and oxygen weights about 16 atomic units. By calculating the percentage of oxygen compared to plutonium an estimate of the power per mass can be found: 
 \begin{equation*}
 \text{Percentage Plutonium in PuO2} = \frac{p_{Pu} - p_{O2}}{p_{Pu}}\cdot 100\% = \frac{238 - 32}{238}\cdot 100\% = 86.5\% 
 \end{equation*}
-Hereby the heat production is reduced from 671 J to $671J \cdot 0.865 = 580 J$. \\
-
-
+Hereby the heat production is reduced from 671 J to $671J \cdot 0.865 = 580 J$. The thermal energy production stated here is only valid for the first second. Since it takes between two and seven years to reach Europa some of the plutonium oxide will have decayed and hereby the energy production will have decreased.\\
 
 \noindent
-Since we need 2kW of thermal energy and around 100W as electrical energy for the instruments on the penetrator we would need around 5 kg of plutonium. Some extra plutonium is needed because the amount of radioactive material decreases with time, and since the mission takes a couple of years the heat generation have decreased a factor 
+The RTG will be used both as the electric generator and the thermal energy generator to melt through the ice. Here it is assumed that the electric power needed is about 150W and that the needed thermal energy required for melting is 2kW. 
+
+
+
+
+
+
+
+ we need 2kW of thermal energy and around 100W as electrical energy for the instruments on the penetrator we would need around 5 kg of plutonium. Some extra plutonium is needed because the amount of radioactive material decreases with time, and since the mission takes a couple of years the heat generation have decreased a factor 
 \begin{equation}
 N = N_t \left(\frac{1}{2}\right)^{t/\tau} 
 \end{equation}
 
 \noindent
 With a density of 19816 kg$/m^3$, with a mass of 5 kg we would need a a plutonium rod that is 30 cm long and 1.65 cm in radius. It is a good idea that the plutonium has a high surface area compared to the volume, because the heat was to be distributed to the water running in the heat pipes(maybe). Furthermore it is a good thing that the plutonium has the same shape as the penetrator. (Explanation to come) 
+
+
+\autsubsection{Shielding}{Ricard Lladó Grove}
+As mentioned a typical shielding material is lead,for this case zirconium would be a better choice, first of all because it has a melting temperature that is three times higher than lead, and second of all because the material is lighter. It is still not possible to stop the free neutrons, where we instead will use water. First the Plutonium will be surrounded by the zirconium, afterwards a layer of water and in the end some thermocouplers will generate electricity from the heat
 
 
 \autsubsection{Heat pipes}{Ricard Lladó Grove}
