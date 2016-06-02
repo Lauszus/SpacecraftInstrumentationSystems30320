@@ -120,7 +120,7 @@ Given the three main criteria, it is possible to exclude many isotopes immediate
 
 As can be seen from the table, Plutonium-238 and Americium-241 would seem like viable candidates for this mission; however, Americium requires further shielding due to it releasing gamma radiation along with the alpha particles. Strontium-90 is readily available as side products of nuclear reactors, but also requires heavy shielding due to the gamma particles, else it might damage the remainder of the electronics and instrumentation in the vicinity. Plutonium-238 is the ideal candidate, but is not currently found on Earth in sufficiently high quantities as it is only produced as a side product during enrichment for deployment in nuclear weapons. To get the materials in sufficiently high quantities, it would be required to reopen the nuclear facilities in Savannah River (USA), which would cost a significantly high amount of money and would also require a possibly annoying trudge through politics and policy.
 
-\autsubsection{Radiation from Pu238}{Ricard Lladó Grove}
+\autsubsection{Radiation from Pu238}{Ricard Lladó Grove}\label{sec:plutonium}
 After looking at the different materials, Plutonium-238 (Pu238) is the radioactive material that is going to be used for the mission due to the the half-life of 87.7, power production and the minimum radiation of gamma and neutrons. 
 
 The probability of a alpha-decay from a Pu238-atom is close to 100\%: 
@@ -132,7 +132,7 @@ The alpha particle is relatively big with two protons and two neutrons and is th
 \noindent
 A bigger problem is the free neutrons that for example are emitted due to a spontaneous fission.  Neutrons do not have any electric charge and therefore they will not be stopped by an electric field making neutrons extremely penetrating. To stop a neutron it has to be absorbed by a nucleus or collide with a particle with same speed but opposite velocity and mass as the neutron. Since the materials used to shield alpha and beta particles, i.e. lead, has a rather small cross-section and few nuclei per unit mass, hence the neutron can easily pass trough the shielding. Furthermore if the neutron is absorbed in an atom it is possible that the created atom is radioactive as well. Therefore it is important to stop the neutrons, since they can cause a lot of damage if they hit the instruments on board the penetrator. In order to do so protium, a hydrogen atom with no neutron, can be used to absorb the neutron creating in deuterium. Water has a high number density to mass ratio, and is hereby optimal to use as a shielding against the free neutrons.
 
-\autsubsection{Heat Generation}{Ricard Lladó Grove}
+\autsubsection{Heat Generation}{Ricard Lladó Grove}\label{sec:HeatGeneration}
 After looking at the radiation from a Plutonium atom it was shown that the probability of an alpha decay is extremely high. Therefore it will in the following when calculating the energy outcome from a radiative decay be assumed that plutonium only radiates as an alpha decay. If a more precise result has to be achieved it is necessary to include the other modes of decay and also the whole decay chain since if Pu238 emits an alpha particle U234 is produced. This isotope is also radioactive even though its lifetime is 2.400 years which means that the thermal energy generated is much lower for U234. It is first after 12 decays that the decay chain ends with the stable isotope of lead: Pb206\cite{website:plutonium}. To calculate how much energy one alpha decay will produce, the energy equation derived from Einstein is used:
 \begin{equation}
 \begin{aligned} 
@@ -144,7 +144,7 @@ After looking at the radiation from a Plutonium atom it was shown that the proba
 \end{aligned}
 \end{equation}
 Since the mass of Pu238 is higher than the total mass of U234 and He4 energy will be released when the decay occurs. When knowing how much one decay will produce of thermal energy, the number of decays in a radioactive material can be calculated as following\cite{website:decay}:
-\begin{equation}
+\begin{equation}\label{eq:halflife}
 A = A_0 \cdot 2^{\frac{t}{\tau}}
 \end{equation}
 where \textit{$A_0$} is the initial number of atoms in a lump of a radioactive material, \textit{A} is the atoms left in the material after a specific time, \textit{t}, with a half-life of  \textit{$\tau$}. The energy produced by 1 kg of Pu238 over a timespan of one second will then be: 
@@ -163,31 +163,43 @@ Plutonium is normally not used in its pure form. Normally it is processed into t
 \begin{equation*}
 \text{Percentage Plutonium in PuO2} = \frac{p_{Pu} - p_{O2}}{p_{Pu}}\cdot 100\% = \frac{238 - 32}{238}\cdot 100\% = 86.5\% 
 \end{equation*}
-Hereby the heat production is reduced from 671 J to $671J \cdot 0.865 = 580 J$. The thermal energy production stated here is only valid for the first second. Since it takes between two and seven years to reach Europa some of the plutonium oxide will have decayed and hereby the energy production will have decreased.\\
-
-\noindent
-The RTG will be used both as the electric generator and the thermal energy generator to melt through the ice. Here it is assumed that the electric power needed is about 150W and that the needed thermal energy required for melting is 2kW. 
-
-
-
-
-
-
-
- we need 2kW of thermal energy and around 100W as electrical energy for the instruments on the penetrator we would need around 5 kg of plutonium. Some extra plutonium is needed because the amount of radioactive material decreases with time, and since the mission takes a couple of years the heat generation have decreased a factor 
+Hereby the heat production is reduced from 671 J to $671J \cdot 0.865 = 580J$. The thermal energy production stated here is only valid for the first second. Since it takes between two and seven years to reach Europa some of the plutonium oxide will have decayed and hereby the energy production will have decreased. As always the worst case scenario will be chosen where the maximum time of arrival to Europa is seven years assuming that SLS is not ready when the mission has to launch and that the sling shot effect where gravity of the planets are used to increase the velocity is not used. Hereby the decrease of atoms of plutonium can be calculated from equation \ref{eq:halflife}: 
 \begin{equation}
-N = N_t \left(\frac{1}{2}\right)^{t/\tau} 
+\frac{A}{A_0} = 2^{\frac{t}{\tau}} = 2^{\frac{7}{87.7}} = 0.946
 \end{equation}
+where  $t$ and $\tau$ are both measured in years. We see that with a half-life of 87.7 years there will after 7 years be 94.6\% of the brought plutonium is left. Hereby each kg of plutonium oxide will produce $580J \cdot 0.946 = 548.7J$ after 7 years which is the time where the RTG will be used to melt though the ice.
+
+
+\autsection{Thermal Design of RTG}{Ricard Lladó Grove}\label{sec:ThermalDesign}
+The RTG will be used both as the electric generator and the thermal energy generator to melt through the ice. Here it is assumed that the electric power needed is about 150W and that the needed thermal energy required for melting is 2kW in order to get sufficient energy for melting through the ice at the desired rate at 100 days per kilometre. Hereby it is needed to produce 7.5\% extra thermal energy to produce the electrical energy. The energy will be generated by thermocouples which can create a voltage when a temperature difference between two metals that are connected by a wire. The thermocouples will be discussed later in section \ref{sec:thermocouples}. \\
 
 \noindent
-With a density of 19816 kg$/m^3$, with a mass of 5 kg we would need a a plutonium rod that is 30 cm long and 1.65 cm in radius. It is a good idea that the plutonium has a high surface area compared to the volume, because the heat was to be distributed to the water running in the heat pipes(maybe). Furthermore it is a good thing that the plutonium has the same shape as the penetrator. (Explanation to come) 
+As mentioned each kg of plutonium oxide will produce about 548J each each second and 2.15kW is needed. This means that the total amount of PuO2 is: 
+\begin{equation}
+m_{PuO2} = \frac{2150W}{548 \frac{W}{kg}} = 3.92 kg \approx 4 kg 
+\end{equation}
+Hereby with 4 kg of plutonium dioxide sufficient energy is produced to melt through the ice. With a density of $\rho_{PuO2} = 11.46 g/cm^3$\cite{golovnin2001a} the total volume needed can be calculated for the plutonium rod by $V = m/\rho_{PuO2} \approx 0.34 litres$. Before calculating the radius of the rod consisting of plutonium oxide there has to be space to holes across the PuO2 where water can flow trough to get heated. An illustration of the design is shown in figure \ref{fig:RTGcenter}.
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/Ricardo/RTG3.png}
+  \caption{Illustration of the design of the plutonium dioxide with a height of 30cm and a radius of 1.96cm}
+  \label{fig:RTGcenter}
+\end{figure}
+Here the PuO2 is shown with 20 small holes with a radius of 1 mm. Many small holes are made to get a large area so the water more efficient will be heated up. Each hole will have a volume: $V = \pi r^2 h$. Since 20 holes are made in the material this volume will be added in the volume of the penetrator in order to get the right radius of the rod. It can be seen that with a height of 30 cm the radius of the rod will be 1.96cm. Hereby 
 
 
-\autsubsection{Shielding}{Ricard Lladó Grove}
+
+ It is a good idea that the plutonium has a high surface area compared to the volume, because the heat was to be distributed to the water running in the heat pipes(maybe). Furthermore it is a good thing that the plutonium has the same shape as the penetrator. (Explanation to come) 
+
+
+\autsection{Energy generation}{Ricard Lladó Grove} \label{sec:thermocouples}
+In this case the efficiency of the thermocouples does not matter that much since all the thermal energy that are not converted to electrical energy will be used to warm up the water.
+
+\autsubsection{Shielding}{Ricard Lladó Grove} \label{sec:shielding}
 As mentioned a typical shielding material is lead,for this case zirconium would be a better choice, first of all because it has a melting temperature that is three times higher than lead, and second of all because the material is lighter. It is still not possible to stop the free neutrons, where we instead will use water. First the Plutonium will be surrounded by the zirconium, afterwards a layer of water and in the end some thermocouplers will generate electricity from the heat
 
 
-\autsubsection{Heat pipes}{Ricard Lladó Grove}
+\autsubsection{Heat pipes}{Ricard Lladó Grove}\label{sec:heatpipes}
 To distribute the heat that is generated from the plutonium. In order to do so, the water will be under high pressure. If the pressure inside the pipe system is 50 bar, or around 5 MPa, the water has a boiling temperature at $264^\circ$C. This will give some advantages for the system in the sense that it is almost impossible to maintain a temperature below $100^\circ$C which is waters normal boiling point, when transporting 2kW of heat.\\
 
 \noindent
@@ -196,7 +208,7 @@ The pipe system will consist of pipes surrounding the RTG in the bottom and midd
 Insert image of top view of the pipe system and RTG. 
 Insert image of a sideways look of the system.
 
-\autsection{Pressure Distribution Europa}{Ricard Lladó Grove} 
+\autsection{Pressure Distribution Europa}{Ricard Lladó Grove} \label{sec:Pressure}
 
 Secondly the gravitational acceleration is set to be $1.314 \frac{m}{s^2}$, and has been calculated by 
 \begin{equation}
