@@ -26,9 +26,11 @@
 \usepackage{fancyhdr}
 \setlength{\headheight}{14.5pt} % Fix warning
 \usepackage{enumitem}
+\usepackage{lastpage}
 
 \setlist[enumerate]{noitemsep}
 \setlist[itemize]{noitemsep}
+
 
 \makeatletter
 \AtBeginDocument{%
@@ -37,6 +39,8 @@
   }%
 }
 \makeatother
+
+\newcommand{\mycourse}[0]{30320 Spacecraft Instrumentation Systems}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -47,9 +51,12 @@
 		\thechapter.\; \MakeUppercase{#1}
 	\fi
 }{}}
-\fancyhead[LE,RO]{\thepage}
+%\fancyhead[LE,RO]{\thepage}
 \fancyhead[RE]{\slshape \leftmark}
 \fancyhead[LO]{\slshape \rightmark}
+\fancyfoot{}
+\fancyfoot[L]{\begin{footnotesize}{\textsc{Page \thepage{ }of \pageref*{LastPage}}}\end{footnotesize}}
+\fancyfoot[R]{\begin{footnotesize}{\textsc{\mycourse}}\end{footnotesize}}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % \HRule for special horizontal line
 
@@ -72,6 +79,11 @@
   \subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
   \addauthorbelowheading{#2}%
 }
+
+%\newcommand\autsubsubsection[2]{%%
+%	\subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
+%	\addauthorbelowheading{#2}%
+%}
 
 % DTU frieze
 \usepackage{eso-pic}

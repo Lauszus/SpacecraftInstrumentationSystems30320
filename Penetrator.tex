@@ -104,7 +104,7 @@ An important criteria is the half-life time of the selected isotope. The minimum
 
 The amount of energy per time released is inversely proportional to its half life, so the ideal radioactive candidate will require a half life in the magnitude of several decades. To sit well within the mass, power, and volume budget, another criteria is that it must produce sufficiently large amount of power per mass and volume. The last criteria is that the type of radiation is easily absorbed and converted into thermal radiation, in other words, maximize the alpha particles released, and minimize the gamma, neutron, and penetrating radiation.
 
-Given the three main criteria, it is possible to exclude many isotopes immediately, although the most likely candidates are given in Table \ref{tab:isotopes}. Other more known and available isotopes, such as Uranium, have a long half-life time and as such do not generate enough energy per time to be able to sufficiently provide the heat required for ice melting.
+Given the three main criteria, it is possible to exclude many isotopes immediately, although the most likely candidates are given in Table \ref{tab:isotopes}. Other more known and available isotopes, such as Uranium, have a long half-life time and as such do not generate enough energy per time to be able to sufficiently provide the heat required for ice melting. On the other hand, an isotope with a short half life such as Polonium-210, has an extremely high power output but would require a large concentration to be of any use for this mission, and most of the energy would be wasted.
 
 \begin{table}[h!]
 	\begin{tabular}{c|c|c|c|c}
@@ -118,7 +118,7 @@ Given the three main criteria, it is possible to exclude many isotopes immediate
 	\caption{Table of radioactive sources that can be used for the RTG, half-life, power, and other information are given. \label{tab:isotopes}}
 \end{table}
 
-As can be seen from the table, Plutonium-238 and Americium-241 would seem like viable candidates for this mission; however, Americium requires further shielding due to it releasing gamma radiation along with the alpha particles.
+As can be seen from the table, Plutonium-238 and Americium-241 would seem like viable candidates for this mission; however, Americium requires further shielding due to it releasing gamma radiation along with the alpha particles. Strontium-90 is readily available as side products of nuclear reactors, but also requires heavy shielding due to the gamma particles, else it might damage the remainder of the electronics and instrumentation in the vicinity. Plutonium-238 is the ideal candidate, but is not currently found on Earth in sufficiently high quantities as it is only produced as a side product during enrichment for deployment in nuclear weapons. To get the materials in sufficiently high quantities, it would be required to reopen the nuclear facilities in Savannah River (USA), which would cost a significantly high amount of money and would also require a possibly annoying trudge through politics and policy.
 
 \autsubsection{Radiation from Pu238}{Ricard Lladó Grove}
 After looking at the different materials, Plutonium-238 (Pu238) is radioactive material that is going to be used for the mission due to the the half-life of 87.7 and the minimum radiation of gamma and neutrons. 
@@ -207,12 +207,10 @@ where $G = 6.67\cdot 10^{-11}\frac{m^3}{s^2 kg}$ is the gravitational constant, 
 
 \subsection{Melting through the ice} % Lukas, KSL
 
-\subsection{RTG on Top}
+\autsubsection{RTG Placement}{Jean-Paul Breuer and Ricard Lladó Grove}
+The obvious choice for the placement of the RTG within the penetrator would be near the bottom. As the melting mechanism requires going down, having the RTG near the tip would reduce heat loss, maximizing the melting potential of the penetrator, as well as move the center of gravity of the RTG to a more stable position relative to the movement direction. During descent, this lower point of gravity would help with the dirigibility, as the penetrator would be less likely to tip over to one side.
 
-\subsection{RTG on Bottom}
-
-* How do we protect the rest of the instruments against the radiation?
-
+To simply mention as an alternative, there are also pros and cons to having the RTG be placed at the top of the penetrator. Assuming that the RTG is at the top, the instrument suite would be located near the bottom of the penetrator, so it might be already possible to take samples and filter the ice within the column while descending. Once anchored at the bottom of the ice column, having the instrument suite on the bottom of the penetrator would be beneficial in that it would be possible to just dip the tip into the water and have the instrument suite work as intended. Problems with placing the RTG near the top would be the requirement of further and more efficient heat pipes to channel the heat down towards the tip, which would also cause further problems with the instrument suite, as the heat would also have an effect on the instrumentation. It would also cause problems with dirigibility as it would be more probable to fall over to one side, and ultimately end up sideways as a worst case alternative. 
 
 \subsection{Thermal Design}
 
