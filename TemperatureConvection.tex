@@ -205,7 +205,7 @@ It is also noticeable that the energy required to melt the ice will be higher in
 	\label{fig:temperature_simulation}
 \end{figure}
 
-\autsubsection{Water convection}{Kristian Sloth Lauszus}
+\autsubsection{Water convection}{Kristian Sloth Lauszus and Lukas Christensen}
 
 In this section the concept of natural convection will be presented and CFD (computational fluid dynamics) simulations will be used in order to estimate the natural convection for the penetrator.
 \\
@@ -242,8 +242,10 @@ If the Rayleigh number is larger than a certain critical value, natural convecti
 		% Can be used to estimate salinity - can perhaps be used to estimate the melting speed?
 
 \subsubsection{CFD analysis}
-
-Figure \ref{fig:3d_model} shows a CAD model of the penetrator design. The model was simplified to have a channels having the same effect as the flute resulting in guiding the water into the intakes into the penetrator. However due to the complexity a even simpler model was made, as shows in Figure \ref{fig:simplified_3d_model}. The simplified model simply contains of a heating element in the front of a hollow cylinder surrounded by solid ice along the sides. In the back the water column is simulated infinite long. % TODO: How many watts was the RTG assumed to be?
+In an effort to evaluate the feasibility of passive thermal convection a CFD (Computational Fluid Dynamics) analysis has been performed. The software Autodesk CFD was utilized for this purpose. 
+\\
+\\
+Figure \ref{fig:3d_model} shows a CAD model of a potential penetrator design. The model was simplified to have a channels having the same effect as the flutes resulting in guiding the water into the intakes and further inside the penetrator. However, due to the complexity a even simpler model was made, as shows in Figure \ref{fig:simplified_3d_model}. 
 \begin{figure}[htb]
 	\centering
 	\subfloat{
@@ -256,12 +258,7 @@ Figure \ref{fig:3d_model} shows a CAD model of the penetrator design. The model 
 	\label{fig:3d_model}
 \end{figure}
 \\
-By using these boundaries conditions and CFD analysis was made, as can be seen in Figure \ref{fig:cfd}. It can be seen the tip gets about 100 \textdegree C. Resulting in a natural convection through the penetrator at only 0.4 cm/s or 200 s/L, thus a pump system such as a peristaltic pump is properly needed, this will be discussed more in detail in chapter \ref{sec:water_flow}.
-
-% TODO: Comment on different assumptions
-	% I følge simuleringen så bliver den cirka 100 grader (celsius). Reelt vil det nok være mindre, fordi varmen skal fordeles rundt i hele penetratoren
-	% Cirka 10-15 grader, hvis vi følger CFD simuleringen, hvilket passer meget godt med smelte-simuleringen
-
+The simplified model is made of a totally separated heating element in the front of a hollow cylinder. This means that heat will not be conducted from the heater into the bulk of the penetrator. While this is not very realistic, it provides the best possible scenario for convection as it leads to a very large temperature gradient along the length of the penetrator.
 \begin{figure}[htb]
 	\centering
 	\subfloat[Simplified 3D model used for CFD analysis]{
@@ -277,3 +274,18 @@ By using these boundaries conditions and CFD analysis was made, as can be seen i
 	\caption{CFD simulation results}
 	\label{fig:cfd}
 \end{figure}
+\\
+The ice that surrounds the penetrator was designed so as to mimic the expected shape of the bore hold with it being narrow at the heating element and then expanding out to a fixed width near the middle of the penetrator. The diameter of the bore hole is somewhat over exaggerated allowing flow around the penetrator, again, to ensure the best conditions possible for convection.
+\\
+\\
+The internal diameter of the penetrator model is 4 cm, which was chosen because the much smaller diameters resulted in breakdown of the simulation. The heater is simulated as being made of solid copper with a 2000 W internal heat source, while the bulk of the penetrator is made of aluminum. The control volume represents some 4 m of water column with the top being designated as an open surface, meaning that the simulation allows flow through it, as if it was extended indefinitely. The pressure and ambient temperature was set to 120 bar and 0 $^\circ C$, respectively.
+\\
+\\
+By using these boundaries conditions a steady-state CFD analysis was made the result of which is displayed in Figures \ref{fig:cfd} b and c. It should be noted that an adaptive mesh was used to ensure maximum detail within the penetrator.
+It can be seen that the heating element reaches a temperature of around 100 \textdegree C and the back of the penetrator stabilizes near 15 \textdegree C. This results in a natural convection flow through the penetrator at only 0.4 cm/s or 200 s/L. Considering that this result was obtained using unrealistically good conditions and with no resistances inside the penetrator, like for example a filtering system. Thus, a pump system, such as a peristaltic pump, is properly needed to ensure proper water flow to the different instruments in the penetrator. This will be discussed more in detail in chapter \ref{sec:water_flow}.
+
+% TODO: Comment on different assumptions
+	% I følge simuleringen så bliver den cirka 100 grader (celsius). Reelt vil det nok være mindre, fordi varmen skal fordeles rundt i hele penetratoren
+	% Cirka 10-15 grader, hvis vi følger CFD simuleringen, hvilket passer meget godt med smelte-simuleringen
+
+
