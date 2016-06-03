@@ -86,7 +86,6 @@ Figures \ref{fig:ICD}, \ref{fig:HWD} and \ref{fig:CTDI} illustrates the three me
 
 \subsection{Melting}
 
-
 * Water transportation from tip to the end of the penetrator (ref section about convection flow)
 
 * Should measure flow of the water - descent rate
@@ -94,6 +93,30 @@ Figures \ref{fig:ICD}, \ref{fig:HWD} and \ref{fig:CTDI} illustrates the three me
 * Water flow to the instruments. Will have to use a pump in order to increase the flow rate.
 
 * Measure conductivity of the water.
+
+
+\autsection{Pressure Distribution on Europa}{Ricard Lladó Grove} \label{sec:Pressure}
+Europa's atmosphere is really thin: approximately $10^{-11}$ times smaller than the atmosphere of Earth. Hereby it can be approximated that there is no pressure on the surface of Europa. Hereby the pressure will only depend on ice-layer above the penetrator which will increase while descending. The pressure can be calculated by: 
+\begin{equation}
+P = \rho_{ice} g h
+\end{equation}
+where $\rho_{ice}$ is the density of ice and is approximately $\SI{917}{\kg\per\m^3}$\cite{cutnell2007a}, $g$ is the gravitational acceleration measured in $m/s^2$ and $h$ is the depth of the penetrator. The gravitational acceleration can be calculated by:
+\begin{equation}
+g = \frac{GM}{r^2}
+\end{equation} 
+where $G = 6.67\cdot 10^{-11}\frac{m^3}{s^2 kg}$ is the gravitational constant, $M = 4.8\cdot 10^{22}\text{kg}$ is the mass of Europa and $r = \SI{1569}{\km}$ is the radius of Europa\cite{website:propeuropa}. Since the gravitational acceleration is inversely proportional with the radius squared $g$ will increase with increasing. The mass distribution will also change since now there will be mass above you which will pull you in that direction, but on the other hand you will be closer to the mass on the other side of the planet. Therefore the change in gravitational acceleration depends on the distribution of the mass on Europa, and especially how dense the core is which in this case is unknown. 
+ 
+Due to uncertainties of where we land and hereby also the radius of Europa, since Europa is elongated the radius will depend on the landing site. It  
+ 
+ 
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/Ricardo/pressure.eps}
+  \caption{Illustration of distribution of pressure on Europa with both a constant and varying gravitational constant in blue and red, respectively}
+  \label{fig:RTGcenter}
+\end{figure}
+
+
 
 \section{RTG design}
 
@@ -207,16 +230,6 @@ The pipe system will consist of pipes surrounding the RTG in the bottom and midd
 
 Insert image of top view of the pipe system and RTG. 
 Insert image of a sideways look of the system.
-
-\autsection{Pressure Distribution Europa}{Ricard Lladó Grove} \label{sec:Pressure}
-
-Secondly the gravitational acceleration is set to be $1.314 \frac{m}{s^2}$, and has been calculated by 
-\begin{equation}
-g = \frac{GM}{r^2}
-\end{equation} 
-where $G = 6.67\cdot 10^{-11}\frac{m^3}{s^2 kg}$ is the gravitational constant, $M = 4.8\cdot 10^{22}$kg is the mass of Europa and $r = 1560.8$ km is the radius of Europa.  We see that the further the penetrator melts its way down through the ice the radius decreases. The mass distribution will also change since now there will be mass above you which will pull you in that direction, but on the other hand you will be closer to the mass on the other side of the planet. Therefore the change in gravitational acceleration depends on the distribution of the mass on Europa, and especially how dense the core is which in this case is unknown. 
-
-
 
 \section{Selected Design}
 
