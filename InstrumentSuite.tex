@@ -34,7 +34,7 @@ When earth-based living organism dies and decomposes in underwater anaerobic pro
 \\
 \\A small instrument suite should be placed directly in the tip on the arm to measure the water and ice directly, but some of the sample should be extracted and moved to a centralized instrument suite located in the penetrator, due to space restrictions on the arm.
 
-\subsection{Design}
+\subsection{Design Considerations}
 
 \subsubsection{Drill Head}
 Temperature profiles previously presented for the ice layer shows, that the ice at the boundary of the liquid sea may be just beneath the freezing point of ice. This makes it a lot easier to dig in and serves as a basis for the design of a drill head.\\
@@ -99,7 +99,7 @@ We currently don't know the behaviour of syntact foam in vacuum, so the housing 
 
 % Syntactic foam
 
-\subsubsection{Implementation and Design Specifications}
+\subsection{Implementation and Design Specifications}
 A solution used for scaling reference is the Schilling Robotics TITAN 4 Manipulator \cite{Titan4}, seen on figure \ref{fig:titan4}, driven by hydraulic at the shoulder and an electrical motor at the elbow and wrist joints.
 \begin{figure}[htb]
 	\centering
@@ -111,7 +111,7 @@ A solution used for scaling reference is the Schilling Robotics TITAN 4 Manipula
 The TITAN 4 has a fully extenden arm-length of $2\,\mathrm{m}$, so this could at least be reduced to the required $\mathbf{1.5\,\mathrm{m}}$, $75\,\mathrm{cm}$ per arm section. The storage room for the arm during descent is extremely limited, with the cylinder structure of the penetrator having an outer cross-sectional radius of only $10\,\mathrm{cm}$. Since the penetrator will be filled with other measuring instruments, the arm may only have $300\cdot10^-6 \,\mathrm{m^3}$ of space, with a folded length of $0.75\,\mathrm{cm}$. This means that the simplified  cross-sectional dimensions must be no more than $2\times 1\,\mathrm{cm}$ (since it would be folded). This is fairly small, and structural analysis on the arm with these dimension would be required for the final solution. From intuition, and not having any experience with mechanical and structual engieering, it does seem like the arm would easily snap with the dimensions (and movable joints) of $1\times 2\times 150\,\mathrm{cm}$ eliminating the possibility of a robotic arm.\\ 
 The mass of the full-size arm in air is 100kg, which would make the modified arm alone:
 \begin{equation}
-m_{arm}=\frac{1.5\,\mathrm{m}}{2\,\mathrm{m}}\cdot\frac{1\,\mathrm{cm}}{30\,\mathrm{cm}}\frac{2\,\mathrm{cm}}{30\,\mathrm{cm}}\cdot 100\,\mathrm{kg}=\mathbf{0.166kg}
+m_{arm}=\frac{1.5\,\mathrm{m}}{2\,\mathrm{m}}\cdot\frac{1\,\mathrm{cm}}{30\,\mathrm{cm}}\frac{2\,\mathrm{cm}}{30\,\mathrm{cm}}\cdot 100\,\mathrm{kg}=0.166\,\mathrm{kg}
 \end{equation}
 Which seems very small. It would also be possible to modify the design, in order to make it more efficient, with regard to storage space. Re-designing the elbow joint so that the arm folds the other way, would make the folded arm more or less flush with the extruding mount, and it could also be possible to make the arm wider, but leave space in its center, so that it could be folded within itself.\\
 It is not know how the arms depth rating of $4000\,\mathrm{MSW}$ would be affected by the size scaling.\\
@@ -120,7 +120,7 @@ Assuming the arm is solely made out of titanium which has a density of $2700\,\f
 \begin{equation}
 V_{eff,arm}=\frac{m_{arm}}{\rho_{alu}}=\frac{0.166\,\mathrm{kg}}{2700\,\mathrm{\frac{kg}{m^3}}}=61.5\cdot 10^{-6} \, \mathrm{m^3}
 \end{equation}
-
+\\
 In order for the arm have neutral buoyancy, the gravitational forces on the arms$+$the buoyancy material must cancel out with the buoyancy forces of the two. We assume that the instruments and the drill bit weighs $m_{drill}=2\,\mathrm{kg}$ and has the density of steel with a volume of $V_{drill}=2\times 2 \times 0.5 \, \mathrm{cm}=2\,\mathrm{cm^3}=2\cdot 10^{-6}m^3$. If the volume of the syntactic foam is denounced by $V_{buoy}$, the equation will for the arm in salt water ($\rho_{saltwater}=1029 \, \mathrm{\frac{kg}{m^3}}$) be:
 \begin{equation}
 \begin{split}
@@ -129,21 +129,21 @@ In order for the arm have neutral buoyancy, the gravitational forces on the arms
 & \leftrightarrow V_{buoy} = 3.738\cdot 10^{-3}\,\mathrm{m^3}
 \end{split}
 \end{equation}
-Adding more volume to the problem isn't desired, and we may have to conclude that there simply isn't space enough to store the robot arm during descent, with the current penetrator design parameters.
-\iffalse
+Adding more volume to the problem isn't desired, and we may have to conclude that there simply isn't space enough to store the robot arm during descent, with the current penetrator design parameters.\\
+With the added syntactic foam of $m_{foam}=3.738\cdot 10^{-3} \,\mathrm{m^3}\cdot 465\mathrm{\frac{kg}{m^3}}=1.7382\,\mathrm{kg}$, and the drill head with a few instruments, the arm will weigh can take up somewhere around:\
+\begin{subequations}
+\begin{equation}
+m_{arm,total}=0.166\,\mathrm{kg}+2\,\mathrm{kg}+1.7832\,\mathrm{kg}=\mathbf{3.95\,\mathrm{kg}}
+\end{equation}
+\begin{equation}
+V_{arm,total}=61.5\cdot 10^{-6}\,\mathrm{m^3}+2\cdot 10^{-6}\,\mathrm{m^3}+3.738\cdot 10^{-3}\,\mathrm{m^3}=\mathbf{3.8\,\mathrm{m^3}}
+\end{equation}
+\end{subequations}
+Which shows that most of the space will be taken up by the buoyancy material. This can be solved by using a lighter material like steel, but the stiffness of this material may be too low with respect to the structual dimensions of the arm.\\
+It's unsure how the power consumption of the motors and control systems scale with size, but they are not expected to use more than $P_{arm}=\mathbf{20\,W}$ in total, when running.
 
-* Autonomy (Remote controlled? Or Autonomous?)
 
-* Sample extraction location (close to penetrator, far away from it, near ice sheet, mid-water?)
-
-* Support structure (counter-balance)
-
-* DOF (Joint complexity)
-
-* Material (Neutral Buoyancy)
-\fi
-
-\section{Sample handling} % Rasmus et al
+\section{Sample handling} 
 
 * We need a design, I (Kristian) talked with some other about this, but we need to coordinate with the rest of the groups
    (SMS http://www.esmats.eu/amspapers/pastpapers/pdfs/2008/mumm.pdf)
