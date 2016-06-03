@@ -96,15 +96,18 @@ Figures \ref{fig:ICD}, \ref{fig:HWD} and \ref{fig:CTDI} illustrates the three me
 
 
 \autsection{Pressure Distribution on Europa}{Ricard Lladó Grove} \label{sec:Pressure}
-Europa's atmosphere is really thin: approximately $10^{-11}$ times smaller than the atmosphere of Earth. Hereby it can be approximated that there is no pressure on the surface of Europa. Hereby the pressure will only depend on ice-layer above the penetrator which will increase while descending. The pressure can be calculated by: 
+Europa's atmosphere is really thin: approximately $10^{-11}$ times smaller than the atmosphere of Earth\cite{hall1995a}. Hereby it can be approximated that there is no pressure on the surface of Europa. Hereby the pressure will only depend on ice-layer above the penetrator which will increase in thickness while descending. The pressure can be calculated by: 
 \begin{equation}
 P = \rho_{ice} g h
 \end{equation}
 where $\rho_{ice}$ is the density of ice and is approximately $\SI{917}{\kg\per\m^3}$\cite{cutnell2007a}, $g$ is the gravitational acceleration measured in $m/s^2$ and $h$ is the depth of the penetrator. The gravitational acceleration can be calculated by:
-\begin{equation}
+\begin{equation}\label{eq:graviacc}
 g = \frac{GM}{r^2}
 \end{equation} 
-where $G = 6.67\cdot 10^{-11}\frac{m^3}{s^2 kg}$ is the gravitational constant, $M = 4.8\cdot 10^{22}\text{kg}$ is the mass of Europa and $r = \SI{1569}{\km}$ is the radius of Europa\cite{website:propeuropa}. Since the gravitational acceleration is inversely proportional with the radius squared $g$ will increase with increasing. The mass distribution will also change since now there will be mass above you which will pull you in that direction, but on the other hand you will be closer to the mass on the other side of the planet. Therefore the change in gravitational acceleration depends on the distribution of the mass on Europa, and especially how dense the core is which in this case is unknown. 
+where $G = 6.67\cdot 10^{-11}\frac{m^3}{s^2 kg}$ is the gravitational constant, $M = 4.8\cdot 10^{22}\text{kg}$ is the mass of Europa and $r = \SI{1569}{\km}$ is the radius of Europa\cite{website:propeuropa}. Equation \ref{eq:graviacc} is only valid if the mass of the penetrator is much smaller than the mass of Europa which is a valid approximation since the total mass of the penetrator will maximum be 180 kg. Since the gravitational acceleration is inversely proportional with the radius squared, $g$ will increase with increasing depth since the radius will decrease. Illustrated in figure \ref{fig:Pressure} the pressure in MPa is plotted as function of depth both for a constant 
+
+
+The mass distribution will also change since now there will be mass above you which will pull you in that direction, but on the other hand you will be closer to the mass on the other side of the planet. Therefore the change in gravitational acceleration depends on the distribution of the mass on Europa, and especially how dense the core is which in this case is unknown. 
  
 Due to uncertainties of where we land and hereby also the radius of Europa, since Europa is elongated the radius will depend on the landing site. It  
  
@@ -113,7 +116,7 @@ Due to uncertainties of where we land and hereby also the radius of Europa, sinc
   \centering
   \includegraphics[width=0.8\textwidth]{figures/Ricardo/pressure.eps}
   \caption{Illustration of distribution of pressure on Europa with both a constant and varying gravitational constant in blue and red, respectively}
-  \label{fig:RTGcenter}
+  \label{fig:Pressure}
 \end{figure}
 
 

@@ -1,0 +1,72 @@
+\contentsline {todo}{Types of telescopes etc.}{35}{section*.28}
+\contentsline {todo}{pinhole camera basics}{36}{section*.30}
+\contentsline {todo}{ccd, cmos difference}{36}{section*.31}
+\contentsline {todo}{Types of imagers etc.}{36}{section*.32}
+\contentsline {todo}{How to calibrate (point at Jupiter, get transfer matrix using star trackers)}{36}{section*.33}
+\contentsline {todo}{How to protect from radiation. Dynamic Response to Radiation (Julia)}{36}{section*.34}
+\contentsline {todo}{High Gate Measurement (Operating at very far distance, to track trajectory)}{37}{section*.35}
+\contentsline {todo}{Change this title according to analysis/implementation}{48}{section*.37}
+\contentsline {todo}{add reference to this part}{48}{section*.38}
+\contentsline {todo}{fix this reference}{48}{section*.39}
+\contentsline {todo}{add/fix reference}{50}{section*.42}
+\contentsline {todo}{add/fix reference}{54}{section*.47}
+\contentsline {todo}{add/fix reference}{60}{section*.56}
+\contentsline {todo}{add/fix reference}{61}{section*.57}
+\contentsline {todo}{add/fix reference}{61}{section*.58}
+\contentsline {todo}{add/fix reference}{62}{section*.59}
+\contentsline {todo}{add/fix reference}{62}{section*.60}
+\contentsline {todo}{add/fix reference}{64}{section*.63}
+\contentsline {todo}{add/fix reference}{65}{section*.67}
+\contentsline {todo}{add/fix reference}{66}{section*.71}
+\contentsline {todo}{Add table references to the section, as tables will move around! Double check label names and references!}{66}{section*.72}
+\contentsline {todo}{remember label, reference to the above figures.}{66}{section*.78}
+\contentsline {todo}{Consider replacing BdotR with $B\cdot R$ in the above}{71}{section*.80}
+\contentsline {todo}{Double check all figure/table references! Make sure figures has not moved}{73}{section*.85}
+\contentsline {todo}{Perturbations and orbit sustainability}{74}{section*.86}
+\contentsline {todo}{STK differential corrector theory}{74}{section*.87}
+\contentsline {todo}{Sphere of Influence}{74}{section*.88}
+\contentsline {todo}{Flyby B-plane targeting}{74}{section*.89}
+\contentsline {todo}{Other missions - Galileo et al.}{77}{section*.93}
+\contentsline {todo}{Resolution provided by current imaging from casini and imaging spectrometers?}{79}{section*.96}
+\contentsline {todo}{Is 30 percent a realistic coverage? Why? Give a rough estimate of the suitable landing zones. }{79}{section*.97}
+\contentsline {todo}{Introduction to the Europa Moon Surface/environment}{81}{section*.98}
+\contentsline {todo}{Brief Purpose of the Reconnaissance Imaging System}{81}{section*.99}
+\contentsline {todo}{Define limits and boundaries (the whole orbiter will not be designed)}{81}{section*.100}
+\contentsline {todo}{Provide source for this assumption, i.e. the resolution is too low using the sources from Galileo. Image examples?}{82}{section*.101}
+\contentsline {todo}{Refer to the previous section about surface composition. }{82}{section*.102}
+\contentsline {todo}{Communication Window. more to add Ifikratis}{83}{section*.103}
+\contentsline {todo}{Remember source regarding landing autonomy}{83}{section*.104}
+\contentsline {todo}{Refer to Kristians section about image processing}{83}{section*.105}
+\contentsline {todo}{Source regarding 30 pct coverage}{84}{section*.106}
+\contentsline {todo}{Ifikratis image resolution analysis}{85}{section*.107}
+\contentsline {todo}{Source for this assumption (refer to lander team specifications)}{85}{section*.108}
+\contentsline {todo}{More to add about orbit constraints? Radiation?}{87}{section*.109}
+\contentsline {todo}{Implementation: Include ways to calibrate, align spacecraft/telescope}{87}{section*.110}
+\contentsline {todo}{Suggested telescope types based on LROC, LORRI, ISS (Ifikratis)}{91}{section*.113}
+\contentsline {todo}{Suggested sensor types (Ifikratis)}{91}{section*.114}
+\contentsline {todo}{http://www.astro-imaging.com/Tutorial/MatchingCCD.html}{91}{section*.115}
+\contentsline {todo}{readout speed, as required by the calculations}{92}{section*.117}
+\contentsline {todo}{Actual sensor selection...}{92}{section*.118}
+\contentsline {todo}{Tip tilt mirror - top down imaging vs. rotating - coverage?}{92}{section*.119}
+\contentsline {todo}{Which types of camera "movement" will be used to get larger coverage? Tip Tilt? etc.}{92}{section*.120}
+\contentsline {todo}{other aspects to consider when designing hyperspectral cameras (see joseph2015building, page 272)}{98}{section*.131}
+\contentsline {todo}{diagram of the imaging system structure}{99}{section*.132}
+\contentsline {todo}{Which design has been selected for Telescope and Detectors and why?}{99}{section*.133}
+\contentsline {todo}{Selecting the Final pointing method and argument for this selection}{99}{section*.134}
+\contentsline {todo}{System flaws? Is this the best solution?}{100}{section*.135}
+\contentsline {todo}{Currently Available NAC/WAC - See powerpoint}{100}{section*.136}
+\contentsline {todo}{What changes will be necessary to adapt the current systems?}{100}{section*.137}
+\contentsline {todo}{Required support systems. Other to add?}{100}{section*.138}
+\contentsline {todo}{Specific CCD requirements}{104}{section*.144}
+\contentsline {todo}{Thermal system diagram?}{104}{section*.145}
+\contentsline {todo}{radiation protection driven by the sensitive CCD and control circuits.}{106}{section*.151}
+\contentsline {todo}{dynamic radiation shielding?}{108}{section*.152}
+\contentsline {todo}{CCD selection must be considered}{109}{section*.153}
+\contentsline {todo}{CCD, Focal Length and resolution, Aperture Selection}{110}{section*.156}
+\contentsline {todo}{actual flyby velocity?}{119}{section*.174}
+\contentsline {todo}{mass and volume, shielding, power req}{130}{section*.191}
+\contentsline {todo}{conclusion of the overall design, final system requirements used in the design. Final description}{130}{section*.192}
+\contentsline {todo}{image system Overview}{130}{section*.193}
+\contentsline {todo}{image system conclusion}{130}{section*.194}
+\contentsline {todo}{Double check widths of tables and figures due to font size change.}{130}{section*.195}
+\contentsline {todo}{Remove all leftover todos from the orbiter part :)}{130}{section*.196}
