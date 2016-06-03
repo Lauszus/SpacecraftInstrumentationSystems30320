@@ -60,11 +60,14 @@
 		\else
 			\thechapter.\; \MakeUppercase{#1}
 		\fi
+	\else
+		\thechapter.\; \MakeUppercase{#1}
 	\fi
 }{}}
+
 \fancyhead[LE,RO]{\thepage}
-\fancyhead[RE]{\slshape \leftmark}
-\fancyhead[LO]{\slshape \rightmark}
+\fancyhead[RE]{\slshape \rightmark}
+\fancyhead[LO]{\slshape \leftmark}
 
 \providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
 
