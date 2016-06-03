@@ -21,7 +21,7 @@ The energy required for a drill solution consists of two parts: the cutting ener
 	\item Europa ice density:   $124kg/m^3$
 	\item Specific ice cutting energy:   $16MJ/m^3$
 \end{itemize}
-For cutting energy, the key parameter is the specific cutting energy. This parameter is assumed to be $16MJ/m^3$, as measured by \footnote{Greenland Ice Core: Geophysics, Geochemistry, and the Environment, Volume 33,  Chester C. Langway, Hans Oeschger, W. Dansgaard}. Other sources, e.g. \footnote{Life in Extreme Environments, Ricardo Amils, J. Cynan Ellis-Evans, Helmut Hinghofer-Szalkay}, have measured specific cutting energies of similar size, at $20MJ/m^3$.
+For cutting energy, the key parameter is the specific cutting energy. This parameter is assumed to be $16MJ/m^3$, as measured by \cite{icecore}. Other sources, e.g. \cite{extremeenvironments}, have measured specific cutting energies of similar size, at $20MJ/m^3$.
 
 The result is a cutting energy of:
 \begin{equation}
@@ -35,7 +35,7 @@ The potential energy required to move the ice, will have to at least match the v
 E_{pot} = m \cdot g \cdot h = \rho \cdot V \cdot g \cdot h\\
  = (0.15m)^2 \cdot \pi \cdot 124kg/m^3 \cdot 1.3m/s^2 \cdot 2m \cdot 1000m/km = 22.8 kJ/km
 \end{multline}
-Where the surface gravity of Europa is provided by \footnote{\url{https://en.wikipedia.org/wiki/Europa_(moon)}}, and the ice density $\rho$ is calculated from the value on earth at -180°C as stated in \footnote{\url{https://en.wikipedia.org/wiki/Properties_of_water}}:
+Where the surface gravity of Europa is provided by \cite{wiki_europa}, and the ice density $\rho$ is calculated from the value on earth at -180°C as stated in \cite{wiki_water}:
 \begin{equation}
 \rho_{Europa} = \rho_{Earth} \cdot \frac{g_{Europa}}{g_{Earth}}
 \end{equation}
@@ -44,12 +44,12 @@ Where the surface gravity of Europa is provided by \footnote{\url{https://en.wik
 \end{equation}
 Compared to the cutting energy, the potential energy seems insignificant. However, this might not be a realistic assumption, since the shaved ice will most likely take up more space than the equivalent amount of solid ice, and will therefore have to either be moved additionally, or compressed. Also, the drilling equipment will most likely take up a much greater volume than the probe itself, and this energy must therefore be expected to increase in multifold.
 
-But even if the energy required to drill through the ice is reasonable, drilling time and system weight are key parameters. Table \ref{tab:ice_core_drilling}\footnote{A Fast Mechanical-Access Drill for Polar Glaciology, Paleoclimatology, Geology, Tectonics, and Biology, Gary D. Clow and Bruce Koci}  presents these key parameter for two currently employed methods of ice drilling: Ice Core Drilling (ICD) and Hot-Water Drilling (HWD), as well as a solution based on Coiled Tubing Drillling for Ice (CTDI), which have yet to be employed in ice drilling projects. As seen from this table, drilling a 3.5km borehole can take as little as 6-8 days by using a CTDI system. However, the weights of such systems are in the tens-hundreds of tonnes, making ice drilling systems impossible to bring as payload on a rocket.
+But even if the energy required to drill through the ice is reasonable, drilling time and system weight are key parameters. Table \ref{tab:ice_core_drilling} presents these key parameter for two currently employed methods of ice drilling: Ice Core Drilling (ICD) and Hot-Water Drilling (HWD), as well as a solution based on Coiled Tubing Drillling for Ice (CTDI), which have yet to be employed in ice drilling projects. As seen from this table, drilling a 3.5km borehole can take as little as 6-8 days by using a CTDI system. However, the weights of such systems are in the tens-hundreds of tonnes, making ice drilling systems impossible to bring as payload on a rocket.
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.7\textwidth]{figures/mlh/table_ice_core_drilling}
-  \caption{Comparison of the weights and times required to drill a 3.5-km borehole through ice using ice-coring, hot-water, and CTDI drilling systems.}
+  \caption{Comparison of the weights and times required to drill a 3.5-km borehole through ice using ice-coring, hot-water, and CTDI drilling systems. \cite{Gari2002Drill}}
   \label{tab:ice_core_drilling}
 \end{figure}
 
