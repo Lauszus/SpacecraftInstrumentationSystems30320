@@ -46,7 +46,7 @@ The WAC can operate on its own, but it will require a dynamic flyby to re-target
 
 When considering a camera system that should generate data about the surface elevation, it is natural to consider stereo imaging. The common way to generate stereo images is to operate two cameras at once, each viewing the scene from a slightly different angle. As this is a costly approach, an alternative way is proposed for this mission. By using the spacecraft attitude control systems to move the spacecraft, it is possible to generate stereo images, using only one camera. This method is illustrated in figure \ref{fig:stereoimg}. Naturally, it will require more from the attitude control systems, as the spacecraft must be able to point in specific directions on command. However, using this approach, stereo imaging can be added - independent on the number of cameras provided by the orbiter.
 
-\begin{figure}[h!]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.4\textwidth]{figures/Orbiter/Stereo_Satellite.png}
 \caption{Stereo Imaging using one camera. Source: DigitalGlobe, \cite{satimgcorp2015}.}
@@ -54,7 +54,7 @@ When considering a camera system that should generate data about the surface ele
 \end{figure}
 
 The two structures are compared in table (\ref{tab:score_system_structure}). It is apparent that the single camera method is a simple and cheap but it will be less suited for a surface mapping, as it can only provide either wide or narrow angle imaging - but not both. As the WAC is the most flexible camera of the two, it has been selected as the camera used for the single camera method. While it may be possible to fulfil all objectives using only one WAC, it will increase the complexity of the flyby and will require multiple passes - one for the low and one for the high resolution. The limited flexibility for the single camera is also the main reason why it will be performing poorly at all of the secondary objectives.
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|l|rr}
     \multicolumn{2}{c|}{\textit{\textbf{System Structure}}} & \textit{Single (WAC)} & \textit{Dual (WAC + NAC)} \bigstrut[b]\\
@@ -113,7 +113,7 @@ If the object is slightly larger, it will still only be reproduced as a single p
 \todo[inline]{Which types of camera "movement" will be used to get larger coverage? Tip Tilt? etc.}
 \subsection{Imaging Spectroscopy}\label{sec:imaging_spectroscopy}
 By combining conventional imaging with spectroscopy, it is possible to obtain both the spatial and spectral information of the lunar surface. This combination is commonly known as imaging spectroscopy. This is illustrated in figure \ref{fig:spectral_information}. In this illustration, the spectral bands has been separated using the white lines. Hyperspectral imaging uses many, relatively narrow bands. In comparison, multispectral imaging uses fewer, broader bands, resulting in a lower spectral resolution. 
-\begin{figure}[H]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.75\textwidth]{figures/Orbiter/spectral_information}
 \caption{The resolution is defined by the number of bands but also by their bandwidth.}
@@ -126,7 +126,7 @@ Common RGB (color) cameras detects radiation in three bands, typically blue (400
 This type only uses a few extra bands, in addition to the basic color bands (RGB). Around ten bands are commonly used for this imaging technique\cite{elowitz2016}.
 
 One way to implement a simple multispectral camera is to use a filter wheel in front of the detector, illustrated in figure (\ref{fig:filtwheel_miri}). As the selected filter covers the whole detector, the complete image will be filtered and captured. Different filters can be applied in a sequence, effectively creating multispectral data of the lunar surface. 
-\begin{figure}[H]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.30\textwidth]{figures/Orbiter/miri_filterwheel.jpg}
 \caption{The filter wheel used for the MIRI instrument onboard the James Webb Space Telescope. Source: MPIA}
@@ -138,24 +138,25 @@ As the spectral data will be arranged in full frames, only simple post-processin
 It is important to keep in mind that this method will require additional time when switching between each filter. Due to this delay, each frame may be slightly misaligned, due to the spacecraft movement between frames.
 \subsubsection*{Hyperspectral Imaging}
 Most imaging spectrometers rely on complex optical systems to split the light into continuous, narrow bands. This includes the Fourier spectrometer and the grating spectrometer. The wedge spectrometer has been proposed in \cite{puschell1999a} as a simpler alternative. By comparing the different spectrometer assemblies in figure (\ref{fig:spec_compare}), the simplicity of the wedge spectrometer is obvious. Due to the limited time available in this course, the Fourier Transform spectrometer has not been analysed further.
-\begin{figure}[H]
+\begin{figure}[htb]
     \centering
-    \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{figures/Orbiter/spectrometer_fourier.png}
-        \caption{Fourier Transform}\label{fig:spec_fourer}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{figures/Orbiter/spectrometer_grating.png}
-        \caption{Grating}\label{fig:spec_grating}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{figures/Orbiter/spectrometer_wedge.png}
-        \caption{Wedge}\label{fig:spec_wedge}
-    \end{subfigure}
+    \captionsetup[subfigure]{width=0.25\textwidth}
+    \subfloat[Fourier Transform]{
+        \includegraphics[width=.3\textwidth]{figures/Orbiter/spectrometer_fourier.png}
+        \label{fig:spec_fourer}
+    }
+    \subfloat[Grating]{
+        \includegraphics[width=.3\textwidth]{figures/Orbiter/spectrometer_grating.png}
+        \label{fig:spec_grating}
+    }
+    \subfloat[Wedge]{
+        \includegraphics[width=.3\textwidth]{figures/Orbiter/spectrometer_wedge.png}
+        \label{fig:spec_wedge}
+    }
     \caption{A comparison between spectrometer types. Source:\cite{puschell1999a}.}\label{fig:spec_compare}
 \end{figure}
 The Wedge Imaging Spectrometer could be a suitable candidate for the system, as it will certainly require much less mass than the alternatives while providing better spectral resolution, compared to the simple filter wheel approach. Filter based spectrometers, such as the wedge type (\ref{fig:spec_wedge_acq}) uses a linear variable filter (LVF), where the spectral properties vary linearly on the wedge\cite{joseph2015building}. The filter is constructed by overlaying layers of dielectric film with high and low refractive indexes in a specific pattern. Because of the tapered dielectric coatings of the film, the passband center wavelength for the thin-film stack will essentially depend on the thickness of the stack. Therefore, the center wavelength of the radiation passing through the wedge filter will vary linearly along the tapered edge of the wedge filter\cite{joseph2015building}. This concept is illustrated in figure (\ref{fig:spec_wedge2}).
-\begin{figure}[H]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.65\textwidth]{figures/Orbiter/spectrometer_wedge_3}
 \caption{The Linear Wedge Filter, mounted on the detector. Adapted from:\cite{puschell1999a}.}
@@ -166,7 +167,7 @@ From the figure, it can be seen how the wedge filter is coupled very close to a 
 The filter wheel requires several moving parts and a therefore a larger mass. However, it offers an increased amount of flexibility as the system can easily operate with or without filters applied to the imaging sensor. This makes the method very suitable for the secondary objectives, where a filter is not strictly necessary.
 
 The Grating Spectrometer offers a much higher spectral resolution but is unsuited due to the complex design. It is also not very flexible, as it will not be possible to operate the system without generating spectral data, making it unsuited for the secondary objectives. Due to the limited image acquisition methods possible, it will also not be able to give adequate coverage. The different imaging spectrometers has been compared in table \ref{tab:score_imaging_spectrometer}. 
-\begin{table}[H]
+\begin{table}[htb]
   \centering
 \begin{tabular}{l|l|rrr}
 \multicolumn{2}{c|}{\textit{\textbf{Imaging Spectroscopy}}} & \textit{Filter Wheel} & \textit{Grating} & \textit{Wedge} \bigstrut[b]\\
@@ -197,16 +198,17 @@ A high spectral resolution and good coverage is possible with the wedge spectrom
 To improve the performance, a simple solution is suggested. By having an extra detector, the wedge filter and sensor assembly can be removed from the telescope and switched with a bare detector. If a 2D detector is used, this makes it possible to capture full frame images with no filter applied. While it will require moving parts, it will greatly improve the performance of the non-spectral imaging capabilities of the system.
 \subsubsection*{Image Acquisition}
 When considering what spectrometer to use for the imaging system, it is not just a  matter of selecting the lightest and simplest design. Examining the assembly of the two different spectrometer systems makes it clear how the images will be acquired and how the output data will be ordered. The image acquisition method is important to consider, as the ordering of the generated data can affect the post-processing system significantly. Common methods include whisk-broom/push-broom (pixel or line) or staring (frame) captures. The two spectrometer assemblies are shown in figure (\ref{fig:spec_acquisition_compare}). 
-\begin{figure}[H]
+\begin{figure}[htb]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{figures/Orbiter/spectrometer_colli_nieke.jpg}
-        \caption{Dispersive Type}\label{fig:spec_dispersion_acq}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{figures/Orbiter/spectrometer_wedge_nieke}
-        \caption{Wedge Filter Type}\label{fig:spec_wedge_acq}
-    \end{subfigure}
+    \captionsetup[subfigure]{width=0.45\textwidth}
+    \subfloat[Dispersive Type]{
+        \includegraphics[width=.48\textwidth]{figures/Orbiter/spectrometer_colli_nieke.jpg}
+        \label{fig:spec_dispersion_acq}
+    }
+    \subfloat[Wedge Filter Type]{
+        \includegraphics[width=.48\textwidth]{figures/Orbiter/spectrometer_wedge_nieke}
+        \label{fig:spec_wedge_acq}
+    }
     \caption{A comparison between acquisition methods. Adapted from:\cite{nieke1997a}.}\label{fig:spec_acquisition_compare}
 \end{figure}
 The first method (\ref{fig:spec_dispersion_acq}) uses gratings or prisms as the dispersion element. The element separates the incoming electromagnetic radiation into different wavelengths. A single ground pixel is dispersed and focused onto different locations on the array detector\cite{nieke1997a}, resulting in a whisk-broom acquisition but with each "whisk" covering a specific spectral band. This
@@ -214,7 +216,7 @@ The first method (\ref{fig:spec_dispersion_acq}) uses gratings or prisms as the 
 The wedge spectrometer is realised by mounting the detector filter assembly in the focal plane of the imaging optics (\ref{fig:spec_wedge_acq}), \cite{joseph2015building} and \cite{nieke1997a}. By placing the wedge filter along the direction of movement, the imaging system is able able to capture a frame of each cross strip from $x_1$ to $x_n$. With With $n$ strips covering different surface areas, each cross strip will correspond to a specific spectral band, depending on the region on the wedge filter. If a 1D array detector is used (i.e a detector that is 1 pixel wide), the spectrometer will be acquiring each spectral band in a whisk-broom fashion. By using a 2D array detector instead, the spectrometer will acquire the spectral bands in a push-broom fashion. Each recorded frame will contain $n$ different ground strips corresponding to each of the spectral bands in the filter. When the spacecraft moves, each ground strip will be imaged by different positions on the wedge filter, thus creating multispectral data for each surface area.
 
 Unlike the dispersive type, where the full spectra of a single pixel is recorded in a single frame, the wedge filter requires reorganising the data, before the hyperspectral cube can be generated for a given surface area. With $n$ spectral bands, the first and the last band for a given ground strip will be collected with a time difference of $(n-1)\cdot \tau$. As the spectral bands for each ground strip will not be linked, the the attitude stability of the spacecraft will therefore play a major role in the band-to-band registration accuracy\cite{joseph2015building}, therefore requiring more from the support systems. The wedge filter imaging sequence is illustrated in figure (\ref{fig:wedge_filt_img_sequence}), where the surface area is illustrated by the blue square.
-\begin{figure}[H]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Orbiter/wedge_filt_img_sequence.pdf}
 \caption{The wedge filter imaging sequence. Adapted from:\cite{joseph2015building}.}
@@ -253,7 +255,7 @@ array detector, as each spectral channel has a matching area on the detector. Th
 \section{Support Systems Overview}
 \todo[inline]{Required support systems. Other to add?}
 The imaging system requires several support systems that will either be provided as part of the imaging system or shared between the other systems on the orbiter. A comparison of the cost drivers for the different support systems are shown in table \ref{tab:design_cost_driver}. Only a few of the support systems are not shared with other on-board instruments.
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
 \begin{tabular}{p{4cm}|p{11cm}}
 \toprule
@@ -276,7 +278,7 @@ To ensure the stability and achieve the correct orientation of the orbiter-space
 
 Closest approach to Europa at a distance of 100km with a flyby speed of 3.3 km/s and an angular velocity of approximately 0,002rad/s (or 0,1146$^{\circ}$/s), sets the stearing and pointing accuracy requirements of the orbiter. 
 % Table generated by Excel2LaTeX from sheet 'Sheet1'
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{|p{4,7 cm}|p{4,7 cm}|p{4,7 cm}|}
     \hline
@@ -291,7 +293,7 @@ Closest approach to Europa at a distance of 100km with a flyby speed of 3.3 km/s
 \end{table}%
 
 % Table generated by Excel2LaTeX from sheet 'Sheet2'
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{|p{4,7 cm}|p{4,7 cm}|p{4,7 cm}|}
     \hline
@@ -308,7 +310,7 @@ Closest approach to Europa at a distance of 100km with a flyby speed of 3.3 km/s
 Attitude determination will utilise a set of four micro-Advanced Stellar Compass ($\mu$ASC) star trackers (Table \ref{tab:masc}), while electrically-powered reaction wheels will be responsible for the 3-axis control. External disturbance torques will saturate eventually the wheel speed of the reaction wheels, so a set of gimballed thrusters are necessary for  momentum unloading ensuring attitude stabilisation.
 
 % Table generated by Excel2LaTeX from sheet 'Sheet2'
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{|r|c|}
     \hline
@@ -363,7 +365,7 @@ Power system design utilises a single General Purpose Heat Source - Radioisotope
 
 \subsubsection*{General Purpose Heat Source - RTG} 
 Utilizing the natural decay of plutonium-238 oxide (with 83.9\% , GPHS-RTG is capable of delivering a power output of 290 watts of electrical power at BOL. With a long half-life of 87.7 years, fuel is able to provide up to 40,000 operational life-hours making it the ideal choice for our long duration mission. However a 0.8\% annual decrease of thermal power output is expected, reaching 250 watts at EOL. $PuO_2$ is encapsulated into 18 modules with the form of pellets, with each module providing 245 watts of thermal power, with a total output of 4,410 watts. Each pellet is contained within a welded iridium alloy for safety reasons, to avoid oxidation in case of an impact. A thermionic converter made of 572 silicon-germanium thermoelectric elements uses the thermal power produced from the decaying material, converting it to electrical power. Nominal hot shoe temperature is about 1270 K and the converter can reach efficiencies up to 7\%. The whole GPHS-RTG module has a diameter of 0.422 m and length of 1.13 m and weights approximately 56 kg. Total amount of fuel required, stands at 10.9 kg of $PuO_2$ with 9.71 kg being plutonium-238.
-\begin{figure}[H]
+\begin{figure}[htb]
 \centering
 \includegraphics[scale=0.6]{figures/Orbiter/rtg.png}
 \caption{GPHS-RTG cutaway. \cite{rtg}}
@@ -372,17 +374,16 @@ Utilizing the natural decay of plutonium-238 oxide (with 83.9\% , GPHS-RTG is ca
 Orbiters power system design integrates the second RTG module on board the lander, in order to compensate any power needs higher than the available output of the orbiters power source. The imaging system will not be the primary design driver for this part, as the power system will be required - with or without an imaging system. It is also important to consider that the imaging system will mainly be operating, when the penetrator and lander is still docked on the orbiter. At this point, the penetrator and its instruments will not be operating.
 
 \subsection{Radiation Shielding}
-\begin{figure}[ht!]
-\begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=5cm]{figures/Orbiter/electrons.png} 
-\caption{Electrons}
+\begin{figure}[htb]
+\captionsetup[subfigure]{width=0.45\textwidth}
+\subfloat[Electrons]{
+\includegraphics[width=0.48\linewidth, height=5cm]{figures/Orbiter/electrons.png}
 \label{fig:elec}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=5cm]{figures/Orbiter/protons.png}
-\caption{Protons}
+}
+\subfloat[Protons]{
+\includegraphics[width=0.48\linewidth, height=5cm]{figures/Orbiter/protons.png}
 \label{fig:prot}
-\end{subfigure}
+}
  
 \caption{Average spectra of trapped electrons and protons, SPENVIS}
 \label{fig:image2}
@@ -469,7 +470,7 @@ The specified ground resolution for the WAC refers to the required resolution at
 
 At this point, the sensor parameters and the required resolution for the cameras are known. The parameters in table (\ref{tab:ccd_calc_parameters}) are used for the calculations.
 % Table generated by Excel2LaTeX from sheet 'Ark1'
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
 \begin{tabular}{l|l|r|r|l}
 \textit{\textbf{Calculation Parameters}} & \textit{abbreviation} & \textit{WAC} & \multicolumn{1}{r}{\textit{NAC}} &  \bigstrut[b]\\
@@ -501,7 +502,7 @@ Naturally, equation (\ref{eq:alpha_telescope}) can also be applied to calculate 
 mpp = \frac{2h\cdot \tan{\alpha/2}}{CCD_{res}}
 \end{equation}
 The results are shown in table \ref{tab:telescope_calc}
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
 \begin{tabular}{l|l|r|r|l}
 \textit{\textbf{Results}} & \textit{Abbreviation} & \textit{WAC} & \multicolumn{1}{r}{\textit{NAC}} &  \bigstrut[b]\\
@@ -524,27 +525,28 @@ The results are shown in table \ref{tab:telescope_calc}
 Based on the initial analysis in section \ref{sec:imaging_spectroscopy}, it is expected that hyperspectral imaging will be needed to provide an adequate spectral resolution to analyse the surface composition. The wedge spectrometer is a relatively new technology but it is possible to buy linear wedge filters for hyperspectral imaging purposes. Due to the limited knowledge about this part of the design, a specific model of linear wedge filter has not been selected.
 
 The imaging spectrometer uses a sensor with a range of around 400 to 1000 nm. The sensor therefore does not cover much of the near IR range (700 nm to 2500 nm). Based on the papers \cite{naegeli2015a} and \cite{negi2015a}, imaging spectroscopy within this range would still be suitable for assessment of materials such as the different ice types.
-\begin{figure}[h!]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.65\textwidth]{figures/Orbiter/ice_surface_assessment_spectra}
 \caption{An overview of six different ice spectra. Adapted from:\cite{naegeli2015a}.}
 \label{fig:ice_assessment_spectra}
 \end{figure}
 The second paper focuses on assessment of snow and glaciers using imaging spectroscopy\cite{negi2015a}. The spectra in figure (\ref{fig:ice_assessment_spectra2}) illustrates the change in reflectance, when the ice is contaminated with soil, ash or coal and the different reflectance, when the surface has different features. It can be seen how most of the critical spectral data identifying the specific glacial surface is found within the visible region, 400 to 1000 nm.
-\begin{figure}[h]
+\begin{figure}[htb]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{figures/Orbiter/ice_surface_assessment_spectra_contamination}
-        \caption{Dispersion Element}\label{fig:ice_spectra_contamination}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{figures/Orbiter/ice_surface_assessment_spectra_feature}
-        \caption{Wedge}\label{fig:ice_spectra_feature}
-    \end{subfigure}
+    \captionsetup[subfigure]{width=0.45\textwidth}
+    \subfloat[Dispersion Element]{
+        \includegraphics[width=.48\textwidth]{figures/Orbiter/ice_surface_assessment_spectra_contamination}
+        \label{fig:ice_spectra_contamination}
+    }
+    \subfloat[Wedge]{
+        \includegraphics[width=.48\textwidth]{figures/Orbiter/ice_surface_assessment_spectra_feature}
+        \label{fig:ice_spectra_feature}
+    }
     \caption{A set of example spectra illustrating a contaminated ice surface. Source:\cite{negi2015a}.}\label{fig:ice_assessment_spectra2}
 \end{figure}
 When using imaging spectroscopy for surface material composition analysis, it is often required to work in the near IR and IR ranges to cover the spectral data identifying the material. This can be seen in fig (\ref{fig:material_assessment_spectra}), where most of the spectral details are found in the .
-\begin{figure}[h!]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/Orbiter/surface_assessment_sulfate_brine}
 \caption{Cryogenic reflectance spectra of hydrated sulfates and brines when observed in the range of 500 nm to 2500 nm (visible and near IR), compared to Europa non-icy surface. Source:\cite{pappalardo2013a}.}
@@ -553,7 +555,7 @@ When using imaging spectroscopy for surface material composition analysis, it is
 The detector and therefore the imaging spectrometer is expected to capture within the visible region, from approximately 400 to 1000 nm. This limits the usability for the spectrometer, unless a detector with better IR capabilities is selected for the design.
 \subsection{Data Processing and Storage System}
 Due to the limited communication link, the imaging system cannot transfer the raw data directly to the ground station. This would also be very inefficient, as only some of the data will be needed to select a suitable landing site. Therefore, the imaging system requires a data processing system to reorder, store and filter the data, before they are transferred to the ground station. This concept is illustrated in figure (\ref{fig:dat_process_concept}). The processing stage performs a set of six different tasks.
-\begin{figure}[h!]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Orbiter/data_processing_system.pdf}
 \caption{The Data Processing and Storage concept.}
@@ -571,7 +573,7 @@ Naturally, most of the tasks will be very specific for the image system and will
 %\todo[inline]{overall block diagram of the data processing system data widths}
 \subsection{Storage Estimates}
 A major part of the processing system revolves around the data storage. The image system generates large quantities of data so it is necessary to get an estimate of how much data storage that is needed for the final design. Referring to the sensor parameters listed in table (\ref{tab:ccd_calc_parameters}), the first step is to calculate the data generated each time a frame is captured. When capturing an image from a sensor, the analog voltage from each pixel is converted into a digital value. It is expected that a resolution of more than 8 bits will required to provide adequate pixel resolution but more than 16 bits is not very likely - mainly due to the vast amount of data that will be generated. While an FPGA or ASIC implementation of the image processing system can process "odd" data widths, the data must be rounded to even bytes when they are stored. Therefore, 16 bits has been selected as the worst case scenario, resulting in two bytes per pixel. Using the previous sensor parameters, this results in $\approx 2 Mbytes$ per image frame.
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
 \begin{tabular}{l|r|r|l}
 \textit{\textbf{Image Frame Data}} & \textit{Minimum} & \multicolumn{1}{r}{\textit{Maximum}} &  \bigstrut[b]\\
@@ -586,7 +588,7 @@ A major part of the processing system revolves around the data storage. The imag
   \label{tab:img_frame_data}%
 \end{table}%
 The next step is to determine how often images must be captured to ensure each area is covered exactly once. First, it is assumed that a full frame is captured of the surface, i.e. no spectral imaging. The parameters used for the calculations are found in table (\ref{tab:imaging_parameters}). The ground distance ($gdist$) is calculated from the resolution per pixel ($mpp$) by multiplying by the number of pixels in each direction, as specified in table (\ref{tab:ccd_calc_parameters}).
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|l|r|r|l}
 \textit{\textbf{Parameters}} & \textit{Abbreviation} & \multicolumn{1}{r}{\textit{WAC}} & \multicolumn{1}{r}{\textit{NAC}} &  \bigstrut[b]\\
@@ -612,7 +614,7 @@ Using the orbit parameters and the ground distances provided, the maximum imagin
 \begin{equation}\label{eq:imaging_rate_calc}
 fps_{far} = \frac{1}{gdist_{far,WAC}/V_{avg}} = \frac{1}{104857.6[m]/3300[m/s]} = 0.031 [fps]
 \end{equation}
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
 \begin{tabular}{l|l|r|r|l}
 \textit{\textbf{Imaging Intervals}} & \textit{Abbreviation} & \multicolumn{1}{r}{\textit{WAC}} & \multicolumn{1}{r}{\textit{NAC}} &  \bigstrut[b]\\
@@ -632,7 +634,7 @@ The resulting imaging intervals are shown in table (\ref{tab:imaging_interval}),
 
 Using the same method, the frame rates and data rates can be calculated at all distances, as listed in table (\ref{tab:rate_vs_dist_wac}), (\ref{tab:rate_vs_dist_nac}) and compared in figure (\ref{fig:imaging_data_rate_dist_compare}). The ground resolution $mpp$ and ground distance $gdist$ is also calculated for all distances.
 % Table generated by Excel2LaTeX from sheet 'Ark1'
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|r|r|r|r}
 \multicolumn{3}{c|}{\textit{\textbf{WAC Rate vs. Distance}}} & \multicolumn{1}{r}{\textit{\textbf{}}} &  \bigstrut[b]\\
@@ -652,7 +654,7 @@ Using the same method, the frame rates and data rates can be calculated at all d
   \label{tab:rate_vs_dist_wac}%
 \end{table}%
 % Table generated by Excel2LaTeX from sheet 'Ark1'
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{r|r|r|r|r}
 \multicolumn{3}{c|}{\textit{\textbf{NAC Rate vs. Distance}}} & \multicolumn{1}{r}{\textit{\textbf{}}} &  \bigstrut[b]\\
@@ -671,13 +673,13 @@ Using the same method, the frame rates and data rates can be calculated at all d
     \caption{The data rate vs. the distance, when operating the NAC in full frame mode.}
   \label{tab:rate_vs_dist_nac}%
 \end{table}%
-\begin{figure}[h]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.5\textwidth,page=3,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
 \caption{The data rate relative to the distance, when no spectrometer is used.}
 \label{fig:imaging_data_rate_dist_compare}
 \end{figure}
-\begin{figure}[h!]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.5\textwidth,page=1,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
 \caption{The data rate relative to the number of spectral channels, at the closest distance.}
@@ -686,7 +688,7 @@ Using the same method, the frame rates and data rates can be calculated at all d
 The next step is to determine the data rate, when a spectrometer is added to the system. As the number of spectral channels is not known at this point, the data rate growth will be determined to select a suitable number of channels. Naturally, it is always necessary to image the surface with no filters applied. Therefore, it is expected that one of the channels will not be covered by the wedge filter, essentially imaging the surface as a push broom imager, while capturing spectral data as well.
 
 For these calculations, the worst case situation, the closest distance (100 km), is selected, as the imaging system will operate at the highest rate. When the number of spectral channels is increased, less pixel rows are used per channel, effectively reducing the ground distance covered by the imager. A lower ground distance will naturally result in a higher frame rate and therefore a higher data rate, as calculated by (\ref{eq:imaging_rate_calc}). The data rate growth is shown in table (\ref{tab:imaging_data_rate_growth}) and figure (\ref{fig:imaging_data_rate_growth}).
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|r|r|r|r|r|r|r|}
 \textit{\textbf{Rate Growth}} & \textit{Pixel Rows} & \multicolumn{2}{c|}{\textit{Ground Dist [m]}} & \multicolumn{2}{c|}{\textit{Frame Rate [fps]}} & \multicolumn{2}{c}{\textit{Data Rate [MB/s]}} \bigstrut[b]\\
@@ -711,7 +713,7 @@ For these calculations, the worst case situation, the closest distance (100 km),
 From these results, it is clear that adding a spectrometer will generate a much larger amount of data - especially for the NAC due to its already high resolution. Also important to notice is the huge frame rate required when operating at a high number of channels. This is an obvious issue when operating the wedge spectrometer in push broom mode. If the whisk broom is selected instead, the effective frame rate will be reduced significantly however the coverage will be reduced as well. High coverage per flyby is important in this design so changing to whisk broom mode is not an option.
 
 However, it is very unlikely that the spectral data for very high ground resolutions ($<5[m/pixel]$) and very low ground resolutions ($>50[m/pixel]$) will be relevant for the landing site selection. By reducing the spectral resolution when operating outside these regions, the generated data can be reduced significantly. From figure (\ref{fig:imaging_data_rate_growth}), it is clear that the data rate increases rapidly at higher channel numbers. For the remaining calculations, 100 spectral channels has been selected as this balances a high spectral resolution with a sensible frame and data rate.
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|r|r|r|r|r|}
 \multicolumn{4}{c|}{\textit{\textbf{WAC Rate Growth vs. Distance}}} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \bigstrut[b]\\
@@ -731,7 +733,7 @@ However, it is very unlikely that the spectral data for very high ground resolut
   \label{tab:opt_rate_growth_wac}%
 \end{table}%
  The rate growth calculations has been repeated for the WAC and the NAC, this time using optimal spectral resolutions. The spectral resolution has been selected depending on the ground resolution and therefore the distance. It is expected that the spectrometer will either be operating at the 
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|r|r|r|r|r|}
 \multicolumn{4}{c|}{\textit{\textbf{NAC Rate Growth vs. Distance}}} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \bigstrut[b]\\
@@ -753,7 +755,7 @@ However, it is very unlikely that the spectral data for very high ground resolut
 The results are found in table (\ref{tab:opt_rate_growth_wac}) and (\ref{tab:opt_rate_growth_nac}). It can be seen how both cameras will be operating as a spectrometer; the WAC uses the spectrometer mainly at the closer distances while the NAC operates at the far distances. This ensures the spectrometer is only operated, when the ground resolution is within a range of $5[m/pixel]$ to $50[m/pixel]$. This keeps the data- and frame rate within sensible limits, avoiding the costs of specialised very high speed image sensors and processing systems. However, from a design point of view, the data rates are still high. 
 
 Combining the data rate from the WAC and the NAC, the peak data rates that must be possible to handle by the processing system can be calculated. The result is shown in table (\ref{tab:peak_data_wac_nac}).
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|r|r|r|}
 \textit{\textbf{Peak data rate, WAC + NAC}} & \multicolumn{3}{c|}{\textit{Data Rate [MB/s]}} \bigstrut[b]\\
@@ -773,7 +775,7 @@ Combining the data rate from the WAC and the NAC, the peak data rates that must 
   \label{tab:peak_data_wac_nac}%
 \end{table}%
 The peak data has been illustrated by figure (\ref{fig:imaging_data_peak_throughput}).
-\begin{figure}[h!]
+\begin{figure}[htb]
 %left bottom right top
 \centering
 \includegraphics[width=0.6\textwidth,page=2,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
@@ -783,7 +785,7 @@ The peak data has been illustrated by figure (\ref{fig:imaging_data_peak_through
 This method assumes that it is possible to switch from full frame mode to spectral mode, either by switching the detector or wedge filter. Reducing the spectral resolution instead may be possible instead, if the processing system and the sensor supports reading and storing individual rows.
 
 For the final part of the analysis, the expected ground coverage and the accumulated data generated will be calculated. This will give a good idea of imaging system performance and the requirements from the processing system. First, it is necessary to calculate the expected flyby time. In the first estimate, a linear approximation of the flyby is used. This concept is illustrated in figure (\ref{fig:linear_flyby}). 
-\begin{figure}[h!]
+\begin{figure}[htb]
 %left bottom right top
 \centering
 \includegraphics[width=0.6\textwidth]{figures/Orbiter/linear_flyby.pdf}
@@ -793,7 +795,7 @@ For the final part of the analysis, the expected ground coverage and the accumul
 Europa is here illustrated by the blue circle. The flyby parameters used are listed in table (\ref{tab:orbit_parameters_linear}). %The average velocity has been changed according to the actual flyby proposed earlier in this report. 
 The flyby is expected to go from furthest approach (FA) to closest approach (CA) and then finally back to (FA).
 \todo[inline]{actual flyby velocity?}
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|l|r|l}
 \textit{\textbf{Flyby Parameters}} & \textit{Abbreviation} & \multicolumn{1}{r}{\textit{Value}} &  \bigstrut[b]\\
@@ -825,7 +827,7 @@ The flyby duration can then be determined, using the average velocity:
 T_{flyby,s} = \frac{dist_{flyby}}{V_{avg}}
 \end{equation}
 The resulting initial conditions for the flyby are found in table (\ref{tab:flyby_init_cond}).
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|l|r|l}
 \textit{\textbf{Initial Conditions}} & \textit{Abbreviation} & \multicolumn{1}{r}{\textit{Value}} &  \bigstrut[b]\\
@@ -847,14 +849,14 @@ The altitude can now be calculated using the values already known (\ref{eq:altit
 \begin{equation}\label{eq:altitude}
 altitude = \sqrt{dist_{cen,CA}^2+dist_{CA}^2}-R
 \end{equation}
-\begin{figure}[h!]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.6\textwidth]{figures/Orbiter/linear_flyby_move.pdf}
 \caption{Calculating the new position.}
 \label{fig:linear_flyby_move}
 \end{figure}
 By calculating the ground distance according to the altitude, as it was done in table \ref{tab:rate_vs_dist_wac}, the imaging rate can then be calculated according to equation (\ref{eq:imaging_rate_calc}). The total number of frames can then be calculated from the time between the two intervals and the frame rate. The total data generated during an interval and a flyby is also calculated using this way. The results are shown in table (\ref{tab:wac_flyby_data}).
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|r|r|r|r|r|r|r|r|}
       & \textit{Time} & \textit{Dist. CA} & \textit{Altitude} & \multicolumn{1}{c|}{\textit{Frames}} & \textit{Frames} & \textit{Data} & \multicolumn{2}{c}{\textit{Total Data [MB]}} \\
@@ -876,7 +878,7 @@ By calculating the ground distance according to the altitude, as it was done in 
   \label{tab:wac_flyby_data}%
 \end{table}%
 It can be seen how slightly less than a GB is generated per flyby from the WAC. However, to put the data load in perspective, it is necessary to consider the surface coverage obtained from these data. The total surface coverage has been calculated in table (\ref{tab:wac_flyby_coverage}).
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|r|r|r|r|r|r|r|r|}
       & \textit{Time} & \textit{Altitude} & \textit{Frames} & \textit{Dist,v} & \textit{Dist,v} & \multicolumn{2}{c|}{\textit{Area $[km^2]$}} & \multicolumn{1}{r}{\textit{Area}} \\
@@ -898,7 +900,7 @@ It can be seen how slightly less than a GB is generated per flyby from the WAC. 
   \label{tab:wac_flyby_coverage}%
 \end{table}%
 With a coverage of $6.51$\% compared to the total area of Europa, at least five flybys will be required before the necessary ground coverage is obtained. However, these estimates all assume the imaging system will pointing in the nadir. No attitude control is used to point the spacecraft at different surface areas, increasing the coverage. Adding this feature would certainly increase the flyby coverage, at the added cost of higher data load. Expecting that the spacecraft will point directly towards a suitable landing site is not realistic. Therefore, it is necessary to increase the ground coverage using attitude control. Repeating the calculations for the NAC results in the data and ground coverage listed in table (\ref{tab:nac_flyby_data}) and (\ref{tab:nac_flyby_data}).
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|r|r|r|r|r|r|r|r|}
       & \textit{Time} & \textit{Dist. CA} & \textit{Altitude} & \multicolumn{1}{c|}{\textit{Frames}} & \textit{Frames} & \textit{Data} & \multicolumn{2}{c}{\textit{Total Data [MB]}} \\
@@ -919,7 +921,7 @@ With a coverage of $6.51$\% compared to the total area of Europa, at least five 
   \caption{The total data produced during a single flyby, using the NAC.}
   \label{tab:nac_flyby_data}%
 \end{table}%
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|r|r|r|r|r|r|r|r|}
       & \textit{Time} & \textit{Altitude} & \textit{Frames} & \textit{Dist,v} & \textit{Dist,v} & \multicolumn{2}{c|}{\textit{Area $[km^2]$}} & \multicolumn{1}{r}{\textit{Area}} \\
@@ -941,16 +943,17 @@ With a coverage of $6.51$\% compared to the total area of Europa, at least five 
   \label{tab:nac_flyby_coverage}%
 \end{table}%
 When operating the NAC, the ground coverage will be low but the data load will be very high due to the high resolution of the images. Most of these data are likely to contain scientifically useful data but it is not expected that the data will be transmitted to earth immediately. Only a selection of the high resolution imges will be needed to select a suitable landing site. Therefore, only a few high resolution images will be transmitted, before landing. After the lander has reached the surface, the remaining high resolution imaging can be transmitted, whenever the communication link is not occupied for more important matters. The ground coverage percentage is relatively low but even from one flyby, a surface area of 33549.3$[km^2]$ has been covered by the imager. It is important to keep in mind that the main purpose of the high resolution images is to investigate specific regions further. It is therefore expected that the specific high resolution images that will be selected for further studies will contain interesting regions and possible landing areas. The data rate and amount of accumulated data per flyby has been compared for the two cameras in figure (\ref{fig:data_gen_wac_nac_compare1}).
-\begin{figure}[h!]
+\begin{figure}[htb]
     \centering
-    \begin{subfigure}[b]{0.48\textwidth}
-        \includegraphics[width=\textwidth,page=4,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
-        \caption{Data rates}\label{fig:data_gen_wac_compare}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.48\textwidth}
-        \includegraphics[width=\textwidth,page=5,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
-        \caption{Accumulated Data}\label{fig:data_gen_nac_compare}
-    \end{subfigure}
+    \captionsetup[subfigure]{width=0.45\textwidth}
+    \subfloat[Data rates]{
+        \includegraphics[width=.48\textwidth,page=4,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
+        \label{fig:data_gen_wac_compare}
+    }
+    \subfloat[Accumulated Data]{
+        \includegraphics[width=.48\textwidth,page=5,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
+        \label{fig:data_gen_nac_compare}
+    }
     \caption{Comparison between the data rates and accumulated data for both cameras, during each flyby.}\label{fig:data_gen_wac_nac_compare1}
 \end{figure}
 The coverage can be increased even further if attitude control is used to point the spacecraft. The coverage will then only be limited by the available data storage on the spacecraft. 7111.72$[MB]$ per flyby may sound like a lot, but very large solid state drives (SSDs) already exist. The main constraint is not the storage but the available communication capacity. After all, high resolution imaging will be of no use, if they cannot be transmitted before next spacecraft visits the moon. 
@@ -958,7 +961,7 @@ The coverage can be increased even further if attitude control is used to point 
 To reduce the storage requirements, it may be necessary for the ground station to discard high resolution images of less interesting surface areas. Whether an area qualifies to be further studied or discarded is a complete different analysis and will not be discussed further in this section.
 
 When recording multi spectral data, the coverage will be the same as the previous examples due to the fact that the system is operated in push broom mode, thus imaging the same ground area. However, the frame rate and therefore the data rate will be significantly increased. The data load will now be calculated, when the spectrometer is added to the system. As before, the WAC will operate within the ground resolution range of around $25[m/pixel]$ to $50[m/pixel]$ whereas the NAC will operate within the ground resolution range of $5[m/pixel]$ to $10[m/pixel]$. Both cases will use all 100 channels. The results are seen in table (\ref{tab:wac_flyby_data_spectrometer}) and (\ref{tab:nac_flyby_data_spectrometer}).
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|r|r|r|r|r|r|r|r|}
       & \textit{Time} & \textit{Channels} & \textit{Altitude} & \textit{Res.} & \textit{Ground} & \textit{Frames } & \multicolumn{2}{c}{\textit{Data}} \\
@@ -979,7 +982,7 @@ When recording multi spectral data, the coverage will be the same as the previou
   \caption{The total data generated by the WAC with the spectrometer enabled, during a flyby}
   \label{tab:wac_flyby_data_spectrometer}%
 \end{table}%
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|r|r|r|r|r|r|r|r|}
       & \textit{Time} & \textit{Channels} & \textit{Altitude} & \textit{Res.} & \textit{Ground} & \textit{Frames } & \multicolumn{2}{c}{\textit{Data}} \\
@@ -1001,21 +1004,22 @@ When recording multi spectral data, the coverage will be the same as the previou
   \label{tab:nac_flyby_data_spectrometer}%
 \end{table}%
 From the results, it can be seen that splitting the task between both cameras was not a very good idea. The NAC is already operating at a high frame rate, even without the spectrometer and adding the spectrometer will only make things worse. The NAC will generate excessive amounts of data due to the high frame rate required to keep up with the spacecraft movement. As the WAC is not loaded very much and as it can supply the required ground resolution, using the spectrometer on the WAC alone is a better choice. Comparing the two cameras graphically makes it clear, that the load distribution should be improved further (\ref{fig:data_gen_wac_nac_compare2}).
-\begin{figure}[h!]
+\begin{figure}[htb]
     \centering
-    \begin{subfigure}[b]{0.48\textwidth}
-        \includegraphics[width=\textwidth,page=6,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
-        \caption{Data rates, with spectrometer}\label{fig:data_gen_wac_compare_spec}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.48\textwidth}
-        \includegraphics[width=\textwidth,page=7,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
-        \caption{Accumulated Data, with spectrometer}\label{fig:data_gen_nac_compare_spec}
-    \end{subfigure}
+    \captionsetup[subfigure]{width=0.45\textwidth}
+    \subfloat[Data rates, with spectrometer]{
+        \includegraphics[width=.48\textwidth,page=6,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
+        \label{fig:data_gen_wac_compare_spec}
+    }
+    \subfloat[Accumulated Data, with spectrometer]{
+        \includegraphics[width=.48\textwidth,page=7,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
+        \label{fig:data_gen_nac_compare_spec}
+    }
     \caption{Comparison between the data rates and accumulated data for both cameras, when using spectrometer during flyby.}\label{fig:data_gen_wac_nac_compare2}
 \end{figure}
 Repeating the calculations, this time with the spectrometer operating on the WAC alone results in a significant improvement. The WAC is now in charge of the spectrometer, when operating at ground resolutions of $5[m/pixel]$ to $50[m/pixel]$. The resulting data load can be seen in table (\ref{tab:wac_flyby_data_spectrometer_final}) and (\ref{tab:nac_flyby_data_spectrometer_final}). It is here important to keep in mind that only the imaging imaging data will be transmitted to the ground station. The spectral data will be stored, until the ground station requests specific regions to be transferred.
 % Table generated by Excel2LaTeX from sheet 'Ark1'
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|r|r|r|r|r|r|r|r}
       & \textit{Time} & \textit{Channels} & \textit{Altitude} & \textit{Res.} & \textit{Ground} & \textit{Frames } & \multicolumn{2}{c}{\textit{Data}} \\
@@ -1036,7 +1040,7 @@ Repeating the calculations, this time with the spectrometer operating on the WAC
   \caption{The total data generated when the WAC is responsible for the spectrometer.}
   \label{tab:wac_flyby_data_spectrometer_final}%
 \end{table}%
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|r|r|r|r|r|r|r|r}
       & \textit{Time} & \textit{Channels} & \textit{Altitude} & \textit{Res.} & \textit{Ground} & \textit{Frames } & \multicolumn{2}{c}{\textit{Data}} \\
@@ -1058,19 +1062,20 @@ Repeating the calculations, this time with the spectrometer operating on the WAC
   \label{tab:nac_flyby_data_spectrometer_final}%
 \end{table}%
 To give a better idea of the data rates and storage required by the processing system, the peak data rate and load is shown in figure (\ref{fig:data_gen_wac_nac_compare_final}). It is clear that offloading the NAC brings a significant improvement of the data rates and the total data load. To decrease the requirements, it may be a good idea to reconsider whether a ground resolution interval of $5[m/pixel]$ to $50[m/pixel]$ is really necessary to make an accurate assessment of the surface. This analysis will not be part of this report.
-\begin{figure}[h!]
+\begin{figure}[htb]
     \centering
-    \begin{subfigure}[b]{0.48\textwidth}
-        \includegraphics[width=\textwidth,page=8,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
-        \caption{Data rates, optimised}\label{fig:data_rate_compare_final}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.48\textwidth}
-        \includegraphics[width=\textwidth,page=9,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
-        \caption{Accumulated Data, optimised}\label{fig:data_acc_spec_compare_final}
-    \end{subfigure}
+    \captionsetup[subfigure]{width=0.45\textwidth}
+    \subfloat[Data rates, optimised]{
+        \includegraphics[width=.48\textwidth,page=8,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
+        \label{fig:data_rate_compare_final}
+    }
+    \subfloat[Accumulated Data, optimised]{
+        \includegraphics[width=.48\textwidth,page=9,trim=15mm 15mm 15mm 32mm,clip]{figures/Orbiter/Graphs_excel.pdf}
+        \label{fig:data_acc_spec_compare_final}
+    }
     \caption{Comparison between the data rates and accumulated data for both cameras, with the WAC in charge of the spectrometer.}\label{fig:data_gen_wac_nac_compare_final}
 \end{figure}
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
     \begin{tabular}{l|r|r|r|r|}
 \textbf{} & \textit{Time} & \textit{Altitude} & \textit{Peak Data} & \multicolumn{1}{r}{\textit{Data Generated}} \\
@@ -1094,7 +1099,7 @@ To give a better idea of the data rates and storage required by the processing s
 The peak data rate and generated data for both cameras has been listed in table (\ref{tab:data_rate_storage_requirements_final}). For each flyby, a maximum data rate of 148.68[MB/s] will occur at the closest distance. This is the maximum data rate that should be handled by the processing system. 
 As previously mentioned, a coverage of 6.51\% will require at least five flybys to provide adequate coverage of the surface. The total, accumulated data for all five flybys has been listed in table (\ref{tab:data_rate_storage_requirements_final_5}).
 % Table generated by Excel2LaTeX from sheet 'Ark1'
-\begin{table}[h!]
+\begin{table}[htb]
   \centering
 \begin{tabular}{ll|r|r|l}
       &       & \textit{For 1 flyby} & \multicolumn{1}{r}{\textit{For 5 flybys}} &  \bigstrut[b]\\

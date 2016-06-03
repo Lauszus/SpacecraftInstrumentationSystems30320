@@ -33,14 +33,15 @@ Yagi-Uda antennas consist of a single driven element connected to the transmitte
 
 \begin{figure}[htb]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{figures/Yannis/yagi.jpg}
-        \caption{A typical Yagi-Uda antenna with 3 directors, 1 driven element and 1 reflectors}\label{Yagi}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{figures/Yannis/log2.jpg}
-        \caption{The basic components of a log periodic dipole array. The forward direction is to the left in this sketch}\label{log}
-    \end{subfigure}
+    \captionsetup[subfigure]{width=0.45\textwidth}
+    \subfloat[A typical Yagi-Uda antenna with 3 directors, 1 driven element and 1 reflectors]{
+        \includegraphics[width=.48\textwidth]{figures/Yannis/yagi.jpg}
+        \label{Yagi}
+    }
+    \subfloat[The basic components of a log periodic dipole array. The forward direction is to the left in this sketch]{
+        \includegraphics[width=.48\textwidth]{figures/Yannis/log2.jpg}
+        \label{log}
+    }
     \caption{}
 \end{figure}
 
@@ -128,14 +129,15 @@ Another type of antennas with a lot of potential in our mission is helical anten
 
 \begin{figure}[htb]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{figures/Yannis/helix.jpg}
-        \caption{A typical representation of a helical antenna. The most important parameters, which determine its radiation pattern are shown\cite{helix}}\label{helix1}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{figures/Yannis/H2.png}
-        \caption{Radiation pattern of helical antenna when operating in axial mode\cite{helix}}\label{helix_pat}
-    \end{subfigure}
+    \captionsetup[subfigure]{width=0.45\textwidth}
+    \subfloat[A typical representation of a helical antenna. The most important parameters, which determine its radiation pattern are shown\cite{helix}]{
+        \includegraphics[width=.48\textwidth]{figures/Yannis/helix.jpg}
+        \label{helix1}
+    }
+    \subfloat[Radiation pattern of helical antenna when operating in axial mode\cite{helix}]{
+        \includegraphics[width=.48\textwidth]{figures/Yannis/H2.png}
+        \label{helix_pat}
+    }
     \caption{Helical antenna sketch and radiation pattern.}\label{helical}
 \end{figure}
 
