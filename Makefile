@@ -37,7 +37,7 @@ clean:
 	- $(RM) -f *.aux \
         $(CHAPDIR)/*.aux \
 		$(MAIN).log $(MAIN).dvi $(MAIN).ps $(MAIN).blg $(MAIN).bbl \
-		$(MAIN).lot $(MAIN).lol $(MAIN).lof $(MAIN).toc $(MAIN).out $(MAIN).pdf
+		$(MAIN).lot $(MAIN).lol $(MAIN).lof $(MAIN).toc $(MAIN).tdo $(MAIN).out $(MAIN).pdf
 
 # Count words in the book
 wc:
