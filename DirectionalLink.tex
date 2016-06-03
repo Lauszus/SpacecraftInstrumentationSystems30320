@@ -1,4 +1,4 @@
-\autsection{High Directional Link}{Nissopoulos Ioannis}
+\autsection{Highly Directional Link}{Nissopoulos Ioannis}
 
 \subsection{Link Description}
 
@@ -32,15 +32,16 @@ Firstly, we will present the candidate types of antennas, which will be mounted 
 Yagi-Uda antennas consist of a single driven element connected to the transmitter or receiver and additional parasitic elements. The parasitic elements operate by re-radiating their signals in a slightly different phase in relation to the driven element. In this way the signal is reinforced in some directions and cancelled out in others, so a high directivity is achieved. The length and the spacing of each parasitic element determined by the operational frequency, as well as the total length of the antenna. As it can be seen in figure \ref{Yagi}, a Yagi antenna is linear polarized, parallel to its elements dimension. This is a significant drawback of this design in case the user needs to exploit different polarizations. The solution to this can be the "crossed" Yagi-Uda antenna, which practically is two antennas with two orthogonal polarizations on the same boom. Crossed Yagis provide the capability to receive or transmit in circular polarization with a -3 dB trade off of your signal. If we finally will choose this antenna type for sure we need to consider the crossed version, because the received polarization will have been rotated randomly from the ice crust. LPDAs may look similar to Yagis, although their main principle is quite different. They consist of a number of dipole elements as well, but not all antenna elements are active at any given frequency. In other words, we can imagine a LPDA as an array of dipoles tuned in different frequencies and this is the reason why these antennas hold bandwidth more than few GHz. Another difference is that the main beam of this antenna comes from the "shorter" front. LPDAs used because of their wide bandwidth and not so much because of their gain or their bandwidth. For our purposes, this antenna type will not present so many attractive points, so we will not cover them thoroughly. 
 
 \begin{figure}[htb]
-	\centering
-	\subfloat[A typical Yagi-Uda antenna with 3 directors, 1 driven element and 1 reflectors]{
-        \includegraphics[width=.48\textwidth]{figures/Yannis/yagi.jpg}
-        \label{Yagi}
-    }
-    \subfloat[The basic components of a log periodic dipole array. The forward direction is to the left in this sketch]{
-        \includegraphics[width=.48\linewidth]{figures/Yannis/log2.jpg}
-        \label{log}
-    }
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{figures/Yannis/yagi.jpg}
+        \caption{A typical Yagi-Uda antenna with 3 directors, 1 driven element and 1 reflectors}\label{Yagi}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{figures/Yannis/log2.jpg}
+        \caption{The basic components of a log periodic dipole array. The forward direction is to the left in this sketch}\label{log}
+    \end{subfigure}
+    \caption{}
 \end{figure}
 
 As it is mentioned above, the design of a Yagi-Uda antenna is usually approached with an optimization algorithm based on already existed designs. Mentioning that, the free software "Yagi Calculator" (from VK5DJ radio amateur, \url{http://www.vk5dj.com/yagi.html}) was used, which simulates the antenna and has as an output its gain, beamwidth, antenna length, etc. Our major bottleneck using Yagis will be first of all their boom length. According to many designs, the boom length should be at least 2.2 $\lambda$ in order to achieve the best performance out of the antenna. Our available space is approximately 1 meter, thus our antenna boom should be less than one meter, which corresponds practically to frequencies higher than 600 MHz. As it is clear, frequencies higher than 400 MHz present excessive losses and is impossible to be used for our application. Although, we can decrease boom length according to our desires with a trade off in gain and beamwidth. Another issue that we must take into account is the really close distant of ice from the tip of our antenna. This mean that the ice will be inside the near field of our antenna, which can causes serious troubles to our design. The limit between near and far field is given by Fraunhofer's formula $d=\frac{2D^2}{\lambda}$, where D is the largest dimension of the radiator and $\lambda$ is the wavelength of the radio wave. So, we conclude that in order to eliminate or at least reduce the effect of the near field because of the ice, we have to leave a distance equals d before the ice layer. Usually, this distance is very close to the boom length, thus we could claim that we need d=80\% of boom's length, in best case scenario. 
@@ -126,17 +127,16 @@ LPDAs have a wide 3 dB beamwidth, which most of the times calculated through sim
 Another type of antennas with a lot of potential in our mission is helical antenna. This antenna type is consisting of a conducting wire wound in the form of a helix, which in most cases is mounted over a ground plane. There are two modes that a helical antenna can operate and these are the normal mode and the axial. At normal mode the antenna resembles a monopole or dipole, so it has omnidirectional characteristics and linear polarization. We are interested in directional antennas, thus we will focus on the axial mode. The axial mode provides a directional antenna beam, radiating off the ends of the helix along the antenna's axis (end-fire). Moreover, the latter mode creates a circular polarized wave, which is mandatory for our application. A typical helical antenna with its radiation pattern is depicted in figure \ref{helical}.
 
 \begin{figure}[htb]
-	\centering
-	\subfloat[A typical representation of a helical antenna. The most important parameters, which determine its radiation pattern are shown\cite{helix}]{
-        \includegraphics[width=.48\textwidth]{figures/Yannis/helix.jpg}
-        \label{helix1}
-    }
-    \subfloat[Radiation pattern of helical antenna when operating in axial mode\cite{helix}]{
-        \includegraphics[width=.48\linewidth]{figures/Yannis/H2.png}
-        \label{helix_pat}
-    }
-    \caption{Helical antenna sketch and radiation pattern.}
-    \label{helical}
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{figures/Yannis/helix.jpg}
+        \caption{A typical representation of a helical antenna. The most important parameters, which determine its radiation pattern are shown\cite{helix}}\label{helix1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{figures/Yannis/H2.png}
+        \caption{Radiation pattern of helical antenna when operating in axial mode\cite{helix}}\label{helix_pat}
+    \end{subfigure}
+    \caption{Helical antenna sketch and radiation pattern.}\label{helical}
 \end{figure}
 
 The main constraints in building and using a helical antenna for our purposes would be again its total length, the beamwidth, the gain and the remaining distance to the ice layer. In order to examine the behaviour of such antennas the definition of the basic characteristics is needed. As it is shown in figure \ref{helix1} D represents antennas diameter, N turns of wire, d radius of wire and S the gap between turns. The overall length is $L=N \cdot S$ and the circumference of a single turn is $C=\pi \cdot D$. Last of the mechanical parameters are pitch angle of helix $a$ and R the reflector size, which must be at least 3/4 of the operating wavelength $\lambda$. In addition, we must take into account some experimentally derived guidelines, such as the value of pitch angle $a$ should be between $12^\circ$ and $14^\circ$. If $a$ is not in the specified range anomalies in the performance can occur. Also, the following formulas (eq. \ref{helical_eq}) are valid for $N \geq 3$ and $<3/4C/\lambda<4/3$ \cite{balanis2}.
