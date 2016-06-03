@@ -690,6 +690,7 @@ The next step is to determine the data rate, when a spectrometer is added to the
 For these calculations, the worst case situation, the closest distance (100 km), is selected, as the imaging system will operate at the highest rate. When the number of spectral channels is increased, less pixel rows are used per channel, effectively reducing the ground distance covered by the imager. A lower ground distance will naturally result in a higher frame rate and therefore a higher data rate, as calculated by (\ref{eq:imaging_rate_calc}). The data rate growth is shown in table (\ref{tab:imaging_data_rate_growth}) and figure (\ref{fig:imaging_data_rate_growth}).
 \begin{table}[htb]
   \centering
+  \resizebox{\textwidth}{!}{%
     \begin{tabular}{l|r|r|r|r|r|r|r|}
 \textit{\textbf{Rate Growth}} & \textit{Pixel Rows} & \multicolumn{2}{c|}{\textit{Ground Dist [m]}} & \multicolumn{2}{c|}{\textit{Frame Rate [fps]}} & \multicolumn{2}{c}{\textit{Data Rate [MB/s]}} \bigstrut[b]\\
 \cline{1-1}\textbf{channels} & \textit{WAC + NAC} & \textit{WAC} & \textit{NAC} & \textit{WAC} & \textit{NAC} & \textit{WAC} & \multicolumn{1}{r}{\textit{NAC}} \bigstrut\\
@@ -706,7 +707,7 @@ For these calculations, the worst case situation, the closest distance (100 km),
 \textbf{256} & 4     & 20.0  & 2.0   & 165.0 & 1650.0 & 346.0 & 3460.3 \\
 \textbf{512} & 2     & 10.0  & 1.0   & 330.0 & 3300.0 & 692.1 & 6920.6 \\
 \textbf{1024} & 1     & 5.0   & 0.5   & 660.0 & 6600.0 & 1384.1 & 13841.2 \\
-\end{tabular}%
+\end{tabular}}%
     \caption{The data rate growth at 100 km, related to the number of spectrometer channels.}
   \label{tab:imaging_data_rate_growth}%
 \end{table}%
@@ -715,6 +716,7 @@ From these results, it is clear that adding a spectrometer will generate a much 
 However, it is very unlikely that the spectral data for very high ground resolutions ($<5[m/pixel]$) and very low ground resolutions ($>50[m/pixel]$) will be relevant for the landing site selection. By reducing the spectral resolution when operating outside these regions, the generated data can be reduced significantly. From figure (\ref{fig:imaging_data_rate_growth}), it is clear that the data rate increases rapidly at higher channel numbers. For the remaining calculations, 100 spectral channels has been selected as this balances a high spectral resolution with a sensible frame and data rate.
 \begin{table}[htb]
   \centering
+  \resizebox{\textwidth}{!}{%
     \begin{tabular}{l|r|r|r|r|r|}
 \multicolumn{4}{c|}{\textit{\textbf{WAC Rate Growth vs. Distance}}} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \bigstrut[b]\\
 \cline{1-4}\textbf{[km]} & \textit{Channels} & \textit{Res. [m/pix]} & \multicolumn{1}{c|}{\textit{Ground [m]}} & \multicolumn{1}{c}{\textit{Frame Rate [fps]}} & \multicolumn{1}{r}{\textit{Data Rate [MB/s]}} \bigstrut\\
@@ -728,7 +730,7 @@ However, it is very unlikely that the spectral data for very high ground resolut
 \textbf{400} & 100   & 20.00 & 204.80 & 16.11 & 33.79 \\
 \textbf{200} & 1     & 10.00 & 10240.00 & 0.32  & 0.68 \\
 \textbf{100} & 1     & 5.00  & 5120.00 & \textbf{0.64} & \textbf{1.35} \\
-\end{tabular}%
+\end{tabular}}%
   \caption{The rate growth for the WAC, when optimal spectral resolution is selected.}
   \label{tab:opt_rate_growth_wac}%
 \end{table}%
@@ -858,6 +860,7 @@ altitude = \sqrt{dist_{cen,CA}^2+dist_{CA}^2}-R
 By calculating the ground distance according to the altitude, as it was done in table \ref{tab:rate_vs_dist_wac}, the imaging rate can then be calculated according to equation (\ref{eq:imaging_rate_calc}). The total number of frames can then be calculated from the time between the two intervals and the frame rate. The total data generated during an interval and a flyby is also calculated using this way. The results are shown in table (\ref{tab:wac_flyby_data}).
 \begin{table}[htb]
   \centering
+  \resizebox{\textwidth}{!}{%
     \begin{tabular}{l|r|r|r|r|r|r|r|r|}
       & \textit{Time} & \textit{Dist. CA} & \textit{Altitude} & \multicolumn{1}{c|}{\textit{Frames}} & \textit{Frames} & \textit{Data} & \multicolumn{2}{c}{\textit{Total Data [MB]}} \\
 \textbf{Int} & \textit{[s]} & \textit{[km]} & \textit{[km]} & \textit{[fps]} & \textit{interval} & \textit{[MB/s]} & \textit{Interval} & \multicolumn{1}{r}{\textit{Flyby}} \bigstrut[b]\\
@@ -873,13 +876,14 @@ By calculating the ground distance according to the altitude, as it was done in 
 \textbf{8} & 1526.93 & -1889.57 & 955.17 & 0.067 & 12.88 & 0.142 & 27.01 & 680.57 \\
 \textbf{9} & 1717.79 & -2519.43 & 1457.14 & 0.044 & 8.44  & 0.093 & 17.71 & 698.27 \\
 \textbf{10} & 1908.66 & -3149.29 & 2000.00 & 0.032 & 6.15  & 0.068 & 12.90 & \textbf{711.17} \\
-\end{tabular}%
+\end{tabular}}%
       \caption{The total data produced during a single flyby, using the WAC.}
   \label{tab:wac_flyby_data}%
 \end{table}%
 It can be seen how slightly less than a GB is generated per flyby from the WAC. However, to put the data load in perspective, it is necessary to consider the surface coverage obtained from these data. The total surface coverage has been calculated in table (\ref{tab:wac_flyby_coverage}).
 \begin{table}[htb]
   \centering
+  \resizebox{\textwidth}{!}{%
     \begin{tabular}{l|r|r|r|r|r|r|r|r|}
       & \textit{Time} & \textit{Altitude} & \textit{Frames} & \textit{Dist,v} & \textit{Dist,v} & \multicolumn{2}{c|}{\textit{Area $[km^2]$}} & \multicolumn{1}{r}{\textit{Area}} \\
 \textbf{Int} & \textit{[s]} & \textit{[km]} & \textit{interval} & \textit{[m]} & \textit{[m]} & \textit{Interval} & \textit{Total} & \multicolumn{1}{r}{\textit{[\%]}} \bigstrut[b]\\
@@ -895,13 +899,14 @@ It can be seen how slightly less than a GB is generated per flyby from the WAC. 
 \textbf{8} & 1526.93 & 955.17 & 12.88 & 48904.7 & 48904.7 & 30803.0 & 224004.4 & 4.55 \\
 \textbf{9} & 1717.79 & 1457.14 & 8.44  & 74605.5 & 74605.5 & 46990.8 & 270995.2 & 5.43 \\
 \textbf{10} & 1908.66 & 2000.00 & 6.15  & 102400.0 & 102400.0 & 64497.4 & 335492.5 & \textbf{6.51} \\
-\end{tabular}%
+\end{tabular}}%
   \caption{The surface coverage provided during a single flyby, using the WAC.}
   \label{tab:wac_flyby_coverage}%
 \end{table}%
 With a coverage of $6.51$\% compared to the total area of Europa, at least five flybys will be required before the necessary ground coverage is obtained. However, these estimates all assume the imaging system will pointing in the nadir. No attitude control is used to point the spacecraft at different surface areas, increasing the coverage. Adding this feature would certainly increase the flyby coverage, at the added cost of higher data load. Expecting that the spacecraft will point directly towards a suitable landing site is not realistic. Therefore, it is necessary to increase the ground coverage using attitude control. Repeating the calculations for the NAC results in the data and ground coverage listed in table (\ref{tab:nac_flyby_data}) and (\ref{tab:nac_flyby_data}).
 \begin{table}[htb]
   \centering
+  \resizebox{\textwidth}{!}{%
     \begin{tabular}{l|r|r|r|r|r|r|r|r|}
       & \textit{Time} & \textit{Dist. CA} & \textit{Altitude} & \multicolumn{1}{c|}{\textit{Frames}} & \textit{Frames} & \textit{Data} & \multicolumn{2}{c}{\textit{Total Data [MB]}} \\
 \textbf{Int} & \textit{[s]} & \textit{[km]} & \textit{[km]} & \textit{[fps]} & \textit{interval} & \textit{[MB/s]} & \textit{Interval} & \multicolumn{1}{r}{\textit{Flyby}} \bigstrut[b]\\
@@ -917,12 +922,13 @@ With a coverage of $6.51$\% compared to the total area of Europa, at least five 
 \textbf{8} & 1526.93 & -1889.57 & 955.17 & 0.675 & 128.79 & 1.415 & 270.10 & 6805.68 \\
 \textbf{9} & 1717.79 & -2519.43 & 1457.14 & 0.442 & 84.43 & 0.928 & 177.05 & 6982.73 \\
 \textbf{10} & 1908.66 & -3149.29 & 2000.00 & 0.322 & 61.51 & 0.676 & 128.99 & \textbf{7111.72} \\
-\end{tabular}%
+\end{tabular}}%
   \caption{The total data produced during a single flyby, using the NAC.}
   \label{tab:nac_flyby_data}%
 \end{table}%
 \begin{table}[htb]
   \centering
+  \resizebox{\textwidth}{!}{%
     \begin{tabular}{l|r|r|r|r|r|r|r|r|}
       & \textit{Time} & \textit{Altitude} & \textit{Frames} & \textit{Dist,v} & \textit{Dist,v} & \multicolumn{2}{c|}{\textit{Area $[km^2]$}} & \multicolumn{1}{r}{\textit{Area}} \\
 \textbf{Int} & \textit{[s]} & \textit{[km]} & \textit{interval} & \textit{[m]} & \textit{[m]} & \textit{Interval} & \textit{Total} & \multicolumn{1}{r}{\textit{[\%]}} \bigstrut[b]\\
@@ -938,7 +944,7 @@ With a coverage of $6.51$\% compared to the total area of Europa, at least five 
 \textbf{8} & 1526.93 & 955.17 & 128.79 & 4890.5 & 4890.5 & 3080.3 & 22400.4 & 0.46 \\
 \textbf{9} & 1717.79 & 1457.14 & 84.43 & 7460.5 & 7460.5 & 4699.1 & 27099.5 & 0.54 \\
 \textbf{10} & 1908.66 & 2000.00 & 61.51 & 10240.0 & 10240.0 & 6449.7 & 33549.3 & \textbf{0.65} \\
-\end{tabular}%
+\end{tabular}}%
   \caption{The surface coverage provided during a single flyby, using the NAC.}
   \label{tab:nac_flyby_coverage}%
 \end{table}%
@@ -963,6 +969,7 @@ To reduce the storage requirements, it may be necessary for the ground station t
 When recording multi spectral data, the coverage will be the same as the previous examples due to the fact that the system is operated in push broom mode, thus imaging the same ground area. However, the frame rate and therefore the data rate will be significantly increased. The data load will now be calculated, when the spectrometer is added to the system. As before, the WAC will operate within the ground resolution range of around $25[m/pixel]$ to $50[m/pixel]$ whereas the NAC will operate within the ground resolution range of $5[m/pixel]$ to $10[m/pixel]$. Both cases will use all 100 channels. The results are seen in table (\ref{tab:wac_flyby_data_spectrometer}) and (\ref{tab:nac_flyby_data_spectrometer}).
 \begin{table}[htb]
   \centering
+  \resizebox{\textwidth}{!}{%
     \begin{tabular}{l|r|r|r|r|r|r|r|r|}
       & \textit{Time} & \textit{Channels} & \textit{Altitude} & \textit{Res.} & \textit{Ground} & \textit{Frames } & \multicolumn{2}{c}{\textit{Data}} \\
 \textbf{Int} & \textit{[s]} & \textit{} & \textit{[km]} & \textit{[m/pix]} & \multicolumn{1}{c|}{\textit{[m]}} & \multicolumn{1}{c|}{\textit{[fps]}} & \textit{[MB/s]} & \multicolumn{1}{r}{\textit{Flyby}} \bigstrut[b]\\
@@ -978,12 +985,13 @@ When recording multi spectral data, the coverage will be the same as the previou
 \textbf{8} & 1526.9 & 100   & 955.2 & 47.8  & 489.0 & 6.7   & 14.2  & 15779.5 \\
 \textbf{9} & 1717.8 & 1     & 1457.1 & 72.9  & 74605.5 & 0.0   & 0.1   & 15797.2 \\
 \textbf{10} & 1908.7 & 1     & 2000.0 & 100.0 & 102400.0 & 0.0   & 0.1   & 15810.1 \\
-\end{tabular}%
+\end{tabular}}%
   \caption{The total data generated by the WAC with the spectrometer enabled, during a flyby}
   \label{tab:wac_flyby_data_spectrometer}%
 \end{table}%
 \begin{table}[htb]
   \centering
+  \resizebox{\textwidth}{!}{%
     \begin{tabular}{l|r|r|r|r|r|r|r|r|}
       & \textit{Time} & \textit{Channels} & \textit{Altitude} & \textit{Res.} & \textit{Ground} & \textit{Frames } & \multicolumn{2}{c}{\textit{Data}} \\
 \textbf{Int} & \textit{[s]} & \textit{} & \textit{[km]} & \textit{[m/pix]} & \multicolumn{1}{c|}{\textit{[m]}} & \multicolumn{1}{c|}{\textit{[fps]}} & \textit{[MB/s]} & \multicolumn{1}{r}{\textit{Flyby}} \bigstrut[b]\\
@@ -999,7 +1007,7 @@ When recording multi spectral data, the coverage will be the same as the previou
 \textbf{8} & 1526.9 & 100   & 955.2 & 4.8   & 48.9  & \textbf{67.5} & \textbf{141.5} & 90583.7 \\
 \textbf{9} & 1717.8 & 100   & 1457.1 & 7.3   & 74.6  & 44.2  & 92.8  & 108288.9 \\
 \textbf{10} & 1908.7 & 100   & 2000.0 & 10.0  & 102.4 & 32.2  & 67.6  & 121188.4 \\
-\end{tabular}%
+\end{tabular}}%
     \caption{The total data generated by the NAC with the spectrometer enabled, during a flyby}
   \label{tab:nac_flyby_data_spectrometer}%
 \end{table}%
@@ -1021,6 +1029,7 @@ Repeating the calculations, this time with the spectrometer operating on the WAC
 % Table generated by Excel2LaTeX from sheet 'Ark1'
 \begin{table}[htb]
   \centering
+  \resizebox{\textwidth}{!}{%
     \begin{tabular}{l|r|r|r|r|r|r|r|r}
       & \textit{Time} & \textit{Channels} & \textit{Altitude} & \textit{Res.} & \textit{Ground} & \textit{Frames } & \multicolumn{2}{c}{\textit{Data}} \\
 \textbf{Int} & \textit{[s]} & \textit{} & \textit{[km]} & \textit{[m/pix]} & \multicolumn{1}{c|}{\textit{[m]}} & \multicolumn{1}{c|}{\textit{[fps]}} & \textit{[MB/s]} & \textit{Flyby} \bigstrut[b]\\
@@ -1036,12 +1045,13 @@ Repeating the calculations, this time with the spectrometer operating on the WAC
 \textbf{8} & 1526.9 & 100   & 955.2 & 47.8  & 489.0 & 6.7   & 14.15 & 65026.89 \\
 \textbf{9} & 1717.8 & 1     & 1457.1 & 72.9  & 74605.5 & 0.0   & 0.09  & 65044.59 \\
 \textbf{10} & 1908.7 & 1     & 2000.0 & 100.0 & 102400.0 & 0.0   & 0.07  & 65057.49 \\
-\end{tabular}%
+\end{tabular}}%
   \caption{The total data generated when the WAC is responsible for the spectrometer.}
   \label{tab:wac_flyby_data_spectrometer_final}%
 \end{table}%
 \begin{table}[htb]
   \centering
+  \resizebox{\textwidth}{!}{%
     \begin{tabular}{l|r|r|r|r|r|r|r|r}
       & \textit{Time} & \textit{Channels} & \textit{Altitude} & \textit{Res.} & \textit{Ground} & \textit{Frames } & \multicolumn{2}{c}{\textit{Data}} \\
 \textbf{Int} & \textit{[s]} & \textit{} & \textit{[km]} & \textit{[m/pix]} & \multicolumn{1}{c|}{\textit{[m]}} & \multicolumn{1}{c|}{\textit{[fps]}} & \textit{[MB/s]} & \textit{Flyby} \bigstrut[b]\\
@@ -1057,7 +1067,7 @@ Repeating the calculations, this time with the spectrometer operating on the WAC
 \textbf{8} & 1526.9 & 1     & 955.2 & 4.8   & 4890.5 & 0.7   & 1.42  & 6805.68 \\
 \textbf{9} & 1717.8 & 1     & 1457.1 & 7.3   & 7460.5 & 0.4   & 0.93  & 6982.73 \\
 \textbf{10} & 1908.7 & 1     & 2000.0 & 10.0  & 10240.0 & 0.3   & 0.68  & 8272.67 \\
-\end{tabular}%
+\end{tabular}}%
     \caption{The total data generated, without operating the spectrometer on the NAC.}
   \label{tab:nac_flyby_data_spectrometer_final}%
 \end{table}%
@@ -1101,6 +1111,7 @@ As previously mentioned, a coverage of 6.51\% will require at least five flybys 
 % Table generated by Excel2LaTeX from sheet 'Ark1'
 \begin{table}[htb]
   \centering
+  \resizebox{\textwidth}{!}{%
 \begin{tabular}{ll|r|r|l}
       &       & \textit{For 1 flyby} & \multicolumn{1}{r}{\textit{For 5 flybys}} &  \bigstrut[b]\\
 \cline{1-4}\textbf{WAC:} & \multicolumn{1}{l|}{\textit{\textbf{Excluding spectral data}}} & 711.17 & 3555.86 & [MB] \bigstrut[t]\\
@@ -1114,7 +1125,7 @@ As previously mentioned, a coverage of 6.51\% will require at least five flybys 
       & \multicolumn{1}{l|}{} & 8.98  & \textit{\textbf{44.92}} & [GB] \\
       & \multicolumn{1}{l|}{\textit{\textbf{Including 100 spectral bands}}} & 73330.17 & 366650.83 & [MB] \\
       & \multicolumn{1}{l|}{} & 73.33 & \textit{\textbf{366.65}} & [GB] \\
-\end{tabular}%
+\end{tabular}}%
 \caption{The total storage required from the storage system.}
   \label{tab:data_rate_storage_requirements_final_5}%
 \end{table}%
