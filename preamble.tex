@@ -10,10 +10,9 @@
 \usepackage{longtable}
 \usepackage{multirow,booktabs}
 \usepackage{amsfonts,amsmath,amssymb}
-\usepackage{natbib}
+\usepackage[numbers]{natbib}
 \usepackage{url}
 \usepackage{hyperref}
-\usepackage{wrapfig}
 \hypersetup{colorlinks=false,pdfborder={0 0 0}}
 % You can conditionalize code for latexml or normal latex using this.
 \newif\iflatexml\latexmlfalse
@@ -24,6 +23,7 @@
 \usepackage[section]{placeins}
 \usepackage{rotating}
 \usepackage{units}
+\usepackage{siunitx}
 \usepackage{fancyhdr}
 \setlength{\headheight}{14.5pt} % Fix warning
 \usepackage{enumitem}
@@ -65,6 +65,8 @@
 \fancyhead[LE,RO]{\thepage}
 \fancyhead[RE]{\slshape \leftmark}
 \fancyhead[LO]{\slshape \rightmark}
+
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % \HRule for special horizontal line
 
