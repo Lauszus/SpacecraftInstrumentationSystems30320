@@ -6,6 +6,60 @@
 
 \autsubsection{Tethered Link}{Kristian Sloth Lauszus}
 
+One other option for the penetrator to surface communication would be to use an optical fiber connected from the end of the penetrator to the surface station.
+
+\subsubsection{Optical fiber strain}
+
+According to Hook's law the force along the longitudinal axis of the fiber is given by:
+\begin{equation}
+	 F = k \, \Delta l
+\end{equation}
+Where $k$ is the elastic constant and $\Delta l$ is the relative deformation or caused perturbation force $F$. This law is fulfilled as long as the deformation does not exceed the elastic limit of the optical fiber which will prevent the fiber from retracting back to its original shape.
+
+By knowing the Young's modulus of the fiber once can calculate the force of the perturbation using the following formula:
+\begin{equation}
+	F = E_G \, A \frac{\Delta l}{l}
+\end{equation}
+Where $E_G$ is the Young's modules, $A$ is the area of the optical fiber and $l$ is the length of the optical fiber.
+
+By measuring the force applied to a optical fiber and plotting it versus the strain one can estimate the Young's modulus at the point where the slope of plot is no longer linear. Furthermore this point will also indicate the maximum strain of a given optical fiber.
+
+This strain number is very useful in our case, as this tell us how much the fiber can stretch before it is degraded. A typical number for protected optical fiber is about 3-5 percent\cite{article:optical_fiber_properties,article:optical_fiber_mechanical}. Since the hole above the penetrator will start to freeze up again it is very important that the vertical strain of the of the ice does not exceed this critical value. Fortunately the vertical 
+
+0.3 \% strain
+
+\cite[p. 76]{book:communication}
+
+%An optical tether through the ice is extremely practical. The primary difficulty with deploying an optical tether is the tidal flexing of the ice, which may be as much as 30 m per day. Over the full depth of the ice, this flexure corresponds to about 0.3 \% strain [46]. Using an online calculator provided by Corning Optical Fiber[133], 0.3 \% strain corresponds to a stress of 31 ksi. In testing 386 km of optical fiber, Corning detected no failures at less than 66 ksi [134]. Thus, it is entirely plausible to have an optical tether that connects the surface unit to the bottom of the ice and such a cable would have a mass on the order of a few kilograms, depending on the thickness of the ice [132].
+
+* Optical fiber
+	* Pros:
+		* Cheap
+		* Huge bandwidth
+	* Cons:
+		* Mechanics % Wheel
+			* Complexity, weight, volume
+		* Potential break due to ice movement or getting stuck
+	* Should be able to resist vertical strain
+	* Can be used for redundancy
+		* But very risky!
+
+\autsubsection{Ice embedded Repeaters link}{Kristian Sloth Lauszus}
+
+% http://www.unmanned.vt.edu/discovery/reports/VaCAS_2013_01.pdf
+
+* Repeaters along decent path
+	* 4 transceivers: 3.5 km pure
+	* 14 transceivers: 10 km salty
+	* Pros:©
+		* Scalable
+	* Cons:
+		* Complexity
+		* Separate RTGs
+	* Too complex
+		* Better just use one proper designed unit in the penetrator
+		* Might be a combinations of repeaters and a big antenna at the lander and probe
+		* Will also work better if the probe doesn't move straight
 
 \autsubsection{High Directivity Link}{Ioannis Nisopoulus}
 \begin{figure}[htb]
