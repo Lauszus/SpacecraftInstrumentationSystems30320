@@ -101,6 +101,45 @@ Figures \ref{fig:ICD}, \ref{fig:HWD} and \ref{fig:CTDI} illustrates the three me
 
 \autsection{RTG design}{Ricard Lladó Grove}
 
+
+\autsection{Pressure Distribution on Europa}{Ricard Lladó Grove} \label{sec:Pressure}
+Europa's atmosphere is really thin: approximately $10^{-11}$ times smaller than the atmosphere of Earth\cite{hall1995a}. Hereby it can be approximated that there is no pressure on the surface of Europa. Hereby the pressure will only depend on ice-layer above the penetrator which will increase in thickness while descending. The pressure can be calculated by: 
+\begin{equation}
+P = \rho_{ice} g h
+\end{equation}
+where $\rho_{ice}$ is the density of ice and is approximately $\SI{917}{\kilo\gram\per\cubic\metre}$\cite{cutnell2007a}, $g$ is the gravitational acceleration measured in $m/s^2$ and $h$ is the depth of the penetrator. The gravitational acceleration can be calculated by:
+\begin{equation}\label{eq:graviacc}
+g = \frac{GM}{r^2}
+\end{equation} 
+where $G = 6.67\cdot 10^{-11}\frac{m^3}{s^2 kg}$ is the gravitational constant, $M = 4.8\cdot 10^{22}\text{kg}$ is the mass of Europa and $r = \SI{1569}{\km}$ is the radius of Europa\cite{website:propeuropa}. Equation \ref{eq:graviacc} is only valid if the mass of the penetrator is much smaller than the mass of Europa which is a valid approximation since the total mass of the penetrator will maximum be 180 kg. Since the gravitational acceleration is inversely proportional with the radius squared, $g$ will increase with increasing depth since the radius will decrease. Illustrated in figure \ref{fig:Pressure} the pressure in MPa is plotted as function of depth both for a constant 
+
+
+The mass distribution will also change since now there will be mass above you which will pull you in that direction, but on the other hand you will be closer to the mass on the other side of the planet. Therefore the change in gravitational acceleration depends on the distribution of the mass on Europa, and especially how dense the core is which in this case is unknown. 
+ 
+Due to uncertainties of where we land and hereby also the radius of Europa, since Europa is elongated the radius will depend on the landing site. It  
+ 
+ 
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/Ricardo/pressure.eps}
+  \caption{Illustration of distribution of pressure on Europa with both a constant and varying gravitational constant in blue and red, respectively}
+  \label{fig:Pressure}
+\end{figure}
+
+
+
+\section{RTG design}
+
+\autsubsection{Radioactive Sources}{Jean-Paul Breuer}
+A Radioisotope Thermal Generator (RTG), is essentially an nuclear battery that uses thermocouplers to convert the heat released by a selected radioactive source into electricity. Many radioactive sources exist which could serve the purpose of fuel for the RTG specific to this mission, but not all of the known radioactive isotopes would be efficient or viable for the task. There are three important characteristics to keep in mind when attempting to select the ideal radioactive isotopes.
+
+An important criteria is the half-life time of the selected isotope. The minimum viable time is computed based on highly conservative estimates, where the main condition is that the isotope must still be able to provide sufficient energy for the instrumentation well after the coasting phase and the melting phase. Dependent on which rocket the mission is given, the coasting time could be anywhere between 2 and 8 years, and dependent on which landing site is chosen on the surface of Europa, the melting phase could take between 1 and 10 years (at a 200 day per km of ice melting rate). 
+
+The amount of energy per time released is inversely proportional to its half life, so the ideal radioactive candidate will require a half life in the magnitude of several decades. To sit well within the mass, power, and volume budget, another criteria is that it must produce sufficiently large amount of power per mass and volume. The last criteria is that the type of radiation is easily absorbed and converted into thermal radiation, in other words, maximize the alpha particles released, and minimize the gamma, neutron, and penetrating radiation.
+
+Given the three main criteria, it is possible to exclude many isotopes immediately, although the most likely candidates are given in Table \ref{tab:isotopes}. Other more known and available isotopes, such as Uranium, have a long half-life time and as such do not generate enough energy per time to be able to sufficiently provide the heat required for ice melting. On the other hand, an isotope with a short half life such as Polonium-210, has an extremely high power output but would require a large concentration to be of any use for this mission, and most of the energy would be wasted.
+>>>>>>> master
+
 \subsection{Radiation from Pu238}
 After looking at the different materials, Plutonium-238 (Pu238) is radioactive material that is going to be used for the mission due to the the half-life of 87.7 and the minimum radiation of gamma and neutrons. 
 
@@ -108,7 +147,10 @@ The probability of a alpha-decay from a Pu238-atom is close to 100\%:
 \begin{equation}
 ^{238}\text{Ph} \quad \rightarrow \quad ^{234}\text{U} \quad + \quad ^4 \text{He}
 \end{equation}
+
 The alpha particle is relatively big with two protons and two neutrons and is therefore easy to shield against. Even if the possibility of an alpha decay is close to almost certain, there is a small possibility of either a spontaneous fission or a cluster decay. A spontaneous fission happens for heavy atoms, where the atom split into two almost equal sized daughter atoms and a number of free neutrons. The possibility of a spontaneous fission for Pu238 is $1.9 \cdot 10^{-7}\%$, but with more than $10^{24}$ atoms for each kg of plutonium, it is certain to happen. The daughter atoms can vary. A cluster decay is something between an alpha decay and spontaneous decay where a cluster of protons and neutrons are emitted. For the Pu238 there is a $1.4 \cdot 10^{-14}\%$ chance that a Si32-atom is emitted leaving a Hg206-atom, and a $6 \cdot 10^{-15}\%$ chance that a Mg30-atom and a Mg28-atom is emitted leaving an Yb180-atom. The daughter isotopes are also radioactive and are most likely to emit a beta-particle. This particle is either an electron or a positron depending on the charge of the particle with a mass much smaller than neutron or proton but since it has an electric charge it can rather easily be stop by a shielding metal.\\
+
+The alpha particle is relatively big with two protons and two neutrons and is therefore easy to shield against, even a sheet of paper is enough to shield an alpha particle\cite{website:shielding}. Even if the possibility of an alpha decay is close to almost certain, there is a small possibility that the plutonium238 will either decay as spontaneous fission or a cluster decay\cite{website:plutonium}. A spontaneous fission happens for heavy atoms, where the atom split into two almost equal sized daughter atoms and a number of free neutrons\cite{website:spontaneous_fission}. The possibility of a spontaneous fission, SF, for Pu238 is $1.9 \cdot 10^{-7}\%$, but with more than $10^{24}$ atoms for each kg of plutonium, it is certain to happen. The daughter atoms generates by the SF can vary. A cluster decay is a decay mode between an alpha decay and spontaneous decay where a cluster of protons and neutrons are emitted. For the Pu238 there is a $1.4 \cdot 10^{-14}\%$ chance that a Si32-atom is emitted leaving a Hg206-atom, and a $6 \cdot 10^{-15}\%$ chance that a Mg30-atom and a Mg28-atom is emitted leaving an Yb180-atom. The daughter isotopes are also radioactive and are most likely to emit a beta-particle. This particle is either an electron or a positron depending on the charge of the particle with a mass much smaller than neutron or proton but since it has an electric charge it can rather easily be stop by a thin layer of a shielding metal. \\
 
 \noindent
 A bigger problem is the free neutrons that for example are emitted due to a spontaneous fission.  The neutrons do not have any electric charge and therefore they will not be stopped by an electric field making them extremely penetrating. To stop a neutron is has to be absorbed by a nucleus or collide with a particle with same speed but opposite velocity and mass as the neutron. Since the materials used to shield alpha and beta particles, for example lead, has a rather small cross-section and hew nuclei per unit mass, hence the neutron can easily pass trough the shielding. Furthermore if the neutron is absorbed to the atom it is likely that the new atom is radioactive as well. Therefore it is important to stop the neutrons, because they can cause a lot of damage if they hit the instruments on board the penetrator. In order to do so protium, a hydrogen atom with no neutron, can be used to absorb the neutron creating in deuterium. Water has a high number density to mass ratio, and is hereby optimal to use as a shielding against the free neutrons. 
@@ -164,6 +206,7 @@ The pipe system will consist of pipes surrounding the RTG in the bottom and midd
 Insert image of top view of the pipe system and RTG. 
 Insert image of a sideways look of the system.
 
+
 \autsection{Pressure Distribution Europa}{Ricard Lladó Grove} 
 
 Secondly the gravitational acceleration is set to be $1.314 \frac{m}{s^2}$, and has been calculated by 
@@ -171,6 +214,7 @@ Secondly the gravitational acceleration is set to be $1.314 \frac{m}{s^2}$, and 
 g = \frac{GM}{r^2}
 \end{equation} 
 where $G = 6.67\cdot 10^{-11}\frac{m^3}{s^2 kg}$ is the gravitational constant, $M = 4.8\cdot 10^{22}$kg is the mass of Europa and $r = 1560.8$ km is the radius of Europa.  We see that the further the penetrator melts its way down through the ice the radius decreases. The mass distribution will also change since now there will be mass above you which will pull you in that direction, but on the other hand you will be closer to the mass on the other side of the planet. Therefore the change in gravitational acceleration depends on the distribution of the mass on Europa, and especially how dense the core is which in this case is unknown. 
+
 
 
 
@@ -215,7 +259,11 @@ First of all we see that the gravitational acceleration of Europa cancels out in
 \begin{equation}
 V_{needed} = 0.180 m^3 \rightarrow 180 \text{litres}
 \end{equation}
+
 Since the penetrator is 48.2 litres the extra required volume is about 132 litres. When the penetrator melts through the last ice the velocity of the penetrator will increase because the it will sink though the water. With a short delay to ensure that the penetrator is surrounded by water, a trigger should inflate a balloon attached to the penetrator. The balloon should have a volume of at least 132 litres since we would probably like a small lift of the buoyancy. 
+
+Since the penetrator is 48.2 litres the extra required volume is about 132 litres. There are many ways to use buoyancy. Submarines have a ballast tank that they can fill with either water or oil. Since oil is about 0.8 times as dense as water this will create a buoyancy and depending on how much water is displaced. This solution is not useful for this penetrator since a huge reservoir of oil is needed which would take up more space and mass than is to dispersal. Another solution is to have an inflatable reservoir that will expand when the internal pressure increases. An illustration of such a solution is showed in figure \ref{fig:buoyancy1}.
+
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.5\textwidth]{figures/Ricardo/Buoyancy1.png}
@@ -257,7 +305,7 @@ One of the biggest problems is that at 10 km depth which is the maximum depth th
 
 \subsection{Navigation and Dirigeability}
 
-\subsection{Submarine}
+\input{Submarine}
 
 \subsection{Detection of Depth and End of Ice Column}
 

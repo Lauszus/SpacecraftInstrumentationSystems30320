@@ -27,6 +27,9 @@
 \usepackage{fancyhdr}
 \setlength{\headheight}{14.5pt} % Fix warning
 \usepackage{enumitem}
+\usepackage{lastpage}
+\usepackage{epstopdf}
+\usepackage{siunitx}
 
 %START added packages used by Orbiter (Johannes Linde)
 \usepackage{verbatim}
@@ -64,7 +67,11 @@
 		\thechapter.\; \MakeUppercase{#1}
 	\fi
 }{}}
-
+%\fancyhead[LE,RO]{\thepage}
+%\fancyfoot{}
+%\fancyfoot[L]{\begin{footnotesize}{\textsc{Page \thepage{ }of \pageref*{LastPage}}}\end{footnotesize}}
+%\fancyfoot[R]{\begin{footnotesize}{\textsc{\mycourse}}\end{footnotesize}}
+>>>>>>> master
 \fancyhead[LE,RO]{\thepage}
 \fancyhead[RE]{\slshape \rightmark}
 \fancyhead[LO]{\slshape \leftmark}
