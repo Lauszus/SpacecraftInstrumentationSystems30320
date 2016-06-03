@@ -1,8 +1,11 @@
-\documentclass[11pt,twoside,openright,a4paper,final]{book}
+\documentclass[12pt,twoside,openright,a4paper,final]{book}
+\linespread{1.25}
 
 \usepackage[margin=1in]{geometry}
-\usepackage{subfig}
+%\usepackage{subfig}
 \usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage[space]{grffile}
 \usepackage{latexsym}
 \usepackage{textcomp}
@@ -20,11 +23,27 @@
 \usepackage{mcode} % Maltab code
 \usepackage{authblk} % Multiple authors
 \usepackage[section]{placeins}
+\usepackage{rotating}
 \usepackage{units}
-\usepackage{fancyhdr}
 \usepackage{siunitx}
-\setlength{\headheight}{14pt} % Fix warning
+\usepackage{fancyhdr}
+\setlength{\headheight}{14.5pt} % Fix warning
 \usepackage{enumitem}
+
+%START added packages used by Orbiter (Johannes Linde)
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{wrapfig}
+\usepackage{bigstrut}
+\usepackage{tablefootnote}
+%\usepackage{subcaption}
+\usepackage{placeins}
+\usepackage{pdfpages}
+%\usepackage[disable]{todonotes}
+\usepackage{todonotes}
+\usepackage{multicol}
+\setlength{\columnsep}{0cm}
+%END added packages used by Orbiter (Johannes Linde)
 
 \setlist[enumerate]{noitemsep}
 \setlist[itemize]{noitemsep}
@@ -144,7 +163,6 @@
 \author{Yannis Nissopoulos}
 \author{Fruzsina Bacsó}
 \author{Ricard Lladó Grove}
-\author{Sridhar Remma}
 \author{Gustavo Feijóo Carrillo}
 \author{Johannes Linde}
 \author{Maja Tomicic}
@@ -154,10 +172,10 @@
 \author{Bhaaeddin Alhomsi}
 \author{Ifikratis Kamenidis}
 \author{Paschalis Dalampiras}
-\author{Mark David Wigh}
 \author{Lukas Christensen}
 \author{Morten Lykke Hilligsøe}
 \author{Søren Jeppesen}
+\author{Sebastian Helvig Christensen}
 \author{Kristian Sloth Lauszus}
 
 \affil{National Space Institute, Technical University of Denmark}
