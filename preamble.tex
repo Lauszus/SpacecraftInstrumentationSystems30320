@@ -10,10 +10,9 @@
 \usepackage{longtable}
 \usepackage{multirow,booktabs}
 \usepackage{amsfonts,amsmath,amssymb}
-\usepackage{natbib}
-\usepackage{url}
+\usepackage[hyphens]{url}
+\usepackage[numbers]{natbib}
 \usepackage{hyperref}
-\usepackage{wrapfig}
 \hypersetup{colorlinks=false,pdfborder={0 0 0}}
 % You can conditionalize code for latexml or normal latex using this.
 \newif\iflatexml\latexmlfalse
@@ -22,13 +21,27 @@
 \usepackage{mcode} % Maltab code
 \usepackage{authblk} % Multiple authors
 \usepackage[section]{placeins}
+\usepackage{rotating}
 \usepackage{units}
+\usepackage{siunitx}
 \usepackage{fancyhdr}
 \setlength{\headheight}{14.5pt} % Fix warning
 \usepackage{enumitem}
 \usepackage{lastpage}
 \usepackage{epstopdf}
 \usepackage{siunitx}
+
+%START added packages used by Orbiter (Johannes Linde)
+\usepackage{verbatim}
+\usepackage{bigstrut}
+\usepackage{tablefootnote}
+\usepackage{placeins}
+\usepackage{pdfpages}
+%\usepackage[disable]{todonotes}
+\usepackage{todonotes}
+\usepackage{multicol}
+\setlength{\columnsep}{0cm}
+%END added packages used by Orbiter (Johannes Linde)
 
 \setlist[enumerate]{noitemsep}
 \setlist[itemize]{noitemsep}
@@ -47,18 +60,25 @@
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\chaptermark}[1]{\markboth{
-	\ifnum0\thechapter<1
-		\MakeUppercase{#1}
+	\if@mainmatter
+		\ifnum0\thechapter<1
+			\MakeUppercase{#1}
+		\else
+			\thechapter.\; \MakeUppercase{#1}
+		\fi
 	\else
 		\thechapter.\; \MakeUppercase{#1}
 	\fi
 }{}}
 %\fancyhead[LE,RO]{\thepage}
-\fancyhead[RE]{\slshape \leftmark}
-\fancyhead[LO]{\slshape \rightmark}
-\fancyfoot{}
-\fancyfoot[L]{\begin{footnotesize}{\textsc{Page \thepage{ }of \pageref*{LastPage}}}\end{footnotesize}}
-\fancyfoot[R]{\begin{footnotesize}{\textsc{\mycourse}}\end{footnotesize}}
+%\fancyfoot{}
+%\fancyfoot[L]{\begin{footnotesize}{\textsc{Page \thepage{ }of \pageref*{LastPage}}}\end{footnotesize}}
+%\fancyfoot[R]{\begin{footnotesize}{\textsc{\mycourse}}\end{footnotesize}}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\slshape \rightmark}
+\fancyhead[LO]{\slshape \leftmark}
+
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % \HRule for special horizontal line
 
@@ -164,7 +184,6 @@
 \author{Bhaaeddin Alhomsi}
 \author{Ifikratis Kamenidis}
 \author{Paschalis Dalampiras}
-\author{Mark David Wigh}
 \author{Lukas Christensen}
 \author{Morten Lykke Hilligsøe}
 \author{Søren Jeppesen}
