@@ -182,27 +182,7 @@ The National Oceanography Centre of the United Kingdom is developing chemical se
 \subsubsection{Implementation}
 Although lab-on-a-chip systems and microscopic sensors offer promising products and technologies, many of the applications which are of interest to this mission, are still in a developmental stage, and require further maturing before an extraterrestrial mission can rely on such equipment. The long life of the mission and single-use chips also hinders the effective use of such systems, and it was therefore chosen not to bring LOCs on the Europa subsea mission.
 
-\autsection{pH \& salinity}{Kristian Sloth Lauszus and Lukas Christensen}
-
-* pH
-	* Solid state (ISFET)
-		* No calibration
-		* Measures current flow at different voltages, H+ ions
-	* Temperature compensated [5:50] degrees C
-		* Response time ~60 s
-	* 200 uL, ~20 mW, below 10 mA
-	* $\pm$ 0.01 pH
-* Salinity can use same instruments using membranes
-	* Current flow
-* Temperature probe
-	* K-type thermal couple
-
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=\textwidth]{figures/ISFET.png}
-	\caption{TODO: Caption}
-	\label{fig:ISFET}
-\end{figure}
+\input{pHInstrument}
 
 \input{camera}
 
