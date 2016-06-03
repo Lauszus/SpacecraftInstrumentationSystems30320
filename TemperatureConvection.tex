@@ -28,7 +28,7 @@ The boundary conditions for the temperature is simply given by 273.15 K at the t
 	& T_s = \unit[100]{K} \\
 	& T_\Delta = T_m - T_s = \unit[173.15]{K}
 \end{align}
-Figure \ref{fig:T_vs_k} shows two plots of the thermal conductivity as a function of the temperature. Figure \ref{fig:T_vs_k_full} shows the thermal conductivity from 0 K to 273.15 K, figure \ref{fig:T_vs_k_zoom} on the other hand shows only shows the thermal conductivity in the range of the boundary conditions.
+Figure \ref{fig:T_vs_k} shows two plots of the thermal conductivity as a function of the temperature. Figure \ref{fig:T_vs_k_full} shows the thermal conductivity from 0 K to 273.15 K, figure \ref{fig:T_vs_k_zoom} on the other hand shows only the thermal conductivity in the range inside the boundary conditions.
 \begin{figure}[htb]
 	\centering
 	\subfloat[From 0 K to 273.15 K]{
@@ -73,6 +73,7 @@ Figure \ref{fig:d_vs_T} shows a plot of the temperature as a function of the dep
 	\caption{Temperature as a function of the depth}
 	\label{fig:d_vs_T}
 \end{figure}
+\\
 Figure \ref{fig:T_vs_rho} shows the density of ice as a function of the temperature using the values found in Table \ref{tab:ice_density}. This is be approximated by a linear second order function:
 \begin{equation}\label{eq:rho_approx}
 	\rho(T) = 931.21 - 0.68 \e{-3} T - 0.19 \e{-3} T^2
@@ -129,6 +130,7 @@ The specific heat capacity of ice as a function of the distance can be calculate
 A plot of the approximated specific heat capacity can be seen in Figure \ref{fig:T_vs_Cice_approx}.
 \begin{figure}[htb]
 	\centering
+	\captionsetup[subfigure]{width=0.45\textwidth}
 	\subfloat[Specific heat capacity of ice according to Table \ref{tab:ice_heat_capacity}]{
 		\includegraphics[width=.48\textwidth]{figures/temperature/T_vs_Cice}
 		\label{fig:T_vs_Cice}
@@ -155,6 +157,7 @@ A plot of the approximated specific heat capacity can be seen in Figure \ref{fig
 %	\caption{Specific heat capacity of the depth}
 %	\label{fig:d_vs_C_ice}
 %\end{figure}
+\\
 The amount the temperature needs to be raised as a function of the distance is given by:
 \begin{equation}\label{eq:T_diff}
 	T_\Delta(d) = T_m - T(d) = 173.15 K - \unitfrac[0.058 d]{K}{m}
@@ -182,12 +185,12 @@ The total amount of energy is then given by:
 \end{equation}
 It is noticeable that the energy required for the phase change takes up about 75 \% of the total energy, thus the approximations regarding the thermal conductivity, conductive heat transfer, and heat capacity should not have a huge impact on the result.
 
-However the model of the ice density has a impact on the energy calculations of the phase change, as seen by \eqref{eq:ice_total_mass}. Thus a better model of the ice density would be beneficial. Further studies of the ice composition will be needed in this case, as the ice is assumed to be an isotropic and homogeneous material in the previous calculations. Furthermore the temperature at which the phase change occurs depends on the pressure as well.
+However the model of the ice density has an impact on the energy calculations of the phase change, as seen by \eqref{eq:ice_total_mass}. Thus a better model of the ice density would be beneficial. Further studies of the ice composition will be needed in this case, as the ice is assumed to be an isotropic and homogeneous material in the previous calculations. Furthermore the temperature at which the phase change occurs depends on the pressure as well.
 
 It is also noticeable that the energy required to melt the ice will be higher in practice than the total energy calculated in \eqref{eq:E_total}, as their will never be a 100 \% thermal energy transportation efficiency between the melting-device and the ice.
 \\
 \\
-A further study of the ice temperature profile will be presented in chapter \ref{sec:temp_simulation}, which will do a simulation based on the concept introduced in this chapter.
+A further study of the ice temperature profile will be presented in chapter \ref{sec:temp_simulation}, which will do a simulation based on the concepts introduced in this chapter.
 
 \subsubsection{Pressure Profile}
 
@@ -202,7 +205,7 @@ In this section the concept of natural convection will be presented and CFD (com
 \\
 Natural convection is interesting as it might be a means of transporting the water from the tip to inside the penetrator passively, guiding the water to the different instruments.  This is needed, as it would be interesting to analyse the salinity and various other elements in the melted water as the penetrator descents. The passive system would eliminate the needs for a pump system, which will add to the complexity and mass of the penetrator.
 
-A sketch of the proposed water transportation system can be seen in Figure \ref{fig:water_transportation}. The intentions is to have the water flow from the intake to the end of the penetrator while running pass the different instruments placed in chambers along the exterior of the penetrator. The flute shape in the tip is intended to guide the water to the intakes in the side. This shape will also be useful in order to guide dirt, small rocks and other small items away from the front of the penetrator, which will improve the heat transfer efficiency between the tip and the ice. Furthermore the screw in the tip, as shown in Figure \ref{fig:water_transportation}, can be used for direct measurement of the temperature of the ice. However it will be important to thermally isolate this from the melter and/or compensate for its effect on the temperature measurement, so the true temperature of the ice can be obtained. Another option would be to have an active screw going into the ice a certain intervals, but the passive system is desirable due to simplicity of this design. % TODO: YouTube video
+A sketch of the proposed water transportation system can be seen in Figure \ref{fig:water_transportation}. The intentions is to have the water flow from the intake to the end of the penetrator while running pass the different instruments placed in chambers along the exterior of the penetrator. The flute shape in the tip is intended to guide the water to the intakes in the side. This shape will also be useful in order to guide dirt, small rocks and other small items away from the front of the penetrator, which will improve the heat transfer efficiency between the tip and the ice. Furthermore the screw in the tip, as shown in Figure \ref{fig:water_transportation}, can be used for direct measurement of the temperature of the ice. However it will be important to thermally isolate this from the melter and/or compensate for its effect on the temperature measurement, so the true temperature of the ice can be obtained. Another option would be to have an active screw going into the ice at certain intervals, but the passive system is desirable due to simplicity of this design. % TODO: YouTube video
 \begin{figure}[htb]
 	\centering
 	\captionsetup[subfigure]{width=0.25\textwidth}
@@ -218,7 +221,8 @@ A sketch of the proposed water transportation system can be seen in Figure \ref{
 %	\label{fig:}
 \end{figure}
 \\
-Natural convection is caused by density gradients due to temperature differences in a fluid. In this example the water near the tip will be warmer than the water located at behind the penetrator this will cause the less dense water in the bottom to rise with a certain velocity, thus we can take advantage of this effect and redirect the water from the tip to the inside of the penetrator, as explained earlier\cite{website:naturalConvectionPdf}.
+\\
+Natural convection is caused by density gradients due to temperature differences in a fluid. In this example the water near the tip will be warmer than the water located behind the penetrator this will cause the less dense water in the bottom to rise with a certain velocity, thus we can take advantage of this effect and redirect the water from the tip to the inside of the penetrator, as explained earlier\cite{website:naturalConvectionPdf}.
 
 An important number associated with natural convection is the so-called Rayleigh number $\mathbf{Ra}$, which is given by\cite{website:naturalConvectionWiki}:
 \begin{equation}
@@ -268,7 +272,7 @@ The simplified model is made of a totally separated heating element in the front
 	\label{fig:cfd}
 \end{figure}
 \\
-The ice that surrounds the penetrator was designed so as to mimic the expected shape of the bore hole with it being narrow at the heating element and then expanding out to a fixed width near the middle of the penetrator. The diameter of this bore hole is somewhat over exaggerated allowing flow around the penetrator, again, to ensure the best conditions possible for convection.
+The ice that surrounds the penetrator was designed as to mimic the expected shape of the bore hole with it being narrow at the heating element and then expanding out to a fixed width near the middle of the penetrator. The diameter of this bore hole is somewhat over exaggerated allowing flow around the penetrator, again, to ensure the best conditions possible for convection.
 \\
 \\
 The penetrator is modeled as being 1.5 m long with an external diameter of 20 cm. The internal diameter of the penetrator model is 4 cm, which was chosen because the much smaller diameters resulted in breakdown of the simulation. The heater is simulated as being made of solid copper with a 2000 W internal heat source, while the bulk of the penetrator is made of aluminum. The control volume represents some 4 m of water column with the top being designated as an open surface, meaning that the simulation allows flow through it, as if it was extended indefinitely. The ambient pressure and temperature was set to 120 bar and 0 $^\circ C$, respectively.
