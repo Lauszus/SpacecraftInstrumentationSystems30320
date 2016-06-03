@@ -258,9 +258,11 @@ The simplified model is made of a totally separated heating element in the front
 	}\\
 	\subfloat[CFD temperature simulation results]{
 		\includegraphics[width=.6\textwidth]{figures/convection/cfd_temperature}
+		\label{fig:cfd_temperature}
 	}\\
 	\subfloat[CFD velocity simulation results]{
 		\includegraphics[width=.6\textwidth]{figures/convection/cfd_velocity}
+		\label{fig:cfd_velocity}
 	}
 	\caption{CFD simulation results}
 	\label{fig:cfd}
@@ -272,7 +274,7 @@ The ice that surrounds the penetrator was designed so as to mimic the expected s
 The penetrator is modeled as being 1.5 m long with an external diameter of 20 cm. The internal diameter of the penetrator model is 4 cm, which was chosen because the much smaller diameters resulted in breakdown of the simulation. The heater is simulated as being made of solid copper with a 2000 W internal heat source, while the bulk of the penetrator is made of aluminum. The control volume represents some 4 m of water column with the top being designated as an open surface, meaning that the simulation allows flow through it, as if it was extended indefinitely. The ambient pressure and temperature was set to 120 bar and 0 $^\circ C$, respectively.
 \\
 \\
-By using these boundaries conditions a steady-state CFD analysis was made, the result of which is displayed in Figures \ref{fig:cfd} b and c. It should be noted that an adaptive mesh was used to ensure maximum simulation resolution within the penetrator.
+By using these boundaries conditions a steady-state CFD analysis was made, the result of which is displayed in Figures \ref{fig:cfd_temperature} and \ref{fig:cfd_velocity}. It should be noted that an adaptive mesh was used to ensure maximum simulation resolution within the penetrator.
 It can be seen that the heating element reaches a temperature of around 100 \textdegree C and the back of the penetrator stabilizes near 15 \textdegree C. This results in a natural convection flow through the penetrator at only 0.4 cm/s or 200 s/L. Considering that this result was obtained using unrealistically favorable conditions and with no resistances inside the penetrator, like for example a filtering system, it points toward convection being of limited use. Thus, a pump system, such as a peristaltic pump, is properly needed to ensure proper water flow to the different instruments in the penetrator. This will be discussed more in detail in chapter \ref{sec:water_flow}.
 
 % TODO: Comment on different assumptions
