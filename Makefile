@@ -14,36 +14,33 @@ LINT_OPTIONS = -q
 
 MAIN = main
 FIGDIR = figures
-#CHAPDIR = chapters
+CHAPDIR = Appendix Communication gfc Lander Orbiter Penetrator Theory
 
-# Add your own .eps figures to this list.
-#FIGURES = $(notdir $(wildcard $(FIGDIR)/*.png)) $(notdir $(wildcard $(FIGDIR)/*.jpg)) $(notdir $(wildcard $(FIGDIR)/*.pdf))
-
-# Add your own LaTeX files to this list.
-FILES = $(notdir $(wildcard *.tex)) bibliography/biblio.bib
+FILES = $(notdir $(wildcard *.tex)) $(foreach dir,$(CHAPDIR),$(dir)/*.tex) bibliography/biblio.bib
+FIGURES = $(shell find $(FIGDIR) -iname '*.png') $(shell find $(FIGDIR) -iname '*.jpg') $(shell find $(FIGDIR) -iname '*.pdf') $(shell find $(FIGDIR) -iname '*.eps') $(shell find $(FIGDIR) -iname '*.gif')
 
 all: $(MAIN).pdf
 
-$(MAIN).pdf: $(MAIN).tex $(FIGURES) $(FILES)
+$(MAIN).pdf: $(FILES) $(FIGURES)
 	$(LATEX) $*.tex;
 	$(BIBTEX) $*;
 	$(LATEX) $*.tex 1>/dev/null;
 	$(LATEX) $*.tex;
 
 lint:
-	@ $(LINT) $(LINT_OPTIONS) *.tex $(CHAPDIR)/*.tex 2>/dev/null
+	$(LINT) $(LINT_OPTIONS) $(FILES) 2>/dev/null
 
 clean:
-	- $(RM) -f *.aux \
-        $(CHAPDIR)/*.aux \
+	$(RM) -f *.aux \
+		$(foreach dir,$(CHAPDIR),$(dir)/*.aux) \
 		$(MAIN).log $(MAIN).dvi $(MAIN).ps $(MAIN).blg $(MAIN).bbl \
-		$(MAIN).lot $(MAIN).lol $(MAIN).lof $(MAIN).toc $(MAIN).out $(MAIN).pdf
+		$(MAIN).lot $(MAIN).lol $(MAIN).lof $(MAIN).toc $(MAIN).tdo $(MAIN).out $(MAIN).pdf
 
 # Count words in the book
 wc:
-	- @echo
-	- @echo "Current word count: "
-	- @$(DETEX) $(MAIN).tex | wc -w | sed 's/^[ \t]*/    /'
-	- @echo "Current page count: "
-	- @$(DETEX) $(MAIN).tex | tr -d ' \t\r\n' | echo "scale=3; `wc -m`/2200" | bc -l | sed 's/^[ \t]*/    /'
-	- @echo
+	@echo
+	@echo "Current word count: "
+	@$(DETEX) $(MAIN).tex | wc -w | sed 's/^[ \t]*/    /'
+	@echo "Current page count: "
+	@$(DETEX) $(MAIN).tex | tr -d ' \t\r\n' | echo "scale=3; `wc -m`/2200" | bc -l | sed 's/^[ \t]*/    /'
+	@echo

@@ -142,12 +142,12 @@ The conductivity $\sigma$ of the medium is directly proportional to the imaginar
 
 Because of the complexity of equations (\ref{eq:dielectric} - \ref{eq:tan}) an approximated expression has been developed to compute the attenuation.
 
-\begin{multline}
-    a=0.129 \sqrt{Re(\epsilon)}\ f (\sqrt{1+tan^2 \delta}-1)^{1/2} \approx \\
-    \approx 0.091 \sqrt{Re(\epsilon)}\ f\ tan \delta \approx 0.0009\ \sigma\ dB/m
-    \label{eq:losses}
-\end{multline}
-where, $\sigma$ is in $\mu S m^{-1}$. As one can see from eq. (\ref{eq:losses}), attenuation's value is directly proportional to frequency, or in other words to the conductivity of the medium. Additionally, the static dielectric constant of pure ice is heavily depended on the orientation of electric field with respect to the crystal's axis. The effect of pressure is about 1\% per kbar for polycrystalline ice \cite{Kofman_2010}. The above formulas and their approximations concerning the electromagnetic waves can be used adequately for very low temperatures, as the ranges we are interested.
+\begin{align}\label{eq:losses}
+    a &= 0.129 \sqrt{Re(\epsilon)}\ f (\sqrt{1+tan^2 \delta}-1)^{1/2} \\ \nonumber
+      &\approx 0.091 \sqrt{Re(\epsilon)}\ f\ tan \delta \\ \nonumber
+      &\approx 0.0009\ \sigma\ dB/m
+\end{align}
+Where, $\sigma$ is in $\mu S m^{-1}$. As one can see from eq. (\ref{eq:losses}), attenuation's value is directly proportional to frequency, or in other words to the conductivity of the medium. Additionally, the static dielectric constant of pure ice is heavily depended on the orientation of electric field with respect to the crystal's axis. The effect of pressure is about 1\% per kbar for polycrystalline ice \cite{Kofman_2010}. The above formulas and their approximations concerning the electromagnetic waves can be used adequately for very low temperatures, as the ranges we are interested.
 
 Nevertheless, the losses due to pure ice are well documented in bibliography, there is a big gap regarding ice impurities on icy moons. The absence of these data are due to uncertainties and lack of knowledge of the physical nature of impurities on these satellites. This problem was studied by  Moore \cite{Moore_2000} and Chyba \cite{Chyba_1998} for Europa. Moore considered three types of water ice on Europa, produced by three basic processes occurring on Earth. The first one is meteoric ice formed by atmospheric precipitations, sea ice formed by the freezing of water close to the atmospheric interface and marine ice forming beneath ice shelves directly from ocean water. Moore concluded that similar processes are likely to occur on Europa as well, and that the most probable form of ice would be marine ice. In figure \ref{fig:impurities} Moore sums up the attenuation from different type of impurities in ice \cite{Moore_2000}.
 
