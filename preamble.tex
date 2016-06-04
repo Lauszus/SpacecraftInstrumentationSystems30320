@@ -10,8 +10,8 @@
 \usepackage{longtable}
 \usepackage{multirow,booktabs}
 \usepackage{amsfonts,amsmath,amssymb}
+\usepackage[hyphens]{url}
 \usepackage[numbers]{natbib}
-\usepackage{url}
 \usepackage{hyperref}
 \hypersetup{colorlinks=false,pdfborder={0 0 0}}
 % You can conditionalize code for latexml or normal latex using this.
@@ -27,6 +27,9 @@
 \usepackage{fancyhdr}
 \setlength{\headheight}{14.5pt} % Fix warning
 \usepackage{enumitem}
+\usepackage{lastpage}
+\usepackage{epstopdf}
+\usepackage{siunitx}
 
 %START added packages used by Orbiter (Johannes Linde)
 \usepackage{verbatim}
@@ -43,6 +46,7 @@
 \setlist[enumerate]{noitemsep}
 \setlist[itemize]{noitemsep}
 
+
 \makeatletter
 \AtBeginDocument{%
   \expandafter\renewcommand\expandafter\subsection\expandafter{%
@@ -50,6 +54,8 @@
   }%
 }
 \makeatother
+
+%\newcommand{\mycourse}[0]{30320 Spacecraft Instrumentation Systems}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -60,11 +66,17 @@
 		\else
 			\thechapter.\; \MakeUppercase{#1}
 		\fi
+	\else
+		\thechapter.\; \MakeUppercase{#1}
 	\fi
 }{}}
+%\fancyhead[LE,RO]{\thepage}
+%\fancyfoot{}
+%\fancyfoot[L]{\begin{footnotesize}{\textsc{Page \thepage{ }of \pageref*{LastPage}}}\end{footnotesize}}
+%\fancyfoot[R]{\begin{footnotesize}{\textsc{\mycourse}}\end{footnotesize}}
 \fancyhead[LE,RO]{\thepage}
-\fancyhead[RE]{\slshape \leftmark}
-\fancyhead[LO]{\slshape \rightmark}
+\fancyhead[RE]{\slshape \rightmark}
+\fancyhead[LO]{\slshape \leftmark}
 
 \providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
 
@@ -83,11 +95,13 @@
 \newcommand\autsection[2]{%
   \section[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
   \addauthorbelowheading{#2}%
+  \sectionmark{#1}%
 }
 
 \newcommand\autsubsection[2]{%
   \subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
   \addauthorbelowheading{#2}%
+  \subsectionmark{#1}%
 }
 
 % DTU frieze

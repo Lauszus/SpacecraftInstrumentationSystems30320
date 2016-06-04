@@ -41,7 +41,7 @@ To direct the water flow several valves will also be required. Figure \ref{fig:f
 
 \autsection{HPLC}{Morten Lykke Hilligsøe}
 \label{sec:hplc}
-High-performance liquid chromatography (HPLC and also known as high-pressure liquid chromatography), is a chemical technique commonly used to identify, quantify and separate components of a liquid sample. Most commonly, the technique uses pressure to pump a solvent through a column filled with silica beads covered in carbohydrates. The silica beads typically have a size range of 2–50 micrometers in diameter. By mixing the sample with a polar solvent, such as acetonitrile or methanol, and passing it through the highly non-polar silica beads, each component of the sample will interact differently with the column, thereby affecting flow rates of each compound and making it possible to separate them. 
+High-performance liquid chromatography (HPLC and also known as high-pressure liquid chromatography), is a chemical technique commonly used to identify, quantify and separate components of a liquid sample. Most commonly, the technique uses pressure to pump a solvent through a column filled with silica beads covered in carbohydrates. The silica beads typically have a size range of 2–50 micrometers in diameter. By mixing the sample with a polar solvent, such as acetonitrile or methanol, and passing it through the highly non-polar silica beads, each component of the sample will interact differently with the column, thereby affecting flow rates of each compound and making it possible to separate them. \cite{wiki_hplc}
 
 Many different HPLC techniques exist, including:
 \begin{itemize}
@@ -57,7 +57,7 @@ Many different HPLC techniques exist, including:
 with reversed-phase chromatography equipment being very common in chemistry and biochemistry labs all over the world. In reversed-phase chromatography, the components of the sample mixture are separated from each other based on their different interactions with the absorbent particles of the HPLC column, also known as the stationary phase. The pressurized sample/solvent mixture is referred to as a "mobile phase".
 
 \subsubsection{Detection}
-HPLC can detect a vast array of different chemical and biochemical compounds, including many compounds considered direct indicators of present life:
+HPLC can detect a vast array of different chemical and biochemical compounds, including many compounds considered direct indicators of present life \cite{hplcbasics}:
 \begin{itemize}
     \item DNA and RNA
     \item Pharmaceuticals like aspirin, ibuprofen, or acetaminophen (Tylenol) 
@@ -71,8 +71,15 @@ HPLC can detect a vast array of different chemical and biochemical compounds, in
 HPLC will not be able detect all of these compounds using a single HPLC column, as different types of columns are optimized for different detection schemes, but a single column will still be able to detect a vast range of compounds. If more compounds are to be detected, a setup with multiple columns could also be designed. Special HPLC setups can also separate and quantify chiral enantiomers, which are considered clear indicators of life, if a set of enantiomers are found in varying concentrations. Such setups are however much less versatile, and are better suited for experiments where the examined compound is known beforehand.
 Typically a marker solution is introduced to the system before the sample, in order to have some reference points. Detection limits depends very much on the optical setup (light source \& sensor) and the compound to be detected, but the separation of compounds reduces noise, thereby making it possible to detect concentrations down to µg/L, with just a few µL of sample. Because of these small sample amounts, typical column dimensions are just 2.1–4.6 mm in diameter, and 30–250 mm in length.
 
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/mlh/HPLC.png}
+	\caption{Schematic representation of an HPLC unit. (1) Solvent reservoirs, (2) Solvent degasser, (3) Gradient valve, (4) Mixing vessel for delivery of the mobile phase, (5) High-pressure pump, (6) Switching valve in "inject position", (6') Switching valve in "load position", (7) Sample injection loop, (8) Pre-column (guard column), (9) Analytical column, (10) Detector (i.e. IR, UV), (11) Data acquisition, (12) Waste or fraction collector.\cite{wiki_hplc}}
+	\label{fig:HPLC}
+\end{figure}
+
 \subsubsection{Components}
-5 major components are required for a HPLC setup:
+Figure \ref{fig:HPLC} illustrates a typical HPLC system. 5 major components are required for a HPLC setup:
 \begin{enumerate}
     \item Pump: The pump is used to force the sample/solution mixture through the column at high pressure and at a specific flow rate. HPLC flow rates are commonly in the 0.1- to 8-mL/min range, with a pressure gradient commonly in the range of 50- to 600-bar.
     \item Injector: The injector introduces the sample into the solvent (mobile phase) flow stream at typical volumes of 5- to 20-µL. As the sample is unpressurized, the injector must be able to withstand the high pressure of the system.
@@ -93,22 +100,22 @@ The degassing system is an essential part of any HPLC system used under normal l
 \subsubsection{Implementation}
 To implement a HPLC system on the Europa subsea mission, the system will have to be limited in the power usage, weight, volume, and data transfer rates. The following equipment has been used as reference for calculating an approximate weight, power and volume usage:
 \begin{itemize}
-    \item 0.01-10mls/min, 143bar, Stainless Steel, positive displacement piston pump 
+    \item 0.01-10mls/min, 143bar, Stainless Steel, positive displacement piston pump \cite{hplc_motor}
     \begin{itemize}
         \item Weight: 1.6kg
         \item Power: 40.8W
         \item Size: 139.7mm x 76.2mm x 266.7mm
     \end{itemize}
-    \item Injector 
+    \item Injector \cite{hplc_injector}
     \begin{itemize}
         \item Weight: 0.25kg
     \end{itemize}
-    \item C18 Reversed-Phase HPLC Column 
+    \item C18 Reversed-Phase HPLC Column \cite{hplc_columns}
     \begin{itemize}
         \item Weight: 0.2kg
         \item Size: 200mm x 2.2mm (internal)
     \end{itemize}
-    \item 190-500nm, 13nm resolution, UV Detector 
+    \item 190-500nm, 13nm resolution, UV Detector \cite{hplc_detector}
     \begin{itemize}
         \item Weight: 1.5kg
         \item Power: 60W
@@ -125,7 +132,7 @@ The chosen pump is a displacement piston pump, which are commonly used high pres
 \end{equation}
 Which is then rounded up to 50ml per experiment, because some solvent is also necessary to flush the column before experiments.
 
-Several connectors and peripheral equipment will also be required, resulting in a system which, during operation, requires a power input of approximately 100W, and has a total weight of around 4kg plus approximately 0.05kg of solvent per experiment. The volume of the individual components are quite large when considering the size of the penetrator, but by stripping each component down to the bare minimum, e.g. getting rid of shielding, user interfaces and AC-DC converters, the size and weight should be low enough for the HPLC solution to be contained within the penetrator. 
+Several connectors and peripheral equipment will also be required, resulting in a system which, during operation, requires a power input of approximately 100W, and has a total weight of around 4kg plus approximately 0.05kg of solvent per experiment. The volume and mass of the individual components are quite large when considering the size of the penetrator, but by stripping each component down to the bare minimum, e.g. getting rid of shielding, user interfaces and AC-DC converters, the size and weight should be low enough for the HPLC solution to be contained within the penetrator. 
 
 The data transfer rates can be calculated from the sampling frequency $f$, the sampling range $l$, the sampling resolution $\delta$, and the bit-size $b$ of each measurement point:
 \begin{equation}
@@ -133,14 +140,19 @@ The data transfer rates can be calculated from the sampling frequency $f$, the s
 \end{equation}
 Here the sampling frequency is chosen to be 1Hz, which is on the low end of standard sampling rates of laboratory HPLC experiments, but still good enough for most experiments. The 12 bit measurement point size gives a range from 0-4095. Since the HPLC isn’t expected to run continuously, but only run when an interesting sample has been up-concentrated, the 286bps is far below the maximum transfer limit, and both sampling frequency, sample points and bit size may be increased without creating a bottleneck.
 
-\subsubsection{Up-concentration and injection}
-The final question remains of how to get a sample up-concentrated and injected into the HPLC instrument.
+A simple illustration of the system is presented in figure \ref{fig:hplc_drawing}.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/mlh/HPLC_system}
+	\caption{}
+	\label{fig:hplc_drawing}
+\end{figure}
 
 \autsection{Lab-on-a-chip \& microscopic sensors}{Morten Lykke Hilligsøe}
-Lab-on-a-chip (LOC) systems are a common description of microfluidic devices which can perform one or several laboratory functions on a single chip. Lab-on-a-chip systems are often characterized by a very small size in the mm2 – cm2 range, high automation requiring only sample injection and result identification, as well as zero chance of contamination due to the closed system. The small size of LOCs also results in extremely small sample sizes, sometimes reaching less than a pico liter, which can be both an advantage and a disadvantage, as small amounts of the compound of interest is necessary for detection or analysis, but the small sample volumes can be hard to handle properly. 
+Lab-on-a-chip (LOC) systems are a common description of microfluidic devices which can perform one or several laboratory functions on a single chip. Lab-on-a-chip systems are often characterized by a very small size in the mm2 – cm2 range, high automation requiring only sample injection and result identification, as well as zero chance of contamination due to the closed system. The small size of LOCs also results in extremely small sample sizes, sometimes reaching less than a pico liter, which can be both an advantage and a disadvantage, as small amounts of the compound of interest is necessary for detection or analysis, but the small sample volumes can be hard to handle properly. \cite{wiki_loc} \cite{labchip}
 
-LOCs are typically constructed using the same lithographic techniques developed by semi-conductor industry for integrated circuit production, and consists of µm or sub-µm sized mechanical structures such as channels, mixers, valves, pumps and dosing devices, combined with micro-sensors, chemical \& biochemical reagents and/or external sensors, e.g. optical or electrical sensors. LOCs are still a novel technology, but the technology is quickly evolving and LOC solutions have found many uses, especially within biochemical and microbiological analysis, such as bacteria, virus, and bioanalyte detection.
-\footnote{Ghallab, Y.; Badawy, W. (2004-01-01). "Sensing methods for dielectrophoresis phenomenon: from bulky instruments to lab-on-a-chip". IEEE Circuits and Systems Magazine 4 (3): 5–15.} \footnote{Ryan S. Pawell, David W. Inglis, Tracie J. Barber, and Robert A. Taylor, Manufacturing and wetting low-cost microfluidic cell separation devices, Biomicrofluidics 7, 056501 (2013);doi:10.1063/1.4821315} \footnote{\url{http://link.springer.com/article/10.1007/s10404-014-1464-1?sa_campaign=email/event/articleAuthor/onlineFirst}} lists advantages and disadvantages of LOCs as:
+LOCs are typically constructed using the same lithographic techniques developed by semi-conductor industry for integrated circuit production, and consists of µm or sub-µm sized mechanical structures such as channels, mixers, valves, pumps and dosing devices, combined with micro-sensors, chemical \& biochemical reagents and/or external sensors, e.g. optical or electrical sensors. LOCs are still a novel technology, but the technology is quickly evolving and LOC solutions have found many uses, especially within biochemical and microbiological analysis, such as bacteria, virus, and bioanalyte detection. \\
+\cite{Ghallab2004} \cite{Pawell2013} \cite{Pawell2015} lists advantages and disadvantages of LOCs as:
 
 Advantages of LOCs:
 \begin{itemize}
@@ -167,17 +179,41 @@ Further disadvantages for use on space missions, includes that many LOCs are sin
 \subsubsection{Systems of interest}
 Below is described 4 systems of interest for a life detection mission. Many other relevant projects exists, ranging from small research projects to a few readily available solutions.
 
-\paragraph{DNA extraction and real-time PCR}
+\paragraph{DNA extraction and real-time PCR \cite{Oblath2013}}
 In an article from 2013, researchers at the University of North Carolina describe a “microfluidic chip integrating DNA extraction, amplification, and detection for the identification of bacteria in saliva”. Such a device could easily be used to detect if DNA is present on Europa. And because the chip has integrated filters, minimal preparation of the sample is required. The system works by filtering lysed organisms through a nanoporous aluminum oxide membrane, followed by PCR amplification of the filtered DNA in 7 parallel reaction wells. PCR amplification is the standard method of up concentrating DNA, and using this method the chip was able to detect as low as 8-12 copies of methicillin-susceptible Staphylococcus aureus DNA. PCR amplification depend primers to attach to matching DNA sequencing. For a Europa mission, any microorganisms will of course be unknown, and specific target primers will not be available. Instead a series of general primers which bind to DNA sequences common to earth life can be used to simply detect DNA. 
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/mlh/reactionwells.png}
+	\caption{Image of a DNA extraction and real-time PCR chip (A) and a schematic of its cross-section (B). Schematic is not to scale. The glass cover slip is 150 $\mu m$ thick, the microfluidic base of the chip is \~400 $\mu m$ thick, The AOM is 60 $\mu m$ thick, and the reaction wells are \~2.8 mm tall. The microposts are 75 $\mu m$ in diameter and 18 $\mu m$ tall. The microfluidic channel is 30 $\mu m$ deep and 1.6 cm long. \cite{Oblath2013}}
+	\label{fig:DNAPCRchip}
+\end{figure}
 
-\paragraph{Chemical sensor}
-Although more a sensor than LOC, in 2014, researchers at Vienna University of Technology have developed a very interesting sensor chip, for measuring the chemical composition of liquids. The sensor works by placing a matching set of mid-infrared quantum cascade laser and detector on a single chip connected through a 50µm waveguide. When specific molecules pass close to the waveguide, the laser light is absorbed and the molecule can be detected. The wavelength of quantum cascade lasers can be finely tuned, and lasers matching specific molecules can therefore be created, allowing for detection of various molecules, such as carbohydrates or proteins, and the small size will make it possible to have a whole array of various wavelength sensors to measure the concentration of many different compounds using a single chip.
+\paragraph{Chemical sensor \cite{Schwarz2014}}
+Although more a sensor than LOC, in 2014, researchers at Vienna University of Technology have developed a very interesting sensor chip, for measuring the chemical composition of liquids. The sensor works by placing a matching set of mid-infrared quantum cascade laser and detector on a single chip connected through a 50 $\mu m$ waveguide. When specific molecules pass close to the waveguide, the laser light is absorbed and the molecule can be detected. The wavelength of quantum cascade lasers can be finely tuned, and lasers matching specific molecules can therefore be created, allowing for detection of various molecules, such as carbohydrates or proteins, and the small size will make it possible to have a whole array of various wavelength sensors to measure the concentration of many different compounds using a single chip.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/mlh/laserchip.jpg}
+	\caption{Nanoscale chemical sensor, comprised of a laser, a SPP waveguide and a detector, monolithically integrated on the same substrate. The upper inset shows the cross section of the structure and the lower inset the corresponding scanning electron microscope (SEM) image of the fabricated device.\cite{Schwarz2014}}
+	\label{fig:laserchip}
+\end{figure}
 
-\paragraph{Movement sensor }
+\paragraph{Movement sensor \cite{Kasas13012015}}
 A universal life detection sensor has been developed by Kasas et al. of the École Polytechnique Fédérale de Lausanne, by using a cantilever known, as known from Atomic Force Microscopy, to detect tiny fluctuations, commonly associated with the movement and metabolic activity of cells. The cantilever is essentially a metal beam which can scrape a surface, and if any living organisms get stuck on the cantilever, a laser can detect the tiny vibrations made by metabolic movement. The sensor has been successfully tested with bacteria, yeast, mouse cells, human cells, and plant cells. The unique feature of such sensor is the complete lack of knowledge required about the organism biochemistry. Where other methods rely on the assumption that extraterrestrial life has similar DNA, protein or hydrocarbon chemistry as life on earth, no such assumptions are necessary for this detection method.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/mlh/movementdetector.jpg}
+	\caption{Detailed depiction of a nanomotion detection experiment. Before the attachment of the living specimens to the sensor, the fluctuations are small (Left). When the specimens are immobilized on the sensor, its fluctuations increase (Center). Finally, if the microorganisms are killed, through a chemical or physical agent, the sensor reverts to small fluctuations (Right).}
+	\label{fig:movementdetector}
+\end{figure}
 
-\paragraph{Wet-chemical analyzers}
+\paragraph{Wet-chemical analyzers \cite{chemical_microsensors}}
 The National Oceanography Centre of the United Kingdom is developing chemical sensors for several of the major nutrients important for oceanic life, which includes nitrate, nitrite, ammonia, and phosphate, as well as the trace nutrients, present at low concentrations yet essential for life, such as dissolved iron and manganese, which is a tracer of hydrothermal vent emissions.  Many of these sensors are based on the principle of Flow Injection Analysis, which is commonly used in laboratory equipment, but with the goal of condensing several high precision sensors into a small device which can be used for in-situ deep ocean analysis and monitoring. Such a system is attained by use of microfluidic devices and sensors.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/mlh/microsensors_chem_img1.png}
+	\caption{Clockwise from top left: An electron micrograph of four steps in the processing of micro-machined flow channels in a polymer base using a patented process developed at Southampton; a functional microfluidic sensor ‘chip’; a sensor ‘chip’ with its support electronics; finally the senor and electronics, with flow control valves and a pump for the sample and reagent chemicals enclosed within a pressure housing ready to be used at sea.\cite{chemical_microsensors}}
+	\label{fig:chemical_microsensors}
+\end{figure}
 
 \subsubsection{Implementation}
 Although lab-on-a-chip systems and microscopic sensors offer promising products and technologies, many of the applications which are of interest to this mission, are still in a developmental stage, and require further maturing before an extraterrestrial mission can rely on such equipment. The long life of the mission and single-use chips also hinders the effective use of such systems, and it was therefore chosen not to bring LOCs on the Europa subsea mission.

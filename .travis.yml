@@ -13,24 +13,24 @@ before_script:
     - unzip tablefootnote.zip
     - cd tablefootnote
     - tex tablefootnote.dtx
-    - sudo mkdir -p ~/texmf/tex/latex/tablefootnote
-    - sudo mv *.sty ~/texmf/tex/latex/tablefootnote/
+    - mkdir -p ~/texmf/tex/latex/tablefootnote
+    - mv *.sty ~/texmf/tex/latex/tablefootnote/
     - cd ../
     - wget http://mirrors.ctan.org/macros/latex/contrib/etoolbox.zip
     - unzip etoolbox.zip
     - cd etoolbox
-    - sudo mkdir -p ~/texmf/tex/latex/etoolbox
-    - sudo mv *.sty ~/texmf/tex/latex/etoolbox/
+    - mkdir -p ~/texmf/tex/latex/etoolbox
+    - mv *.sty ~/texmf/tex/latex/etoolbox/
     - cd ../
     - wget http://mirrors.dotsrc.org/ctan/macros/latex/contrib/oberdiek/ltxcmds.dtx
     - tex ltxcmds.dtx
-    - sudo mkdir -p ~/texmf/tex/latex/ltxcmds
-    - sudo mv *.sty ~/texmf/tex/latex/ltxcmds/
+    - mkdir -p ~/texmf/tex/latex/ltxcmds
+    - mv *.sty ~/texmf/tex/latex/ltxcmds/
     - wget http://mirrors.dotsrc.org/ctan/macros/latex/contrib/oberdiek/letltxmacro.dtx
     - tex letltxmacro.dtx
-    - sudo mkdir -p ~/texmf/tex/latex/letltxmacro
-    - sudo mv *.sty ~/texmf/tex/latex/letltxmacro/
-    - cd ~/texmf; sudo mktexlsr
+    - mkdir -p ~/texmf/tex/latex/letltxmacro
+    - mv *.sty ~/texmf/tex/latex/letltxmacro/
+    - cd ~/texmf; mktexlsr
 
 script:
     - cd ~/build/Lauszus/SpacecraftInstrumentationSystems30320; make all -j2
