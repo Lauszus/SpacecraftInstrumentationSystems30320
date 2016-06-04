@@ -26,7 +26,6 @@ The LLCD mission’s real breakthrough, however, was its demonstration that such
 	\item Diode-pumped solid state laser has much lower power efficiency compared to RF amplifiers (10 \% vs 40 \%). EDFA technology can potentially achieve a better efficiency (20 \%). However, reduction in antenna gain and receiver sensitivity more than compensate for the increased efficiency. 
 	\item Optical system is much more sensitive to pointing loss and atmospheric attenuation.
 \end{enumerate}
-
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[width=1\columnwidth]{figures/laser-communication/bh3.jpg}
@@ -66,18 +65,12 @@ Selection of wavelengths for optical communications depends on an understanding 
 \end{figure}
 \\
 We propose to use wavelengths on the ITU (International Telecommunication Union) grid specified for terrestrial fiber networks in the C band with nominal wavelengths between 1.53 and 1.57 microns (5 THz bandwidth). This choice of wavelengths takes advantage of the extensive terrestrial fiber network WDM technology currently available, including laser sources, photodiode detectors, erbium-doped fiber amplifiers (EDFA) for optical amplification, and WDM multiplexers and demultiplexers. 
-
 \subsubsection{Modulation Type}
-
 The large geometric space loss for communicating with deep space optical missions such as JIMO requires power efficient communication techniques.
 optical detection receiver, is proposed to provide a highly power-efficient high data transmission rate system with reasonable implementation complexity. Specifically, a 256-slot PPM modulation scheme with RZ pulse shaping is considered, where each symbol carries 8 bits, requiring a 32-fold bandwidth expansion relative to the conventional binary on/off keying modulation normally employed in terrestrial fiber networks.
-
 \subsubsection{Laser Source}
-
 A high-power laser source at each wavelength can be implemented using a conventional laser diode followed by an EDFA power amplifier to produce 5 watts of launch power. Link closure at a 1.55-micron wavelength is then achieved for a 2.4 m receive aperture at data rates ranging from 2.5 Mbps for a 30 cm transmit aperture to 25 Mbps for a 90 cm transmit aperture. Increasing the receive aperture to 3.6 m increases the corresponding data transmission rates.
-
 \subsubsection{Tx and Rx Aperture}
-
 A single receiving telescope on the Earth-orbiting relay satellite is required with an optical aperture size that must be large enough to collect a sufficient amount of propagated light ,As we can see, the total telemetry data rate increased by increasing the transmitter aperture and receiver aperture, and adding more laser diode will increase the data rate. 
 \begin{figure}[htb]
 \begin{center}
@@ -85,14 +78,11 @@ A single receiving telescope on the Earth-orbiting relay satellite is required w
 \caption{Achievable Data Return for laser Communication System}
 \end{center}
 \end{figure}
+\noindent
 \\
-
 \subsubsection{Pointing system}
-
 Due to high data rates and reliability, the stability of the laser beam pointing is still a key technique which needs to be solved; otherwise, the beam pointing jitter noise would reduce the communication quality or, even worse, would make the inter-satellite laser communication impossible. 
-
 \subsubsection{Weight, size, and power requirements}
-
 The weight, size, and power requirements for a JIMO transmitter employing two wavelengths are estimated using extrapolation from previous work performed at The Aerospace Corporation.
 \begin{figure}[htb]
 \begin{center}
@@ -101,12 +91,9 @@ The weight, size, and power requirements for a JIMO transmitter employing two wa
 \end{center}
 \end{figure}
 \\
-
 \subsubsection{Mission and Coverage limitation}
-
 For almost all deep space missions, the mission profile will impose limits on spacecraft attitude and pointing of spacecraft during certain mission phases. Examples of such mission phases are the launch phase or inner cruise phase where spacecraft attitude is constrained by the trajectory or thermal consideration.there will be coverage holes that can potentially limit the mission planning.
 -Difficulty in maintaining link with degraded spacecraft performance: This can include degraded station-keeping capability, degraded star tracker performance, or loss of time reference, will lead to unmanageable acquisition time.
-
 The detection sensitivity is significantly worse at optical frequency, even with the use of high order PPM modulation . The optical receiver sensitivity can further degrade to 20-30 photons/bit under daytime conditions with current receiver technology.
 
 Due to a high distance and difficulty of continuous acquisition and tracking, we can not use laser communication for this mission.
