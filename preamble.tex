@@ -27,6 +27,10 @@
 \usepackage{fancyhdr}
 \setlength{\headheight}{14.5pt} % Fix warning
 \usepackage{enumitem}
+\usepackage{lastpage}
+\usepackage{epstopdf}
+\usepackage{siunitx}
+\usepackage{tocstyle}
 
 %START added packages used by Orbiter (Johannes Linde)
 \usepackage{verbatim}
@@ -43,6 +47,7 @@
 \setlist[enumerate]{noitemsep}
 \setlist[itemize]{noitemsep}
 
+
 \makeatletter
 \AtBeginDocument{%
   \expandafter\renewcommand\expandafter\subsection\expandafter{%
@@ -50,6 +55,8 @@
   }%
 }
 \makeatother
+
+%\newcommand{\mycourse}[0]{30320 Spacecraft Instrumentation Systems}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -60,11 +67,17 @@
 		\else
 			\thechapter.\; \MakeUppercase{#1}
 		\fi
+	\else
+		\thechapter.\; \MakeUppercase{#1}
 	\fi
 }{}}
+%\fancyhead[LE,RO]{\thepage}
+%\fancyfoot{}
+%\fancyfoot[L]{\begin{footnotesize}{\textsc{Page \thepage{ }of \pageref*{LastPage}}}\end{footnotesize}}
+%\fancyfoot[R]{\begin{footnotesize}{\textsc{\mycourse}}\end{footnotesize}}
 \fancyhead[LE,RO]{\thepage}
-\fancyhead[RE]{\slshape \leftmark}
-\fancyhead[LO]{\slshape \rightmark}
+\fancyhead[RE]{\slshape \rightmark}
+\fancyhead[LO]{\slshape \leftmark}
 
 \providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
 
@@ -81,13 +94,17 @@
 
 % Use theses command to add section and subsection authors
 \newcommand\autsection[2]{%
-  \section[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
-  \addauthorbelowheading{#2}%
+	\section[#1{\normalfont\tiny\itshape ~- #2}]{#1%
+		\sectionmark{#1}}%
+	\sectionmark{#1}%
+	\addauthorbelowheading{#2}%
 }
 
 \newcommand\autsubsection[2]{%
-  \subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
-  \addauthorbelowheading{#2}%
+	\subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1%
+  		\subsectionmark{#1}}%
+	\subsectionmark{#1}%
+	\addauthorbelowheading{#2}%
 }
 
 % DTU frieze
