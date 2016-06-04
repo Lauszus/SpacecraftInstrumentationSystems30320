@@ -92,6 +92,13 @@
 }
 \makeatother
 
+\newcommand\autchapter[2]{%
+	\chapter[#1{\normalfont\tiny\itshape ~- #2}]{#1%
+  		\chaptermark{#1}}%
+	\chaptermark{#1}%
+	\addauthorbelowheading{#2}%
+}
+
 % Use theses command to add section and subsection authors
 \newcommand\autsection[2]{%
 	\section[#1{\normalfont\tiny\itshape ~- #2}]{#1%

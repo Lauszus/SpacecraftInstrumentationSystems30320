@@ -138,6 +138,7 @@ As the spectral data will be arranged in full frames, only simple post-processin
 It is important to keep in mind that this method will require additional time when switching between each filter. Due to this delay, each frame may be slightly misaligned, due to the spacecraft movement between frames.
 \subsubsection*{Hyperspectral Imaging}
 Most imaging spectrometers rely on complex optical systems to split the light into continuous, narrow bands. This includes the Fourier spectrometer and the grating spectrometer. The wedge spectrometer has been proposed in \cite{puschell1999a} as a simpler alternative. By comparing the different spectrometer assemblies in figure (\ref{fig:spec_compare}), the simplicity of the wedge spectrometer is obvious. Due to the limited time available in this course, the Fourier Transform spectrometer has not been analysed further.
+
 \begin{figure}[htb!]
     \centering
     \captionsetup[subfigure]{width=0.25\textwidth}
@@ -155,18 +156,22 @@ Most imaging spectrometers rely on complex optical systems to split the light in
     }
     \caption{A comparison between spectrometer types. Source:\cite{puschell1999a}.}\label{fig:spec_compare}
 \end{figure}
+
 The Wedge Imaging Spectrometer could be a suitable candidate for the system, as it will certainly require much less mass than the alternatives while providing better spectral resolution, compared to the simple filter wheel approach. Filter based spectrometers, such as the wedge type (\ref{fig:spec_wedge_acq}) uses a linear variable filter (LVF), where the spectral properties vary linearly on the wedge\cite{joseph2015building}. The filter is constructed by overlaying layers of dielectric film with high and low refractive indexes in a specific pattern. Because of the tapered dielectric coatings of the film, the passband center wavelength for the thin-film stack will essentially depend on the thickness of the stack. Therefore, the center wavelength of the radiation passing through the wedge filter will vary linearly along the tapered edge of the wedge filter\cite{joseph2015building}. This concept is illustrated in figure (\ref{fig:spec_wedge2}).
+
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.65\textwidth]{figures/Orbiter/spectrometer_wedge_3}
 \caption{The Linear Wedge Filter, mounted on the detector. Adapted from:\cite{puschell1999a}.}
 \label{fig:spec_wedge2}
 \end{figure}
+
 From the figure, it can be seen how the wedge filter is coupled very close to a 2D detector array, with the coated surface facing the array. A blocking filter, covering the spectral region of interest is mounted on the opposite side of the substrate, to remove out-of-band radiation. Each detector row in the spatial dimension is aligned with a given spectral band, using an even spacing between each band. Therefore, the rows will receive light at different wavelengths.
 
 The filter wheel requires several moving parts and a therefore a larger mass. However, it offers an increased amount of flexibility as the system can easily operate with or without filters applied to the imaging sensor. This makes the method very suitable for the secondary objectives, where a filter is not strictly necessary.
 
 The Grating Spectrometer offers a much higher spectral resolution but is unsuited due to the complex design. It is also not very flexible, as it will not be possible to operate the system without generating spectral data, making it unsuited for the secondary objectives. Due to the limited image acquisition methods possible, it will also not be able to give adequate coverage. The different imaging spectrometers has been compared in table \ref{tab:score_imaging_spectrometer}. 
+
 \begin{table}[htb!]
   \centering
 \begin{tabular}{l|l|rrr}
@@ -191,6 +196,7 @@ The Grating Spectrometer offers a much higher spectral resolution but is unsuite
   \caption{The score table for the Imaging Spectrometer. 5 is the highest grade given.}
   \label{tab:score_imaging_spectrometer}%
 \end{table}%
+
 The wedge spectrometer scores slightly better than the filter wheel method. The system trades higher processing requirements and higher support system requirements with a very simple and relatively flexible system. Processing power is relatively cheap on the spacecraft but the higher requirements from the support systems, such as the attitude control, will be the main challenge with this design. However, this is to be expected, when performing surface imaging.
 
 A high spectral resolution and good coverage is possible with the wedge spectrometer but it can be seen how the system performs slightly worse at the secondary objectives. This is caused by the limitations of the wedge filter, as it can only capture an image frame by scanning, operating as a push broom imager. The push broom technique is not very suitable for capturing opnav images or topographic images.
@@ -198,6 +204,7 @@ A high spectral resolution and good coverage is possible with the wedge spectrom
 To improve the performance, a simple solution is suggested. By having an extra detector, the wedge filter and sensor assembly can be removed from the telescope and switched with a bare detector. If a 2D detector is used, this makes it possible to capture full frame images with no filter applied. While it will require moving parts, it will greatly improve the performance of the non-spectral imaging capabilities of the system.
 \subsubsection*{Image Acquisition}
 When considering what spectrometer to use for the imaging system, it is not just a  matter of selecting the lightest and simplest design. Examining the assembly of the two different spectrometer systems makes it clear how the images will be acquired and how the output data will be ordered. The image acquisition method is important to consider, as the ordering of the generated data can affect the post-processing system significantly. Common methods include whisk-broom/push-broom (pixel or line) or staring (frame) captures. The two spectrometer assemblies are shown in figure (\ref{fig:spec_acquisition_compare}). 
+
 \begin{figure}[htb!]
     \centering
     \captionsetup[subfigure]{width=0.45\textwidth}
@@ -211,11 +218,13 @@ When considering what spectrometer to use for the imaging system, it is not just
     }
     \caption{A comparison between acquisition methods. Adapted from:\cite{nieke1997a}.}\label{fig:spec_acquisition_compare}
 \end{figure}
+
 The first method (\ref{fig:spec_dispersion_acq}) uses gratings or prisms as the dispersion element. The element separates the incoming electromagnetic radiation into different wavelengths. A single ground pixel is dispersed and focused onto different locations on the array detector\cite{nieke1997a}, resulting in a whisk-broom acquisition but with each "whisk" covering a specific spectral band. This
 
 The wedge spectrometer is realised by mounting the detector filter assembly in the focal plane of the imaging optics (\ref{fig:spec_wedge_acq}), \cite{joseph2015building} and \cite{nieke1997a}. By placing the wedge filter along the direction of movement, the imaging system is able able to capture a frame of each cross strip from $x_1$ to $x_n$. With With $n$ strips covering different surface areas, each cross strip will correspond to a specific spectral band, depending on the region on the wedge filter. If a 1D array detector is used (i.e a detector that is 1 pixel wide), the spectrometer will be acquiring each spectral band in a whisk-broom fashion. By using a 2D array detector instead, the spectrometer will acquire the spectral bands in a push-broom fashion. Each recorded frame will contain $n$ different ground strips corresponding to each of the spectral bands in the filter. When the spacecraft moves, each ground strip will be imaged by different positions on the wedge filter, thus creating multispectral data for each surface area.
 
 Unlike the dispersive type, where the full spectra of a single pixel is recorded in a single frame, the wedge filter requires reorganising the data, before the hyperspectral cube can be generated for a given surface area. With $n$ spectral bands, the first and the last band for a given ground strip will be collected with a time difference of $(n-1)\cdot \tau$. As the spectral bands for each ground strip will not be linked, the the attitude stability of the spacecraft will therefore play a major role in the band-to-band registration accuracy\cite{joseph2015building}, therefore requiring more from the support systems. The wedge filter imaging sequence is illustrated in figure (\ref{fig:wedge_filt_img_sequence}), where the surface area is illustrated by the blue square.
+
 \begin{figure}[htb!]
 \centering
 \includegraphics[width=\textwidth]{figures/Orbiter/wedge_filt_img_sequence.pdf}
@@ -335,7 +344,7 @@ For the proposed attitude determination system, a set of four micro-Advanced Ste
   \label{tab:masc}%
 \end{table}%
 Selection of the proposed combination assures an autonomous and high accuracy pointing of the imaging system and the pointing of the high gain antenna toward Earth as well. 
-\subsection*{Imaging System Requirements}
+\subsubsection*{Imaging System Requirements}
 This sub system is required to make it possible for the surface imaging to follow a specific pattern, increasing the surface coverage. The accuracy of the attitude control is partially driven by the specific accuracy requirements by the imaging system. However, attitude control is a crucial part of the navigation and orbit determination. Attitude control is also required to maintain a stable communication link to the ground station. 
 
 As previously suggested, the imaging system could be used to generate the opnav images used for orbit determination. Using the imaging system for both mapping and for tracking could be possible, but it may be difficult to do it at the same time. It may also require a different camera design, as both the relatively bright lunar surface and the dark star background must be possible to photograph.
@@ -369,8 +378,7 @@ Orbiters power system design integrates the second RTG module on board the lande
 \newpage
 \subsection{Radiation Shielding}
 The radiation environment of Jupiter can be very demanding for any mission in respect to the necessary protection needed against highly energetic particles. Protons and other heavy ions fluxes appear similar to other interplanetary missions. On the other hand, high electron fluxes should be considered the main danger of this mission.
-Below on Fig.\ref{fig:eleprotflux}, expected electron and proton fluxes are presented for one year duration trajectory. Estimated flux was calculated based on the final orbit selection of the orbiter.
-
+Below in fig. \ref{fig:eleprotflux}, the expected electron and proton fluxes are presented for one year duration trajectory. Estimated flux was calculated based on the final orbit selection of the orbiter.
 
 \begin{figure}[htb!]
 \captionsetup[subfigure]{width=0.45\textwidth}
@@ -393,7 +401,7 @@ Results are summarized on table \ref{tab:particleflux}.
   \centering
     \begin{tabular}{|c|c|c|}
     \hline
-    \textbf{} & \multicolumn{2}{c|}{\textbf{Flux (/cm2/s)}} \bigstrut\\
+    \textbf{} & \multicolumn{2}{c|}{\textbf{Flux ($cm^2/s$)}} \bigstrut\\
 \cline{2-3}    \textbf{Particle Energy (MeV)} & \textbf{Electron} & \textbf{Proton} \bigstrut\\
     \hline
     10    & 9.90E+05 & 4.83E+04 \bigstrut\\
@@ -411,54 +419,61 @@ Results are summarized on table \ref{tab:particleflux}.
     \label{tab:particleflux}
 \end{table}%
 
-For an effective shielding against radiation, three levels of protection are advised. 
-% Use existing aerospace radiation hardened parts rated at 300 krad or less
- % VAULT
- 
+For an effective shielding against radiation, three levels of protection are advised. Spacecraft structure along with the side mounted fuel tanks will provide the first level collateral protection against the external radiation. However, external shielding can only be limited, due to mass constrains and structural limitations, thus making a second level protection necessary. 
+
+A vault-like structure in the heart of the spacecraft,containing all the electronic components, will offer the second level protection. Wall thickness of the vault will be 6-cm thick and be constructed out of aluminum. This configuration will bring the annual TID of the internal electronics to approximately 100 krad, based on the obtained results (table \ref{tab:thicknessalum} and fig. \ref{fig:shield}) for one year of radiation exposure under the selected orbit near Europa. Assuming the use of existing aerospace radiation hardened components rated at 300 krad, orbiter's lifetime will be limited to at least three years on a near Europa orbit. Localized shielding with high-Z materials on individual components , will form the third level of protection. Sensitive electronics, such as Single-Level-Cell Flash Memories, under a TID exceeding 65 krad, present retention errors and block erase fails, thus the use of local protection is vital. 
  
 % Table generated by Excel2LaTeX from sheet 'Sheet1'
-\begin{table}[htb!]
+\begin{table}[htbp]
   \centering
   
-    \begin{tabular}{|c|c|c|r|r|c|r|}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
     \hline
     \multicolumn{3}{|c|}{\textbf{Aluminum thickness}} &       &       & \textbf{Brems- } &  \bigstrut\\
-\cline{1-3}    \textbf{(mm)} & \textbf{(mils)} & \textbf{(g cm2)} & \multicolumn{1}{c|}{\textbf{Electrons}} & \multicolumn{1}{c|}{\textbf{Protons}} & \textbf{strahlung} & \multicolumn{1}{c|}{\textbf{Total (krad)}} \bigstrut\\
     \hline
-    1     & 39.37 & 0.27  & \multicolumn{1}{c|}{76660} & \multicolumn{1}{c|}{1009} & 178.1 & \multicolumn{1}{c|}{77840} \bigstrut\\
+    \textbf{(mm)} & \textbf{(mils)} & \textbf{(g cm2)} & \textbf{Electrons} & \textbf{Protons} & \textbf{strahlung} & \textbf{Total (krad)} \bigstrut\\
     \hline
-    2     & 78.74 & 0.54  & \multicolumn{1}{c|}{32990} & \multicolumn{1}{c|}{304.4} & 122.4 & \multicolumn{1}{c|}{33410} \bigstrut\\
+    0.5   & 19.685 & 0.135 & 1.81E+08 & 2.44E+06 & 6.12E+05 & 184200 \bigstrut\\
     \hline
-    3     & 118.11 & 0.81  & \multicolumn{1}{c|}{17850} & \multicolumn{1}{c|}{117.8} & 95.84 & \multicolumn{1}{c|}{18070} \bigstrut\\
+    1     & 39.37 & 0.27  & 8.20E+07 & 1.03E+06 & 3.57E+05 & 83400 \bigstrut\\
     \hline
-    4     & 157.48 & 1.08  & \multicolumn{1}{c|}{10630} & \multicolumn{1}{c|}{55.8} & 80.43 & \multicolumn{1}{c|}{10770} \bigstrut\\
+    2     & 78.74 & 0.54  & 3.68E+07 & 3.13E+05 & 2.15E+05 & 37350 \bigstrut\\
     \hline
-    5     & 196.85 & 1.35  & \multicolumn{1}{c|}{6904} & \multicolumn{1}{c|}{30.67} & 70.52 & \multicolumn{1}{c|}{7005} \bigstrut\\
+    3     & 118.11 & 0.81  & 2.12E+07 & 1.21E+05 & 1.63E+05 & 21530 \bigstrut\\
     \hline
-    6     & 236.22 & 1.62  & \multicolumn{1}{c|}{4743} & \multicolumn{1}{c|}{18.81} & 63.46 & \multicolumn{1}{c|}{4825} \bigstrut\\
+    4     & 157.48 & 1.08  & 1.37E+07 & 5.74E+04 & 1.35E+05 & 13930 \bigstrut\\
     \hline
-    7     & 275.59 & 1.89  & \multicolumn{1}{c|}{3348} & \multicolumn{1}{c|}{11.57} & 57.92 & \multicolumn{1}{c|}{3418} \bigstrut\\
+    5     & 196.85 & 1.35  & 9.79E+06 & 3.18E+04 & 1.19E+05 & 9936 \bigstrut\\
     \hline
-    8     & 314.96 & 2.16  & \multicolumn{1}{c|}{2336} & \multicolumn{1}{c|}{8.082} & 53.35 & \multicolumn{1}{c|}{2397} \bigstrut\\
+    10    & 393.7 & 2.7   & 3.60E+06 & 3.91E+03 & 9.07E+04 & 3692 \bigstrut\\
     \hline
-    9     & 354.33 & 2.43  & \multicolumn{1}{c|}{1623} & \multicolumn{1}{c|}{5.271} & 49.51 & \multicolumn{1}{c|}{1678} \bigstrut\\
+    15    & 590.55 & 4.05  & 2.00E+06 & 9.66E+02 & 8.25E+04 & 2083 \bigstrut\\
     \hline
-    10    & 393.7 & 2.7   & \multicolumn{1}{c|}{1007} & \multicolumn{1}{c|}{3.626} & 46.32 & \multicolumn{1}{c|}{1057} \bigstrut\\
+    20    & 787.4 & 5.4   & 1.26E+06 & 3.53E+02 & 7.78E+04 & 1339 \bigstrut\\
     \hline
-    12    & 472.44 & 3.24  & \multicolumn{1}{c|}{356.1} & \multicolumn{1}{c|}{1.924} & 41.47 & \multicolumn{1}{c|}{399.5} \bigstrut\\
+    25    & 984.25 & 6.75  & 8.15E+05 & 1.69E+02 & 7.36E+04 & 888.7 \bigstrut\\
     \hline
-    14    & 551.18 & 3.78  & \multicolumn{1}{c|}{30.64} & \multicolumn{1}{c|}{1.186} & 37.99 & \multicolumn{1}{c|}{69.82} \bigstrut\\
+    30    & 1181.1 & 8.1   & 5.21E+05 & 1.00E+02 & 6.98E+04 & 591.1 \bigstrut\\
     \hline
-    16    & 629.92 & 4.32  & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{0.7241} & 35.37 & \multicolumn{1}{c|}{36.1} \bigstrut\\
+    35    & 1377.95 & 9.45  & 3.30E+05 & 6.94E+01 & 6.63E+04 & 395.8 \bigstrut\\
     \hline
-    18    & 708.66 & 4.86  & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{0.473} & 33.31 & \multicolumn{1}{c|}{33.78} \bigstrut\\
+    40    & 1574.8 & 10.8  & 2.10E+05 & 5.46E+01 & 6.31E+04 & 272.8 \bigstrut\\
     \hline
-    20    & 787.4 & 5.4   & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{0.3416} & 31.59 & \multicolumn{1}{c|}{31.93} \bigstrut\\
+    45    & 1771.65 & 12.15 & 1.38E+05 & 4.40E+01 & 6.00E+04 & 198.1 \bigstrut\\
+    \hline
+    50    & 1968.5 & 13.5  & 9.55E+04 & 3.73E+01 & 5.73E+04 & 152.8 \bigstrut\\
+    \hline
+    55    & 2165.35 & 14.85 & 6.92E+04 & 3.13E+01 & 5.49E+04 & 124.2 \bigstrut\\
+    \hline
+    60    & 2362.2 & 16.2  & 5.23E+04 & 2.64E+01 & 5.28E+04 & 105.1 \bigstrut\\
+    \hline
+    65    & 2559.05 & 17.55 & 4.07E+04 & 2.27E+01 & 5.07E+04 & 91.49 \bigstrut\\
     \hline
     \end{tabular}%
-  \label{tab:tot_dose_ionizing}%
-  \caption{Total ionizing dose as a function of shield thickness, SPENVIS (SHIELDOSE)}
+    \caption{TID versus Aluminum shielding thickness for one year of exposure, SPENVIS (SHIELDOSE-2Q)}
+  \label{tab:thicknessalum}%
 \end{table}%
+
 
 \begin{figure}[htb!]
 \centering
@@ -466,7 +481,8 @@ For an effective shielding against radiation, three levels of protection are adv
 \caption{Radiation levels versus aluminum shielding thickness. SPENVIS (SHIELDOSE)}
 \label{fig:shield}
 \end{figure}
-All the electronic systems on the spacecraft must be protected from radiation. This includes the communication and navigation systems and the processing hardware for the imaging system. The electronics are relatively simple to shield, as they can all be put in a shielded box. The CCD is slightly more complicated to protect, as it requires a window for the light to pass through. This will make the design of the radiation shielding more complicated for the orbiter.
+The CCD of the optical instrument makes the shielding design slightly more complicated. The basic design requires the sensor to be outside of the vault thus subjecting it to higher TID. To compensate that, the sensor will be surrounded with high-Z material (Ta, Ti) shielding, with a retracting gate that will expose the CCD during observational periods and provide protection on non-operational time frames.
+
 \todo[inline]{radiation protection driven by the sensitive CCD and control circuits.}
 \todo[inline]{dynamic radiation shielding?}
 \newpage
@@ -532,14 +548,17 @@ The results are shown in table \ref{tab:telescope_calc}
 \subsection{Imaging Spectrometer}
 Based on the initial analysis in section \ref{sec:imaging_spectroscopy}, imaging spectrometry has been selected to provide data for the surface composition analysis. The wedge spectrometer is a relatively new technology but it is possible to buy linear wedge filters for hyperspectral imaging purposes. Due to the limited knowledge about this part of the design, a specific model of linear wedge filter has not been selected.
 
-The imaging spectrometer will likely be limited to operate within a range of around 400 to 1000 nm. The instrument therefore does not cover much of the near IR range (700 nm to 2500 nm). Based on the papers \cite{naegeli2015a} and \cite{negi2015a}, imaging spectroscopy within this range would still be suitable for assessment of materials such as the different ice types but is likely to be unsuited for a detailed analysis of the materials and surface chemistry..
+The imaging spectrometer will likely be limited to operate within a range of around 400 to 1000 nm. Therefore the instrument does not cover much of the near IR range (700 nm to 2500 nm). Based on the papers \cite{naegeli2015a} and \cite{negi2015a}, imaging spectroscopy within this range would still be suitable for assessment of materials such as the different ice types but is likely to be unsuited for a detailed analysis of the materials and surface chemistry.
+
 \begin{figure}[htb!]
 \centering
-\includegraphics[width=0.65\textwidth]{figures/Orbiter/ice_surface_assessment_spectra}
+\includegraphics[width=0.50\textwidth]{figures/Orbiter/ice_surface_assessment_spectra}
 \caption{An overview of six different ice spectra. Adapted from:\cite{naegeli2015a}.}
 \label{fig:ice_assessment_spectra}
 \end{figure}
+
 The second paper focuses on assessment of snow and glaciers using imaging spectroscopy\cite{negi2015a}. The spectra in figure (\ref{fig:ice_assessment_spectra2}) illustrates the change in reflectance, when the ice is contaminated with soil, ash or coal and the different reflectance, when the surface has different features. It can be seen how most of the critical spectral data identifying the specific glacial surface is found within the visible region, 400 to 1000 nm.
+
 \begin{figure}[htb!]
     \centering
     \captionsetup[subfigure]{width=0.45\textwidth}
@@ -553,6 +572,7 @@ The second paper focuses on assessment of snow and glaciers using imaging spectr
     }
     \caption{A set of example spectra illustrating a contaminated ice surface. Source:\cite{negi2015a}.}\label{fig:ice_assessment_spectra2}
 \end{figure}
+
 When using imaging spectroscopy for surface material composition analysis, it is often required to work in the near IR and IR ranges to cover the spectral data identifying the material. This can be seen in fig (\ref{fig:material_assessment_spectra}), where most of the spectral details are found in the near IR and IR ranges.
 \begin{figure}[htb!]
 \centering
@@ -1153,9 +1173,18 @@ The spectral data are not included in the first set of data. After the initial a
 %\section{Physical}
 %\section{Overview}
 \section{Conclusion}
-\todo[inline]{image system Overview}
+The proposed imaging system consists of a dual camera structure, using both a narrow angle camera and a wide angle camera. While this system structure requires a more complicated design, it is also very flexible and will make it possible to perform both the primary and secondary objectives with high performance. The surface imaging is not the primary mission objective so a versatile system has been designed, providing valuable data for many essential systems, including navigation, landing and attitude control. As two cameras are provided, they can substitute each other to a degree, providing built in redundancy. If one camera fails, the mission can still continue but at a lower performance. However, as the performance will be severely degraded when operating without the wide angle camera, it has been suggested to bring two of this camera type as it is critical for the mission. This will in turn make it possible to increase the surface coverage per flyby and could also open up for the possibility of stereographic imaging of the surface.
+
+Enhancing the imaging system with imaging spectroscopy capabilities makes it possible to provide spectral data of the Europa surface. Different systems has been investigated and the most suitable, the wedge spectrometer has been selected for the final design. The sensor used for the camera is expected to capture within the visible region, using a range of 400 to 1000 nm. When imaging spectroscopy is used to assess the surface material composition, the near IR and IR ranges are often used. As the sensor is not capturing in this region, it limits the usability of the spectrometer. While the system is still usable for an ice surface assessment, it is suggested that a different sensors are considered for the final design to expand the spectral data into the IR domain.
+
+The imaging system relies on several systems to function. While most of these systems are already required by the orbiter itself, the imaging system also requires an efficient data processing and storage system. This system is expected accumulate, reorder, compress and store all incoming imaging data. As the imaging processing task is highly suited for a parallel design, an FPGA or ASIC implementation is very likely. However, the imaging processing system is also likely to require a general purpose programmable CPU. The imaging processing and sensor frontend is likely to be suited only for very specific tasks. However, the data compression and storing processing chain will likely be shared with other orbiter subsystems, as the data transmitted from the lander should be compressed and stored, until next communication window opens.
+
+As the imaging system is the main driver when it comes to the storage and processing requirements, a set of estimates has been calculated to give an idea of what to expect in the final design. Using a flyby with a range from 2000 KM to 100 KM, the requirements has been specified for the wide and narrow angle camera. When operating in full frame mode, the cameras will generate up to 1.35 or 13.5 MB/s. Each flyby is expected to take 32 s.
+
+In the final design, the spectrometer will only be operating within ground resolution ranges of 25m/pixel to 50m/pixel. Only the WAC will be used for the spectrometry, as it is not loaded very much and it can supply the required ground resolution.
+\todo[inline]{image system conclusion}
 \todo[inline]{mass and volume, shielding, power req}
-\todo[inline]{conclusion of the overall design, final system requirements used in the design. Final description}
+\todo[inline]{imaging system requirements}
 \todo[inline]{image system conclusion}
 %\subsection{Calibration and Alignment}
 %\subsection{Calibration and Alignment}
