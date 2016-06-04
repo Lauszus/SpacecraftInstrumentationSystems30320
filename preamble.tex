@@ -55,7 +55,7 @@
 }
 \makeatother
 
-\newcommand{\mycourse}[0]{30320 Spacecraft Instrumentation Systems}
+%\newcommand{\mycourse}[0]{30320 Spacecraft Instrumentation Systems}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -95,17 +95,14 @@
 \newcommand\autsection[2]{%
   \section[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
   \addauthorbelowheading{#2}%
+  \sectionmark{#1}%
 }
 
 \newcommand\autsubsection[2]{%
   \subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
   \addauthorbelowheading{#2}%
+  \subsectionmark{#1}%
 }
-
-%\newcommand\autsubsubsection[2]{%%
-%	\subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
-%	\addauthorbelowheading{#2}%
-%}
 
 % DTU frieze
 \usepackage{eso-pic}
