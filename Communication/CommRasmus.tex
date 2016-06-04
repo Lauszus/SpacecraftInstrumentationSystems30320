@@ -17,10 +17,74 @@
 
 \input{laser-communication}
 
-%\section{Surface-to-Orbiter} % Rasmus
 \autsection{Surface-to-Orbiter}{Rasmus Lundby Pedersen}
-One of the links in the communication chain from the penetrator computer embedded in the ice-sheet of Europa and the control room on Earth, is the path from the surface of the Jovian moon and the orbiting satellite that brought the system to its destination.
+As it was discussed in the section covering the initial considerations, it was decided that using the orbiting satellite as a relay-station, in stead of transmitting data directly to and from earth to Europa, was the only viable solution for the collective communication systems design.\\
+This section will focus on the considerations concerning the design of the antenna system, the losses tied to the system and the surrounding environment, limitations, and required power for the data transfer between the surface of Europa and the satellite.
 
+\subsection{Considerations and General Assumptions}
+There are several critical considerations tied to the design of a communication link between two antennas. For space applications, these generally include, but are not necessarily limited to:
+
+\begin{itemize}
+\item \underline{Transmission distances and relative loaction.} A critical parameter of the design is the distance that the transmitted data signal must travel between a transmitter and a receiver. This aspect governs part of the required power usage (and in turn, the antennas' gains), while a target antenna moving with reference to the transmitting antenna may require tracking capabilities to be installed. Of course, the last point will depend on the available power and gain of the antennas.
+\item \underline{Atmospheric Environment.} Losses in the systems varies greatly with the environment in which the transmitted signal must travel. Electromagnetic waves will always see losses when travelling in free-space, or at least near-vacuum, but will be significantly attenuated if for example they are travelling in a thick atmosphere like our Earth's.
+\item \underline{Structural restrictions.} Ground-based antennas usually have very few space-restrictions, and can often thus be very large. However, when designing a system for a satellite, or an extraterrestrial exploration mission, the volume and mass of the product must be kept as an absolute low. Larger antennas are in some cases synonymous with higher gain (See parabolic antennas), so there will often be a trade-off here.
+\end{itemize}
+
+Smaller, more specific aspects should also be included in the considerations, such as the size of the transmit windows as well as the bit-rate of the transmitted data.\\\\
+We currently believe Europa has an almost negligible tenuous oxygen atmosphere, which is a major advantage in the power-calculations in the final link-budget \cite{SciStrat}. Further studies of the Jovian satellite, and additional mission, like the planned CLIPPER, are required to support this theory, but it means that we can assume an signal attenuation of about $\alpha_{atmos}=2\,\mathrm{dB}$ in the atmosphere.\\
+\\
+The moon is constantly victim to extreme amounts of radiation from Jupiter, which is estimated to be 10 times stronger than Earth's Van Allen belts CITE. One consequence of this is, that any electronics parked in a region illuminating by this radiation would be destroyed immediately. Another, is the massive radiation noise picked up by the antennas, which would effectively render the communication link useless.\\ 
+We're fairly certain Europa is tidal locked to Jupiter, which means that roughly the same side of the moon points toward the planet at all times, with a small derivation through time. The feature will likely be utilized by landing the penetrator module on the anti-Jovian side of the moon. This way, the comm-link will constantly be shielded by the moon itself, and the radiation noise from Jupiter can be neglected. An article written by 3 undergraduate students from the University of Texas state that they would expect to transmit through a Jovian radio noise of $T_{ant}=2000\,\mathrm{K}$ \cite{DORRA}, in the S-band. However, it is unsure if they intend to operate on the anti- or pro-Jovian side of the moon, and we're not sure where they have obtained the noise temperature number from.\\
+\\
+We expect the round-trip time of the relaying satellite's orbit around Jupiter to be around 13 Earth days. During those 13 days, data from the instrument suite will be transmitted from the penetrator to the surface module and stored in a memory-block located in the part of the descent vehicle that had been submerged a few meters in the surface-ice, for radiation protection.\\
+\\
+It's fairly common for satellites to carry complimentary X- and S-band\footnote{The X-band ranges from 8-12 $GHz$, and the S-band ranges from }, low- and high-gain antennas for near-Earth passes and deeper space communications respectively\footnote{A S-band telemetry transmitter is used for the communication to Earth, in the CLIPPER mission.}. In an effort to re-use some of the instruments on the satellite, the X-band low-gain amplifier will be utilized for the Surface-to-Orbiter link. This locks the carrier frequency to $f_c=8-12\,\mathrm{GHz}$, and thus the free-space signal wavelength to $\lambda_0=\frac{c}{f_c}=25-37mm$, where c is the speed of light, and will most likely govern the size of the antenna, depending on the design.
+\subsection{Drivers}
+We determined that the bottle-neck of the communication chain between the penetrator and Earth would lie in the thru-ice link, with it bit-rate limited at 10kbps. With a orbital round trip for the satellite of 13 days, this means that we need to transmit a data load of around $13\,\mathrm{days}\cdot 10\, \mathrm{\frac{kb}{s}}=11\,\mathrm{Gb}$ in 3 hours; an average bit-rate of $b=\frac{11\mathrm{Gb}}{3\mathrm{h}}=1\,\mathrm{\frac{Mb}{s}}$.\\
+However, it may prove that the bottleneck is that this link, since the bit-rate of transmitted signal is directly proportional to the required transmitting power.\\
+\\
+A loose assumption was made, that the transmission window starts when the satellite is located $45^\circ$ above the horizon, when the distance between the surface module and the orbiter is around 6600km. This is the absolute worst-case scenario, since the actual distance will be much lower in the majority of the time in the transmission window. The link budget is calculated for this distance in order to be sure that we can guarantee a certain standard of signal quality.
+\subsection{Solution Proposals}
+In this part, three solution proposals are presented, and the most suitable decided. The three chosen designs are:
+\begin{itemize}
+\item The parabolic antenna.
+\item Phased array patch antenna.
+\item Crossed dipole antenna. 
+\end{itemize}
+Design and production costs are not considered for the three solutions. 
+\subsubsection{Parabolic Antenna}
+The parabolic antennas are typically used for ground station antennas and on satellites with well-known and reliable attitude orientation, with respect to its target.\\
+A main advantage is it's considerable antenna gain, which is given by:
+\begin{equation}
+G = \eta_a\left(\frac{\pi D}{\lambda}\right)
+\end{equation}  
+Where $\eta_a$ is the aperture efficiency, typically ranging between $0.55<\eta_a<0.7$, D is the circular diameter of the parabolic dish and $\lambda$ is the signal wavelength.\\
+It can be seen that the gain of the antenna is directly proportional to its size, which itself is independent of the signal's wavelength. This means that the antenna can be scaled for the desired gain, within structural limitations.\\
+\\
+A disadvantage of a high-gain antenna is, that must be oriented towards its target with fairly high accuracy. This can be achieved by mechanically tracking the target on the sky with motors, which in itself is un-desired for any space-related mission. Pin-pointing the target also proves difficult for a surface based station on Europa, where we are without a network of GPS satellites to track the position of the surface antenna with respect to the orbiting satellite. We have practically no way of knowing where to point the antenna, and the benefits of its large gain will be lost. 
+\subsubsection{Phased-Array patch Antenna}
+The problem of using mechanical tracing for the parabolic antenna can be solved by using phased-array patch-antennas in stead. A single flat patch antenna doesn't necessarily come with a particularly impressive antenna gain, but an array of the has shown to enable us to modify its radiation pattern. Differentiating the phases between the patches will in turn make it possible to direct the radiation pattern dynamically, and the high carrier frequency allows us to reduce the size of the patch antenna significantly compared to the parabolic antenna. the principle of a phased-array antenna is shown on figure \ref{fig:phased}\footnote{\url{http://tempest.das.ucdavis.edu/mmwave/paa_files/image005.png}}.\\
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.75\textwidth]{figures/Rasmus/phased}
+	\caption{A simplified concept illustration of the Phased array antenna .
+	\label{fig:phased}}
+\end{figure}
+However, the issue of tracking the target on the sky still persists and remains un-solved. Therefore, it seems that the parabolic antenna and the 
+\subsubsection{Crossed Dipole Antenna}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/Rasmus/CrossDip}
+	\caption{Crossed half-wave dipole antenna drawing.
+	\label{fig:DrossDip}}
+\end{figure}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.75\textwidth]{figures/Rasmus/Lopes}
+	\caption{Theta-variant of the radiation pattern for the crossed half-wave dipole antenna.
+	\label{fig:Lopes}}
+\end{figure}
+\subsection{Implementation and Link budget}
 
 \iffalse
 1. Introduction and considerations for the link
