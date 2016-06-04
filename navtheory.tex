@@ -1,4 +1,4 @@
-\autsection{Guidance and Navigation during EDL}{Maja Tomicic}
+\autsection{Guidance and Navigation}{Maja Tomicic}
 
 The main objectives of the entry, descent and landing (EDL) phase have two aspects, first is lowering down the velocity of the lander to achieve the soft landing, second is performing a pinpoint landing on a selected suitable landing site and avoiding the potential obstacles and hazards during the landing. This section will cover the second aspect theoretically and analytically. 
 
@@ -367,19 +367,6 @@ Total & 15 & 3040 & $\sim$35.2\\
 The cables connecting the sensors and DPU's is assumed to weigh no more than 2 kg, resulting in a navigation system weighing $\sim$5 kg, excluding the possible flight computer. 
 
  
-\subsection{Conclusion}
-Initially, the navigation system uses one of the CHU's as a surface camera together with a database of known surface
-features (craters, cracks and ridges), two CHU's as star trackers and the integrated IMU system $\mu$IRU. The surface camera is designed to optimize the FOV and resolution for this purpose. This ensures direct position and attitude determination in a Europa fixed frame of reference.
-As the lander approaches the moon surface fewer features in the surface camera FOV
-can be matched to the database. Therefore the relative velocity navigation system is included
-which uses the optical flow from unknown surface features to estimate
-the lander velocity with respect to the lunar surface. This is then integrated to give the
-position. At altitudes of about 100-50 meters from the surface the laser ranger is used to determine a precise height of the spacecraft relative to the surface. This information is used as hazard avoidance as to avoid deep gorges or steep hills. Finally, as the lander gets the intended landing area in sight, it will navigate
-relative to a hazard free landing spot using the last CHU as a surface camera, with optimized optics, together with a laser as a structured light system. 
-
-
-
-
 \autsection{Power supply on landing module}{Maja Tomicic}
 
 The Guidance Navigation and Control system is powered by a RTG system. The total system requires $\sim$ 35 W if all instruments are running. This power is easily supplied by a RTG system resembling the SNAP-9A or SNAP-19 systems used on missions such as the Pioneer 10 and 11 \cite{wikirtg}. These systems weighed $\sim$ 10-15 kg. We assume that we can design a lighter generator, however this will not be discussed further, but could be subject to future work. The communication system on the surface will also be supplied by this RTG. \\

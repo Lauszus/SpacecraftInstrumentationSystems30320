@@ -1,3 +1,15 @@
 \chapter{Conclusion}
 
-* Tied to Problem Formulation
+
+\autsubsection{Landing navigation system}{Maja Tomicic}
+A redundant autonomous navigation system has been designed, thus ensuring a pin-point landing on the desired landing spot. Initially, the navigation system uses one of the CHU's as a surface camera together with a database of known surface features (craters, cracks and ridges), two CHU's as star trackers and the integrated IMU system $\mu$IRU. The surface camera is designed to optimize the FOV and resolution for this purpose. This ensures direct position and attitude determination in a Europa fixed frame of reference.
+As the lander approaches the moon surface fewer features in the surface camera FOV
+can be matched to the database. Therefore the relative velocity navigation system is included
+which uses the optical flow from unknown surface features to estimate
+the lander velocity with respect to the lunar surface. This is then integrated to give the
+position. At altitudes of about 100-50 meters from the surface the laser ranger is used to determine a precise height of the spacecraft relative to the surface. This information is used as hazard avoidance as to avoid deep gorges or steep hills. Finally, as the lander gets the intended landing area in sight, it will navigate
+relative to a hazard free landing spot using the last CHU as a surface camera, with optimized optics, together with a laser as a structured light system. 
+
+\autsubsection{Melting of preliminary hole}{Maja Tomicic}
+Much further work should be done to ensure the feasibility of using a special rocket motor to melt a preliminary hole of $\sim$2 m in the ice. It has shown to be an ideal way of getting the payload out of the radiation environment. However, the amount of propellant needed is substantial and the efficiency of the rocket plume for this purpose in vacuum conditions is for now inconclusive. 
+
