@@ -94,15 +94,17 @@
 
 % Use theses command to add section and subsection authors
 \newcommand\autsection[2]{%
-  \section[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
-  \addauthorbelowheading{#2}%
-  \sectionmark{#1}%
+	\section[#1{\normalfont\tiny\itshape ~- #2}]{#1%
+		\sectionmark{#1}}%
+	\sectionmark{#1}%
+	\addauthorbelowheading{#2}%
 }
 
 \newcommand\autsubsection[2]{%
-  \subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
-  \addauthorbelowheading{#2}%
-  \subsectionmark{#1}%
+	\subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1%
+  		\subsectionmark{#1}}%
+	\subsectionmark{#1}%
+	\addauthorbelowheading{#2}%
 }
 
 % DTU frieze
