@@ -1,4 +1,4 @@
-\autsection{Autonomous Landing Site Selection}{Kristian Sloth Lauszus}
+\autsection{Autonomous Landing Site Selection}{Kristian Sloth Lauszus}\label{sec:aut_landing}
 %\autsubsection{Image Recognition}{Kristian Sloth Lauszus}
 Since the bandwidth from the orbiter to the earth is limited it is beneficial to have a semi-autonomous system that can pick an potential landing site from some given parameters. For instance it would be useful to pick a landing site that does not have any ridges, as there is risk of the lander tipping over after the landing. This could be done by simple edge detection, such as a Laplacian Gaussian filter from a greyscale image. If the system finds a potential landing site the image could then be streamed back to earth either as a binary, greyscale or even the full color image for further analysis. Furthermore object detection could be used to locate certain characteristics. The image could then be cropped and streamed back to earth, thus decreasing the needed bandwidth.
 

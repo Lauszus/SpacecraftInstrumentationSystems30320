@@ -12,7 +12,7 @@ Assuming the type of life can be compared to that of earth, we should be able to
 
 As know from life and living organisms on earth, most life depend on the sun to create some sort of photosynthesis. Under the ice of Europa little to no light is expected to be found due to the thickness of the ice sheet above. Therefore traditional life, driven by the sun, is not to be found in the water of Europa, but for life harbouring conditions, some energy must be available.
 
-Look back at earth, only a few places exist where life thrives, without light. One of them is around the black smokers on the ocean floor. The reason for mentioning this example is that Europa studies\footnote{\url{http://schmidtocean.org/cruise-log-post/from-the-deep-sea-to-europa}, 2016-05-02} show that a source of energy could be similar to the black smokers on earth. Life is found in great abundance around the smokers. First it was thought the organisms lived on marine snow, but the amount of life compared to the little amount of marine snow, would not be able to sustain the large amount of organisms found. Now it is know that the organisms thrive on the bacteria living around the smokers. This is called chemosynthetic bacteria, and instead of using photosynthesis the bacteria uses the nutrients and hydrothermal fluids from the smokers. The bacteria uses sulfur, methane and heat the create the energy need for life, this then feeds other life like clams and tubeworms, and usually a small ecosystem is found around black smokers, even if there is now sunlight. Some of the organisms around the smokers do depend on oxygen but anaerobic organisms are also found\footnote{\url{http://www.pmel.noaa.gov/eoi/index.html}, 2016-05-02}.
+Look back at earth, only a few places exist where life thrives, without light. One of them is around the black smokers on the ocean floor. The reason for mentioning this example is that Europa studies\cite{schmidtocean} show that a source of energy could be similar to the black smokers on earth. Life is found in great abundance around the smokers. First it was thought the organisms lived on marine snow, but the amount of life compared to the little amount of marine snow, would not be able to sustain the large amount of organisms found. Now it is know that the organisms thrive on the bacteria living around the smokers. This is called chemosynthetic bacteria, and instead of using photosynthesis the bacteria uses the nutrients and hydrothermal fluids from the smokers. The bacteria uses sulfur, methane and heat the create the energy need for life, this then feeds other life like clams and tubeworms, and usually a small ecosystem is found around black smokers, even if there is now sunlight. Some of the organisms around the smokers do depend on oxygen but anaerobic organisms are also found\cite{PMEL}.
 
 This is good indication for life and even if the smokers are long gone, decomposition of the bacteria and ecosystems around the smokers could be seen in the levels of sulfur, methane, ethane, $CO_2$ and other hydrocarbons found in the water. Therefore sensors which can detect hydrocarbons would be ideal to bring with the penetrator down to the ocean, and look for these gasses.
 
@@ -41,9 +41,9 @@ Most gas detectors are used to detect gasses harmful to humans, and leaks in pip
   \item Ultrasonic
   \item Holographic
 \end{itemize}
-Electrochemical gas detectors diffuses the gas through a membrane, into an electrode, where it is oxidized. The reaction between the electrode and the gas generates an electric current which is linear to the gas concentration and by changing the membrane it is possible to custom design a detector for a specific gas. This type of sensor is very simple, stable and robust, but it is not perfect, it suffers from cross sensitivity and if it gets in contact with corrosive compounds, its life of operation is shortened\footnote{\url{http://www.intlsensor.com/pdf/electrochemical.pdf}, 2016-05-03}.
+Electrochemical gas detectors diffuses the gas through a membrane, into an electrode, where it is oxidized. The reaction between the electrode and the gas generates an electric current which is linear to the gas concentration and by changing the membrane it is possible to custom design a detector for a specific gas. This type of sensor is very simple, stable and robust, but it is not perfect, it suffers from cross sensitivity and if it gets in contact with corrosive compounds, its life of operation is shortened\cite{intlsensor}.
 
-Infrared gas detecting uses a whole other method to determining the gas in question. Here infrared light is passed through a known volume of gas, and the absorption of the different wavelength in the infrared spectrum is then analyzed. Different gasses have different absorption spectrums, like a fingerprint, and thereby the gas can be determined. This technique is more complex, but a lot more flexible compared to the electrochemical sensor, since it is able to detect different gasses with the same detector\footnote{\url{http://www.cambustion.com/products/ndir500/operating-principle}, 2016-05-03}.
+Infrared gas detecting uses a whole other method to determining the gas in question. Here infrared light is passed through a known volume of gas, and the absorption of the different wavelength in the infrared spectrum is then analyzed. Different gasses have different absorption spectrums, like a fingerprint, and thereby the gas can be determined. This technique is more complex, but a lot more flexible compared to the electrochemical sensor, since it is able to detect different gasses with the same detector\cite{ndir}.
 
 Semiconductor sensors detect gas by a chemical reaction with the semiconductor material, most used is tin-oxide, as gas comes in contact with the tin-oxide the resistance through the material drops. This type of sensor is commonly used for detection of methane, carbon monoxide, hydrogen, oxygen and alcohol-vapor.
 
@@ -57,20 +57,20 @@ All of these methods mention above can be used on a gas, but a gas is just a sta
 
 The exact composition of Europas internal geology is still unknown. Qualified guess can be made dependant on pictures and its orbit. From this, it is estimated that the ice could be proximately 10km thick, all this ice generate an enormous pressure, estimated to be between 100-200bars at the ice-water barrier. Therefore what on Earth is a gas, would be a liquid or supercritical where the penetrator is sitting analyzing samples. To get a better insight into what happens to a compound mixed with water under this pressure a small study is done below.
 
-At the ice-water barrier the temperature is around 273.15 Kelvin, below this the water starts to freeze and above it melts at a pressure of 100 bar\footnote{\url{https://en.wikipedia.org/wiki/Phase-diagram/media/File:Phase-diagram-of-water.svg}, 2016-05-05}. At 200bar the temperature will be a 3 to 5 degrees Kelvin lower due to the pressure, but in general the freezing temperature is constant\footnote{This is for pure $H_2 O$}.
+At the ice-water barrier the temperature is around 273.15 Kelvin, below this the water starts to freeze and above it melts at a pressure of 100 bar\cite{PhaseH20}. At 200bar the temperature will be a 3 to 5 degrees Kelvin lower due to the pressure, but in general the freezing temperature is constant\footnote{This is for pure $H_2 O$}.
 
 Overall a substance can have 3 states, gas, liquid or solid, it can also become super critical where it is in-between all 3 states. The way to characterize the states of a substance is through its phase diagram. An example of this is $CO_2$, which have the following phase diagram.
 
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=0.4]{figures/GasDetectionAgge/CO2PhaseDiagram}
-  \caption{Phase diagram of $CO_2$, here the different phases are clearly seen, and how they depend on pressure and temperature}
+  \caption{Phase diagram of $CO_2$, here the different phases are clearly seen, and how they depend on pressure and temperature\cite{PhaseCO2}}
   \label{fig:PhaseDiagramCO2}
 \end{figure}
 
 In the phase diagram of $CO_2$ (\ref{fig:PhaseDiagramCO2})it can be seen how the phases depend on pressure and temperature. If there is $CO_2$ present in the water at Europa, it would not be as a gas, because at 100 bar and 273.15 Kelvin $CO_2$ is liquid.
 
-If $CO_2$ is present in the water, it is most likely to be mixed in the water, since water is a very good solvent for ionic and organic compounds, which makes most substances soluble in water; this is also the case for the gasses in question here. The solubility of substance in the water depends on the pressure above the solution. This follows Henry's law which states that the "solubility if a gas in liquid is directly proportional to the pressure above the surface of the solution\footnote{\url{http://chemwiki.ucdavis.edu/Core/Physical_Chemistry/Equilibria/Solubilty/Pressure_Effects_On_the_Solubility_of_Gases}, 2016-05-05}".
+If $CO_2$ is present in the water, it is most likely to be mixed in the water, since water is a very good solvent for ionic and organic compounds, which makes most substances soluble in water; this is also the case for the gasses in question here. The solubility of substance in the water depends on the pressure above the solution. This follows Henry's law which states that the "solubility if a gas in liquid is directly proportional to the pressure above the surface of the solution\cite{SolubilityOfGases}".
 
 This can be demonstrated with a bottle of soda. When the bottle is opened the pressure is released and CO2 starts to bubble up because the water cannot contain the same amount of $CO_2$ in the soda, under 1atm pressure.
 As the phase diagram, a graph of the solubility of a substance can be made; here it is the solubility of $CO_2$ in water, but at atmospheric pressure:
@@ -78,11 +78,11 @@ As the phase diagram, a graph of the solubility of a substance can be made; here
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=0.4]{figures/GasDetectionAgge/CO2Solubility}
-  \caption{The solubility of $CO_2$ gas in water, at atmospheric pressure}
+  \caption{The solubility of $CO_2$ gas in water, at atmospheric pressure\cite{SolubilityOfGasesInWater}}
   \label{fig:SolubilityofCO2}
 \end{figure}
 
-From \ref{fig:SolubilityofCO2} it is seen that approximately 3.4 grams of $CO_2$ gas can solute in water at 273.15 Kelvin at a pressure of 1 atm. Combining this with Henry's law, the amount increases proportionally with the pressure, so the amount of $CO_2$ the water is able to solute is grater at 100 bar. Even when the $CO_2$ is liquid the solubility can be approximated as a gas/liquid solution\footnote{\url{http://www.rsc.org/eic/sites/default/files/Solubility-explained.pdf}, p. 79 l. 10, 2016-05-05}.
+From \ref{fig:SolubilityofCO2} it is seen that approximately 3.4 grams of $CO_2$ gas can solute in water at 273.15 Kelvin at a pressure of 1 atm. Combining this with Henry's law, the amount increases proportionally with the pressure, so the amount of $CO_2$ the water is able to solute is grater at 100 bar. Even when the $CO_2$ is liquid the solubility can be approximated as a gas/liquid solution\cite{SolubilityExplained}.
 
 The conclusion on this is, it is not possible to use "normal" gas detecting methods, as discussed above. Other methods are needed to be able to detect what substances are present in the water. Some of the substances like $CO_2$ and $SO_2$ will be a liquid mixed with water, others might be a gas or super critical. The way of detecting the substances in the water needs to be done on another way.
 
@@ -94,7 +94,7 @@ From the theory section it was discussed how to detect gasses, and what problems
   \resizebox{\textwidth}{!}{%
   \begin{tabular}{|c | c | c | c|}
     \hline
-     Substance: & Solubility: (g/kg water) & State: & Phase change pressure\footnote{\url{http://encyclopedia.airliquide.com/encyclopedia.asp?LanguageID=11}, 2016-05-05} [Bar] \\ [0.5ex]
+     Substance: & Solubility: (g/kg water) & State: & Phase change pressure\cite{GasEncyclopedia} [Bar] \\ [0.5ex]
     \hline
     $SO_2$ (Sulfur dioxide) & 225 & Liquid & 1.5\\
     \hline

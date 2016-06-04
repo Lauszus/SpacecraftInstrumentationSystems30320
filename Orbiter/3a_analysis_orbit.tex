@@ -1,6 +1,6 @@
-\section{Analysis (Orbital Mechanics)}
-\todo[inline]{Change this title according to analysis/implementation}
-\subsection{Launch}
+\section{Analysis}
+%\todo[inline]{Change this title according to analysis/implementation}
+%\subsection{Launch}
 The Europa lander mission starts with launch from Earth. Launch vehicle selection is based on the transfer orbit requirements and also available booster’s efficiency at the time of launch. The current (as of 2016) most powerful rocket which we use for this report is United Launch Alliance’s Delta IV Heavy. Since the mission’s wet payload is 5-6 tons, we make use of the VEGA (Venus Earth Gravity Assist) 
 \todo[inline]{add reference to this part}
 trajectory design. The design of this orbit depends greatly on the epoch of the launch and for this study we use already published computations of alternative orbits. As we are interest in a 10 year time frame, we use a paper written by Anastassios E. Petropoulos et al. (Trajectories to Jupiter via Gravity Assists from Venus, Earth and Mars, Journal of Spacecraft and rockets Vol. 37, No. 6, November-December 2000)
@@ -14,7 +14,7 @@ trajectory design. The design of this orbit depends greatly on the epoch of the 
 Selecting a favourable flyby path is a factor of minimizing cost and at the same time maximizing payload and time of flight (TOF) time. Also, reducing arrival hyperbolic speed ($V_{\infty}$) means less excess speed for the Jupiter orbiter insertion burn to take out and so less fuel needed for the burn. As we can see from figure 3.1, an opportunity of reaching Jupiter through Venus – Earth – Mars and Earth flybys, launching in May 28, 2023 will provide the least arrival excess speed while keeping the launch $V_{\infty}$ requirement low (Launch $V_{\infty}$=3.25Km/s). The VEGA orbit was used successfully by the latest Jupiter orbiter mission, Galileo as shown in figure 3.2.
 \begin{figure}[htb]
 \centering
-\includegraphics[width=1\textwidth]{figures/Orbiter/VEEGA.png}
+\includegraphics[width=0.8\textwidth]{figures/Orbiter/VEEGA.png}
 \caption{The  VEGA orbit, used by the Galileo mission (Orbital Mechanics and Astrodynamics: Techniques and Tools for Space Missions, Gerald R. Hintz).}
 \end{figure}
 \subsection{Launch vehicle selection and evaluation}
@@ -45,7 +45,7 @@ we calculate the maximum payload for an $C_3$ energy of $C_{3}=V_{\infty}^{2}=10
 \end{table}%
 
 \subsection{Payload dimensional considerations}
-The physical dimensions of the spacecraft are limited by the launcher fairing options. The Atlas V and IV booster’s fairing options are shown in figure 3.4.
+The physical dimensions of the spacecraft are limited by the launcher fairing options. The Atlas V and IV booster’s fairing options are shown in figure \ref{fig:fairings}.
 
 \begin{figure}[htb]
 \centering
@@ -54,80 +54,84 @@ The physical dimensions of the spacecraft are limited by the launcher fairing op
 \end{figure}
 
 \begin{figure}[htb]
-\centering
-\includegraphics[width=0.5\textwidth]{figures/Orbiter/fairings.png}
-\caption{United Launch Alliance fairing options (Delta IV Launch Services User‘s Guide, June 2013).\cite{Atlasm}}
+    \centering
+    \captionsetup[subfigure]{width=0.45\textwidth}
+    \subfloat[United Launch Alliance fairing options (Delta IV Launch Services User‘s Guide, June 2013).\cite{Atlasm}]{
+        \includegraphics[width=0.48\textwidth]{figures/Orbiter/fairings.png}
+        \label{fig:fairings_atlasiv}
+    }
+    \subfloat[Atlas V 552 and Atlas IV Heavy comparison (Delta IV Launch Services User‘s Guide, June 2013).\cite{Atlasm}]{
+        \includegraphics[width=0.48\textwidth]{figures/Orbiter/launchv.png}
+        \label{fig:fairings_v_iv_compare}
+    }
+    \caption{Fairing Options}\label{fig:fairings}
 \end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.5\textwidth]{figures/Orbiter/launchv.png}
-\caption{Atlas V 552 and Atlas IV Heavy comparison (Delta IV Launch Services User‘s Guide, June 2013).\cite{Atlasm}}
-\end{figure}
-
 \subsection{Launch environment}
 Launch is a mission critical event that requires significant attention for mission success. During launch, the spacecraft should survive in a fast changing and rough environment. From liftoff and until main engine cutoff (MECO), the engines produce a huge amount of mechanical vibration to the whole structure of the booster and so to the spacecraft which translates to a g-load on the delicate spacecraft components. 
 
-Furthermore, the acoustic energy should also be considered. The acoustic environment is a function of structural design of both the fairing, fairing acoustic blankets and the spacecraft. The various components of the spacecraft should be assembled having in mind their oscillatory properties in the launch environment of the specific launcher. Another field of consideration should be the thermal properties of the ascent. As the launcher ascents the friction of the atmosphere molecules in the outer shell of the spacecraft fairing will significantly increase the fairing’s surface temperature. The acoustic blankets act also as a thermal insulator in the inner part of the fairing and so prevent the spacecraft of overheating. Further heating is avoided with fairing jettison which happens when the free stream drops below 1135 $W/m^2$ (Delta IV Launch Services User‘s Guide, June 2013).
-\todo[inline]{add/fix reference}
+Furthermore, the acoustic energy should also be considered. The acoustic environment is a function of structural design of both the fairing, fairing acoustic blankets and the spacecraft. The various components of the spacecraft should be assembled having in mind their oscillatory properties in the launch environment of the specific launcher. Another field of consideration should be the thermal properties of the ascent. As the launcher ascents the friction of the atmosphere molecules in the outer shell of the spacecraft fairing will significantly increase the fairing’s surface temperature. The acoustic blankets act also as a thermal insulator in the inner part of the fairing and so prevent the spacecraft of overheating. Further heating is avoided with fairing jettison which happens when the free stream drops below 1135 $W/m^2$\cite{Atlasm}.
+
 Atmospheric depressurization inside the fairing is also procedure that should be done in a controlled manner using an air duct valve. As the spacecraft may be required to wait in the launch pad in the case of an aborted liftoff, and during prelaunch activities, environmental monitoring is done using A/C and Gaseous Nitrogen($GN_2$). Temperature, relative humidity and cleanness are major concern, especially in a life seeking mission where the most demanding antibacterial protective measures are taken during the years of assembly prior to launch. Moreover, the Radioisotope Nuclear Generators (RTGs) will radiate heat continuously in the fairing environment and so temperature regulation is of paramount significance. Last, extra attention should be given to the outgassing properties of the fairing materials due to the intense heating that takes place during the ascent. Outgas molecules from nonmetallic materials can deposit on spacecraft materials and contaminate the sensitive life seeking instruments. According to ULA
 
 Atlas IV regulations, the acoustic blankets are made of Melamine foam covered with carbon-filled Kapton face sheets that eliminate outgassing and cleaned with isopropyl alcohol. The airflow during ascent should vent any outgassing molecules away from the spacecraft. However, elimination of non-metallic materials in the fairing to the lowest level is necessary. Graphical representations of the above parameters are shown in the following pages from the ULA Atlas IV user guide, version June 2013. Metallic fairing option is preferred for minimizing the outgassing factor. As it can be seen from figure \ref{fig:gloads}, the maximum load of the spacecraft will be approximately 5g at maximum dynamic pressure during first stage burn. Regarding the acoustic and shock levels, an acoustic and a vibration test is necessary to simulate and test the spacecraft rigidity prior to launch. The requirements for the acoustic test are shown in figure \ref{fig:testlevels}. The vibration test should simulate both launch vibrations and separation accelerations shown also in figure \ref{fig:testlevels} for various frequencies. Isostatic joints will be used to avoid stress forces on the spacecraft due to the temperature variations and differential thermal properties of the joint materials. 
-
 \begin{figure}[htb]
-\centering
-\includegraphics[scale=0.3]{figures/Orbiter/pressure.png}
-\caption{Delta IV Heavy (Metallic PLF) Absolute Pressure Envelope (Delta IV Launch Services User‘s Guide, June 2013).\cite{Atlasm}}
+    \centering
+    \captionsetup[subfigure]{width=0.45\textwidth}
+    \subfloat[Delta IV Heavy (Metallic PLF) Absolute Pressure Envelope.\cite{Atlasm}]{
+        \includegraphics[width=0.48\textwidth]{figures/Orbiter/pressure.png}
+        \label{fig:deltaiv_pressure_env}
+    }
+    \subfloat[Maximum Inner Surface Temperature - Environments to Spacecraft.\cite{Atlasm}]{
+        \includegraphics[width=0.48\textwidth]{figures/Orbiter/shell_temp.png}
+        \label{fig:deltaiv_temp}
+    }
+    \caption{Pressure and temperature parameters.}\label{fig:press_temp}
 \end{figure}
 
 \begin{figure}[htb]
-\centering
-\includegraphics[scale=0.3]{figures/Orbiter/shell_temp.png}
-\caption{Maximum Inner Surface Temperature - Environments to Spacecraft (Delta IV Launch Services User‘s Guide, June 2013).\cite{Atlasm}}
+    \centering
+    \captionsetup[subfigure]{width=0.45\textwidth}
+    \subfloat[During First-Stage Burn vs. Second Stage Payload Weight.\cite{Atlasm}]{
+        \includegraphics[width=0.48\textwidth]{figures/Orbiter/g_staging.png}
+        \label{fig:gloads}
+    }
+    \subfloat[During Second Stage Cutoff.\cite{Atlasm}]{
+        \includegraphics[width=0.48\textwidth]{figures/Orbiter/g_2ndstage.png}
+        \label{fig:g_2ndstage}
+    }
+    \caption{Delta IV Heavy Maximum Axial Steady-State Acceleration}\label{fig:accel}
 \end{figure}
 
 \begin{figure}[htb]
-\centering
-\includegraphics[scale=0.3]{figures/Orbiter/g_staging.png}
-\caption{Delta IV Heavy Maximum Axial Steady-State Acceleration During First-Stage Burn vs. Second Stage Payload Weight (Delta IV Launch Services User‘s Guide, June 2013).\cite{Atlasm}}
-\label{fig:gloads}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[scale=0.3]{figures/Orbiter/g_2ndstage.png}
-\caption{Delta IV Heavy Axial Steady-State Acceleration at Second Stage Cutoff (Delta IV Launch Services User‘s Guide, June 2013).\cite{Atlasm}}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[scale=0.3]{figures/Orbiter/fairing_sep_resp.png}
-\caption{Maximum Spacecraft Separation Shock Level to Launch Vehicle, 1575-5 PAF (95th Percentile, 50\% Confidence) (Delta IV Launch Services User‘s Guide, June 2013).\cite{Atlasm}}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[scale=0.3]{figures/Orbiter/before_fair_sep.png}
-\caption{Launch-Vehicle-Induced Payload Interface Shock Environment (95th Percentile, 50\% Confidence)—1575-5 Payload Attach Fitting (Delta IV Launch Services User‘s Guide, June 2013).\cite{Atlasm}}
+    \centering
+    \captionsetup[subfigure]{width=0.45\textwidth}
+    \subfloat[Maximum Spacecraft Separation Shock Level to Launch Vehicle, 1575-5 PAF (95th Percentile, 50\% Confidence).\cite{Atlasm}]{
+        \includegraphics[width=0.48\textwidth]{figures/Orbiter/fairing_sep_resp.png}
+        \label{fig:fairing_sep_resp}
+    }
+    \subfloat[Launch-Vehicle-Induced Payload Interface Shock Environment (95th Percentile, 50\% Confidence)—1575-5 Payload Attach Fitting.\cite{Atlasm}]{
+        \includegraphics[width=0.48\textwidth]{figures/Orbiter/before_fair_sep.png}
+        \label{fig:before_fair_sep}
+    }
+    \caption{Spacecraft shock environment}\label{fig:shock_env}
 \end{figure}
 
 \begin{figure}[htb]
 \centering
 \includegraphics[scale=0.3]{figures/Orbiter/acoustics.png}
-\caption{Delta IV Heavy (5-m Metallic Fairing) Internal Payload Acoustics Typical 95th Percentile, 50\% Confidence Predictions, 60\% Fill Effect Included (Delta IV Launch Services User‘s Guide, June 2013).) \cite{Atlasm}}
+\caption{Delta IV Heavy (5-m Metallic Fairing) Internal Payload Acoustics Typical 95th Percentile, 50\% Confidence Predictions, 60\% Fill Effect Included\cite{Atlasm}.}
 \end{figure}
 
 \begin{figure}[htb]
 \centering
 \includegraphics[scale=0.3]{figures/Orbiter/acceptancelevels.png}
-\caption{Acoustic and vibration test requirements (Delta IV Launch Services User‘s Guide, June 2013).\cite{Atlasm}}
+\caption{Acoustic and vibration test requirements\cite{Atlasm}.}
 \label{fig:testlevels}
 \end{figure}
 
 \subsection{Cruise phase}
-The cruise phase is the stage the spacecraft spends between launch and Jupiter arrival. During this 6.4 years period, the spacecraft should remain healthy and every system and science instrument should be designed to survive and be fully operational for the duration of its mission. During the cruise phase 4 flybys are planned, one from Venus, two from Earth and one from Mars. These flybys will provide the additional required to boost the apoapsis of the orbit to Jupiter vicinity. The spacecraft will be equipped with a main engine and smaller Reaction Control System (RCS) thrusters. This propulsion system will be used to perform Trajectory Correction Maneuvres (TCM) to fine tune flyby trajectories. The flybys will also be used as a calibration test of the navigation and geolocalization system of the orbiter which will later be used to map Europa and find potential landing sites. As the mission is planning to flyby Europa multiple times when the Europa reconnaissance phase begins, the interplanetary flybys can be used as a useful analogy to simulate the flyby sequence and identify potential flaws before the actual mission begins. For example, small axis misalignment's of the telescope system with the star tracker’s axis can be spotted using star fields of both telescopic cameras and star trackers and so updating the rotational matrix. This can be done by pointing to a known star fields. Precise knowledge of the spacecraft orientation is crucial for accurate pointing of the cameras while avoiding unintentional pointing of them to the Sun and at the same time keep pointing the high gain antenna to Earth. During cruise, all science instruments will be kept in hibernation mode to eliminate ageing degradation and potential software improvements found post launch will be addressed by software updates. Health checks of the systems will be performed many times during cruise. The cruise phase provides an additional benefit of using the telescope camera for Venus and Mars observations during the flybys as long as potential asteroid flybys on the way to Jupiter. Special attention should be given to the thermal environment of the spacecraft during the flybys, due to the thermal heating of the planets which will be considerably more intense at the Venus flyby. As the emitted energy is calculated using the black body radiation (given by Stefan-Boltzmann law)$L=4\pi R^2\sigma T^4$, where $\sigma$ is the Stefan-Boltzmann constant ($\sigma=5.670373\cdot 10^{-8}  Wm^{-2} K^{-4}$) and T the surface temperature and R the radius of the Sun. As the energy falls by the square of the distance from the source, it can be calculated that the highest solar energy the spacecraft will experience at Venus will be 1.9 times that of the Earth (or 2611 $W/m^2$ ). Given the extra heating from Venus high reflective atmosphere (albedo 0.90, Venus Fact sheet, http://nssdc.gsfc.nasa.gov/) 
-\todo[inline]{add/fix reference}
-and the RTG constant heating, a shade solution should be implemented for the orbiter to keep the temperature to tolerable levels for both electronics and fuel tank temperatures. Some months before Jupiter arrival, the high resolution camera will start an observational campaign of Jupiter’s satellites. The data will be used to update the orbital parameters of the moons and keep uncertainties of their speeds and positions to the lowest level for safety and fuel efficiency of the upcoming flybys and science mission trajectory. During cruise, the spacecraft will be using its high gain antenna pointing towards Earth, at the same time acting as a sun-shield. RTGs generated heat should be dissipated through radiators and carefully monitor fuel tank and temperatures distribution in the spacecraft.
+The cruise phase is the stage the spacecraft spends between launch and Jupiter arrival. During this 6.4 years period, the spacecraft should remain healthy and every system and science instrument should be designed to survive and be fully operational for the duration of its mission. During the cruise phase 4 flybys are planned, one from Venus, two from Earth and one from Mars. These flybys will provide the additional required to boost the apoapsis of the orbit to Jupiter vicinity. The spacecraft will be equipped with a main engine and smaller Reaction Control System (RCS) thrusters. This propulsion system will be used to perform Trajectory Correction Maneuvres (TCM) to fine tune flyby trajectories. The flybys will also be used as a calibration test of the navigation and geolocalization system of the orbiter which will later be used to map Europa and find potential landing sites. As the mission is planning to flyby Europa multiple times when the Europa reconnaissance phase begins, the interplanetary flybys can be used as a useful analogy to simulate the flyby sequence and identify potential flaws before the actual mission begins. For example, small axis misalignment's of the telescope system with the star tracker’s axis can be spotted using star fields of both telescopic cameras and star trackers and so updating the rotational matrix. This can be done by pointing to a known star fields. Precise knowledge of the spacecraft orientation is crucial for accurate pointing of the cameras while avoiding unintentional pointing of them to the Sun and at the same time keep pointing the high gain antenna to Earth. During cruise, all science instruments will be kept in hibernation mode to eliminate ageing degradation and potential software improvements found post launch will be addressed by software updates. Health checks of the systems will be performed many times during cruise. The cruise phase provides an additional benefit of using the telescope camera for Venus and Mars observations during the flybys as long as potential asteroid flybys on the way to Jupiter. Special attention should be given to the thermal environment of the spacecraft during the flybys, due to the thermal heating of the planets which will be considerably more intense at the Venus flyby. As the emitted energy is calculated using the black body radiation (given by Stefan-Boltzmann law)$L=4\pi R^2\sigma T^4$, where $\sigma$ is the Stefan-Boltzmann constant ($\sigma=5.670373\cdot 10^{-8}  Wm^{-2} K^{-4}$) and T the surface temperature and R the radius of the Sun. As the energy falls by the square of the distance from the source, it can be calculated that the highest solar energy the spacecraft will experience at Venus will be 1.9 times that of the Earth (or 2611 $W/m^2$ ). Given the extra heating from Venus high reflective atmosphere (albedo 0.90), \cite{venus_fact}, and the RTG constant heating, a shade solution should be implemented for the orbiter to keep the temperature to tolerable levels for both electronics and fuel tank temperatures. Some months before Jupiter arrival, the high resolution camera will start an observational campaign of Jupiter’s satellites. The data will be used to update the orbital parameters of the moons and keep uncertainties of their speeds and positions to the lowest level for safety and fuel efficiency of the upcoming flybys and science mission trajectory. During cruise, the spacecraft will be using its high gain antenna pointing towards Earth, at the same time acting as a sun-shield. RTGs generated heat should be dissipated through radiators and carefully monitor fuel tank and temperatures distribution in the spacecraft.
+\todo[inline]{add some paragraphs to this section to avoid wall of text}
 \subsection{Jupiter orbit insertion phase}
 After travelling for six and a half years in interplanetary space, the probe encounters Jupiter sphere of influence. The Hofmann transfer orbit to Jupiter has provided enough energy so the apoapsis of the elliptical orbit will reach Jupiter at the same time that Jupiter is close enough to perform the JOI (Jupiter Orbit Insertion) burn. The telemetry commands for burn are expected to be sent to the spacecraft several days before closest approach. The inclination of the spacecraft incoming trajectory will be close to the Europa orbital plane which is $0.47^\circ$ to Jupiter’s moons plane and $1.79^\circ$ to the ecliptic (source: "Overview of Europa Facts". NASA. )
 \todo[inline]{add/fix reference}
