@@ -1,3 +1,33 @@
 \chapter{Conclusion}
 
-* Tied to Problem Formulation
+%* Tied to Problem Formulation
+
+\autsection{Landing navigation system}{Maja Tomicic}
+A redundant autonomous navigation system has been designed, thus ensuring a pin-point landing on the desired landing spot. Initially, the navigation system uses one of the CHU's as a surface camera together with a database of known surface features (craters, cracks and ridges), two CHU's as star trackers and the integrated IMU system $\mu$IRU. The surface camera is designed to optimize the FOV and resolution for this purpose. This ensures direct position and attitude determination in an Europa fixed frame of reference.
+As the lander approaches the moon surface fewer features in the surface camera FOV
+can be matched to the database. Therefore the relative velocity navigation system is included
+which uses the optical flow from unknown surface features to estimate
+the lander velocity with respect to the lunar surface. This is then integrated to give the
+position. At altitudes of about 50-100 meters from the surface the laser ranger is used to determine a precise height of the spacecraft relative to the surface. This information is used as hazard avoidance as to avoid deep gorges or steep hills. Finally, as the lander gets the intended landing area in sight, it will navigate
+relative to a hazard-free landing spot using the last CHU as a surface camera, with optimized optics, together with a laser as a structured light system. 
+
+\autsection{Melting of preliminary hole}{Maja Tomicic}
+Much further work should be done to ensure the feasibility of using a special rocket motor to melt a preliminary hole of $\sim$2 m in the ice. It has shown to be an ideal way of getting the payload out of the radiation environment. However, the amount of propellant needed is substantial and the efficiency of the rocket plume for this purpose in vacuum conditions is currently inconclusive.
+
+%Feel free to expand on these
+\section{Theory}
+\autsubsection{Ice Characteristics}{Lukas Christensen} 
+Much is still unknown about the nature of Europa which means it is hard to definitively conclude much about the moon. A large amount of energy is deposited through tidal effects which means that it is very likely that a liquid ocean exists beneath the ice. Unfortunately, the thickness of the ice and the nature of its bottom is still very much uncertain. However, it has been possible to achieve realistic estimates of the temperature profile using a combination of basic physics and the work done by other research groups, and these indicate that a penetrator mission is realistically achievable. 
+
+\autsubsection{Convection}{Lukas Christensen}
+The theory behind convection has been analyzed and CFD simulations have been used to evaluate the use of natural convection for water transportation within a penetrator probe. It has been found that, even under ideal circumstances, the short lengths of realistic thermal probes combined with the low gravity of Europa result in too low a flow rate for it to be useful. It has therefore been concluded that an active pumping system is needed instead to provide the water flow to the instruments.
+
+\section{Penetrator}
+\autsubsection{Drilling Methods}{Lukas Christensen}
+Several possible penetration methods have examined including mechanical, chemical, explosive, sputtering, laser, and thermal drilling. Based on thorough analyses of each possibility, thermal drilling has been found to be the most viable solution because of its simplicity and efficiency. To estimate the penetration time a simulation of the drilling process has been designed and implemented, with the result of a penetration time of $\approx \SI{100}{\frac{days}{km}}$ for a 20 cm diameter penetrator with a 2 kW heating element. This result has been verified using generally accepted approximated equations, indicating that this result is realistic. Furthermore, issues associated with thermal drilling have been identified and possible solutions have been outlined.
+
+\section{Instrument Suite}
+\autsubsection{pH \& Salinity Sensor}{Lukas Christensen}
+The basic theory of pH and salinity sensors have been described, and the initial design of a possible instrument has been introduced. The use of ISFETs for the sensing elements seem preferable as these are very robust and well tested, but they do require frequent calibration which could prove to be an issue. 
+
+
