@@ -61,12 +61,12 @@ D: unsupported diameter of window [m].\\
 P: pressure difference across window [Pa].\\
 
 Using \ref{eq:PressureWinT} a 3mmØ beryllium window ($F_a$ at 240MPa \citep{BeMechanical}) with a safety factor of 8 results in a 1.05mm thick window. The Beryllium window will attenuate the fluorescent x-rays, and lower the detection limits.
-Instead of a beryllium plate as a window, a polycapillary x-ray lens can be used. the polycapillary lens would function as the barrier between the vacuum environment and the high pressure environment, and focus/collimate the x-ray beam simultaneously. The polycapillary lens would need testing to make sure it can withstand the pressure. To seal off the end of the capillary tubes a beryllium film of 1-20um thickness could be used (assuming capillary diameter of 3-25um \citep{Shaik_1995}, SF of 8 and $F_a$ at 240MPa).
+Instead of a beryllium plate as a window, a polycapillary x-ray lens can be used. the polycapillary lens would function as the barrier between the vacuum environment and the high pressure environment, and focus/collimate the x-ray beam simultaneously. The polycapillary lens would need testing to make sure it can withstand the pressure. To seal off the end of the capillary tubes a beryllium film of 1-20um thickness could be used (assuming capillary diameter of 3-25um \citep{PolyCapOptics}, SF of 8 and $F_a$ at 240MPa).
 
 
 \paragraph{Poly capillary optics}
 Polycapillary lenses are a collection of thin tubes (capillaries), usually made from borosilicate glass, which direct x-rays through total external reflection. Total external reflection occurs when an incident photon enters the capillary and hits the glass wall at less than the critical angle. this is due to the differences in the refractive index of glass and the gas/vacuum of the capillary. This way any photon entering the tube at less than the critical angle is propagated through the capillary and its trajectory altered depending on the capillary curvature. Polycapillary lenses can be used for focusing or collimating purposes, by adjusting the curvature of the capillaries.
-The focusing distance of a polycapillary lens is dependent on the photon energy and the focal spot size. It can be estimated using\citep{Shaik_1995}:
+The focusing distance of a polycapillary lens is dependent on the photon energy and the focal spot size. It can be estimated using\citep{PolyCapOptics}:
 
 \begin{equation}
 FD = S \cdot \frac{E}{60}
@@ -109,7 +109,7 @@ hv' =  \frac{hv}{ 1+alpha*(1-cos(theta)) }
 hv: energy of the incident photon.\\
 alpha: $\frac{hv}{electron rest energy (0.511MeV)}$ \\
  
-
+The scattered photons are scattered evenly in all directions. Thus the scattering results in a distorted mirror of the incident photon energy spectrum. If the incident spectrum is concentrated in a narrow energy band, it can mask some fluorescent x-rays in the sample.
 
 %If an x-ray source of 17.5 keV is used, the resulting compton peak will be in the range of 16.3keV to 17.5keV. This will intersect with the Kalpha line of Yttrium (Z: 39) and Zirconium (Z: 40), and possible further depending the consistency, in terms of photon energy, of the x-ray source. It is thus important to pick an x-ray source that will not obscure important elements with the compton scattered radiation.
 
