@@ -33,13 +33,14 @@ The resulting noise peaks from Compton scattering lies between 20keV and 22.5keV
 To maximise the amount of x-rays that reach the sample a collimating polycapillary lens should be used between the source and the sample.
 
 \paragraph{Instrument}
-Creating the high voltage needed for the instrument a voltage tripler can be used. The entire instrument can be realized (including high voltage powersupply) with\citep{AmptekSource}:\\
+Creating the high voltage needed for the instrument a voltage multiplier can be used. The entire instrument can be realized (including high voltage powersupply) with\citep{AmptekSource}:\\
 Mass: 360g\\
 power: 9W (at max output intensity)\\
-Volume: 272.24cm3
+Volume: $272.24cm^{3}$\\
+The listed weight and volume is without additional protection from the high pressure environment.
 
 \subsubsection{X-ray detector}
-When considering the detector the range of encountered photons should be considered. The lighter elements $K_\alpha$ lines are only a few hundred keV apart, to differentiate these a suitable resolution is needed. Detectors also do not perform equally across all energies. The lower limit of the detector is determined by the detector window, as low energy photons are quickly attenuated. The higher limit is determined by the detector material. If we used a polycapillary lens, a window of 25um Be can be used. The detector material can be chosen as Si, as it provides a greater range than what we expect to achieve fluorescence from. In figure \ref{fig:AmptekDetector} a plot of differing detector can be observed. The resolution of the 25um Be SI-PIN detector is sufficient to distinguish elements heavier than Na.
+When considering the detector the range of encountered photons should be considered. The lighter elements $K_\alpha$ lines are only a few hundred keV apart, to differentiate these a suitable resolution is needed. Detectors also do not perform equally across all energies. The lower limit of the detector is determined by the detector window, as low energy photons are quickly attenuated. The higher limit is determined by the detector material. If we used a polycapillary lens, a window of 25um Be can be used. The detector material can be chosen as Si, as it provides a greater range than what we expect to achieve fluorescence from. In figure \ref{fig:AmptekDetector} a plot of differing detector can be observed. The resolution of the 25um Be SI-PIN detector is sufficient to distinguish elements heavier than Na Z=11.
 
 \begin{figure}[h]
 	\centering
@@ -49,11 +50,11 @@ When considering the detector the range of encountered photons should be conside
 \end{figure}
 
 \paragraph{Instrument}
-The entire instrument, including high voltage power supply and MCA, can be realized with\citep{AmptekDetector}:\\
+The instrument, including high voltage power supply and MCA, can be realized with\citep{AmptekDetector}:\\
 Mass: 180g\\
 power: 4W max, 2.5W typical\\
-Volume: 175cm3
-
+Volume: $175cm^{3}$\\
+The listed weight and volume is without additional protection from the high pressure environment.
 
 
 \subsubsection{Sample retrieval and configuration}
@@ -69,10 +70,18 @@ Making another wall, perpendicular to the detector lens, the source lens. The de
 
 If the sample containment chamber is designed to be removable, it should be made of a material with a low x-ray attenuation such as Beryllium. It should also be moved as close to the lenses as possible to reduced loss in the water between sample container and lens.
 
-\subsubsection{XRF detection range}
-The upper limit of what the XRF analyser can detect is determined by the highest energy photons consistently directed at the sample. This is determined by the source to Ag Z=47.
+\subsubsection{XRF analyser Summary}
+
+\paragraph{Detection range} The upper limit of what the XRF analyser can detect is determined by the highest energy photons consistently directed at the sample. This is determined by the source to Ag Z=47.
 The lower limit is determined by the detector window to F Z=9. however due to the attenuation of the fluorescent x-rays in the water sample detection of elements lighter than Cobalt seems unlikely, but will have to be determined by empirical test, as it depends on multiple factor such as detector sensitivity and source intensity and spectrum.
 
+\paragraph{Total mass, power and volume} The mass power and volume of the source + detector, without pressure shielding, is as follows:\\ 
+Mass: 540g\\
+power: 9W max\\
+Volume: $447.24cm^{3}$\\
 
+\subsubsection{Additional work}
+The polycapillary lenses maximum entrance/exit angles have to be considered for both the source, the detector and the sample. Furthermore empirical testing is needed to determine the exact relationship between source spectrum and detector to determine detection limit in terms of detectable quantity of an element in the sample. The empirical testing would likewise shed light on the piratical upper and lower limits of what elements are detectable with this set-up, when working with an aqueous solution as a sample.
+The Source, detector and polycapillary lenses should also be tested to ensure they can withstand the pressure under the ice of Europa.
 
 
