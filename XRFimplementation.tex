@@ -5,16 +5,16 @@ To incite fluorescence in heavy elements, a high energetic source is needed, as 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth]{figures/XRF/minix50_ag6.png}
+	\includegraphics[width=0.75\textwidth]{figures/XRF/minix50_ag6.png}
 	\caption{Output spectrum for a x-ray tube using an Ag anode at different voltages.\citep{AmptekSource}}
 	\label{fig:AgSpectra}
 \end{figure}
 
 The lower end of the energy spectrum is caused by bremsstrahlung in the anode, and is not of much use as it provides little additional resulting fluorescence. The low end is also scattered and will provide a significant noise source for the lower energies. This is particularly undesirable as the lighter elements low energy fluorescence, are also heavily attenuated by the water they are dissolved in. To adjust the spectrum an Al filter can be used to attenuate the lower energies, as seen in figure \ref{fig:AgSpectraFilt}.
 
-\begin{figure}[h]
+\begin{figure}[htb]
 	\centering
-	\includegraphics[width=\textwidth]{figures/XRF/minix_Fil.png}
+	\includegraphics[width=0.6\textwidth]{figures/XRF/minix_Fil.png}
 	\caption{Filtered and unfiltered Ag x-ray tube spectrum at 40keV. \citep{AmptekSource}}
 	\label{fig:AgSpectraFilt}
 \end{figure}
@@ -24,7 +24,7 @@ The output spectrum of the x-ray tube have to significant peaks at ~23keV and ~2
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth]{figures/XRF/estComptonAgPeaks.png}
+	\includegraphics[width=0.6\textwidth]{figures/XRF/estComptonAgPeaks.png}
 	\caption{Estimated Compton scattering of the source spectrum.}
 	\label{fig:AgSpectraCompton}
 \end{figure}
@@ -43,7 +43,7 @@ When considering the detector the range of encountered photons should be conside
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth]{figures/XRF/EnergyRes.png}
+	\includegraphics[width=0.8\textwidth]{figures/XRF/EnergyRes.png}
 	\caption{Energy resulution and detection ranges of differing detector types.\cite{AmptekDetector}}
 	\label{fig:AmptekDetector}
 \end{figure}
@@ -58,13 +58,21 @@ Volume: 175cm3
 
 \subsubsection{Sample retrieval and configuration}
 The sample should be placed as close the polycapillary lens of the detector as possible. As such the sample solution should either be contained in a chamber where one wall is the polycapillary lens of the detector. 
-Making another wall, perpendicular to the detector lens, the source lens. The detector is not blinded by the x-ray source, and the source will not lose efficiency by being attenuated by a sample chamber or the surrounding water. Figure \ref{fig:XRFSampleDiagram} show the proposed sample solution.
+Making another wall, perpendicular to the detector lens, the source lens. The detector is not blinded by the x-ray source, and the source will not lose efficiency by being attenuated by a sample chamber or the surrounding water. Figure \ref{fig:XRFSampleDiagram} show the proposed sample solution. With the sample chamber wall being composed of the source/detector lenses, a sample would have to be pumped into the analyser. And as the lenses can not be changed a certain amount of sample material might be left over after measurement. This can be mitigated through by pumping clean water through the chamber.
 
-\begin{figure}[h]
+\begin{figure}[htb]
 	\centering
-	\includegraphics[width=\textwidth]{figures/XRF/SampleDiagram.png}
+	\includegraphics[width=0.5\textwidth]{figures/XRF/SampleDiagram.png}
 	\caption{Block diagram showing the position of the sample compared to the source and detector lenses.}
 	\label{fig:XRFSampleDiagram}
 \end{figure}
 
-Instead of 
+If the sample containment chamber is designed to be removable, it should be made of a material with a low x-ray attenuation such as Beryllium. It should also be moved as close to the lenses as possible to reduced loss in the water between sample container and lens.
+
+\subsubsection{XRF detection range}
+The upper limit of what the XRF analyser can detect is determined by the highest energy photons consistently directed at the sample. This is determined by the source to Ag Z=47.
+The lower limit is determined by the detector window to F Z=9. however due to the attenuation of the fluorescent x-rays in the water sample detection of elements lighter than Cobalt seems unlikely, but will have to be determined by empirical test, as it depends on multiple factor such as detector sensitivity and source intensity and spectrum.
+
+
+
+
