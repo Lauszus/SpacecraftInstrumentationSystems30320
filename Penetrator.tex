@@ -76,7 +76,15 @@ Figures \ref{fig:ICD}, \ref{fig:HWD} and \ref{fig:CTDI} illustrates the three me
 
 \subsection{Chemical Drilling}
 
-\subsection{Explosive Drilling}
+\autsubsection{Explosive Drilling}{Ricard Grove}
+Explosive drilling is another drilling method and in the following will be described why explosive drilling is not a valid solution. An explosion is a fast release of a large amount of energy and resulting in an increase in volume. One of the problems by using explosives is that when exploding all the energy that is released will be released in all directions, so if explosions should be efficient it would be a good idea to bury the explosives in the ice. Another problem will then arise because the whole point of drilling is to get vertically down. Therefore one big explosion will be inefficient since a lot of the energy will be released to the sides instead of downwards, which means that many small explosions are needed. If exploding ice the ice will not will but rather crack which also makes it difficult to estimate how deep a hole an explosion will create. After an explosion some kind of device is needed to remove the ice that is blown to pieces and again dig a hole to the new explosives. \\
+
+\noindent
+Additionally another huge problem arises if using explosives, namely that explosives are going to create huge environmental damage and comprises the idea of planetary protection. The mission objective is to find life which will be done partly by observing molecules in the environment. Using explosives it will not only kill the life that could be found on Europa it would also infest Europa with the remains of the explosion and hereby the molecule observations misleading.\\
+
+\noindent
+Playing with the thought that the explosive drilling would be a legit candidate for the drilling method, one of the first consideration to be made is the choice of explosive material. One of the most important characteristics in this case is the sensitivity of the material, i.e. how stable the material is. An explosive material can either detonate when the material is exposed for a shock, friction or if it reaches a specific temperature. In this case a sensitive material has to be chosen because especially at launch on Earth and descend on Europa the whole spaceborne module will be exposed to a high acceleration and temperature. Plastic explosives could hereby be a good choice. Just as an example C-4 has really stable and insensitive to both heat and shock, where the energy released is about 6 MJ/kg. Since the ice will not melt but crack it is difficult to estimate the energy needed to reach through 10 km of ice, but for the melting it requires about $10^{10}J$ to melt the ice. So assuming that all the energy will be delivered to the ice column more than 1.5 ton of c-4. This is without taken into account that a lot of the energy will spread like shock wave through the ice. Experiments with ice explosions is needed if more precise values are wanted, but the negatives or explosive drilling are too high to compete with the other drilling methods. 
+
 
 \input{Sputtering}
 
@@ -125,8 +133,25 @@ From \ref{eq:varygrav} it can be seen that the mass that is subtracted from the 
 we will get a lower decrease in gravitational acceleration than expected. If a submarine was to be launched from the penetrator to explore the ocean it would have to withstand a higher pressure than the penetrator if it should go deeper. It is unknown how deep the ocean is but sources expect up to 100 km thick water-layer. The pressure would at 110km depth be between 131 and 141 MPa depending on if a constant or varying gravitational acceleration is chosen where the density for water, $\rho_{water} = \SI{1000}{\kg\per\m^3}m$, is used. Europa is not a perfect sphere but rather closer to an ellipsoid and it is unknown how thick the ice-, water- and rock-layer of Europa are. Therefore the pressure is only a approximation that simplifies the geometry of Europa and hereby the calculations for the pressure. 
 
 
-\section{RTG design}
+\autsection{Penetrator thickness}{Ricard Grove} 
+After having chosen the material that is going to be used for the penetrator it is possible to calculate thickness of the penetrator shell to be able to withstand the pressure high pressure that the penetrator would be exposed to. For a cylinder the pressure can be calculated as following: 
+\begin{equation}\label{eq:pressure}
+\sigma = \frac{-2 P_{ext}\cdot r_{outer}^2}{r_{outer}^2-r_{inner}^2}/ + \frac{P_{int}\cdot (r_{outer}^2+r_{inner}^2)}{(r_{outer}^2-r_{inner}^2)}
+\end{equation}
+where $\sigma$ is the stress on the material, $P_{ext}$ and $P_{int}$ is the external and internal pressure, $r_{outer}$ and $r_{inner}$ is the outer and inner radius. The stress that the material can withstand depends on the yield strength of the material which for the titanium was 827 MPa. Yield strength the stress where a material starts to deform permanently, compared to when the material only deforms elastically and will return to its prior shape. In order to insure that the titanium is able to withstand the pressure a factor of safety of 2 is used which means that the maximum expected stress exerted on the titanium is only half of the actual yield strength of titanium. The outer radius of the penetrator is set to 10 cm and the outer pressure has been found to about 12 MPa. 
 
+
+
+
+Furthermore since the young modulus of titanium is 114 GPa the deformation of the titanium can be calculated assuming that the stress is proportional to strain (Hookes Law): 
+\begin{equation}
+\text{Deformation} = \frac{\text{stress}}{\text{Young modulus}}\cdot 100\% = \frac{\frac{827MPa}{2}}{114GPa} \cdot 100\% = 0.36\%
+\end{equation}
+Hence the deformation will only be 0.36\% and negligible.. 
+
+its yield stress is 827 MPa, its density is 4.43 g/cm^3 and its young modulus is 114 GPa
+
+\section{RTG design}
 \autsubsection{Radioactive Sources}{Jean-Paul Breuer}
 A Radioisotope Thermal Generator (RTG), is essentially an nuclear battery that uses thermocouplers to convert the heat released by a selected radioactive source into electricity. Many radioactive sources exist which could serve the purpose of fuel for the RTG specific to this mission, but not all of the known radioactive isotopes would be efficient or viable for the task. There are three important characteristics to keep in mind when attempting to select the ideal radioactive isotopes.
 
@@ -150,7 +175,7 @@ Given the three main criteria, it is possible to exclude many isotopes immediate
 
 As can be seen from the table, Plutonium-238 and Americium-241 would seem like viable candidates for this mission; however, Americium requires further shielding due to it releasing gamma radiation along with the alpha particles. Strontium-90 is readily available as side products of nuclear reactors, but also requires heavy shielding due to the gamma particles, else it might damage the remainder of the electronics and instrumentation in the vicinity. Plutonium-238 is the ideal candidate, but is not currently found on Earth in sufficiently high quantities as it is only produced as a side product during enrichment for deployment in nuclear weapons. To get the materials in sufficiently high quantities, it would be required to reopen the nuclear facilities in Savannah River (USA), which would cost a significantly high amount of money and would also require a possibly annoying trudge through politics and policy.
 
-\autsubsection{Radiation from Pu238}{Ricard Lladó Grove}\label{sec:plutonium}
+\autsubsection{Radiation from Pu238}{Ricard Grove}\label{sec:plutonium}
 After looking at the different materials, Plutonium-238 (Pu238) is the radioactive material that is going to be used for the mission due to the the half-life of 87.7, power production and the minimum radiation of gamma and neutrons. 
 
 The probability of a alpha-decay from a Pu238-atom is close to 100\%: 
@@ -162,7 +187,7 @@ The alpha particle is relatively big with two protons and two neutrons and is th
 \noindent
 A bigger problem is the free neutrons that for example are emitted due to a spontaneous fission.  Neutrons do not have any electric charge and therefore they will not be stopped by an electric field making neutrons extremely penetrating. To stop a neutron it has to be absorbed by a nucleus or collide with a particle with same speed but opposite velocity and mass as the neutron. Since the materials used to shield alpha and beta particles, i.e. lead, has a rather small cross-section and few nuclei per unit mass, hence the neutron can easily pass trough the shielding. Furthermore if the neutron is absorbed in an atom it is possible that the created atom is radioactive as well. Therefore it is important to stop the neutrons, since they can cause a lot of damage if they hit the instruments on board the penetrator. In order to do so protium, a hydrogen atom with no neutron, can be used to absorb the neutron creating in deuterium. Water has a high number density to mass ratio, and is hereby optimal to use as a shielding against the free neutrons.
 
-\autsubsection{Heat Generation}{Ricard Lladó Grove}\label{sec:HeatGeneration}
+\autsubsection{Heat Generation}{Ricard Grove}\label{sec:HeatGeneration}
 After looking at the radiation from a Plutonium atom it was shown that the probability of an alpha decay is extremely high. Therefore it will in the following when calculating the energy outcome from a radiative decay be assumed that plutonium only radiates as an alpha decay. If a more precise result has to be achieved it is necessary to include the other modes of decay and also the whole decay chain since if Pu238 emits an alpha particle U234 is produced. This isotope is also radioactive even though its lifetime is 2.400 years which means that the thermal energy generated is much lower for U234. It is first after 12 decays that the decay chain ends with the stable isotope of lead: Pb206\cite{website:plutonium}. To calculate how much energy one alpha decay will produce, the energy equation derived from Einstein is used:
 \begin{equation}
 \begin{aligned} 
@@ -199,10 +224,10 @@ Hereby the heat production is reduced from 671 J to $671J \cdot 0.865 = 580J$. T
 \end{equation}
 where  $t$ and $\tau$ are both measured in years. We see that with a half-life of 87.7 years there will after 7 years be 94.6\% of the brought plutonium is left. Hereby each kg of plutonium oxide will produce $580J \cdot 0.946 = 548.7J$ after 7 years which is the time where the RTG will be used to melt though the ice.
 
-\autsubsection{Shielding}{Ricard Lladó Grove} \label{sec:shielding}
+\autsubsection{Shielding}{Ricard Grove} \label{sec:shielding}
 As mentioned a typical shielding material is lead,for this case zirconium would be a better choice, first of all because it has a melting temperature that is three times higher than lead, and second of all because the material is lighter. It is still not possible to stop the free neutrons, where we instead will use water. First the Plutonium will be surrounded by the zirconium, afterwards a layer of water and in the end some thermocouplers will generate electricity from the heat
 
-\autsubsection{Thermal Design of RTG}{Ricard Lladó Grove}\label{sec:ThermalDesign}
+\autsubsection{Thermal Design of RTG}{Ricard Grove}\label{sec:ThermalDesign}
 The RTG will be used both as the electric generator and the thermal energy generator to melt through the ice. Here it is assumed that the electric power needed is about 150W and that the needed thermal energy required for melting is 2kW in order to get sufficient energy for melting through the ice at the desired rate at 100 days per kilometre. Hereby it is needed to produce 7.5\% extra thermal energy to produce the electrical energy. The energy will be generated by thermocouples which can create a voltage when a temperature difference between two metals that are connected by a wire. The thermocouples will be discussed later in section \ref{sec:thermocouples}. \\
 
 \noindent
@@ -320,7 +345,7 @@ With 25 cm the pipes will as illustrated at figure \ref{fig:RTGsystem} go to the
 All the calculations for the thermal design are only preliminary and it has to be elaborated and expanded in order to calculate the real heat flow. There are though many possibilities to change small parameters in the design in order to customize the heat transportation if the assumptions made in this section shows to be too simple. For example the flow rate could be changed, or the radius of the pipes where the penetrator shell will be heated or maybe change the number of pipes. All in all further testing and experimenting with the thermal design in order to validate the system. 
 
 \autsubsection{Generation of electric energy}{Ricard Grove} \label{sec:thermocouples}
-As mentioned thermocouples will be used to directly generate electric energy from thermal energy. A current will be created when having a temperature difference between two different thermoelectric materials when they are joined in their ends. The higher the temperature difference the more power will be generated. In this case a tested model of thermocouple are going to be used as reference to the calculations taken from \cite{lau1997a}. A module of 127 couples with dimensions $1.4mm\times 1.4mm\times 1.15mm$ has been tested with the result illustrated in figure \ref{fig:thermocouple}.\\
+As mentioned thermocouples will be used to directly generate electric energy from thermal energy. A current will be created when having a temperature difference between two different thermoelectric materials when they are joined in their ends. The higher the temperature difference the more power will be generated. In this case a tested model of thermocouple are going to be used as reference to the calculations taken from \cite{lau1997a}. A module of 127 couples with dimensions $1.4\text{mm}\times 1.4\text{mm}\times 1.15\text{mm}$ has been tested with the result illustrated in figure \ref{fig:thermocouple}.\\
 
 \begin{figure}[htb]
   \centering
@@ -330,7 +355,7 @@ As mentioned thermocouples will be used to directly generate electric energy fro
 \end{figure}
 
 \noindent
-It can from figure \ref{fig:thermocouple} be seen that the the higher temperature difference the more power will be produced which was also the expected. Three different models are used to calculate the power output, where $P_{fea}$ was the most accurate but produced the least power. In our case the maximum temperature difference will be around 140K and at this difference there are almost no difference between the three modes. At this temperature difference each model with 127 pellets will produce around 7-8 W. To get 150 W the number of pellets necessary will be around 2700 pellets where the dimensions was $1.4\text{mm}\times 1.4\text{mm}\times 1.15\text{mm}$. An approximation of how big an area the pellets will take can be calculated by multipling the width and length of one pellet with the total amount of pellets needed. Hereafter it can be compare to the circumference of the water that surrounds the PuO2. Since the outer radius of the water column was designed to be $1.2\cdot r_{rtg}$ the circumference can be calculated. In this case the two ends of the cylinder of the water surrounding the PuO2 will not be taken into account but only the circumference of the tube. 
+It can from figure \ref{fig:thermocouple} be seen that the the higher temperature difference the more power will be produced which was also the expected. Three different models are used to calculate the power output, where $P_{fea}$ was the most accurate but produced the least power. In our case the maximum temperature difference will be around 140K and at this difference there are almost no difference between the three modes. At this temperature difference each model with 127 pellets will produce around 7-8 W. To get 150 W the number of pellets necessary will be around 2700 pellets with the dimensions $1.4\text{mm}\times 1.4\text{mm}\times 1.15\text{mm}$. An approximation of how big an area the pellets will take can be calculated by multiplying the width and length of one pellet with the total amount of pellets needed. Hereafter it can be compare to the circumference of the water that surrounds the PuO2. Since the outer radius of the water column was designed to be $1.2\cdot r_{rtg}$ the circumference can be calculated. In this case the two ends of the cylinder of the water surrounding the PuO2 will not be taken into account but only the circumference of the tube. 
 \begin{subequations}
 \begin{equation}
 A_{pellet} = \frac{P_{total}}{P_{pellet}} \cdot \text{width} \cdot \text{length} = \frac{150W}{\frac{7W}{127}}\cdot \SI{0.0014}{m}\cdot \SI{0.0014}{m} = \SI{0.0053}{\m^2}
@@ -339,46 +364,18 @@ A_{pellet} = \frac{P_{total}}{P_{pellet}} \cdot \text{width} \cdot \text{length}
 A_{PuO2} = 2\pi\cdot 1.2r_{PuO2} h_{PuO2} = 2\pi\cdot \SI{0.0196}{\m} \cdot \SI{0.3}{m} = \SI{0.0443}{\m^2}
 \end{equation}
 \end{subequations}
-Hereby we see that the area needed to produce 150W easily can fit into on the circumference of the water surrounding the PuO2.
-
- Take into account that it is not the hole circumference of the water that has heat pipes on the other side. 
- 
-In this case the efficiency of the thermocouples does not matter that much since all the thermal energy that are not converted to electrical energy will be used to warm up the water. The thermal energy that is not used to create electric energy will go to loses in the thermocouple and mostly in heating of the components. Hereby we will get a slightly different distribution of energy. 
+Hereby we see that the area needed to produce 150W easily can fit into on the circumference of the water surrounding the PuO2. It should also be taken into account that the difference in temperature is only 140K at the bottom of the RTG since it is here the surrounding water will be hottest. But since 2700 pellets only fill one eights of the available area the temperature difference will be close to 140K for all the pellets, and more pellets could easily be added to the design. Each pellet is 1.12mm high so the length of the pellets are not going to be any problem either. For the thermocouples it is also seen that the efficiency is about 5\%\cite{lau1997a} which means that only 5\% of the energy used by the thermocouple will actually be converted to electric energy, the rest will be thermal energy due to losses in the thermocouple and it will heat up the components. For generating electrical energy for the instruments in the penetrator it is very fortunate that all the thermal energy generated by the thermocouple actually can be used in order to help melting the ice around the penetrator or keep the body of the penetrator hot enough not to freeze in. 
 
 
-\autsubsection{Heat pipes}{Ricard Grove}\label{sec:heatpipes}
-To distribute the heat that is generated from the plutonium. In order to do so, the water will be under high pressure.  This will give some advantages for the system in the sense that it is almost impossible to maintain a temperature below $100^\circ$C which is waters normal boiling point, when transporting 2kW of heat.\\
-
-\noindent
-The pipe system will consist of pipes surrounding the RTG in the bottom and middle of the penetrator. Since the RTG is 30 cm long the pipes will be this as well with 18 tubes cut in half. The water will then flow out to the 18 tubes in the outer part of the RTG. Since most of the heat of generated should be directed downwards 12 of the tubes only cover the lowest $1/4$ of the penetrator. The other 6 tubes will go all the way to the top of the penetrator in order to ensure that the penetrator will not freeze in because the top of the penetrator is too cold. With an internal pressure of 5MPa, the thickness of the tubes that have water in them will be around 1 mm depending on the material if the other radius of the tubes are 1.48 cm. The heat pipe system will then weight around 6 kg. Furthermore the system will take up 6.5 liters of space. 
-
-Insert image of top view of the pipe system and RTG. 
-Insert image of a sideways look of the system.
-
-\section{Selected Design}
-
-* Sketch of overall design (use 3D models for the ice melting simulations)
-
-\subsection{Melting through the ice} % Lukas, KSL
+\section{Melting through the ice} % Lukas, KSL
 
 \autsubsection{RTG Placement}{Jean-Paul Breuer and Ricard Lladó Grove}
 The obvious choice for the placement of the RTG within the penetrator would be near the bottom. As the melting mechanism requires going down, having the RTG near the tip would reduce heat loss, maximizing the melting potential of the penetrator, as well as move the center of gravity of the RTG to a more stable position relative to the movement direction. During descent, this lower point of gravity would help with the dirigibility, as the penetrator would be less likely to tip over to one side.
 
 To simply mention as an alternative, there are also pros and cons to having the RTG be placed at the top of the penetrator. Assuming that the RTG is at the top, the instrument suite would be located near the bottom of the penetrator, so it might be already possible to take samples and filter the ice within the column while descending. Once anchored at the bottom of the ice column, having the instrument suite on the bottom of the penetrator would be beneficial in that it would be possible to just dip the tip into the water and have the instrument suite work as intended. Problems with placing the RTG near the top would be the requirement of further and more efficient heat pipes to channel the heat down towards the tip, which would also cause further problems with the instrument suite, as the heat would also have an effect on the instrumentation. It would also cause problems with dirigibility as it would be more probable to fall over to one side, and ultimately end up sideways as a worst case alternative. 
 
-\subsection{Thermal Design}
-
-\subsection{Water Convection}
-
-\autsection{Penetrator thickness}{Ricard Lladó Grove} 
-\begin{equation}\label{eq:pressure}
-\sigma = \frac{-2 P_{ext}\cdot r_{outer}^2}{r_{outer}^2-r_{inner}^2}/ + \frac{P_{int}\cdot (r_{outer}^2+r_{inner}^2)}{(r_{outer}^2-r_{inner}^2)}
-\end{equation}
-where $\sigma$ is the stress on the material, $P_{ext}$ and $P_{int}$ is the external and internal pressure, $r_{outer}$ and $r_{inner}$ is the outer and inner radius. 
-
-
 \section{Anchor Design}
-\autsubsection{Buoyancy}{Ricard Lladó Grove}
+\autsubsection{Buoyancy}{Ricard Grove}
 One way to anchor the penetrator is through buoyancy. In general buoyancy is an upward force that is exerted to an object by the surrounded fluid. For an object immersed in a fluid, the force acting on the object is gravity and buoyancy given by:
 \begin{subequations}
 \begin{equation}\label{eq:bouyancy1}
