@@ -13,7 +13,7 @@ If you are new to LaTex, then I would recommend the following editor: <http://ww
 
 Please also join the Facebook group: <https://www.facebook.com/groups/1711333799143909>.
 
-If you need to upload a video to YouTube, then please contact me and I will upload it as unlisted to a dedicated playlist.
+Our YouTube channels is located at the following link: <https://www.youtube.com/channel/UC-DMik5iodpwCzGbywo2CMg>. If you need to add a video, then please contact me and I will upload it.
 
 ### Notes
 
