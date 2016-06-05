@@ -13,4 +13,38 @@ Two different kind of submarines are described here: spherical and cylindrical s
 
 \subsubsection{Spherical submarines}
 
+In this part are presented the results obtained for the weight and the wall thickness of small spherical submarines, in function of their outer radius. In order to find these results, we used the titanium alloy presented in the Material subsection. We used here a factor of safety of 2, meaning that the maximum stress obtained at the maximum depth is half of the alloy yield stress, here 410 MPa. In this simulation, we size the submarines so that they can go to a 50 km depth, which represents an external pressure of 80 MPa. In order to be accurate, we did not use the thin-walled assumtion for spherical vessels, but the full formulas, defined by the following stresses:
+
+\begin{equation}
+\sigma_{tt}=\frac{P_{a}\times R_{a}^{3}-P_{b}\times R_{b}^{3}}{R_{b}^{3}-R_{a}^{3}}-\frac{(P_{a}-P_{b}) \times R_{b}^{3} R_{a}^{3}}{(R_{b}^{3}-R_{a}^{3}) \times R^{3}}
+\end{equation}
+
+\begin{equation}
+\sigma_{\theta\theta}=\frac{P_{a}\times R_{a}^{3}-P_{b}\times R_{b}^{3}}{R_{b}^{3}-R_{a}^{3}}+\frac{(P_{a}-P_{b}) \times R_{b}^{3} R_{a}^{3}}{2 \times (R_{b}^{3}-R_{a}^{3}) \times R^{3}}
+\end{equation}
+
+Moreover, in this specific case, while applying the symmetries of the problem, the equivalent stress obtained with the Von Mises criterion is:
+
+\begin{equation}
+\sigma_{equivalent}= abs(\sigma_{tt}-\sigma_{\theta\theta})
+\end{equation}
+
+In these equations, $R_{a}$, $R_{b}$, $P_{a}$, $P_{b}$, and R are respectively: The inner radius, the outer radius, the internal pressure, the external pressure and the radius where the stress is computed. The results obtained are presented in
+
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=8cm, height=10cm, clip]{figures/Paul/Thickness.pdf}
+\caption{}
+\label{}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=8cm, height=10cm, clip]{figures/Paul/SphereWeight.pdf}
+\caption{}
+\label{}
+\end{figure}
+
+
 \subsubsection{Cylindrical submarines}

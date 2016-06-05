@@ -1,5 +1,3 @@
-%   Include in Comm Systems
-%   target 8-10 pages
 \autsection{Penetrator-Lander Link}{Gustavo Feijóo Carrillo}
 %   Through Ice Communications
 %       -Scenario and description of operations
@@ -19,7 +17,7 @@ Third, reaching the ocean interface where the main transceiver in the penetrator
 	\centering
 	\includegraphics[width=\textwidth]{figures/comms/iceLink-relay}
 	\caption{\textit{DRAFT} Through-ice communications.}
-	\label{fig:through-ice_comms}
+	\label{fig:through-ice_comms_relay}
 \end{figure}
 
 \subsection{Link Drivers}
@@ -31,8 +29,17 @@ Third, reaching the ocean interface where the main transceiver in the penetrator
 % Wireless links
 \autsubsection{Ice embedded wireless communications}{Gustavo Feijóo Carrillo}
 
-From a previous study for JPL's Cryobot regarding ice communications \cite{iceLink-scott}, we find the assumption of the communication transceiver being allowed to refreeze in the ice but there is no deeper details on this matter. The main subject here is the behaviour of the "slushy" or water and ice mixture above the descending penetrator, since this trail has a meaningful effect on the antenna performance of the penetrator communication subsystem as we show in Figures \ref{fig:unaffected}, \ref{fig:smallSlush} \& \ref{fig:bigSlush}.
+In a previous study from JPL's Cryobot concept regarding ice communications \cite{iceLink-scott}, we find the assumption of the communication transceiver relays being allowed to refreeze in the ice but there is no deeper details on this matter. The main subject here is the behaviour of the "slushy" or water and ice mixture above the descending penetrator, since this trail has a meaningful effect on the antenna performance of the penetrator communication subsystem as we shown in Figures \ref{fig:unaffected}, \ref{fig:smallSlush} \& \ref{fig:bigSlush}.
 
+%   Fig. Slush trail diagram
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/comms/slushTrail}
+	\caption{This figure based on the melting profile simulation, it can be seen from the temperature gradient trailing the penetrator that in the close proximity a column of melt water first (red), followed by a mix warm ice and water which is referred as "slush" (white) forms the obstacle discussed in this section. The profile shown spans almost 4 days.}
+	\label{fig:through-ice_comms}
+\end{figure}
+
+%   Fig. No slush
 \begin{figure}[htb]
 	\centering
 	\subfloat[]{
@@ -46,7 +53,7 @@ From a previous study for JPL's Cryobot regarding ice communications \cite{iceLi
 	\caption{Unaffected antenna pattern.}
 	\label{fig:unaffected}
 \end{figure}
-
+%   Fig. Small slush
 \begin{figure}[htb]
 	\centering
 	\subfloat[]{
@@ -60,7 +67,7 @@ From a previous study for JPL's Cryobot regarding ice communications \cite{iceLi
 	\caption{Effect of small watery ice obstacle in antenna path.}
 	\label{fig:smallSlush}
 \end{figure}
-
+%   Fig. Big slush
 \begin{figure}[htb]
 	\centering
 	\subfloat[]{
@@ -76,9 +83,10 @@ From a previous study for JPL's Cryobot regarding ice communications \cite{iceLi
 \end{figure}
 
 
-% HD link
-\autsubsection{High Directivity Link}{Ioannis Nisopoulus}
+% Effect on link design
+\autsubsection{Considerations for Link Sizing and Antenna choice}{Gustavo Feijóo Carrillo}
 
+\subsubsection{High Directivity Link}
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{figures/comms/iceLink-p2p-HighD}
@@ -86,10 +94,8 @@ From a previous study for JPL's Cryobot regarding ice communications \cite{iceLi
 	\label{fig:iceLink-p2p-HighD}
 \end{figure}
 
-%\input{DirectionalLink}
-
 % LD Link
-\autsubsection{Low Directivity Link}{Gustavo Feijóo Carrillo}
+\subsubsection{Low Directivity Link}
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{figures/comms/iceLink-p2p-LowD}
@@ -98,7 +104,7 @@ From a previous study for JPL's Cryobot regarding ice communications \cite{iceLi
 \end{figure}
 
 % Ice embedded relays
-\subsection{Relay Link}
+\subsubsection{Relay Link}
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{figures/comms/iceLink-relay}
