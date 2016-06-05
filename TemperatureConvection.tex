@@ -200,12 +200,12 @@ A further study of the ice temperature profile will be presented in chapter \ref
 
 \autsubsection{Water convection}{Kristian Sloth Lauszus and Lukas Christensen}\label{sec:water_convection}
 
-In this section the concept of natural convection will be presented and CFD (computational fluid dynamics) simulations will be used in order to estimate the natural convection for the penetrator.
+In this section the concept of natural convection will be presented and CFD (computational fluid dynamics) simulations will be used in order to estimate the natural convection for a potential penetrator.
 \\
 \\
-Natural convection is interesting as it might be a means of transporting the water from the tip to inside the penetrator passively, guiding the water to the different instruments.  This is needed, as it would be interesting to analyse the salinity and various other elements in the melted water as the penetrator descents. The passive system would eliminate the needs for a pump system, which will add to the complexity and mass of the penetrator.
+Natural convection is interesting as it might be a means of transporting the water from the tip to inside the penetrator passively, guiding the water to the different instruments. This is needed, as it would be interesting to analyse the salinity and various other elements in the melted water as the penetrator descents. The passive system would eliminate the needs for a pump system, which will add to the complexity and mass of the penetrator.
 
-A sketch of the proposed water transportation system can be seen in Figure \ref{fig:water_transportation}. The intentions is to have the water flow from the intake to the end of the penetrator while running pass the different instruments placed in chambers along the exterior of the penetrator. The flute shape in the tip is intended to guide the water to the intakes in the side. This shape will also be useful in order to guide dirt, small rocks and other small items away from the front of the penetrator, which will improve the heat transfer efficiency between the tip and the ice. Furthermore the screw in the tip, as shown in Figure \ref{fig:water_transportation}, can be used for direct measurement of the temperature of the ice. However it will be important to thermally isolate this from the melter and/or compensate for its effect on the temperature measurement, so the true temperature of the ice can be obtained. Another option would be to have an active screw going into the ice at certain intervals, but the passive system is desirable due to simplicity of this design. % TODO: YouTube video
+A sketch of the proposed water transportation system can be seen in Figure \ref{fig:water_transportation}. The intention is to have the water flow from the intake to the end of the penetrator while running past the different instruments placed in chambers along the interior of the penetrator. The flute shape in the tip is intended to guide the water to the intakes in the side. This shape will also be useful in order to guide dirt, small rocks and other small items away from the front of the penetrator, which will improve the heat transfer efficiency between the tip and the ice. Furthermore the screw in the tip, as shown in Figure \ref{fig:water_transportation}, can potentially be used for direct measurement of the temperature of the ice. However it will be important to thermally isolate this from the melter and/or compensate for its effect on the temperature measurement, so the true temperature of the ice can be obtained. Another option would be to have an active screw going into the ice at certain intervals, but the passive system is desirable due to simplicity of this design. % TODO: YouTube video
 \begin{figure}[htb]
 	\centering
 	\captionsetup[subfigure]{width=0.25\textwidth}
@@ -217,12 +217,12 @@ A sketch of the proposed water transportation system can be seen in Figure \ref{
 		\includegraphics[width=.3\textwidth]{figures/convection/water_transportation}
 		\label{fig:water_transportation}
 	}
-	\caption{Sketch of the penetrator design}
+	\caption{Sketch of the penetrator design. An animation further detailing the design is available at \url{https://www.youtube.com/watch?v=Ugql86xArnY}}
 %	\label{fig:}
 \end{figure}
 \\
 \\
-Natural convection is caused by density gradients due to temperature differences in a fluid. In this example the water near the tip will be warmer than the water located behind the penetrator this will cause the less dense water in the bottom to rise with a certain velocity, thus we can take advantage of this effect and redirect the water from the tip to the inside of the penetrator, as explained earlier\cite{website:naturalConvectionPdf}.
+Natural convection is caused by density gradients due to temperature differences in a fluid. In this example the water near the tip will be warmer than the water located behind the penetrator and this will cause the less dense water in the bottom to rise with a certain velocity, thus we can take advantage of this effect and redirect the water from the tip to the inside of the penetrator, as explained earlier\cite{website:naturalConvectionPdf}.
 
 An important number associated with natural convection is the so-called Rayleigh number $\mathbf{Ra}$, which is given by\cite{website:naturalConvectionWiki}:
 \begin{equation}
@@ -254,6 +254,7 @@ Figure \ref{fig:3d_model} shows a CAD model of a potential penetrator design. Th
 \end{figure}
 \\
 The simplified model is made of a totally separated heating element in the front of a hollow cylinder. This means that heat will not be conducted from the heater into the bulk of the penetrator. While this is not very realistic, it provides the best possible scenario for convection as it leads to a very large temperature gradient along the length of the penetrator.
+\\
 \begin{figure}[htb]
 	\centering
 	\subfloat[Simplified 3D model used for CFD analysis]{
@@ -272,14 +273,14 @@ The simplified model is made of a totally separated heating element in the front
 	\label{fig:cfd}
 \end{figure}
 \\
-The ice that surrounds the penetrator was designed as to mimic the expected shape of the bore hole with it being narrow at the heating element and then expanding out to a fixed width near the middle of the penetrator. The diameter of this bore hole is somewhat over exaggerated allowing flow around the penetrator, again, to ensure the best conditions possible for convection.
+The ice that surrounds the penetrator was designed so as to mimic the expected shape of the bore hole with it being narrow at the heating element and then expanding out to a fixed width near the middle of the penetrator. The diameter of this bore hole is somewhat over exaggerated allowing flow around the penetrator, again, to ensure the best conditions possible for convection.
 \\
 \\
 The penetrator is modelled as being 1.5 m long with an external diameter of 20 cm. The internal diameter of the penetrator model is 4 cm, which was chosen because the much smaller diameters resulted in breakdown of the simulation. The heater is simulated as being made of solid copper with a 2000 W internal heat source, while the bulk of the penetrator is made of aluminum. The control volume represents some 4 m of water column with the top being designated as an open surface, meaning that the simulation allows flow through it, as if it was extended indefinitely. The ambient pressure and temperature was set to 120 bar and 0 $^\circ C$, respectively.
 \\
 \\
-By using these boundaries conditions a steady-state CFD analysis was made, the result of which is displayed in Figures \ref{fig:cfd_temperature} and \ref{fig:cfd_velocity}. It should be noted that an adaptive mesh was used to ensure maximum simulation resolution within the penetrator.
-It can be seen that the heating element reaches a temperature of around 100 \textdegree C and the back of the penetrator stabilizes near 15 \textdegree C. This results in a natural convection flow through the penetrator at only 0.4 cm/s or 200 s/L. Considering that this result was obtained using unrealistically favourable conditions and with no resistances inside the penetrator, like for example a filtering system, it points toward convection being of limited use. Thus, a pump system, such as a peristaltic pump, is probably needed to ensure proper water flow to the different instruments in the penetrator. This will be discussed more in detail in chapter \ref{sec:water_flow}.
+By using these boundary conditions a steady-state CFD analysis was made, the result of which is displayed in Figures \ref{fig:cfd_temperature} and \ref{fig:cfd_velocity}. It should be noted that an adaptive mesh was used to ensure maximum simulation resolution within the penetrator.
+It can be seen that the heating element reaches a temperature of around 100 \textdegree C and the back of the penetrator stabilizes near 15 \textdegree C. This results in a natural convection flow through the penetrator at only 0.4 cm/s or 200 s/L. Considering that this result was obtained using unrealistically favourable conditions and with no resistances inside the penetrator, like for example a filtering system, it points toward natural convection being of limited use. Thus, a pump system, such as a peristaltic pump, is probably needed to ensure proper water flow to the different instruments in the penetrator. This will be discussed more in detail in section \ref{sec:water_flow}.
 
 % TODO: Comment on different assumptions
 	% I følge simuleringen så bliver den cirka 100 grader (celsius). Reelt vil det nok være mindre, fordi varmen skal fordeles rundt i hele penetratoren
