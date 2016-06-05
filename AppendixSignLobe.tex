@@ -1,0 +1,54 @@
+\chapter{Half-wave Dipole Radiation Pattern}\label{app:rasmusmatlab}
+
+This is the matlab code used for plotting the radiation pattern of a half-wave dipole placed above a large PEC plane.
+
+
+
+\begin{lstlisting}
+close all;
+clear all;
+clc;
+
+format shorteng;
+
+% Assuming r >> lambda
+
+%For clarity, only has symbolic value
+syms lambda
+syms r
+syms eta
+syms I 
+%%
+
+phi = 0;
+beta = 2*pi/lambda;
+
+h = lambda*[0 1/4 1/2 3/4 2];  % The E-field will be calculated at 0, 1/4, 1/2, 3/4
+% and 2 wavelengths above an infite PEC plane.
+l = lambda/2;
+
+theta = linspace(-pi,pi,1000);
+
+E = zeros(4,length(theta));
+
+%%
+for k = 1:length(h)
+    E = j*eta*(beta*I*l*1/(4*pi*r))*sqrt(1-sin(theta).^2.*sin(phi)^2).*(2*j
+    .*sin(beta*h(k).*cos(theta))); 
+    %Calculate the E-field for each of the k number of increment heights.
+    E_norm = E/(beta*eta*l*I/(4*pi*r)); % Normalize
+    
+    % Plot label
+    if k == 4
+        ylabel('Relative field amplitude')
+    end
+    figure(1)
+    subplot(length(h),1,k)
+    plot(theta*180/pi,abs(E_norm))
+    h1 = k/4-1/4;
+    legend(['h = ' num2str(h1) '\lambda'])
+    axis([-90. 90. 0 2.5])
+end
+xlabel('\Theta  (Degree \circ)')
+
+\end{lstlisting}
