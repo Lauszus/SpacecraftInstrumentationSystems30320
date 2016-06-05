@@ -2,14 +2,21 @@
 What is required to select a suitable landing site? What are the main objectives of the Imaging System? How does the physical properties of the orbiter limit the design? The answers to these questions define the initial system requirements for the design.
 %\subsection{Selecting a suitable landing site}
 \subsection{System Objectives}
-To successfully select a landing site, it is necessary to gather more information about the lunar surface of Europa. This objective leads to a set of image system requirements.
+To successfully select a landing site, it is necessary to gather more information about the lunar surface of Europa. This objective leads to a set of image system requirements. 
+\begin{figure}[htb!]
+%left bottom right top
+\centering
+\includegraphics[width=1\textwidth,page=1,trim=10mm 5mm 15mm 50mm,clip]{figures/Orbiter/highres.pdf}
+\caption{Ground resolution comparison. Left: three image sets of Europa from Galileo spacecraft Right: Enceladus high resolution taken from the Cassini spacecraft.}
+\label{fig:highres_compare}
+\end{figure}
 \begin{description}
 \item[Resolution]
-The resolution for the WAC must be high enough that it is possible to identify ROIs. Based on \todo[inline]{Ifikratis image resolution analysis from powerpoint}, a resolution of 100 meters per pixel MPP is expected to be adequate for the worst case resolution, i.e. the resolution at the far operating distance. This defines the requirement for the WAC. The WAC will be producing the low resolution images used for the initial analysis and ROI selection.
+The resolution for the WAC must be high enough that it is possible to identify ROIs. Based on figure (\ref{fig:highres_compare}), a resolution of 100 meters per pixel MPP is expected to be adequate for the worst case resolution, i.e. the resolution at the far operating distance. This defines the requirement for the WAC. The WAC will be producing the low resolution images used for the initial analysis and ROI selection.
 
 When investigating the individual ROIs, it is expected that objects around the size of the lander (and larger) will pose a danger to the lander and must therefore be avoided. Assuming the lander will be around 1 meter in diameter, the smallest feature that must be detected must be 1 meter. Referring to \cite{andor2016}, \cite{ni2014} and \cite{sbig2014}, a minimum of two pixels per smallest feature is necessary, to make an accurate measurement on the image. This defines the required resolution of 0.5 MPP for the NAC.
 
-It is expected that a high enough resolution will make it possible to detect most surface roughness and elevation. However, if a detailed topographic mapping of the surface is necessary, it may be needed to operate the imaging system in stereo or to use additional instruments. Stereo imaging does not necessarily require two cameras. Instead, the movement of the spacecraft can be used to obtain images from two different angles, resulting in a stereo image. 
+It is expected that a high enough resolution will make it possible to detect most surface roughness and elevation, based on figure (\ref{fig:highres_compare}). However, if a detailed topographic mapping of the surface is necessary, it may be needed to operate the imaging system in stereo or to use additional instruments. Stereo imaging does not necessarily require two cameras. Instead, the movement of the spacecraft can be used to obtain images from two different angles, resulting in a stereo image. 
 \item[Surface Chemistry]
 The surface chemistry should be analysed, as some areas on Europa may be unsuitable due to the chemical compounds. One relatively simple way to enhance the imaging system is to add a selection of filters to the imaging system, making it possible to observe the radiance at different wavelengths. Ultimately, a spectra can be created of a given area. The spectra can later be analysed and compared to known chemical compounds or materials. The higher the number of spectral bands, the more accurate the surface can be assessed. This type of enhancement is a good way to enhance an existing system, sharing the existing resources and costs, while providing additional capabilities to the orbiter.
 %Adding imaging spectrometer capabilities to the imaging system is one way to enhance an existing system to provide extra functionality, without adding extra instruments.
