@@ -1,5 +1,5 @@
-\section{Earth-to-Orbiter} % Rasmus
-
+\section{Earth-to-Orbiter}
+\iffalse
 1. Introduction and considerations for the link
    1. General Considerations for a Deep Space Mission
    2. HG Link
@@ -14,11 +14,154 @@
 1. Link Budget
 2. Solution Proposal
 3. Drivers to other systems
+\fi
 
 \input{laser-communication}
 
-\section{Surface-to-Orbiter} % Rasmus
+\autsection{Surface-to-Orbiter}{Rasmus Lundby Pedersen}
+As it was discussed in the section covering the initial considerations associated with the full communication system, it was decided that using the orbiting satellite as a relay-station, in stead of transmitting data directly to and from earth to Europa, was a viable solution for the collective communication systems design.\\
+This section will focus on the considerations concerning the design of the antenna system, the losses tied to the system and the surrounding environment, limitations, and required power for the data transfer between the surface of Europa and the orbiting satellite.
 
+\subsection{Considerations and General Assumptions}
+There are several critical considerations tied to the design of a communication link between two antennas. For space applications, these generally include, but are not necessarily limited to:
+
+\begin{itemize}
+\item \underline{Transmission distances and relative loaction.} A critical parameter of the design is the distance that the transmitted data signal must travel between a transmitter and a receiver. This aspect governs part of the required power usage (and in turn, the antennas' gains), while a target antenna moving with reference to the transmitting antenna may require tracking capabilities to be installed. Of course, the last point will depend on the available power and gain of the antennas.
+\item \underline{Atmospheric Environment.} Losses in the systems varies greatly with the environment in which the transmitted signal must travel. Electromagnetic waves will always see losses when travelling in free-space, or at least near-vacuum, but will be significantly attenuated if for example they are travelling in a thick atmosphere like our Earth's.
+\item \underline{Structural restrictions.} Ground-based antennas usually have very few space-restrictions, and can often thus be very large. However, when designing a system for a satellite, or an extraterrestrial exploration mission, the volume and mass of the product must be kept as an absolute low. Larger antennas are in some cases synonymous with higher gain (See parabolic antennas), so there will often be a trade-off here.
+\end{itemize}
+
+Smaller, more specific aspects should also be included in the considerations, such as the size of the transmit windows as well as the bit-rate of the transmitted data.\\
+\\
+We currently believe Europa has an almost negligible tenuous oxygen atmosphere, which is a major advantage in the power-calculations in the final link-budget, since we can assume that $\mu\approx\mu_0=4\pi\cdot 10^{-7}\,\mathrm{Hm^{-1}}$ and $\epsilon\approx\epsilon_0=8.854\cdot 10^{-12} \,\mathrm{Fm^{-1}}$ for the atmosphere \cite{SciStrat}. Further studies of the Jovian moon through additional missions, like the planned CLIPPER, are required to support this theory, but it means that we can assume an signal attenuation of about $\alpha_{atmos}=2\,\mathrm{dB}$ in the atmosphere.\\
+\\
+The moon is constantly victim to extreme amounts of radiation from Jupiter, which is estimated to be 10 times stronger than Earth's Van Allen belts. One consequence of this is, that any electronics parked in a region illuminated by this radiation would be destroyed immediately. Another, is the massive radiation noise picked up by the antennas, which would effectively render the communication link useless.\\ 
+We're fairly certain Europa is tidal locked to Jupiter, which means that roughly the same side of the moon points toward the planet at all times, with a small derivation through time. This feature will likely be utilized by landing the penetrator module on the anti-Jovian side of the moon. This way, the comm-link will constantly be shielded by the moon itself, and the radiation noise from Jupiter can be neglected. An article written by 3 undergraduate students from the University of Texas state that they would expect having to transmit through a Jovian radio noise of $T_{ant}=2000\,\mathrm{K}$ \cite{DORRA}, in the S-band. However, it's unsure if they intend to operate on the anti- or pro-Jovian side of the moon, and we're not sure where they have obtained the noise temperature numbers from. Therefore, a noise temperature of $T_{ant}=200\,\mathrm{K}$ will be used, since this is often considered as the cosmic background noise-level in the S-band.\\
+\\
+We expect the round-trip time of the relaying satellite's orbit around Jupiter to be around 13 Earth days. During those 13 days, data from the instrument suite will be transmitted from the penetrator to the surface module and stored in a memory-block located in the part of the descent vehicle that had been submerged a few meters in the surface-ice, for radiation protection.\\
+\\
+It's fairly common for satellites to carry complimentary X- and S-band\footnote{The X-band ranges from 8-12 $GHz$, and the S-band ranges from }, low- and high-gain antennas for near-Earth passes and deeper space communications respectively\footnote{A S-band telemetry transmitter is used for the communication to Earth, in the CLIPPER mission.}. This is also due to their allocation for deep-space mission communication. In an effort to re-use some of the instruments on the satellite, the X-band low-gain amplifier will be utilized for the Surface-to-Orbiter link. This locks the carrier frequency to $f_c=8-12\,\mathrm{GHz}$, and thus the free-space signal wavelength to $\lambda_0=\frac{c}{f_c}=25-37mm$, where c is the speed of light, and will most likely govern the size of the antenna, depending on the design.
+\subsection{Drivers}
+We determined that the bottle-neck of the communication chain between the penetrator and Earth would lie in the thru-ice link, with it bit-rate limited at 10kbps. With a orbital round trip for the satellite of 13 days, this means that we need to transmit a data load of around $13\,\mathrm{days}\cdot 10\, \mathrm{\frac{kb}{s}}=11\,\mathrm{Gb}$ in 3 hours; an average bit-rate of $b=\frac{11\mathrm{Gb}}{3\mathrm{h}}=1\,\mathrm{\frac{Mb}{s}}$.\\
+However, it may prove that the bottleneck is that this link, since the bit-rate of transmitted signal is directly proportional to the required transmitting power.\\
+\\
+A loose assumption was made, that the transmission window starts when the satellite is located $45^\circ$ above the horizon, when the distance between the surface module and the orbiter is around 6600km. This is the absolute worst-case scenario, since the actual distance will be much lower in the majority of the time in the transmission window. The link budget is calculated for this distance in order to be sure that we can guarantee a certain standard of signal quality.
+\subsection{Solution Proposals}
+In this part, three solution proposals are presented, and the most suitable decided. The three chosen designs are:
+\begin{itemize}
+\item The parabolic antenna.
+\item Phased array patch antenna.
+\item Crossed dipole antenna. 
+\end{itemize}
+Design and production costs are not considered for the three solutions. 
+\subsubsection{Parabolic Antenna}
+The parabolic antennas are typically used for ground station antennas and on satellites with well-known and reliable attitude orientation, with respect to its target.\\
+A main advantage is it's considerable antenna gain, which is given by:
+\begin{equation}
+G = \eta_a\left(\frac{\pi D}{\lambda}\right)^2
+\end{equation}  
+Where $\eta_a$ is the aperture efficiency, typically ranging between $0.55<\eta_a<0.7$, D is the circular diameter of the parabolic dish and $\lambda$ is the signal wavelength.\\
+It can be seen that the gain of the antenna is directly proportional to its size, which itself is independent of the signal's wavelength. This means that the antenna can be scaled for the desired gain, within structural limitations. 
+\iffalse
+An example could be a small antenna with a dish diameter of $D=1\,\mathrm{cm}$, used in the X-band ($\lambda_0=30\,\mathrm{cm}$ with an efficienty of $\eta_a=0.6$:
+\begin{equation}
+G=0.6\cdot\left(\frac{\pi\cdot 1\cdot 10^{-2}}{30\cdot 10^{-3}}\right)^2=	
+\end{equation}
+\fi
+\\
+A disadvantage of a high-gain antenna is, that must be oriented towards its target with fairly high accuracy. This can be achieved by mechanically tracking the target on the sky with motors, which in itself is un-desired for any space-related mission. Pin-pointing the target also proves difficult for a surface based station on Europa, where we are without a network of GPS satellites to track the position of the surface antenna with respect to the orbiting satellite. We have practically no way of knowing where to point the antenna, and the benefits of its large gain will be lost.\\
+Of course, scaling the size of the antenna down to a lower gain is also possible, but this defeats the purpose of using the parabolic type, being it's potential high gain, and since it typically comes with a large number of undesired side-lobes in its radiation pattern. 
+\subsubsection{Phased-Array patch Antenna}
+The problem of using mechanical tracing for the parabolic antenna can be solved by using phased-array patch-antennas in stead. A single flat patch antenna doesn't necessarily come with a particularly impressive antenna gain, but an array of the has shown to enable us to modify its radiation pattern. Differentiating the phases between the patches will in turn make it possible to direct the radiation pattern dynamically, and the high carrier frequency allows us to reduce the size of the patch antenna significantly compared to the parabolic antenna. The principle of a phased-array antenna is shown on figure \ref{fig:phased}\footnote{\url{http://tempest.das.ucdavis.edu/mmwave/paa_files/image005.png}}.\\
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/Rasmus/phased}
+	\caption{A simplified concept illustration of the Phased array antenna .
+	\label{fig:phased}}
+\end{figure}
+However, the issue of tracking the target on the sky still persists and remains un-solved. Therefore, it seems that the parabolic antenna and the phased-array patch antennas share the same mission-critical disadvantages.
+
+\subsubsection{Crossed Dipole Antenna}
+The third solution is using a half-wave dipole antenna for the communication link. The half-wave dipole is possibly one of the most simple antennas, often associated with a low gain of $G_{dipole}=2.15\,\mathrm{dBi}$. The design is basically a straight conducting wire with a length of $l=\frac{\lambda}{2}$, which can either be center-fed or fed in one of the ends.\footnote{In practice, the length is actually closer 0.47$\lambda$ since the resonant length depends on the thickness of the wire.}\\
+\\
+The radiation pattern of a half-wave dipole antenna can be seen on figure \ref{fig:singeldip}, which is only dependent on the polar angle, with respect to the horizon having the antenna parallel to the surface plane.
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.80\textwidth]{figures/Rasmus/dipalone1}
+	\caption{The horizontal normalized (E field) radiation pattern of a half-wave dipole antenna. The antenna elements are located along the 270° to 90° line.
+	\label{fig:singeldip}}
+\end{figure}
+The plot clearly shows that the power is split in two directions, on either side of the horizontally oriented dipole antenna. If we consider the surface-antenna being parallel to the surface, the orbiter will be located in the upper half of the polar plot during the transmission window. Therefore, we want to reflect all of the power in its direction by placing a large conducting plate underneath the antenna. Simple electromagnetic reflection and image theory can be applied if the conducting plate's geometry is significantly larger than the electrical length of the antenna. This way, the plane can be assumed infinitely large and we will avoid wave scatterings.\\
+The radiation pattern of the modified half-wave dipole will vary with the distance between it and the ground plane, due to the phase differences between the incident field and its reflection from the conducting plane. Electromagnetic theory can be applied to show that placing it $\frac{\lambda}{4}$ above the plane will result in a simple single-lobe pattern (no side-lobes) with double the amplitude of an ordinary half-wave dipole antenna. The total far-field E-field expression of the horizontal antenna is given by:
+\begin{equation}
+E=E^i+E^r=j\eta_0 \frac{\beta_0 I_0 l e^{-j\beta r}}{4\pi r}\sqrt{1-sin^2(\theta)sin^2(\phi)}[2jsin(\beta_0 h cos(\theta)]
+\end{equation}
+Where $\eta_0$ in the intrinsic wave-impedance given by $\eta_0=\frac{\mu_0}{\epsilon_0}$, $\beta_0=\frac{2\pi}{\lambda_0}$, $I_0$ is the current in the antenna, $l$ is the dipole's length, $r$ is the distance between a reference point on the conducting plane underneath the antenna and the observation point ($\lambda_0<<r$), and $h$ is the distance between the antenna and the conductive plane. $\theta$ Is in this case the polar angle from zenit to the horizon ($0-\pi\,\mathrm{rad}$) and $\phi$ is the azimuthal angle - the coordinate system can be seen on figure \ref{fig:reflect}. 
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.75\textwidth]{figures/Rasmus/reflectCoord}
+	\caption{Horizontal electric dipole above an infinite electric conductor (Source: C. A. Balanis, Antenna Theory: Analysis and Design. Copyright \textcopyright 1982, John Wiley \& Sons, Inc.)
+	\label{fig:reflect}}
+\end{figure}
+The normalized radiation pattern, $E_{norm}=E\cdot \frac{4\pi r}{\beta_0 I_0 l}$ was calculated in matlab for $h=0$, $\frac{1}{4}\lambda$, $\frac{1}{2}\lambda$, $\frac{3}{4}\lambda$ and $\lambda$ (The script can be seen in appendix \ref{app:rasmusmatlab}) and plotted as seen on figure \ref{fig:Lobes}. The field intensity will vary with $\phi$, but the influence is practically so small for the purpose that it's set to 0.  
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.75\textwidth]{figures/Rasmus/Lopes}
+	\caption{Theta-variant of the radiation pattern for the crossed half-wave dipole antenna.
+	\label{fig:Lobes}}
+\end{figure}
+It can be seen that the antenna gain retains the same radiation pattern in the upper half of the field but with twice the gain, $G_{plane}=4.15dBi$, when $h=\frac{\lambda}{4}$.\\
+The same principle is applied to the antenna on the orbiter.\\
+\\
+Being linearly polarized, we risk to loose the signal link if the orbiter is not positioned for a maximum polarization efficiency. This can be solved by crossing the dipole antenna with another identical antenna, creating a circularly polarized antenna and thus making it omnidirectional. However, this will also cut the antenna gain in half, effectively making it $G_{crossed}=2.15\,\mathrm{dBi}$. 
+
+\iffalse
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/Rasmus/CrossDip}
+	\caption{Crossed half-wave dipole antenna drawing.
+	\label{fig:DrossDip}}
+\end{figure}
+\fi
+
+\subsection{Implementation and Link budget}
+There has been talk about mounting patch antennas on the extruding stabilizer feet on the landing module that remains on the surface, for communication through the ice to the penetrator vessel. Therefore, it may also be possible to mount crossed dipole antennas for the communication with the orbiter on each of the feet, to create a more omni-directional antenna system in case the lander doesn't rest flat on the surface. This could obstruct the line-of-sight to the passing orbiter, and having four seperate antennas to choose between would help solve this potential problem. Each dipole will have a length of $l=15\,\mathrm{mm}$, and the total communication electronics-system, including amplifiers and additional circuitry, will weigh around $m_{comm,surface}=20\,\mathrm{kg}$. The transceiver systems will be located in a radiation-protected module located a few meters in the ice, so only some wires and the antennas themselves will be subject to possible radiation on the surface.\\
+Two crossed antennas will be placed on the orbiter for redundancy purposes. The exact location of the antennas should be determined in cooperation with the people designing the remote-sensing instruments, so that we're sure they're visible from the surface at all times during the communication window.\\
+\\
+It's typical to create a link-budget to determine the required power of transmission in the communication system, which can be seen on figure \ref{fig:surfLink}.
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/Rasmus/Link}
+	\caption{Link-budget for the surface-to-orbiter communication link.
+	\label{fig:surfLink}}
+\end{figure}
+The required power will depend on the encoding scheme, but we can see that we'll need $16\,\mathrm{dBm}=47\,\mathrm{W}$ of power to get a signal-to-noise-ratio of $0\,\mathrm{dB}$.\\
+\\
+Total mass, volume and power costs of the surface-to-orbiter communication link are given in table \ref{tab:commsurf}. Weight and mass of the antennas are omitted to their small sizes.
+\begin{table}[htb]
+\centering
+
+\label{my-label}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Unit}        & \textbf{Weight (kg)} & \textbf{Volume ($m^{3}$)} & \textbf{Power (W)} \\ \hline
+Amplifier on Surface & 2                    & $0.1\cdot 10^{-3}$        & 20                 \\ \hline
+Amplifier in Orbiter & 2                    & $0.1\cdot 10^{-3}$        & 20                 \\ \hline
+\hline
+Total                & 4                    & $0.2\cdot 10^{-3}$        & 40                 \\ \hline
+\end{tabular}
+\caption{Total mass, volume and power costs of the surface-to-orbiter communication link}
+\label{tab:commsurf}
+\end{table}
+The power and weight costs seem to be within reasonable ranges. 
+\subsubsection{Future Work}
+\iffalse
+There are two major subjects that could be investigated in the future for preparation of the mission.\\
+\\
+\fi
+A more detailed link-budget could be achieved if we assumed that the transmission power could be varied with distance between the surface-module and the orbiter during the transmission window. As of now, we assume a worst case scenario with a distance of $6600\,\mathrm{km}$, but this is not a realistic value. The actual required power tied to this distance will be significantly lower.\\
+
+\iffalse
 1. Introduction and considerations for the link
       * (Orbit characteristics and Europa Environment)
 1. Link Drivers
@@ -35,3 +178,4 @@
 1. Link Budget
 2. Solution Proposal
 3. Drivers to other systems
+\fi
