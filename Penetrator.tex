@@ -338,10 +338,11 @@ All the calculations for the thermal design are only preliminary and it has to b
 As mentioned thermocouples will be used to directly generate electric energy from thermal energy. A current will be created when having a temperature difference between two different thermoelectric materials when they are joined in their ends. The higher the temperature difference the more power will be generated. In this case a tested model of thermocouple are going to be used as reference to the calculations taken from \cite{lau1997a}. A module of 127 couples with dimensions $1.4\text{mm}\times 1.4\text{mm}\times 1.15\text{mm}$ has been tested with the result illustrated in figure \ref{fig:thermocouple}.\\
 
 \begin{figure}[htb]
-  \centering
+  \begin{center}
   \includegraphics[width=0.5\textwidth]{figures/Ricardo/thermocouples.png}
   \caption{Graph illustrating the power produced as function of temperature of the hot side, where the cold side is 300K}
   \label{fig:thermocouple}
+  \end{center}
 \end{figure}
 
 \noindent
@@ -430,12 +431,30 @@ From equation \ref{eq:massCO2} it is seen that only 0.882 kg CO2 is needed with 
 
 \subsection{Submarine}
 
-\subsection{Detection of Depth and End of Ice Column}
+\autsubsection{Detection of Depth and End of Ice Column}{Jean-Paul Breuer}
+There is now a method for both navigating and making corrections to the penetrator orientation in the ice column, but now it brings the question of how the penetrator will be able to navigate and avoid rocks or obstacles if there is no way to see anything. More importantly, there has to be a reliable method for determining the end of the ice column, otherwise the final anchoring mechanism may not deploy properly, might deploy at an inconvenient location, or perhaps could completely miss the target and get lost in the subsurface ocean. Mission failure at this point would be a horrific tragedy, not only because of the money spent to put everything together and the headaches taken to acquire the Plutonium-238, but also because of the time investment that it would take to get so far through the ice just to lose everything at the most critical point.
 
-* Echo sounder etc
+Fortunately, there is an elegant solution to this problem. By implementing an echo-sounder receiver near the tip of the penetrator and utilizing some Geophysical methods, it should be possible to obtain a rough image of the ice based on the returned echoes from the different ice layers. 
+
+
 
 %\section{Communication Systems}
 
 %\subsection{Communication to Lander}
 
-%\subsection{Relay Systems}
+\autsubsection{Relay Systems}{Jean-Paul Breuer}
+As the Penetrator makes its descent along the ice column, dependent on the chosen landing site and the total depth of the ice, there may be a requirement for several communication relays to send and receive the data from the instrument suite at the bottom of the ice column to the lander near the surface. With regards to the design of the communication relay system, the most ideal configuration would be to keep the $n$ number of relays required positioned near the top of the Penetrator as several cylindrical, detachable sections. Once reaching the appropriate depth, an anchoring mechanism should activate to capture and maintain the relay at that depth, while the remainder of the Penetrator continues it's descent.
+
+Naturally, each of these relay systems will need to be self sustaining, requiring a power source, and perhaps also a hard disk as a failsafe to serve as intermediary storage of the data in case anything unforeseen happens. In regards to a power source, it would be most efficient to use small RTGs with an isotope that has sufficient energy output to power the relay and has a sufficiently long half life that wont require as much mass. Checking Table \ref{tab:isotopes}, Americium-241 would be a reasonable solution, since it has a fairly high availability (cheap), and has a decent half life and power output.
+
+For anchoring, the easiest mechanism would require explosive bolts which would shoot out in several directions into the ice and secure the relay in the correct position and orientation. After several days, the water ice will refreeze over the relay and by then anchoring will have served its purpose. One other consideration for anchoring the relays was to excrete salt or some other chemical compound that might help expedite the freezing process. A `cryo-grenade' that could shock freeze the relays into place or even the expanding foam could also serve for a similar purpose.
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=0.7\columnwidth]{figures/JP/comms_relay.png}
+		\caption{A 3d interpretation of a prototype communication relay, with patch antenna and explosive bolts (not seen: patch antenna underneath).\label{fig:comms_relay}}
+	\end{center}
+\end{figure}
+
+In regards to communication, the best solution would involve having a patch antenna on both the bottom and top of the cylinder, as can be seen in Figure \ref{fig:comms_relay}. Although, for a more powerful transmission it might also be possible to use a helical antenna instead. In the case of the helical antenna, the anchoring mechanism would require additional springs which would uncoil the antennas and secure the relay until being frozen over once more.
+
