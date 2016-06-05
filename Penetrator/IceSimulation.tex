@@ -70,7 +70,7 @@ At this point, the simulation branches out depending on whether a given grid cel
 For a water voxel, the temperature is checked to see if it is below the melting point of water. If true, the temperature deficiency is converted and subtracted from the latent heat. If the latent heat now drops below 0, the cell is converted to ice and the negative latent heat is subtracted from the temperature (after being converted, of course).\\
 
 \noindent
-With the temperature and the state of each voxels being determined, the thermal parameters of each cell is determined by interpolating between points in a dataset that includes heat capacity, thermal conductivity and density for water and ice for a range of different temperatures. The dataset has been put together by combining information acquired from \cite{website:engineeringToolbox}.\\
+With the temperature and the state of each voxels being determined, the thermal parameters of each cell is determined by interpolating between points in a dataset that includes heat capacity, thermal conductivity and density for water and ice for a range of different temperatures. The dataset has been put together by combining information acquired from \cite{website:engineeringToolbox}. It should be noted that this data only covers the temperature interval 183-366 K and linear extrapolation has been used for temperatures outside of this range.\\
 
 \begin{figure}[ht]
 	\centering
