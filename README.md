@@ -15,6 +15,12 @@ Please also join the Facebook group: <https://www.facebook.com/groups/1711333799
 
 If you need to upload a video to YouTube, then please contact me and I will upload it as unlisted to a dedicated playlist.
 
+### Notes
+
+Please use proper citations for references instead of footnotes. More information can be found at the following [link](https://www.sharelatex.com/learn/Bibliography_management_with_natbib).
+
+Also see the examples that is already added to the book: [bibliography/biblio.bib](bibliography/biblio.bib).
+
 Here is a simple command in order to save Matlab figures as vector graphics:
 
 ```matlab

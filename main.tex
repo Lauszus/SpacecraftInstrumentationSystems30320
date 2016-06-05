@@ -1,4 +1,3 @@
-
 \input{preamble}
 
 \begin{document}
@@ -19,7 +18,7 @@
 \include{ProblemFormulation}
 
 \include{Theory}
-\input{Lander/AaronDescentTheory}
+\include{Lander/AaronDescentTheory}
 
 \include{Strawman}
 
@@ -28,7 +27,6 @@
 \include{CommunicationSystems}
 
 \include{Lander}
-
 
 \include{Penetrator}
 
@@ -40,13 +38,14 @@
 
 \include{FutureWork}
 
-\backmatter
-\bibliographystyle{plain}\bibliography{bibliography/biblio}
+\bibliographystyle{plainnat}
+\bibliography{bibliography/biblio}
 \addcontentsline{toc}{chapter}{Bibliography} % Add bibliography to toc (and bookmarks)
 
 \appendix
-\include{AppendixA}
+\include{Appendix/AppendixIceSimSource}
 \include{Appendixmelting}
 \include{Appendixoptics}
+\include{AppendixYannis}
 
 \end{document}

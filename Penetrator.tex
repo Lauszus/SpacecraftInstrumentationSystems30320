@@ -4,15 +4,83 @@
 
 \section{Drilling Methods}
 
-\subsection{Mechanical Drilling}
+\autsubsection{Mechanical Drilling}{Morten Lykke Hilligsøe}
+On earth, drilling is by far the most common way of penetrating ice and has proved a viable way for recovering ice core samples at depths of up to 3.768km, reaching the underground lake Vostock, much like the mission at hand. Drilling has previously reached depths of 12.262km, and because of e.g. the oil drilling industry, experience and components are readily available. It is therefore obvious to look at the possibility of drilling through the ice on Europa.
+
+To compare with other ice penetration methods, the following key parameters are evaluated:
+\begin{itemize}
+    \item Energy
+	\item Time
+	\item Weight
+\end{itemize}
+The energy required for a drill solution consists of two parts: the cutting energy and the potential energy required to move the ice. To calculate these energies, the following assumptions have been made:
+\begin{itemize}
+	\item Probe length:   $2m$
+	\item Probe diameter:   $30cm$
+	\item Europa surface gravity:   $1,3m/s^2$
+	\item Europa ice density:   $124kg/m^3$
+	\item Specific ice cutting energy:   $16MJ/m^3$
+\end{itemize}
+For cutting energy, the key parameter is the specific cutting energy. This parameter is assumed to be $16MJ/m^3$, as measured by \cite{icecore}. Other sources, e.g. \cite{extremeenvironments}, have measured specific cutting energies of similar size, at $20MJ/m^3$.
+
+The result is a cutting energy of:
+\begin{equation}
+    E_{Cut} = A \cdot E_{Specific}
+\end{equation}
+\begin{equation}
+    E_{Cut} = (0.15m)^2 \cdot \pi \cdot 16MJ/m^3 \cdot 1000m/km = 1.130 MJ/km
+\end{equation}
+The potential energy required to move the ice, will have to at least match the volume of ice which the penetrator probe displaces.  The result is a minimum potential energy of:
+\begin{multline}
+E_{pot} = m \cdot g \cdot h = \rho \cdot V \cdot g \cdot h\\
+ = (0.15m)^2 \cdot \pi \cdot 124kg/m^3 \cdot 1.3m/s^2 \cdot 2m \cdot 1000m/km = 22.8 kJ/km
+\end{multline}
+Where the surface gravity of Europa is provided by \cite{wiki_europa}, and the ice density $\rho$ is calculated from the value on earth at -180°C as stated in \cite{wiki_water}:
+\begin{equation}
+\rho_{Europa} = \rho_{Earth} \cdot \frac{g_{Europa}}{g_{Earth}}
+\end{equation}
+\begin{equation}
+\rho_{Europa} = 934kg/m^3 \cdot \frac{9.82m/s^2}{1.3m/s^2} = 124kg/m^3
+\end{equation}
+Compared to the cutting energy, the potential energy seems insignificant. However, this might not be a realistic assumption, since the shaved ice will most likely take up more space than the equivalent amount of solid ice, and will therefore have to either be moved additionally, or compressed. Also, the drilling equipment will most likely take up a much greater volume than the probe itself, and this energy must therefore be expected to increase in multifold.
+
+But even if the energy required to drill through the ice is reasonable, drilling time and system weight are key parameters. Table \ref{tab:ice_core_drilling} presents these key parameter for two currently employed methods of ice drilling: Ice Core Drilling (ICD) and Hot-Water Drilling (HWD), as well as a solution based on Coiled Tubing Drillling for Ice (CTDI), which have yet to be employed in ice drilling projects. As seen from this table, drilling a 3.5km borehole can take as little as 6-8 days by using a CTDI system. However, the weights of such systems are in the tens-hundreds of tonnes, making ice drilling systems impossible to bring as payload on a rocket.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/mlh/table_ice_core_drilling}
+  \caption{Comparison of the weights and times required to drill a 3.5-km borehole through ice using ice-coring, hot-water, and CTDI drilling systems. \cite{Gari2002Drill}}
+  \label{tab:ice_core_drilling}
+\end{figure}
+
+Figures \ref{fig:ICD}, \ref{fig:HWD} and \ref{fig:CTDI} illustrates the three methods presented in table \ref{tab:ice_core_drilling}.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/mlh/ICD}
+  \caption{The hollow drill of an Ice Core Drilling, which enables researchers to retrieve pure ice core samples.}
+  \label{fig:ICD}
+\end{figure}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/mlh/HWD}
+  \caption{Principles of Hot Water Drilling in ice.}
+  \label{fig:HWD}
+\end{figure}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/mlh/CTDI}
+  \caption{Principles of Coiled Tube Drilling in Ice.}
+  \label{fig:CTDI}
+\end{figure}
 
 \subsection{Chemical Drilling}
 
 \subsection{Explosive Drilling}
 
-\subsection{Sputtering}
+\input{Sputtering}
 
-\subsection{Laser Drilling}
+\input{laser-drilling}
 
 \subsection{Light Concentration Drilling}
 
@@ -26,122 +94,248 @@
 
 * Measure conductivity of the water.
 
+%\subsection{Melting Considerations} % Lukas, KSL
+\input{Penetrator/IceSimulation}
+
+\input{Penetrator/DebrisRemoval}
+
+\autsection{RTG design}{Ricard Lladó Grove}
+
+\autsection{Pressure Distribution on Europa}{Ricard Lladó Grove} \label{sec:Pressure}
+Europa's atmosphere is really thin: approximately $10^{-11}$ times smaller than the atmosphere of Earth\cite{hall1995a}. Hereby it can be approximated that there is no pressure on the surface of Europa. Hereby the pressure will only depend on ice-layer above the penetrator which will increase in thickness while descending. The pressure can be calculated by: 
+\begin{equation}
+P = \rho_{ice} g h
+\end{equation}
+where $\rho_{ice}$ is the density of ice and is approximately $\SI{917}{\kilo\gram\per\cubic\metre}$\cite{cutnell2007a}, $g$ is the gravitational acceleration measured in $m/s^2$ and $h$ is the depth of the penetrator. The gravitational acceleration can be calculated by:
+\begin{equation}\label{eq:graviacc}
+g = \frac{GM}{r^2}
+\end{equation} 
+where $G = 6.67\cdot 10^{-11}\frac{m^3}{s^2 kg}$ is the gravitational constant, $M = 4.8\cdot 10^{22}\text{kg}$ is the mass of Europa and $r = \SI{1569}{\km}$ is the radius of Europa\cite{website:propeuropa}. Equation \ref{eq:graviacc} is only valid if the mass of the penetrator is much smaller than the mass of Europa which is a valid approximation since the total mass of the penetrator will maximum be 180 kg. Since the gravitational acceleration is inversely proportional with the radius squared, $g$ will increase with increasing depth since the radius will decrease. Illustrated in figure \ref{fig:Pressure} the pressure in MPa is plotted as function of depth both for a constant 
+
+
+The mass distribution will also change since now there will be mass above you which will pull you in that direction, but on the other hand you will be closer to the mass on the other side of the planet. Therefore the change in gravitational acceleration depends on the distribution of the mass on Europa, and especially how dense the core is which in this case is unknown. 
+ 
+Due to uncertainties of where we land and hereby also the radius of Europa, since Europa is elongated the radius will depend on the landing site. It  
+ 
+ 
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/Ricardo/pressure.eps}
+  \caption{Illustration of distribution of pressure on Europa with both a constant and varying gravitational constant in blue and red, respectively}
+  \label{fig:Pressure}
+\end{figure}
+
+
+
+\section{RTG design}
+
+\autsubsection{Radioactive Sources}{Jean-Paul Breuer}
+A Radioisotope Thermal Generator (RTG), is essentially an nuclear battery that uses thermocouplers to convert the heat released by a selected radioactive source into electricity. Many radioactive sources exist which could serve the purpose of fuel for the RTG specific to this mission, but not all of the known radioactive isotopes would be efficient or viable for the task. There are three important characteristics to keep in mind when attempting to select the ideal radioactive isotopes.
+
+An important criteria is the half-life time of the selected isotope. The minimum viable time is computed based on highly conservative estimates, where the main condition is that the isotope must still be able to provide sufficient energy for the instrumentation well after the coasting phase and the melting phase. Dependent on which rocket the mission is given, the coasting time could be anywhere between 2 and 8 years, and dependent on which landing site is chosen on the surface of Europa, the melting phase could take between 1 and 10 years (at a 200 day per km of ice melting rate). 
+
+The amount of energy per time released is inversely proportional to its half life, so the ideal radioactive candidate will require a half life in the magnitude of several decades. To sit well within the mass, power, and volume budget, another criteria is that it must produce sufficiently large amount of power per mass and volume. The last criteria is that the type of radiation is easily absorbed and converted into thermal radiation, in other words, maximize the alpha particles released, and minimize the gamma, neutron, and penetrating radiation.
+
+Given the three main criteria, it is possible to exclude many isotopes immediately, although the most likely candidates are given in Table \ref{tab:isotopes}. Other more known and available isotopes, such as Uranium, have a long half-life time and as such do not generate enough energy per time to be able to sufficiently provide the heat required for ice melting. On the other hand, an isotope with a short half life such as Polonium-210, has an extremely high power output but would require a large concentration to be of any use for this mission, and most of the energy would be wasted.
+
+\begin{table}[h!]
+	\begin{tabular}{c|c|c|c|c}
+		Candidate Isotopes & Half-Life & Power & Gamma, Neutron Level & Availability\\
+		\hline
+		Plutonium-238 & 87.7 years & $\sim$ 671 W/kg & Low & Low\\
+		Strontium-90 & 28.8 years & $\sim$ 446 W/kg & Medium & High\\
+		Americium-241 & 432 years & $\sim$ 135 W/kg & Low & High\\
+		Polonium-210 & 138 days & $\sim$ 171269 W/kg & Low & Low\\
+	\end{tabular}
+	\caption{Table of radioactive sources that can be used for the RTG, half-life, power, and other information are given. \label{tab:isotopes}}
+\end{table}
+
+As can be seen from the table, Plutonium-238 and Americium-241 would seem like viable candidates for this mission; however, Americium requires further shielding due to it releasing gamma radiation along with the alpha particles. Strontium-90 is readily available as side products of nuclear reactors, but also requires heavy shielding due to the gamma particles, else it might damage the remainder of the electronics and instrumentation in the vicinity. Plutonium-238 is the ideal candidate, but is not currently found on Earth in sufficiently high quantities as it is only produced as a side product during enrichment for deployment in nuclear weapons. To get the materials in sufficiently high quantities, it would be required to reopen the nuclear facilities in Savannah River (USA), which would cost a significantly high amount of money and would also require a possibly annoying trudge through politics and policy.
+
+\autsubsection{Radiation from Pu238}{Ricard Lladó Grove}\label{sec:plutonium}
+After looking at the different materials, Plutonium-238 (Pu238) is the radioactive material that is going to be used for the mission due to the the half-life of 87.7, power production and the minimum radiation of gamma and neutrons. 
+
+The probability of a alpha-decay from a Pu238-atom is close to 100\%: 
+\begin{equation}
+^{238}\text{Ph} \quad \rightarrow \quad ^{234}\text{U} \quad + \quad ^4 \text{He}
+\end{equation}
+The alpha particle is relatively big with two protons and two neutrons and is therefore easy to shield against, even a sheet of paper is enough to shield an alpha particle\cite{website:shielding}. Even if the possibility of an alpha decay is close to almost certain, there is a small possibility that the plutonium238 will either decay as spontaneous fission or a cluster decay\cite{website:plutonium}. A spontaneous fission happens for heavy atoms, where the atom split into two almost equal sized daughter atoms and a number of free neutrons\cite{website:spontaneous_fission}. The possibility of a spontaneous fission, SF, for Pu238 is $1.9 \cdot 10^{-7}\%$, but with more than $10^{24}$ atoms for each kg of plutonium, it is certain to happen. The daughter atoms generates by the SF can vary. A cluster decay is a decay mode between an alpha decay and spontaneous decay where a cluster of protons and neutrons are emitted. For the Pu238 there is a $1.4 \cdot 10^{-14}\%$ chance that a Si32-atom is emitted leaving a Hg206-atom, and a $6 \cdot 10^{-15}\%$ chance that a Mg30-atom and a Mg28-atom is emitted leaving an Yb180-atom. The daughter isotopes are also radioactive and are most likely to emit a beta-particle. This particle is either an electron or a positron depending on the charge of the particle with a mass much smaller than neutron or proton but since it has an electric charge it can rather easily be stop by a thin layer of a shielding metal. \\
+
+\noindent
+A bigger problem is the free neutrons that for example are emitted due to a spontaneous fission.  Neutrons do not have any electric charge and therefore they will not be stopped by an electric field making neutrons extremely penetrating. To stop a neutron it has to be absorbed by a nucleus or collide with a particle with same speed but opposite velocity and mass as the neutron. Since the materials used to shield alpha and beta particles, i.e. lead, has a rather small cross-section and few nuclei per unit mass, hence the neutron can easily pass trough the shielding. Furthermore if the neutron is absorbed in an atom it is possible that the created atom is radioactive as well. Therefore it is important to stop the neutrons, since they can cause a lot of damage if they hit the instruments on board the penetrator. In order to do so protium, a hydrogen atom with no neutron, can be used to absorb the neutron creating in deuterium. Water has a high number density to mass ratio, and is hereby optimal to use as a shielding against the free neutrons.
+
+\autsubsection{Heat Generation}{Ricard Lladó Grove}\label{sec:HeatGeneration}
+After looking at the radiation from a Plutonium atom it was shown that the probability of an alpha decay is extremely high. Therefore it will in the following when calculating the energy outcome from a radiative decay be assumed that plutonium only radiates as an alpha decay. If a more precise result has to be achieved it is necessary to include the other modes of decay and also the whole decay chain since if Pu238 emits an alpha particle U234 is produced. This isotope is also radioactive even though its lifetime is 2.400 years which means that the thermal energy generated is much lower for U234. It is first after 12 decays that the decay chain ends with the stable isotope of lead: Pb206\cite{website:plutonium}. To calculate how much energy one alpha decay will produce, the energy equation derived from Einstein is used:
+\begin{equation}
+\begin{aligned} 
+\text{$E_{atom}$} & ={} mc^2 \\
+& = (m_{Pu238} - [m_{U234} + m_{He4}]) \cdot c^2 \\
+& = (238.049559894U - [234.040952088U + 4.00150646649U])\\
+& \cdot 1.66053904020\cdot 10^{-27}\text{kg} \cdot 2.99\cdot 10^8 \text{m/s}\\
+& = 1.06\cdot 10^{-12} J 
+\end{aligned}
+\end{equation}
+Since the mass of Pu238 is higher than the total mass of U234 and He4 energy will be released when the decay occurs. When knowing how much one decay will produce of thermal energy, the number of decays in a radioactive material can be calculated as following\cite{website:decay}:
+\begin{equation}\label{eq:halflife}
+A = A_0 \cdot 2^{\frac{t}{\tau}}
+\end{equation}
+where \textit{$A_0$} is the initial number of atoms in a lump of a radioactive material, \textit{A} is the atoms left in the material after a specific time, \textit{t}, with a half-life of  \textit{$\tau$}. The energy produced by 1 kg of Pu238 over a timespan of one second will then be: 
+\begin{equation}
+\begin{aligned} 
+\text{$E_{kg}$} & ={} E_{atom} \cdot [A_0 - A] \\
+& = E_{atom} \cdot \left[A_0 - A_0 \cdot 2^{\frac{t}{\tau}}\right] \\
+& = E_{atom}  \cdot \left[\frac{1}{m_{Pu238}} - \frac{2^{\frac{t}{\tau}}}{m_{Pu238}} \right] \\
+& = 671 J
+\end{aligned}
+\end{equation}
+We here see that for each kg of Pu238, 671W energy is generated in form of thermal energy.  \\
+
+\noindent
+Plutonium is normally not used in its pure form. Normally it is processed into the chemical plutonium dioxide, PuO2 \cite{website:plutoniumoxide}. This ceramic is more stable and in case of an accident at launch or re-entry pure plutonium would be scattered into small pieces on a large area under the accident where PuO2 would more or less stay as one big lump which would make it easy to clean up and prevent a radioactive release. Furthermore the melting temperature is $2.660^oC$ and has a low solubility in water, meaning that it does not easily dissolve in water. When using plutonium dioxide compared to pure plutonium the power produced per kg will also decrease. Pu238 weights about 238 atomic units and oxygen weights about 16 atomic units. By calculating the percentage of oxygen compared to plutonium an estimate of the power per mass can be found: 
+\begin{equation*}
+\text{Percentage Plutonium in PuO2} = \frac{p_{Pu} - p_{O2}}{p_{Pu}}\cdot 100\% = \frac{238 - 32}{238}\cdot 100\% = 86.5\% 
+\end{equation*}
+Hereby the heat production is reduced from 671 J to $671J \cdot 0.865 = 580J$. The thermal energy production stated here is only valid for the first second. Since it takes between two and seven years to reach Europa some of the plutonium oxide will have decayed and hereby the energy production will have decreased. As always the worst case scenario will be chosen where the maximum time of arrival to Europa is seven years assuming that SLS is not ready when the mission has to launch and that the sling shot effect where gravity of the planets are used to increase the velocity is not used. Hereby the decrease of atoms of plutonium can be calculated from equation \ref{eq:halflife}: 
+\begin{equation}
+\frac{A}{A_0} = 2^{\frac{t}{\tau}} = 2^{\frac{7}{87.7}} = 0.946
+\end{equation}
+where  $t$ and $\tau$ are both measured in years. We see that with a half-life of 87.7 years there will after 7 years be 94.6\% of the brought plutonium is left. Hereby each kg of plutonium oxide will produce $580J \cdot 0.946 = 548.7J$ after 7 years which is the time where the RTG will be used to melt though the ice.
+
+
+\autsection{Thermal Design of RTG}{Ricard Lladó Grove}\label{sec:ThermalDesign}
+The RTG will be used both as the electric generator and the thermal energy generator to melt through the ice. Here it is assumed that the electric power needed is about 150W and that the needed thermal energy required for melting is 2kW in order to get sufficient energy for melting through the ice at the desired rate at 100 days per kilometre. Hereby it is needed to produce 7.5\% extra thermal energy to produce the electrical energy. The energy will be generated by thermocouples which can create a voltage when a temperature difference between two metals that are connected by a wire. The thermocouples will be discussed later in section \ref{sec:thermocouples}. \\
+
+\noindent
+As mentioned each kg of plutonium oxide will produce about 548J each each second and 2.15kW is needed. This means that the total amount of PuO2 is: 
+\begin{equation}
+m_{PuO2} = \frac{2150W}{548 \frac{W}{kg}} = 3.92 kg \approx 4 kg 
+\end{equation}
+Hereby with 4 kg of plutonium dioxide sufficient energy is produced to melt through the ice. With a density of $\rho_{PuO2} = 11.46 g/cm^3$\cite{golovnin2001a} the total volume needed can be calculated for the plutonium rod by $V = m/\rho_{PuO2} \approx 0.34 litres$. Before calculating the radius of the rod consisting of plutonium oxide there has to be space to holes across the PuO2 where water can flow trough to get heated. An illustration of the design is shown in figure \ref{fig:RTGcenter}.
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/Ricardo/RTG3.png}
+  \caption{Illustration of the design of the plutonium dioxide with a height of 30cm and a radius of 1.96cm}
+  \label{fig:RTGcenter}
+\end{figure}
+Here the PuO2 is shown with 20 small holes with a radius of 1 mm. Many small holes are made to get a large area so the water more efficient will be heated up. Each hole will have a volume: $V = \pi r^2 h$. Since 20 holes are made in the material this volume will be added in the volume of the penetrator in order to get the right radius of the rod. It can be seen that with a height of 30 cm the radius of the rod will be 1.96cm. Hereby 
+
+
+
+ It is a good idea that the plutonium has a high surface area compared to the volume, because the heat was to be distributed to the water running in the heat pipes(maybe). Furthermore it is a good thing that the plutonium has the same shape as the penetrator. (Explanation to come) 
+
+
+\autsection{Energy generation}{Ricard Lladó Grove} \label{sec:thermocouples}
+In this case the efficiency of the thermocouples does not matter that much since all the thermal energy that are not converted to electrical energy will be used to warm up the water.
+
+\autsubsection{Shielding}{Ricard Lladó Grove} \label{sec:shielding}
+As mentioned a typical shielding material is lead,for this case zirconium would be a better choice, first of all because it has a melting temperature that is three times higher than lead, and second of all because the material is lighter. It is still not possible to stop the free neutrons, where we instead will use water. First the Plutonium will be surrounded by the zirconium, afterwards a layer of water and in the end some thermocouplers will generate electricity from the heat
+
+
+\autsubsection{Heat pipes}{Ricard Lladó Grove}\label{sec:heatpipes}
+To distribute the heat that is generated from the plutonium. In order to do so, the water will be under high pressure. If the pressure inside the pipe system is 50 bar, or around 5 MPa, the water has a boiling temperature at $264^\circ$C. This will give some advantages for the system in the sense that it is almost impossible to maintain a temperature below $100^\circ$C which is waters normal boiling point, when transporting 2kW of heat.\\
+
+\noindent
+The pipe system will consist of pipes surrounding the RTG in the bottom and middle of the penetrator. Since the RTG is 30 cm long the pipes will be this as well with 18 tubes cut in half. The water will then flow out to the 18 tubes in the outer part of the RTG. Since most of the heat of generated should be directed downwards 12 of the tubes only cover the lowest $1/4$ of the penetrator. The other 6 tubes will go all the way to the top of the penetrator in order to ensure that the penetrator will not freeze in because the top of the penetrator is too cold. With an internal pressure of 5MPa, the thickness of the tubes that have water in them will be around 1 mm depending on the material if the other radius of the tubes are 1.48 cm. The heat pipe system will then weight around 6 kg. Furthermore the system will take up 6.5 liters of space. 
+
+Insert image of top view of the pipe system and RTG. 
+Insert image of a sideways look of the system.
+
 \section{Selected Design}
 
 * Sketch of overall design (use 3D models for the ice melting simulations)
 
 \subsection{Melting through the ice} % Lukas, KSL
 
-\subsection{RTG on Top}
+\autsubsection{RTG Placement}{Jean-Paul Breuer and Ricard Lladó Grove}
+The obvious choice for the placement of the RTG within the penetrator would be near the bottom. As the melting mechanism requires going down, having the RTG near the tip would reduce heat loss, maximizing the melting potential of the penetrator, as well as move the center of gravity of the RTG to a more stable position relative to the movement direction. During descent, this lower point of gravity would help with the dirigibility, as the penetrator would be less likely to tip over to one side.
 
-\subsection{RTG on Bottom}
-
-* How do we protect the rest of the instruments against the radiation?
-
-\subsection{RTG design}
-
-* Can we make it smaller?
-
-* Thermal design
+To simply mention as an alternative, there are also pros and cons to having the RTG be placed at the top of the penetrator. Assuming that the RTG is at the top, the instrument suite would be located near the bottom of the penetrator, so it might be already possible to take samples and filter the ice within the column while descending. Once anchored at the bottom of the ice column, having the instrument suite on the bottom of the penetrator would be beneficial in that it would be possible to just dip the tip into the water and have the instrument suite work as intended. Problems with placing the RTG near the top would be the requirement of further and more efficient heat pipes to channel the heat down towards the tip, which would also cause further problems with the instrument suite, as the heat would also have an effect on the instrumentation. It would also cause problems with dirigibility as it would be more probable to fall over to one side, and ultimately end up sideways as a worst case alternative. 
 
 \subsection{Thermal Design}
 
 \subsection{Water Convection}
 
-\subsection{Anchor Design}
+\autsection{Penetrator thickness}{Ricard Lladó Grove} 
+\begin{equation}\label{eq:pressure}
+\sigma = \frac{-2 P_{ext}\cdot r_{outer}^2}{r_{outer}^2-r_{inner}^2}/ + \frac{P_{int}\cdot (r_{outer}^2+r_{inner}^2)}{(r_{outer}^2-r_{inner}^2)}
+\end{equation}
+where $\sigma$ is the stress on the material, $P_{ext}$ and $P_{int}$ is the external and internal pressure, $r_{outer}$ and $r_{inner}$ is the outer and inner radius. 
+
+
+\section{Anchor Design}
+\autsubsection{Buoyancy}{Ricard Lladó Grove}
+One way to anchor the penetrator is through buoyancy. In general buoyancy is an upward force that is exerted to an object by the surrounded fluid. For an object immersed in a fluid, the force acting on the object is gravity and buoyancy given by:
+\begin{subequations}
+\begin{equation}\label{eq:bouyancy1}
+F_{gravity} = m_{object} \cdot g
+\end{equation}
+\begin{equation} \label{eq:bouyancy2}
+F_{buoyancy} = \rho_{fluid}\cdot g \cdot V_{immersed} 
+\end{equation}
+\end{subequations}
+where $g$ is the gravitational acceleration, $\rho$ is density, $V$ is volume of the immersed part of the object and $m$ is mass.  In our case the object is the penetrator and the fluid that the penetrator is immersed into is assumed to be pure water. In order to use buoyancy as the anchor of the penetrator, it has to cancel out the force of the gravity that will pull the penetrator downwards i.e make it sink. We can hereby equal equation \ref{eq:bouyancy1} and \ref{eq:bouyancy2}:
+\begin{subequations}
+\begin{equation*}\label{eq:bou1}
+F_{gravity} = F_{buoyancy} \quad \rightarrow \quad m_{penetrator}\cdot g_{Europa} = \rho_{fluid}\cdot g_{Europa} \cdot V_{immersed}   \quad \rightarrow 
+\end{equation*}
+\begin{equation} \label{eq:bou2}
+V_{immersed} = \frac{m_{penetrator}}{\rho_{fluid}}
+\end{equation}
+\end{subequations}
+First of all we see that the gravitational acceleration of Europa cancels out in both equations, which simplifies the expression. It is desired to calculate the volume that is needed in order to the force of the buoyancy to be great enough to lift the mass of the penetrator hence cancel out the gravity. The mass of the penetrator is in our mission straw man set to be maximum 180 kg even though it is only an assumption  If the mass of the penetrator shows to actually be lower than expected a lower volume would be needed. The density of the water is set to 1000 $\frac{m^3}{kg}$ which is the density of pure water. It is not known how salty the water if it contains salt, but the density of salt water is slightly higher then water without salt, and hereby the buoyancy force would be higher and a smaller volume is needed, so by using pure water we get a conservative value of the volume. By inserting the value we end up with the volume needed to carry the penetrator in pure water:
+\begin{equation}
+V_{needed} = 0.180 m^3 \rightarrow 180 \text{litres}
+\end{equation}
+Since the penetrator is 48.2 litres the extra required volume is about 132 litres. There are many ways to use buoyancy. Submarines have a ballast tank that they can fill with either water or oil. Since oil is about 0.8 times as dense as water this will create a buoyancy and depending on how much water is displaced. This solution is not useful for this penetrator since a huge reservoir of oil is needed which would take up more space and mass than is to dispersal. Another solution is to have an inflatable reservoir that will expand when the internal pressure increases. An illustration of such a solution is showed in figure \ref{fig:buoyancy1}.
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/Ricardo/Buoyancy1.png}
+  \caption{Illustration of the immersed penetrator with the inflated balloon to reach equilibrium between the buoyancy force and the gravitational force}
+  \label{fig:buoyancy1}
+\end{figure}
+When the penetrator melts through the last ice the velocity of the penetrator will increase because the it will sink though the water. With a short delay to ensure that the penetrator is surrounded by water, a trigger should inflate a balloon attached to the penetrator. The balloon should have a volume of at least 132 litres since we would probably like a small lift of the buoyancy. The most suitable place for the balloon to be inflated is above the penetrator since the balloon will have the uplift required to cancel out the effect of gravity. Hereby this will be the most stable situation even though it will complicate the communication to the lander since the antenna should be above the balloon. This is doable but not the most desired solution. In this case a volume of 132 litres should be obtained when having the same internal and external pressure. One way to obtain this is by having a pressure vessel with a huge internal pressure. If the volume of the penetrator is 10 litres the pressure inside the vessel should be 13.2 times bigger than the external pressure which is 12MPa in 10 km depth. Hereby an internal pressure of more than 160MPa is needed in the pressure vessel. In this way when the pressure of the pressure vessel is released into the balloon it would expand 13.2 times which is 132 litres. The problem with this solution is that a pressure vessel that can withstand such a pressure has to be relatively big and hereby also heavy. As an example the equation \ref{eq:pressure} can be used to calculate the properties of such a strong pressure vessel.  if using titanium as the pressure vessel and assuming that the vessel is a sphere which is the strongest structure to withstand pressure, the radius would be 9.5 cm and the thickness had to be about 4 cm to withstand the 160MPa internal pressure, which would mean a mass of about 30 kg. This will make the buoyancy anchoring disadvantageous against other anchoring methods. \\
+
+Another way to inflate the balloon is by having a chemical reaction that will produce a quantity of gas.
+
+
+\noindent 
+Even though it is disadvantageous it would be good to see if the buoyancy is even possible for these high pressures since almost all gases are liquid or even solid at these high pressures. Since a liquid is almost incompressible it can be compressed to the desired pressure without taking much space. The problem is then that when released the pressure has to be low enough for the liquid to evaporate. To give an example the gas CO2 can be selected. The Phase diagram of CO2 is illustrated in figure \ref{fig:CO2phase}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/Ricardo/co2_phase_diagram}\caption{Phase diagram of CO2. From: \url{http://www.chemicalogic.com/Documents/co2_phase_diagram.pdf}}
+\label{fig:CO2phase}
+\end{figure}
+With the balloon above the penetrator, it will be surrounded by water that has a temperature close to the freezing point and hereby the temperature of the gas would be almost the same as the temperature of the surrounding water which is around 273 K, corresponding to $0^oC$. In figure \ref{fig:CO2phase} the vaporization point corresponding to this temperature is 35 bar. Since we have to assume the worst case scenario the depth of the ice could be up to 10 km deep, the pressure is approximately 120 bar. This is a huge problem since CO2 at this pressure hereby would not evaporate from the liquid pressure vessel. One solution is to increase the temperature. The critical point for CO2 is about $30^oC$ where the pressure is just above 70 bar. In principle this means that CO2 cannot be  used for a depth of 10 km. This means that another gas has to be used in order to make buoyancy work at this pressure. For water the phase diagram is illustrated earlier we see that at temperatures around 600 Kelvin the vaporization point is about 120 bar. A possible solution these high temperatures would be to have the balloon surrounding the penetrator and use the heat produced by the RTG to warm up the gas. This would produce problems since the density of the gas would be less than the density of the penetrator and hereby in worst case scenario the penetrator would tilt or flip and all communication would be lost. Furthermore the heating of the gas would last for relatively long time and hereby the penetrator would have sunken before the force of the buoyancy would be great enough to lift the penetrator. Therefore the solution with a heated gas would not work in practice especially not if a temperature of 600 Kelvin is needed.\\
+ 
+\noindent
+Assuming that the ice layer is only two kilometres deep the pressure would be around 34 bar which is just below the vaporization point for CO2 at $0^oC$. To get an estimate of how much CO2 is needed if assuming that the penetrator should be anchored at 2 km depth, the the ideal gas law can be used, which is given by equation \ref{eq:idealgaslaw}. 
+\begin{equation} \label{eq:idealgaslaw}
+PV = nRT
+\end{equation}
+where $P$ is pressure, $V$ is volume, $n$ is how many moles is in the gas, $R$ is the ideal gas constant and T is temperature. Since CO2 weights 44 gram per mole it is possible to calculate the mass for 132 litres of CO2: 
+\begin{equation}\label{eq:massCO2}
+m_{CO2} = \frac{M_{CO2} \cdot P_{water}\cdot V_{balloon}}{R\cdot T_{water}} = \frac{44 \frac{g}{mole} \cdot 35 bar \cdot 132 L}{0.0831  \frac{L\cdot bar}{mole \cdot K} \cdot 273K} = 882.8 g
+\end{equation}
+From equation \ref{eq:massCO2} it is seen that only 0.882 kg CO2 is needed with a pressure of 35 bar, but if the pressure would increase to 120 more CO2 is needed in order to withstand the higher pressure. The ideal gas law should be used with very much care since at these high pressures and it can be discussed whether the result from equation \ref{eq:massCO2} is even useful. Experiments are needed in order to get a more realistic mass needed. If assuming that the buoyancy would work at 2 km depth there are still more things to take into accoutn. First of all there is the material of the balloon. It has to be a really strong material since some of the balloon will be in contact with the ice which will scratch the material. Depending on how pointy the ice will be, it can make a hole in the balloon which will be a mission killer since the the buoyancy force will be lost and the penetrator will sink. If the penetrator sinks it cannot withstand the high pressure and furthermore the communication will also be lost. Besides being really strong the material has to be flexible because it should fill the least space as possible when not inflated, but be able to expand when the pressure inside it expands. Another problem that has to be taken into account is that if the communication should not be lost is that the current that run in Europa's ocean will make the penetrator drift. If it drifts the probability of losing communication would be really high since a directive antenna is used.  Therefore some kind of hook has to be attached to the ice to fix the position of the penetrator. All the problems that arise if using a buoyancy anchor will not be discussed further since buoyancy will not be used as anchor, but if the ice profile were known better and a spot with only 2 km depth were found the buoyancy using CO2 as gas could be used, where the mentioned problems would have to be considered. \\
+
+\input{polypropylenefoam}
 
 \subsection{Anchoring and Deployment}
 
 * Ref to composition of the ice and theory about lakes?
 
-\subsection{Submarine}
-
 \section{Mechanisms and Instrumentation}
 
-\subsection{Navigation and Dirigibility}
+\subsection{Navigation and Dirigeability}
+
+\input{Submarine}
 
 \subsection{Detection of Depth and End of Ice Column}
 
 * Echo sounder etc
 
-\section{Communication Systems}
+%\section{Communication Systems}
 
-\subsection{Ice Losses}
-As we expect, Europa's subsurface consists mainly of several kilometers of ice, which we want to penetrate with electromagnetic waves to establish the communication link between the penetrator and the lander vehicle. Fortunately, a lot of research has been made in the recent decades on how efficient an electromagnetic wave can penetrate different ice layers and on which parameters can affect this propagation. These principles are applied widely in subsurface radar sounding that take place in polar areas, but also in planetary exploration (Mars). For a wide range of frequencies, ranging from MHz to GHz, dielectric losses of ice are independent of frequency. By that it is meant that, the number of wavelengths, which can penetrate into ice before being attenuated to a given fraction of its initial amplitude ($1/e$ of initial amplitude) is approximately the same regardless of frequency. The above implies that the longer the wavelength, the deeper the radar signal can penetrate before being attenuated below the detection of our equipment. Thus, deep ice penetration requires that the radar operates at the lowest possible frequency. 
+%\subsection{Communication to Lander}
 
-\paragraph{Dielectric properties of ice}
-(For the following two paragraphs \cite{Kofman_2010} has used as main reference.)The permittivity $\epsilon$ of a material is a property describing how much more energy is stored though change separation than in vacuum. Frequency dependence of permittivity occurs because change separation does not happen instantaneously. Changes separate with finite velocities, thus if the external field is reversing polarity too quickly the changes cannot move fast enough to keep up. The frequency at which the charges fully separate and are in constant motion is called the relaxation frequency. At frequencies below the relaxation frequency the permittivity plateaus at the low frequency limit (static) $\epsilon_{s}$, which is often call dielectric constant. At high frequencies above the relaxation frequency the permittivity plateaus at the high frequency limit $\epsilon_{\infty}$. Moreover, ice crystal formation has an impact on polarization, which primarily depends on temperature.
-
-Debye model takes into account the above mentioned theory about dielectric constant of ice and is described by the following equations: 
-
-\begin{equation}
-    \epsilon=\epsilon_{\infty}+\Delta \epsilon \frac{\Delta \epsilon}{1+j \omega \tau}
-    \label{dielectric}
-\end{equation}
-
-, where $\omega = 2\pi f$, $\Delta \epsilon=\epsilon_{s} -\epsilon_{\infty}$ and $\tau$ is the dielectric relaxation time. \\
-The permittivity is a complex function of frequency and usually is described by its real and imaginary part.
-
-\begin{equation}
-    Re (\epsilon)=\epsilon_{\infty}+\Delta \epsilon \frac{\Delta \epsilon}{1+ \omega^2 \tau^2}
-    \label{real}
-\end{equation}
-
-\begin{equation}
-    Im (\epsilon)=\frac{\Delta \epsilon\ \omega\  \tau}{1+ \omega^2 \tau^2}
-    \label{imag}
-\end{equation}
-The loss tangent (tan $\delta$) is defined by the ratio of these two parts and characterizes the attenuation of the electromagnetic waves in a medium due to ohmic conductivity $\sigma$. 
-
-\begin{equation}
-    tan \delta=\frac{Re(\epsilon)}{Im(\epsilon)}=\frac{\sigma}{\omega\ Re(\epsilon)}
-    \label{tan}
-\end{equation}
-The conductivity $\sigma$ of the medium is directly proportional to the imaginary part of the dielectric constant.
-
-Because of the complexity of equations (\ref{dielectric} - \ref{tan}) an approximated expression has been developed to compute the attenuation.
-
-\begin{multline}
-    a=0.129 \sqrt{Re(\epsilon)}\ f (\sqrt{1+tan^2 \delta}-1)^{1/2} \approx \\
-    \approx 0.091 \sqrt{Re(\epsilon)}\ f\ tan \delta \approx 0.0009\ \sigma\ dB/m
-    \label{losses}
-\end{multline}
-where, $\sigma$ is in $\mu S m^{-1}$. As one can see from eq. (\ref{losses}), attenuation's value is directly proportional to frequency, or in other words to the conductivity of the medium. Additionally, the static dielectric constant of pure ice is heavily depended on the orientation of electric field with respect to the crystal's axis. The effect of pressure is about 1\% per kbar for polycrystalline ice \cite{Kofman_2010}. The above formulas and their approximations concerning the electromagnetic waves can be used adequately for very low temperatures, as the ranges we are interested.
-
-Nevertheless, the losses due to pure ice are well documented in bibliography, there is a big gap regarding ice impurities on icy moons. The absence of these data are due to uncertainties and lack of knowledge of the physical nature of impurities on these satellites. This problem was studied by  Moore \cite{Moore_2000} and Chyba \cite{Chyba_1998} for Europa. Moore considered three types of water ice on Europa, produced by three basic processes occurring on Earth. The first one is meteoric ice formed by atmospheric precipitations, sea ice formed by the freezing of water close to the atmospheric interface and marine ice forming beneath ice shelves directly from ocean water. Moore concluded that similar processes are likely to occur on Europa as well, and that the most probable form of ice would be marine ice. In figure \ref{impurities} Moore sums up the attenuation from different type of impurities in ice \cite{Moore_2000}.
-
-\begin{figure}[ht]
-\centering
-\label{impurities}
-\includegraphics[width=1\textwidth]{figures/Moore2.jpg}
-\caption{Attenuation, $a$, is in dB/km at 251 K and corresponds to the one way attenuation due to  ice impurities, in case of a sounding radar. Columns I, II, and III are computed one-way attenuation, in dB/km, for ice shells with base temperatures of 270, 260, and 250 K, respectively. The range of values for each of these corresponds to surface temperatures of 50 and 100 K. These values are independent of shell thickness since the temperature profile is stretched to the ice thickness. The M column represents the plausibility of the ice type for Europa; 0 is least likely while 3 is more likely, given the present understanding
-of Europa. The distribution coefficients $k_{0}$ and $k_{MI}$ affecting the marine ice models come from laboratory experiments \cite{Moore_2000}. \textbf{+ appendix}}
-\end{figure}
-The above calculations data are not taking into account a possible scattering mechanism of electromagnetic wave due to ice layers that can exist in the crust. The scattering effect has a significant impact on the attenuation level and depends strongly on the dimensions of cavities in the medium compared to the wavelength. The two main mechanisms of scattering coming from the ice crust are surface scattering and scattering by volume irregularities. Both these effects can change considerably the penetration depth of the wave into the ice, but also the ratio of any subsurface echo to surface clutter. As we can understand the scattering depends strongly on the wavelength and surface parameters of the body under investigation. 
-
-The conclusion is that the expected one way attenuation because of impurities of ice is in the range 1-8 dB/Km and this number is independent of the frequency. Although, the frequency dependence of attenuation due to scattering mechanisms dictates the use of as low frequencies as possible in order to achieve a deep penetration. The main bottlenecks in that case are two. The first one is that the choice of frequency has an influence on the characteristics of instrumentation and especially on the size of the antenna and the second one is Jupiter's radio emissions spectrum. Figure \ref{J_spec} depicts how Jupiter's activity affect the electromagnetic environment of its moons. Clearly can be seen that frequencies from almost zero Hz up to 50 MHz are dominated from Jupiter's radio emissions. Thus, the exact choice of frequency results in a trade off between science requirements and technical limitations taking into account also the physical constraints of the environment under research. 
-
-\begin{figure}[ht]
-\centering
-\label{J_spec}
-\includegraphics[width=0.7\textwidth]{figures/below100.jpg}
-\caption{Jupiter radio spectrum based on Cassini-RPWS data,
-normalized to a distance of 1 AU. Green curve: rotation averaged
-emission. Blue curve: rotation averaged emission at times of intense
-activity. Red curve: peak intensities during active periods. \cite{Grie_meier_2005}}
-\end{figure}
-
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.7\columnwidth]{figures/below100}
-\caption{Replace this text with your caption%
-}
-\end{center}
-\end{figure}
-
-\subsection{Communication to Lander}
-
-\subsection{High Directivity Link}
-
-\subsection{Relay Systems}
+%\subsection{Relay Systems}
