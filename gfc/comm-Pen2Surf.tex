@@ -1,13 +1,92 @@
-%   Include in Comm Systems
-%   target 8-10 pages
 \autsection{Penetrator-Lander Link}{Gustavo Feijóo Carrillo}
 %   Through Ice Communications
+%       -Scenario and description of operations
+%       -Communications during descent
+%       -Propagation through ice, ice losses
+%       -Link necessary capabilities
+%       -Possible hurdles
+
+\paragraph{Link scenario and description of operations}
+Three stages in the process of the penetrator descending through the ice crust can be defined to better design the communication system. First, the deployment of the vehicle by lowering it by means of a controlled crane system. In this phase a critical mission operation must be carried out, this is the burial of the lander computer and electronics subsystem to protect it from the surface heavy radiation doses which would shrink the mission life to about a month making it impossible to reach the ocean and carry out the mission goals.
+
+The second phase, would be the penetrator complete buried within the crust and on the melting process to reach the ocean, this might be the longest duration stage depending on the thickness of the crust at the landing site. In this phase, a big risk is the effect of the "slushy" ice trail behind the penetrator. This watery ice would have an increased conductivity and it poses as an obstacle in the path of communication from the penetrator vehicle to the lander. This obstacle mainly affects the antenna pattern characteristics but its effect is greatly dependant on the dimensions of the "slushy" ice trail. On the other hand, a tethered solution would be driven by cable mass necessary for depth goals and to withstand the mechanical forces from being frozen in the ice crust, specially the shear stresses (from sideways motion of ice sheets).
+
+Third, reaching the ocean interface where the main transceiver in the penetrator is left embedded at a safe distance from the interface with the anchoring mechanism for the penetrator and instruments suite. A tether enabled for communications will serve as link from the instruments to the main transceiver and relay the science data and telemetry to surface.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/comms/iceLink-relay}
+	\caption{\textit{DRAFT} Through-ice communications.}
+	\label{fig:through-ice_comms_relay}
+\end{figure}
+
 \subsection{Link Drivers}
 
-\autsubsection{Tethered Link}{Kristian Sloth Lauszus}
+\input{gfc/comm-tether}
+
+\input{gfc/comm-repeaters}
+
+% Wireless links
+\autsubsection{Ice embedded wireless communications}{Gustavo Feijóo Carrillo}
+
+In a previous study from JPL's Cryobot concept regarding ice communications \cite{iceLink-scott}, we find the assumption of the communication transceiver relays being allowed to refreeze in the ice but there is no deeper details on this matter. The main subject here is the behaviour of the "slushy" or water and ice mixture above the descending penetrator, since this trail has a meaningful effect on the antenna performance of the penetrator communication subsystem as we shown in Figures \ref{fig:unaffected}, \ref{fig:smallSlush} \& \ref{fig:bigSlush}.
+
+%   Fig. Slush trail diagram
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/comms/slushTrail}
+	\caption{This figure based on the melting profile simulation, it can be seen from the temperature gradient trailing the penetrator that in the close proximity a column of melt water first (red), followed by a mix warm ice and water which is referred as "slush" (white) forms the obstacle discussed in this section. The profile shown spans almost 4 days.}
+	\label{fig:through-ice_comms}
+\end{figure}
+
+%   Fig. No slush
+\begin{figure}[htb]
+	\centering
+	\subfloat[]{
+		\includegraphics[width=.48\textwidth]{figures/comms/antPattern-cPatchRadome}
+		\label{fig:antPatt-patchRadome}
+	}
+	\subfloat[]{
+		\includegraphics[width=.48\textwidth]{figures/comms/component-cPatchRadome}
+		\label{fig:comp-patchRadome}
+	}
+	\caption{Unaffected antenna pattern.}
+	\label{fig:unaffected}
+\end{figure}
+%   Fig. Small slush
+\begin{figure}[htb]
+	\centering
+	\subfloat[]{
+	    \includegraphics[width=0.48\textwidth]{figures/comms/antPattern-slushEffect-a}
+	    \label{fig:slushEffect_a}
+	}
+	\subfloat[]{
+		\includegraphics[width=.48\textwidth]{figures/comms/component-slushEffect-a}
+		\label{fig:comp-smallSlush}
+	}
+	\caption{Effect of small watery ice obstacle in antenna path.}
+	\label{fig:smallSlush}
+\end{figure}
+%   Fig. Big slush
+\begin{figure}[htb]
+	\centering
+	\subfloat[]{
+	    \includegraphics[width=0.48\textwidth]{figures/comms/antPattern-slushEffect-b}
+	    \label{fig:slushEffect_b}
+	}
+	\subfloat[]{
+		\includegraphics[width=.48\textwidth]{figures/comms/component-slushEffect-b}
+		\label{fig:comp-bigSlush}
+	}
+	\caption{Effect of longer watery ice trail.}
+	\label{fig:bigSlush}
+\end{figure}
 
 
-\autsubsection{High Directivity Link}{Ioannis Nisopoulus}
+% Effect on link design
+\autsubsection{Considerations for Link Sizing and Antenna choice}{Gustavo Feijóo Carrillo}
+
+\subsubsection{High Directivity Link}
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{figures/comms/iceLink-p2p-HighD}
@@ -15,9 +94,8 @@
 	\label{fig:iceLink-p2p-HighD}
 \end{figure}
 
-%\input{DirectionalLink}
-
-\subsection{Low Directivity Link}
+% LD Link
+\subsubsection{Low Directivity Link}
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{figures/comms/iceLink-p2p-LowD}
@@ -25,7 +103,8 @@
 	\label{fig:iceLink-p2p-LowD}
 \end{figure}
 
-\subsection{Relay Link}
+% Ice embedded relays
+\subsubsection{Relay Link}
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{figures/comms/iceLink-relay}

@@ -30,6 +30,7 @@
 \usepackage{lastpage}
 \usepackage{epstopdf}
 \usepackage{siunitx}
+\usepackage{tocstyle}
 
 %START added packages used by Orbiter (Johannes Linde)
 \usepackage{verbatim}
@@ -55,7 +56,7 @@
 }
 \makeatother
 
-\newcommand{\mycourse}[0]{30320 Spacecraft Instrumentation Systems}
+%\newcommand{\mycourse}[0]{30320 Spacecraft Instrumentation Systems}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -83,29 +84,35 @@
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % \HRule for special horizontal line
 
 \makeatletter
-\newcommand{\addauthorbelowheading}[1]{%
-	{\parindent0pt\vspace*{-10pt}%
+\newcommand{\addauthorbelowheading}[2]{%
+	{\parindent0pt\vspace*{#2}%
   	\linespread{1.1}\small\scshape#1%
   	\par\nobreak\vspace*{10pt}}%
   	\@afterheading%
 }
 \makeatother
 
+\newcommand\autchapter[2]{%
+	\chapter[#1{\normalfont\tiny\itshape ~- #2}]{#1%
+  		\chaptermark{#1}}%
+	\chaptermark{#1}%
+	\addauthorbelowheading{#2}{-40pt}%
+}
+
 % Use theses command to add section and subsection authors
 \newcommand\autsection[2]{%
-  \section[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
-  \addauthorbelowheading{#2}%
+	\section[#1{\normalfont\tiny\itshape ~- #2}]{#1%
+		\sectionmark{#1}}%
+	\sectionmark{#1}%
+	\addauthorbelowheading{#2}{-15pt}%
 }
 
 \newcommand\autsubsection[2]{%
-  \subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
-  \addauthorbelowheading{#2}%
+	\subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1%
+  		\subsectionmark{#1}}%
+	\subsectionmark{#1}%
+	\addauthorbelowheading{#2}{-10pt}%
 }
-
-%\newcommand\autsubsubsection[2]{%%
-%	\subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1}%
-%	\addauthorbelowheading{#2}%
-%}
 
 % DTU frieze
 \usepackage{eso-pic}

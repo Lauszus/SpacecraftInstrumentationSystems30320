@@ -1,8 +1,30 @@
 \chapter{Future Work}
 
-* Hard to test due to time limits, limited funds etc
+\autsection{Melting of preliminary hole}{Maja Tomicic}
 
-    * Instruments are expensive and might be hard to get (fx RTG)
+Much further work needs to be done concerning the process of melting a hole in the ice with a rocket engine. Due to lack in both time and resources no experiments have been performed in this area, and many questions are therefore left unanswered. Some of the obvious next steps are presented in the following.
+\begin{itemize}
+\item It should be tested how the jet would expand in the tenuous atmosphere. And a suitable thruster should be chosen.
+
+\item The pressured conditions inside the hole will allow the water to exist in its liquid phase. It would be interesting to examine if the water could be used to cut a slim deep hole. An example could be to suck the water into a container and then produce a high velocity jet of water to cut the ice, similar to the process of water jet cutting.
+
+\item A shielding could be lowered from around the nozzle down to the ice surface. This way a pressure would quickly be reached inside the shielding and the hole and a thinner jet plume would be achieved.
+\end{itemize}
+
+%Feel free to expand on these
+\section{Penetrator}
 
 \autsection{RTG design}{Ricard Grove}
-Normally a RTG is only used to generate electricity using thermocouples with a nuclear heat source to get a high temperature difference. All the thermal energy that are not used to generate electrical energy is not wanted and the RTG's are therefore designed to be able to get rid of as much heat as possible to i.e. prevent overheating. For this mission all the heat is wanted to melt though the ice and therefore a completely new design of the RTG is needed in order to tranfer the heat down to the tip of the penetrator. A preliminary proposal to the design can be seen in section \ref{sec:rtg}. Calculations of the heating and cooling of the water have been made using some simplifying assumptions. More complex simulations are needed to confirm the calculations in order to optimize the design of the pipe system and the RTG. Furthermore the heat transfer of the top of the RTG was not calculated further since there are too many unknowns in the current state of the mission development. First of all the heating of the penetrator will depend greatly on the thickness of the ice-layer and whether the heat from the RTG's in the relay systems can be used to heat up the top of the penetrator for at least part of the mission. 
+Normally a RTG is only used to generate electricity using thermocouples with a nuclear heat source to get a high temperature difference. All the thermal energy that are not used to generate electrical energy is not wanted and the RTG's are therefore designed to be able to get rid of as much heat as possible to i.e. prevent overheating. For this mission all the heat is wanted to melt though the ice and therefore a completely new design of the RTG is needed in order to tranfer the heat down to the tip of the penetrator. A preliminary proposal to the design can be seen in section \ref{sec:rtg}. Calculations of the heating and cooling of the water have been made using some simplifying assumptions. More complex simulations are needed to confirm the calculations in order to optimize the design of the pipe system and the RTG. Furthermore the heat transfer of the top of the RTG was not calculated further since there are too many unknowns in the current state of the mission development. First of all the heating of the penetrator will depend greatly on the thickness of the ice-layer and whether the heat from the RTG's in the relay systems can be used to heat up the top of the penetrator for at least part of the mission.
+
+\autsubsection{Drilling Methods}{Lukas Christensen}
+The simulation that has been implemented to estimate penetration time can be expanded in several ways. Including, but not limited to, more robust integrations methods, grid refinement, accounting for salinity, and proper determination of the coupling between the heater and the ice. Additionally, different methods for dealing with debris in the ice need to be tested through experimentation, before the best method can be selected. Finally, the actual design of the penetrator head must be performed with basis in these experiments.
+
+\section{Instrument Suite}
+\autsubsection{pH \& Salinity Sensor}{Lukas Christensen}
+So far only a rough sketch of the pH and salinity sensing instrument has been completed and there are still many issues to be solved. First and foremost, a way to ensure proper calibration of the sensing elements needs to be found, as otherwise different sensing technology must be used. Additionally, the actual mechanical and electrical design of the instrument has to be completed so mass, volume and power budgets can be made.
+
+%* Hard to test due to time limits, limited funds etc
+%    * Instruments are expensive and might be hard to get (fx RTG)
+%
+%A lot of test could be done at fresh water Lake Vostok in Antarctica, as it lies 4 km beneath the ice, but remains unfrozen\citet{iceLink-scott}.

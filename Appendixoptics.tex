@@ -24,9 +24,11 @@ for n=1:length(viewangler)
 semilogy(FOV(n,:))
 xlabel('Altitude [m]' );
 ylabel('Ground FOV [m]');
-set(gca,'XTick',[1 2 3 4 5 6] ); %This are going to be the only values affected.
+%This are going to be the only values affected.
+set(gca,'XTick',[1 2 3 4 5 6] ); 
 set(gca,'XTickLabel',[10^1 10^2 10^3 10^4 10^5 2*10^5] )
-h=legend('3 mm', '5 mm', '7 mm', '9 mm', '11 mm', '13 mm', '15 mm','Location','northwest');
+h=legend('3 mm', '5 mm', '7 mm', '9 mm', '11 mm', '13 mm', ...
+'15 mm','Location','northwest');
  %v = get(h,'title');
  %set(v,'string','Focal Length');
 hold on
@@ -42,9 +44,11 @@ for n=1:length(viewangler)
     semilogy(GSD)
     xlabel('Altitude [m]' );
 ylabel('GSD [m/pixel]');
-set(gca,'XTick',[1 2 3 4 5 6] ); %This are going to be the only values affected.
+%This are going to be the only values affected.
+set(gca,'XTick',[1 2 3 4 5 6] );
 set(gca,'XTickLabel',[10^1 10^2 10^3 10^4 10^5 2*10^5] )
-h=legend('3 mm', '5 mm', '7 mm', '9 mm', '11 mm', '13 mm', '15 mm','Location','northwest');
+h=legend('3 mm', '5 mm', '7 mm', '9 mm', '11 mm', '13 mm', ...
+'15 mm','Location','northwest');
     hold on 
     
 end

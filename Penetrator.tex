@@ -74,7 +74,10 @@ Figures \ref{fig:ICD}, \ref{fig:HWD} and \ref{fig:CTDI} illustrates the three me
   \label{fig:CTDI}
 \end{figure}
 
-\subsection{Chemical Drilling}
+\subsubsection{Rotary drilling}
+Søren Jeppesen
+
+Rotary drilling is an alternative to the previously mentioned methods for ice drilling. On Earth, this method is used primarily on rock formations and is suitable for medium and hard drilling environments. Rotary drilling utilizses a sharp and heavy drill bit made with eiter tungsten, steel, or diamond in order to cut up hard rock. This type of drilling leaves little remains, and as most ice drilling is focused on retrieving samples, this method is not commonly employed for this task. For the Europa Life Finder Mission, ice samples from the drill is not an immediate concern and so rotaty drilling could be a better option for drilling than the previously mentioned methods. Figure \ref{fig:drill_bit} features common designs for the drill bit of rotary drills.
 
 \autsubsection{Explosive Drilling}{Ricard Grove}
 Explosive drilling is another drilling method and in the following will be described why explosive drilling is not a valid solution. An explosion is a fast release of a large amount of energy and resulting in an increase in volume. One of the problems by using explosives is that when exploding all the energy that is released will be released in all directions, so if explosions should be efficient it would be a good idea to bury the explosives in the ice. Another problem will then arise because the whole point of drilling is to get vertically down. Therefore one big explosion will be inefficient since a lot of the energy will be released to the sides instead of downwards, which means that many small explosions are needed. If exploding ice the ice will not will but rather crack which also makes it difficult to estimate how deep a hole an explosion will create. After an explosion some kind of device is needed to remove the ice that is blown to pieces and again dig a hole to the new explosives. \\
@@ -83,24 +86,41 @@ Explosive drilling is another drilling method and in the following will be descr
 Additionally another huge problem arises if using explosives, namely that explosives are going to create huge environmental damage and comprises the idea of planetary protection. The mission objective is to find life which will be done partly by observing molecules in the environment. Using explosives it will not only kill the life that could be found on Europa it would also infest Europa with the remains of the explosion and hereby the molecule observations misleading.\\
 
 \noindent
-Playing with the thought that the explosive drilling would be a legit candidate for the drilling method, one of the first consideration to be made is the choice of explosive material. One of the most important characteristics in this case is the sensitivity of the material, i.e. how stable the material is. An explosive material can either detonate when the material is exposed for a shock, friction or if it reaches a specific temperature. In this case a sensitive material has to be chosen because especially at launch on Earth and descend on Europa the whole spaceborne module will be exposed to a high acceleration and temperature. Plastic explosives could hereby be a good choice. Just as an example C-4 has really stable and insensitive to both heat and shock, where the energy released is about 6 MJ/kg. Since the ice will not melt but crack it is difficult to estimate the energy needed to reach through 10 km of ice, but for the melting it requires about $10^{10}J$ to melt the ice. So assuming that all the energy will be delivered to the ice column more than 1.5 ton of c-4. This is without taken into account that a lot of the energy will spread like shock wave through the ice. Experiments with ice explosions is needed if more precise values are wanted, but the negatives or explosive drilling are too high to compete with the other drilling methods. 
+Playing with the thought that the explosive drilling would be a legit candidate for the drilling method, one of the first consideration to be made is the choice of explosive material. One of the most important characteristics in this case is the sensitivity of the material, i.e. how stable the material is. An explosive material can either detonate when the material is exposed for a shock, friction or if it reaches a specific temperature. In this case a sensitive material has to be chosen because especially at launch on Earth and descend on Europa the whole spaceborne module will be exposed to a high acceleration and temperature. Plastic explosives could hereby be a good choice. Just as an example C-4 has really stable and insensitive to both heat and shock, where the energy released is about 6 MJ/kg. Since the ice will not melt but crack it is difficult to estimate the energy needed to reach through 10 km of ice, but for the melting it requires about $10^{10}J$ to melt the ice. So assuming that all the energy will be delivered to the ice column more than 1.5 ton of c-4. This is without taken into account that a lot of the energy will spread like shock wave through the ice. Experiments with ice explosions is needed if more precise values are wanted, but the negatives or explosive drilling are too high to compete with the other drilling methods.
 
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.4]{figures/RCS/drill_bit}
+\caption{Image of drill bits for rotary drills.}
+\label{fig:drill_bit}
+\end{center}
+\end{figure}
+
+The weight of drill bit for rotary drill can be seen below on figure \ref{fig:drill_bit_weight}. For a drill with a diameter of 20 cm, the weight of steel tooth tricone bit would come up to 32.2 kg. Additionally, there would need to be a motor system for operating the drill, and a transport system for the ice cutting, all adding additional weight. The system would also need power which the RTG would provide, however, as the conversion efficiency of heat energy to electrical energy is only around 7\% for the RTG, the energy needed would be
+
+\begin{equation}
+	tmp
+\end{equation}
+
+3571.6
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.9]{figures/RCS/drill_bit_weight}
+\caption{Table of weights for drill bits.}
+\label{fig:drill_bit_weight}
+\end{center}
+\end{figure}
+
+\subsection{Chemical Drilling}
+
+\subsection{Explosive Drilling}
 
 \input{Sputtering}
 
 \input{laser-drilling}
 
 \subsection{Light Concentration Drilling}
-
-\subsection{Melting}
-
-* Water transportation from tip to the end of the penetrator (ref section about convection flow)
-
-* Should measure flow of the water - descent rate
-
-* Water flow to the instruments. Will have to use a pump in order to increase the flow rate.
-
-* Measure conductivity of the water.
 
 \input{Penetrator/IceSimulation}
 
@@ -389,7 +409,7 @@ First of all we see that the gravitational acceleration of Europa cancels out in
 \begin{equation}
 V_{needed} = 0.180 m^3 \rightarrow 180 \text{litres}
 \end{equation}
-Since the penetrator is 48.2 litres the extra required volume is about 132 litres. There are many ways to use buoyancy. Submarines have a ballast tank that they can fill with either water or oil. Since oil is about 0.8 times as dense as water this will create a buoyancy and depending on how much water is displaced. This solution is not useful for this penetrator since a huge reservoir of oil is needed which would take up more space and mass than is to dispersal. Another solution is to have an inflatable reservoir that will expand when the internal pressure increases. An illustration of such a solution is showed in figure \ref{fig:bouyancy1}.
+Since the penetrator is 48.2 litres the extra required volume is about 132 litres. There are many ways to use buoyancy. Submarines have a ballast tank that they can fill with either water or oil. Since oil is about 0.8 times as dense as water this will create a buoyancy and depending on how much water is displaced. This solution is not useful for this penetrator since a huge reservoir of oil is needed which would take up more space and mass than is to dispersal. Another solution is to have an inflatable reservoir that will expand when the internal pressure increases. An illustration of such a solution is showed in figure \ref{fig:buoyancy1}.
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.5\textwidth]{figures/Ricardo/Buoyancy1.png}
@@ -429,7 +449,7 @@ From equation \ref{eq:massCO2} it is seen that only 0.882 kg CO2 is needed with 
 
 \subsection{Navigation and Dirigeability}
 
-\subsection{Submarine}
+\input{Submarine}
 
 \autsubsection{Detection of Depth and End of Ice Column}{Jean-Paul Breuer}
 There is now a method for both navigating and making corrections to the penetrator orientation in the ice column, but now it brings the question of how the penetrator will be able to navigate and avoid rocks or obstacles if there is no way to see anything. More importantly, there has to be a reliable method for determining the end of the ice column, otherwise the final anchoring mechanism may not deploy properly, might deploy at an inconvenient location, or perhaps could completely miss the target and get lost in the subsurface ocean. Mission failure at this point would be a horrific tragedy, not only because of the money spent to put everything together and the headaches taken to acquire the Plutonium-238, but also because of the time investment that it would take to get so far through the ice just to lose everything at the most critical point.
