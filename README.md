@@ -15,6 +15,10 @@ Please also join the Facebook group: <https://www.facebook.com/groups/1711333799
 
 Our YouTube channels is located at the following link: <https://www.youtube.com/channel/UC-DMik5iodpwCzGbywo2CMg>. If you need to add a video, then please contact me and I will upload it.
 
+### The book
+
+The final version of the book can be downloaded at the following link: [Spacecraft Instrumentation Systems - Europa Life Finder Mission.pdf](https://github.com/Lauszus/SpacecraftInstrumentationSystems30320/releases/download/1.0.0/Spacecraft.Instrumentation.Systems.-.Europa.Life.Finder.Mission.pdf).
+
 ### Notes
 
 Please use proper citations for references instead of footnotes. More information can be found at the following [link](https://www.sharelatex.com/learn/Bibliography_management_with_natbib).
