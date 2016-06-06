@@ -13,14 +13,12 @@ The second phase, would be the penetrator complete buried within the crust and o
 
 Third, reaching the ocean interface where the main transceiver in the penetrator is left embedded at a safe distance from the interface with the anchoring mechanism for the penetrator and instruments suite. A tether/cable enabled for communications will serve as link from the instruments to the main transceiver and relay the science data and telemetry to surface.
 
-\begin{figure}[htb]
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/comms/iceLink-relay}
-	\caption{\textit{DRAFT} Through-ice communications.}
-	\label{fig:through-ice_comms_relay}
+	\includegraphics[width=\textwidth]{figures/comms/comm-baseDesc}
+	\caption{Europa phase communication links. Relaying data to the lander from the penetrator through the ice, then lander relays to orbiter and finally to Earth through the high data rate Ka-band downlink.}
+	\label{fig:europa-comms}
 \end{figure}
-
-\subsection{Link Drivers}
 
 \input{gfc/comm-tether}
 
@@ -32,7 +30,7 @@ Third, reaching the ocean interface where the main transceiver in the penetrator
 In a previous study from JPL's Cryobot concept regarding ice communications \cite{iceLink-scott}, we find the assumption of the communication transceiver relays being allowed to refreeze in the ice but there is no deeper details on this matter. The main subject here is the behaviour of the "slushy ice" or water and ice mixture above the descending penetrator, since this trail has a meaningful effect on the antenna performance of the penetrator communication subsystem as shown in Figures \ref{fig:unaffected}, \ref{fig:smallSlush} \& \ref{fig:bigSlush}. The concentration levels of impurities in the water/ice mixture also has an impact but will be leaved for future works, in the present study a salty water of $15ppt$ is used as a simplified model.
 
 %   Fig. Slush trail diagram
-\begin{figure}[htb]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=.66\textwidth]{figures/comms/slushTrail}
 	\caption{This figure based on the melting profile simulation, it can be seen from the temperature gradient trailing the penetrator that in the close proximity a column of melt water first (red), followed by a mix warm ice and water which is referred as "slush" (white) forms the obstacle discussed in this section. The profile shown spans almost 4 days.}
@@ -40,7 +38,7 @@ In a previous study from JPL's Cryobot concept regarding ice communications \cit
 \end{figure}
 
 %   Fig. No slush
-\begin{figure}[htb]
+\begin{figure}[H]
 	\centering
 	\subfloat[]{
 		\includegraphics[width=.48\textwidth]{figures/comms/antPattern-cPatchRadome}
@@ -54,7 +52,7 @@ In a previous study from JPL's Cryobot concept regarding ice communications \cit
 	\label{fig:unaffected}
 \end{figure}
 %   Fig. Small slush
-\begin{figure}[htb]
+\begin{figure}[H]
 	\centering
 	\subfloat[]{
 	    \includegraphics[width=0.48\textwidth]{figures/comms/antPattern-slushEffect-a}
@@ -68,7 +66,7 @@ In a previous study from JPL's Cryobot concept regarding ice communications \cit
 	\label{fig:smallSlush}
 \end{figure}
 %   Fig. Big slush
-\begin{figure}[htb]
+\begin{figure}[H]
 	\centering
 	\subfloat[]{
 	    \includegraphics[width=0.48\textwidth]{figures/comms/antPattern-slushEffect-b}
@@ -82,32 +80,42 @@ In a previous study from JPL's Cryobot concept regarding ice communications \cit
 	\label{fig:bigSlush}
 \end{figure}
 
-
 % Effect on link design
 \subsubsection{Considerations for Link Sizing and Antenna choice}
+The results exposed in Figures \ref{fig:unaffected}, \ref{fig:smallSlush} \& \ref{fig:bigSlush}, show that extraordinary steps must be taken in order to design an antenna to establish a wireless link embedded in ice, specially with impurities present that increase the conductivity of the medium. In the modeling carried in this study the "slushy" trail is considered an obstacle in the near-field and the main effect for the antenna pattern is an increase in the side-lobe level, and this effect is proportional to the size and impurity content of the "slushy" trail. Nevertheless, having the ability to properly model this scenario can provide better insight to achieve the best link performance.
 
-\paragraph{High Directivity Link}
+\subsubsection{Possible link solutions}
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{figures/comms/iceLink-p2p-HighD}
-	\caption{ \textit{DRAFT} Sol I.}
+	\caption{Sol I. Using high gain antennas for the link provides better margin at the desired depth, but the beamwidth makes an increase in the risk of losing line of sight between lander and penetrator in the case of a tilting of any of the vehicles.}
 	\label{fig:iceLink-p2p-HighD}
 \end{figure}
-
 % LD Link
-\subsubsection{Low Directivity Link}
+%\subsubsection{Low Directivity Link}
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{figures/comms/iceLink-p2p-LowD}
-	\caption{ \textit{DRAFT} Sol II.}
+	\caption{Sol II. This solution is will also reach the desired depth of $10km$ but with losing margin, in turn, the line of sight risk is greatly reduced.}
 	\label{fig:iceLink-p2p-LowD}
 \end{figure}
 
 % Ice embedded relays
-\subsubsection{Relay Link}
+%\subsubsection{Relay Link}
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{figures/comms/iceLink-relay}
-	\caption{ \textit{DRAFT} Sol III relays.}
+	\caption{Sol III. This solution provides a the greatest redundancy for the possible link but at an increased complexity in design, since each buried relaying transceiver would require a dedicated RTG and repeater computer or processor.}
 	\label{fig:iceLink-relay}
+\end{figure}
+
+\subsubsection{Design Recommendation}
+
+A trade off in design complexity and performance can be made if a high gain antenna is used for the lander if careful considerations are taken to take any tilting of the lander into account. The penetrator should carry two antennas, an with increased gain each in a scheme of low (with full hemisphere coverage behind the penetrator) and a higher gain antenna. In the following section a better detail is given for the higher gain antenna and how the ice link is capable of performing under the conditions given at Europa.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=.66\textwidth]{figures/comms/beamW-coverageFromSurf}
+	\caption{According to the specific beamwidth, over the thousands of meters the penetrator will melt through, there will be line of sight with the pentrator.}
+	\label{fig:beamCover}
 \end{figure}
