@@ -1,22 +1,6 @@
-\section{Earth-to-Orbiter}
-\iffalse
-1. Introduction and considerations for the link
-   1. General Considerations for a Deep Space Mission
-   2. HG Link
-   3. MG Link
-   4. LG Link
-   5. Telemetry Uplink/Downlink
-   6. Data Downlink
-   7. Safe Mode
-1. Link Drivers
-   1. Dataload
-   2. Spacecraft Attitude
-1. Link Budget
-2. Solution Proposal
-3. Drivers to other systems
-\fi
-
-\input{laser-communication}
+%   This is repeated, I moved it to CommunicationSystems.tex
+%       \section{Earth-to-Orbiter} 
+%       \input{laser-communication}
 
 \autsection{Surface-to-Orbiter}{Rasmus Lundby Pedersen}
 As it was discussed in the section covering the initial considerations associated with the full communication system, it was decided that using the orbiting satellite as a relay-station, in stead of transmitting data directly to and from earth to Europa, was a viable solution for the collective communication systems design.\\
@@ -106,7 +90,7 @@ Where $\eta_0$ in the intrinsic wave-impedance given by $\eta_0=\frac{\mu_0}{\ep
 The normalized radiation pattern, $E_{norm}=E\cdot \frac{4\pi r}{\beta_0 I_0 l}$ was calculated in matlab for $h=0$, $\frac{1}{4}\lambda$, $\frac{1}{2}\lambda$, $\frac{3}{4}\lambda$ and $\lambda$ (The script can be seen in appendix \ref{app:rasmusmatlab}) and plotted as seen on figure \ref{fig:Lobes}. The field intensity will vary with $\phi$, but the influence is practically so small for the purpose that it's set to 0.  
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.75\textwidth]{figures/Rasmus/Lopes}
+	\includegraphics[width=0.75\textwidth]{figures/Rasmus/LobesReport}
 	\caption{Theta-variant of the radiation pattern for the crossed half-wave dipole antenna.
 	\label{fig:Lobes}}
 \end{figure}
@@ -154,12 +138,6 @@ Total                & 4                    & $0.2\cdot 10^{-3}$        & 40    
 \label{tab:commsurf}
 \end{table}
 The power and weight costs seem to be within reasonable ranges. 
-\subsubsection{Future Work}
-\iffalse
-There are two major subjects that could be investigated in the future for preparation of the mission.\\
-\\
-\fi
-A more detailed link-budget could be achieved if we assumed that the transmission power could be varied with distance between the surface-module and the orbiter during the transmission window. As of now, we assume a worst case scenario with a distance of $6600\,\mathrm{km}$, but this is not a realistic value. The actual required power tied to this distance will be significantly lower.\\
 
 \iffalse
 1. Introduction and considerations for the link

@@ -85,14 +85,13 @@ The two structures are compared in table (\ref{tab:score_system_structure}). It 
 
 From the score table (\ref{tab:score_system_structure}), it can be seen how the overall performance will be better with the second approach. The dual camera approach will require more physical resources and more from the support systems. However, it performs well at both the primary and the secondary objectives and it operates the high and low resolution cameras at the same time, avoiding multiple flybys. In addition, it contains redundancy to a certain degree. If one camera fails, all objectives can still be completed but the system will operate at a lower performance. If the WAC fails, it may be difficult to get a large enough coverage of the surface, due to the narrow field of view of the remaining camera. It will also require clever post-processing\footnote{Such as Image stitching, combined with averaging to create low resolution maps from the high resolution imaging.} of the high resolution images, to make up for the lack of surface coverage. If the NAC fails, it will be more complicated to provide high resolution imaging, due to the small focal length of the WAC. In this case, it will be necessary to operate the WAC at a lower altitude.
 
-To improve the redundancy and the reliability of the system structure, an extra WAC should be included in the design, as this is the most important and smallest camera\footnote{The WAC is assumed to be small, due to the relatively small focal length} of the two. It could even be operated together with the primary WAC, to increase the surface coverage or to capture stereo imaging. The NAC is also important, as it makes it possible to generate high resolution images at the same time as the WAC operates. However, due to physical constraints, it is not possible to bring two complete telescope\footnote{A telescope is assumed, due to the large focal length required by the NAC.} assemblies. As an alternative, multiple detectors can be added to the telescope, making it possible to switch if one detector fails. As it is most likely that only the detector will fail due to the radiation and not the telescope assembly itself, this is a good and efficient solution to the redundancy problem. 
-\subsection{Telescope and Sensor}
-Telescopes/lens that will be considered for the camera system. 
-\todo[inline]{Suggested telescope types based on LROC, LORRI, ISS (Ifikratis)}
-\subsection{Sensor}
-\todo[inline]{Suggested sensor types (Ifikratis)}
-When selecting the sensor for the camera, there are several factors that must be considered\cite{sbig2014}. 
-\todo[inline]{http://www.astro-imaging.com/Tutorial/MatchingCCD.html}
+To improve the redundancy and the reliability of the system structure, an extra WAC should be included in the design, as this is the most important and smallest camera\footnote{The WAC is assumed to be refracting, due to the relatively large field of view} of the two. It could even be operated together with the primary WAC, to increase the surface coverage or to capture stereo imaging. The NAC is also important, as it makes it possible to generate high resolution images at the same time as the WAC operates. However, due to physical constraints, it is not possible to bring two complete telescope\footnote{Due to the large focal length required by the NAC, a telescope is assumed.} assemblies. As an alternative, multiple detectors can be added to the telescope, making it possible to switch if one detector fails. As it is most likely that only the detector will fail due to the radiation and not the telescope assembly itself, this is a good and efficient solution to the redundancy problem. 
+%Telescopes/lens that will be considered for the camera system. 
+%\todo[inline]{Suggested telescope types based on LROC, LORRI, ISS (Ifikratis)}
+\subsection{Sensor Considerations}
+%\todo[inline]{Suggested sensor types (Ifikratis)}
+When selecting the sensor for the camera, there are several factors that must be considered. While a specific sensor will not be selected for the design, it is still important to keep these factors in mind to ensure a realistic design.  
+%\todo[inline]{http://www.astro-imaging.com/Tutorial/MatchingCCD.html}
 \begin{description}
 \item[Field of View] The WAC and the NAC will require a specific field of view (FOV), as the purpose for the cameras are different. The field of view that will be seen by the camera is determined by the physical size of the sensor and the focal length of the telescope. A larger sensor will have a larger field of view, at a given focal length. If the FOV is kept fixed, a large sensor will require a larger focal length to maintain the FOV. This will require a larger lens or telescope\cite{sbig2014}. 
 
@@ -100,24 +99,25 @@ The focal length affects the physical requirements of the design and should ther
 \item[Sensitivity] The sensitivity of the sensor is determined by several factors; the pixel size and quantum efficiency\cite{sbig2014}. The quantum efficiency (QE) of the sensor measures how efficient the photons are converted into electrons. A higher QE will result in a greater sensitivity and the sensor will therefore require less time to capture an image, when compared to a sensor with a lower QE\footnote{Assuming an equal signal to noise.}. The efficiency is usually dependent on the wavelength. As each sensor is designed for a specific task, a sensor designed for capturing visible light (and preferably reject any other wavelengths) will not be very useful for an imaging spectrometer, operating outside the visible range. It is therefore important to verify the working range for the sensor.
 \item[Resolution and Pixel Size]
 It is also important to consider the pixel size for the sensor. If the pixels are too small, the object will be sampled with more pixels than necessary (oversampling). If the pixel is too big, the image will fall within the pixel\footnote{Assuming a projected image, with a diameter smaller than the pixel size} and the sensor will reproduce the object as a 1 pixel square (undersampling). This problem is illustrated in figure \ref{fig:pix_size_compare}.
-\begin{figure}[h]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.4\textwidth]{figures/Orbiter/pixel_size_compare.jpg}
 \caption{The pixel size should be selected according to the projected image, \cite{andor2016}.}
 \label{fig:pix_size_compare}
 \end{figure}
 If the object is slightly larger, it will still only be reproduced as a single pixel, with four slightly dim pixels surrounding it. However, when the image covers more than three pixels, the circular object is clearly reproduced. The goal is to sample the object with two to four pixels. This will give the best balance between sensitivity and resolution\cite{sbig2014}. Naturally, the actual object size will depend on the telescope focal length. Matching the sensor pixel size and the focal length will therefore be essential to get high enough sensitivity, without sacrificing resolution.
-\item[Speed]
-\todo[inline]{readout speed, as required by the calculations}
-\item[Dark Current]
-\todo[inline]{dark current}
-\item[Rad-hard]
-\todo[inline]{sensor rad hard}
+\item[Speed] The readout speed and therefore the maximal framerate is important to consider, when selecting sensors. Estimated data rates will be calculated to ensure the final design will be realistic.
+%\todo[inline]{readout speed, as required by the calculations}
+%\item[Dark Current]
+%\todo[inline]{dark current (ifikratis)}
+%\item[Rad-hard]
+%\todo[inline]{sensor rad hard (ifikratis)}
 \end{description}
-\todo[inline]{Actual sensor selection missing}
-\subsection{Spacecraft Pointing and alignment}
-\todo[inline]{Tip tilt mirror - top down imaging vs. rotating - coverage?}
-\todo[inline]{Which types of camera "movement" will be used to get larger coverage? Tip Tilt? etc.}
+%\todo[inline]{Actual sensor selection missing}
+%\subsection{Spacecraft Pointing and alignment}
+%\todo[inline]{Akis: Spacecraft Pointing and alignment }
+%\todo[inline]{Tip tilt mirror - top down imaging vs. rotating - coverage?}
+%\todo[inline]{Which types of camera "movement" will be used to get larger coverage? Tip Tilt? etc.}
 \subsection{Imaging Spectroscopy}\label{sec:imaging_spectroscopy}
 By combining conventional imaging with spectroscopy, it is possible to obtain both the spatial and spectral information of the lunar surface. This combination is commonly known as imaging spectroscopy. This is illustrated in figure \ref{fig:spectral_information}. In this illustration, the spectral bands has been separated using the white lines. Hyperspectral imaging uses many, relatively narrow bands. In comparison, multispectral imaging uses fewer, broader bands, resulting in a lower spectral resolution. 
 \begin{figure}[htb!]
@@ -252,10 +252,10 @@ A dual camera system structure, using both a NAC and a WAC is proposed for the f
 
 The two cameras will be very suited for capturing both low and high resolution imaging at the same time. Some of the secondary objectives are better suited with the WAC (lander tracking and opnav imaging) whereas both cameras will be suited for the geolocation operation. The two cameras can substitute each other to a degree, providing built in redundancy. Therefore, the mission can still continue, if one camera fails. However, as the WAC is complicated to replace, it is suggested that a secondary WAC is included as a backup. Operating the primary and secondary WAC together will also make it possible to increase the surface coverage and make it possible to generate stereographic images. 
 %\todo[inline]{diagram of the imaging system structure}
-\subsection{Telescope and Detectors}
-\todo[inline]{Which design has been selected for Telescope and Detectors and why?}
-\subsection{Spacecraft Pointing and alignment}
-\todo[inline]{Selecting the Final pointing method and argument for this selection}
+%\subsection{Telescope and Detectors}
+%\todo[inline]{Which design has been selected for Telescope and Detectors and why?}
+%\subsection{Spacecraft Pointing and alignment}
+%\todo[inline]{Selecting the Final pointing method and argument for this selection}
 \subsection{Imaging Spectroscopy and Acquisition}
 Combining the suitable parts from both the filter wheel and the wedge spectrometer results in the proposed solution for this subsystem. The wedge filter provides the spectral data but can be removed from the sensor, making it possible to capture the full frame images suited for the secondary objectives. In this way, high performance is ensured for both the imaging and spectroscopy mode. 
 
@@ -264,12 +264,12 @@ The system design remains simple, but requires slightly more moving parts for sw
 Image acquisition can be done in two different ways, when using the wedge spectrometer - using whisk-broom or push-broom. The main difference is the coverage or swath\footnote{Swath; the width of the lines sweeping over the surface} per flyby. Naturally, a large coverage is required to minimise the number of flybys required, making push-broom a suitable image acquisition method. This approach will require a 2D array detector, as each spectral channel has a matching area on the detector. The detector will capture a full frame at a time but the spectral data will be structured in individual areas on the detector. As the data are structured in this fashion, it is necessary to process and store the images, before they can be transmitted to the ground station.
 %\subsection{System Flaws}
 %\todo[inline]{System flaws? Is this the best solution?}
-\subsection{Similar Systems}
-\todo[inline]{Currently Available NAC/WAC - See powerpoint (Ifikratis)}
-\todo[inline]{What changes will be necessary to adapt the current systems?}
-\newpage
+%\subsection{Similar Systems}
+%\todo[inline]{Currently Available NAC/WAC - See powerpoint (Ifikratis)}
+%\todo[inline]{What changes will be necessary to adapt the current systems?}
+%\newpage
 \section{Support Systems Overview}
-\todo[inline]{Is the support system section complete?}
+%\todo[inline]{Is the support system section complete?}
 The imaging system requires several support systems that will either be provided as part of the imaging system or shared between the other systems on the orbiter. A comparison of the cost drivers for the different support systems are shown in table \ref{tab:design_cost_driver}. Only a few of the support systems are not shared with other on-board instruments.
 \begin{table}[htb!]
   \centering
@@ -292,7 +292,7 @@ The imaging system requires several support systems that will either be provided
 \subsection{Attitude Determination and Control}
 To ensure the stability and achieve the correct orientation of the orbiter, a complete attitude determination and control system will be needed. The four gravity assist flybys, along with the planned close encounters with Europa, needed for surface imaging, increase the requirements for high accuracy and reliability of the attitude subsystem.
 
-The closest approach to Europa is at a distance of 100 km, using a flyby speed of 3.3 km/s and an angular velocity of approximately 0,002rad/s (or 0,1146$^{\circ}$/s). This defines the steering and pointing accuracy requirements of the orbiter. 
+The closest approach to Europa is at a distance of 100 km, using an average flyby speed of 3.3 km/s and an angular velocity of approximately 0,002rad/s (or 0,1146$^{\circ}$/s). This defines the steering and pointing accuracy requirements of the orbiter. 
 \begin{table}[htb!]
   \centering
     \begin{tabular}{|p{4,7 cm}|p{4,7 cm}|p{4,7 cm}|}
@@ -352,8 +352,8 @@ For the proposed attitude determination system, a set of four micro-Advanced Ste
   \label{tab:masc}%
 \end{table}%
 Selection of the proposed combination assures an autonomous and high accuracy pointing of the imaging system and the pointing of the high gain antenna toward Earth as well. 
-\subsubsection*{Imaging System Requirements}
-This sub system is required to make it possible for the surface imaging to follow a specific pattern, increasing the surface coverage. The accuracy of the attitude control is partially driven by the specific accuracy requirements by the imaging system. However, attitude control is a crucial part of the navigation and orbit determination. Attitude control is also required to maintain a stable communication link to the ground station. 
+%\subsubsection*{Imaging System}
+This subsystem is required to make it possible to follow a specific pattern, increasing the surface coverage. The accuracy of the attitude control is partially driven by the specific accuracy requirements by the imaging system. However, attitude control is a crucial part of the navigation and orbit determination. Attitude control is also required to maintain a stable communication link to the ground station. 
 
 As previously suggested, the imaging system could be used to generate the opnav images used for orbit determination. Using the imaging system for both mapping and for tracking could be possible, but it may be difficult to do it at the same time. It may also require a different camera design, as both the relatively bright lunar surface and the dark star background must be possible to photograph.
 
@@ -373,15 +373,19 @@ However, the imaging system will require a very high structural stability to mai
 \subsection{Power Systems}
 Power system design utilises a single General Purpose Heat Source - Radioisotope Thermoelectric Generator (GPHS-RTG) Fig.\ref{fig:rtg}. The deep space nature and the multi-year duration of this mission, renders the use of an RTG necessary. At a 5.2 AU distance from the sun, selection of a solar PV-battery configuration is considered prohibited, taking into account the weak solar flux and the limited the mass budget. Furthermore, excess thermal power produced by the RTG can be exploited for the heating needs of the internal electronic components.
 
-\subsubsection*{General Purpose Heat Source - RTG} 
-Utilizing the natural decay of plutonium-238 oxide (with 83.9\% , GPHS-RTG is capable of delivering a power output of 290 watts of electrical power at BOL. With a long half-life of 87.7 years, fuel is able to provide up to 40,000 operational life-hours making it the ideal choice for our long duration mission. However a 0.8\% annual decrease of thermal power output is expected, reaching 250 watts at EOL. $PuO_2$ is encapsulated into 18 modules with the form of pellets, with each module providing 245 watts of thermal power, with a total output of 4,410 watts. Each pellet is contained within a welded iridium alloy for safety reasons, to avoid oxidation in case of an impact. A thermionic converter made of 572 silicon-germanium thermoelectric elements uses the thermal power produced from the decaying material, converting it to electrical power. Nominal hot shoe temperature is about 1270 K and the converter can reach efficiencies up to 7\%. The whole GPHS-RTG module has a diameter of 0.422 m and length of 1.13 m and weights approximately 56 kg. Total amount of fuel required, stands at 10.9 kg of $PuO_2$ with 9.71 kg being plutonium-238.
+%\subsubsection*{General Purpose Heat Source - RTG} 
+Utilizing the natural decay of plutonium-238 oxide (with 83.9\% , GPHS-RTG is capable of delivering a power output of 290 watts of electrical power at BOL. With a long half-life of 87.7 years, fuel is able to provide up to 40,000 operational life-hours making it the ideal choice for our long duration mission. However a 0.8\% annual decrease of thermal power output is expected, reaching 250 watts at EOL. $PuO_2$ is encapsulated into 18 modules with the form of pellets, with each module providing 245 watts of thermal power, with a total output of 4,410 watts. Each pellet is contained within a welded iridium alloy for safety reasons, to avoid oxidation in case of an impact. 
+
+A thermionic converter made of 572 silicon-germanium thermoelectric elements uses the thermal power produced from the decaying material, converting it to electrical power. Nominal hot shoe temperature is about 1270 K and the converter can reach efficiencies up to 7\%. The whole GPHS-RTG module has a diameter of 0.422 m and length of 1.13 m and weights approximately 56 kg. Total amount of fuel required, stands at 10.9 kg of $PuO_2$ with 9.71 kg being plutonium-238.
+
 \begin{figure}[htb]
 \centering
 \includegraphics[scale=0.6]{figures/Orbiter/rtg.png}
 \caption{GPHS-RTG cutaway. \cite{rtg}}
 \label{fig:rtg}
 \end{figure}
-Orbiters power system design integrates the second RTG module on board the lander, in order to compensate any power needs higher than the available output of the orbiters power source. The imaging system will not be the primary design driver for this part, as the power system will be required - with or without an imaging system. It is also important to consider that the imaging system will mainly be operating, when the penetrator and lander is still docked on the orbiter. At this point, the penetrator and its instruments will not be operating.
+
+The power system design of the orbiter integrates the second RTG module on board the lander, in order to compensate any power needs higher than the available output of the orbiters power source. The imaging system will not be the primary design driver for this part, as the power system will be required - with or without an imaging system. It is also important to consider that the imaging system will mainly be operating, when the penetrator and lander is still docked on the orbiter. At this point, the penetrator and its instruments will not be operating.
 \subsection{Radiation Shielding}
 The radiation environment of Jupiter can be very demanding for any mission in respect to the necessary protection needed against highly energetic particles. Protons and other heavy ions fluxes appear similar to other interplanetary missions. On the other hand, high electron fluxes should be considered the main danger of this mission.
 Below in fig. \ref{fig:eleprotflux}, the expected electron and proton fluxes are presented for one year duration trajectory. Estimated flux was calculated based on the final orbit selection of the orbiter.
@@ -403,7 +407,7 @@ Below in fig. \ref{fig:eleprotflux}, the expected electron and proton fluxes are
 Results are summarized on table \ref{tab:particleflux}. 
 % Table generated by Excel2LaTeX from sheet 'Sheet1'
 
-\begin{table}[h]
+\begin{table}[htb]
   \centering
     \begin{tabular}{|c|c|c|}
     \hline
@@ -492,13 +496,13 @@ The CCD of the optical instrument makes the shielding design slightly more compl
 %\todo[inline]{dynamic radiation shielding?}
 \newpage
 \section{Imaging System Design}
-\subsection{Telescope and Lens}
-When designing the telescope, the required ground resolution and the working range are important parameters to consider. At this point, the ground resolution is known but the orbit parameters has not been completely specified. Therefore, it is assumed that the working range of the imaging system will be between 2000 and 100 km during the flyby while the mpp should be 100 m/pixel for the WAC and 0.5 m/pixel for the NAC.
-\todo[inline]{Refer to ifikratis Cassini image analysis}
+\subsection{Telescope and Camera}
+When designing the telescope, the required ground resolution and the working range are important parameters to consider. At this point, the ground resolution is known but the orbit parameters has not been completely specified. Therefore, it is assumed that the working range of the imaging system will be between 2000 and 100 km during the flyby while the mpp should be 100 m/pixel for the WAC and 0.5 m/pixel for the NAC, as previously defined.
+%\todo[inline]{Refer to ifikratis Cassini image analysis}
 The specified ground resolution for the WAC refers to the required resolution at the far distance of the orbit, 2000 km. The ground resolution of the NAC refers to the resolution when at the closest approach, as it is not realistic to maintain a resolution of 0.5 m at 2000 km. 
 
 For the following analysis, the sensor parameters and the required resolution has been specified in table (\ref{tab:ccd_calc_parameters}). These parameters are used for all the remaining calculations and estimates.
-\todo[inline]{refer to CCD selection}
+%\todo[inline]{refer to CCD selection}
 \begin{table}[htb!]
   \centering
 \begin{tabular}{l|l|r|r|l}
@@ -549,7 +553,15 @@ The results are shown in table \ref{tab:telescope_calc}
     \caption{The resulting telescope parameters and ground resolution.}
   \label{tab:telescope_calc}%
 \end{table}%
-\todo[inline]{CCD, Focal Length and resolution, Aperture Selection}
+%\todo[inline]{CCD, Focal Length and resolution, Aperture Selection}
+%\subsection{Telescope and Camera considerations}
+The telescope system consists of a Narrow Angle Camera (NAC) and a Wide Angle Camera (WAC). Both systems are mounted on the orbiter chassis and are composed by a telescope and a CCD sensor. the NAC provides the high resolution images of Europa, with a ground resolution of up to 0.5 m/pixel while the WAC provides context and full coverage of the antijovian facing hemisphere at a worst case resolution of 100 m/pixel, but with a much larger field of view.
+
+The NAC system is the heaviest as the telescope required has a considerable mass. A relatively large focal length of 1480 mm will be necessary and an aperture of 20cm are required to achieve the high resolution and good sensitivity following the example of the CASSINI ISS system. The telescope is a refractor type, based on the Ritchey–Chrétien telescope (RC) design, providing a flat focal plane for the large CCD sensor while avoiding third-order coma and spherical aberrations. The telescope is made in an open truss design, to minimize weight and is focused to infinity. However a stepper motor on the secondary mirror is included to correct possible movement of the focal point during launch and take out thermal variations. The whole telescope is located inside the spacecraft body's thermal blanket to minimize radiation exposure, provide thermal stability and also cut out stray light. Additionally a dedicated baffle tube is used in the front part of the aperture improving contrast. Europa's high albedo and Jupiter in the background are expected to add significant stray light. Moreover a door cover is kept closed when no observations are planned, to avoid accumulating radiation coming from aperture's area.
+
+As for the camera itself, a rectangular CCD with large pixels (7-15um) is be preferred for low noise and high signal-to-noise ratio characteristics while minimizing damage from protons, electrons and heavy ions of Jupiter's radiation belts. The charge particles moving at very high speeds are expected to accumulate their charges in the CCD's pixels and create a matrix of noise if no action is taken. For that reason, the CCD camera is itself enclosed in a Cesium-Iodine (CsI) active shield, following the Nustar heritage. The CCD detector is mounted on a radiator plate that radiates the heat to the outside of the spacecraft in order to lower the dark current. 
+
+The WAC system is composed by a refractor telescope with a relatively small focal length of 148 mm and like the NAC system, it will be enclosed in the spacecraft's body.
 \subsection{Imaging Spectrometer}
 Based on the initial analysis in section \ref{sec:imaging_spectroscopy}, imaging spectrometry has been selected to provide data for the surface composition analysis. The wedge spectrometer is a relatively new technology but it is possible to buy linear wedge filters for hyperspectral imaging purposes. Due to the limited knowledge about this part of the design, a specific model of linear wedge filter has not been selected.
 
@@ -562,8 +574,7 @@ The imaging spectrometer will likely be limited to operate within a range of aro
 \label{fig:ice_assessment_spectra}
 \end{figure}
 
-The second paper focuses on assessment of snow and glaciers using imaging spectroscopy\cite{negi2015a}. The spectra in figure (\ref{fig:ice_assessment_spectra2}) illustrates the change in reflectance, when the ice is contaminated with soil, ash or coal and the different reflectance, when the surface has different features. It can be seen how most of the critical spectral data identifying the specific glacial surface is found within the visible region, 400 to 1000 nm.
-
+The second paper focuses on assessment of snow and glaciers using imaging spectroscopy\cite{negi2015a}. The spectra in figure (\ref{fig:ice_assessment_spectra2}) illustrates the change in reflectance, when the ice is contaminated with soil, ash or coal and the different reflectance, when the surface has different features. It can be seen how most of the critical spectral data identifying the specific glacial surface is found within the visible region, 400 to 1000 nm, as shown in Figure \ref{fig:ice_spectra_contamination}.
 \begin{figure}[htb!]
     \centering
     \captionsetup[subfigure]{width=0.45\textwidth}
@@ -1026,7 +1037,7 @@ When recording multi spectral data, the coverage will be the same as the previou
 \textbf{9} & 1717.8 & 1     & 1457.1 & 72.9  & 74605.5 & 0.0   & 0.1   & 15797.2 \\
 \textbf{10} & 1908.7 & 1     & 2000.0 & 100.0 & 102400.0 & 0.0   & 0.1   & 15810.1 \\
 \end{tabular}}%
-  \caption{The total data generated by the WAC with the spectrometer enabled, during a flyby}
+  \caption{The total data generated by the WAC with spectrometer, during a flyby}
   \label{tab:wac_flyby_data_spectrometer}%
 \end{table}%
 \begin{table}[htb!]
@@ -1048,7 +1059,7 @@ When recording multi spectral data, the coverage will be the same as the previou
 \textbf{9} & 1717.8 & 100   & 1457.1 & 7.3   & 74.6  & 44.2  & 92.8  & 108288.9 \\
 \textbf{10} & 1908.7 & 100   & 2000.0 & 10.0  & 102.4 & 32.2  & 67.6  & 121188.4 \\
 \end{tabular}}%
-    \caption{The total data generated by the NAC with the spectrometer enabled, during a flyby}
+    \caption{The total data generated by the NAC with spectrometer, during a flyby}
   \label{tab:nac_flyby_data_spectrometer}%
 \end{table}%
 
@@ -1175,10 +1186,11 @@ As previously mentioned, a coverage of 6.51\% will require at least five flybys 
 From these estimates, it can be concluded that close to 3.56 GB must be transferred to the ground station, before landing on the surface. Compression techniques has not been considered at this point but may help to reduce the data load further. 
 
 The spectral data are not included in the first set of data. After the initial assessment of the data, the ground station will request higher resolution imaging and spectral data from specific regions. Using current technologies, a solid state storage system with more than 360.85[GB] should be realistic to design. However, 360.80[GB] may be too much data to transfer, even during the total mission lifetime. Therefore, it is expected that the data must be filtered and compressed by the processing system, before they are transferred to the ground. In all cases, data prioritising is necessary.
+\newpage
 \section{Conclusion}
-The proposed imaging system consists of a dual camera structure, using both a narrow angle camera (NAC) and a wide angle camera (WAC). While this system structure requires a more complicated design, it is also very flexible and will make it possible to perform both the primary and secondary imaging objectives with high performance. The WAC provides a ground resolution of 100 m/pix at 2000 KM whereas the NAC provides a ground resolution of 0.5 m/pix at 100 KM. These specifications should provide a good set of imaging data for the landing site selection
+The proposed imaging system consists of a dual camera structure, using both a narrow angle camera (NAC) and a wide angle camera (WAC). While this system structure requires a more complicated design, it is also very flexible and will make it possible to perform both the primary and secondary imaging objectives with high performance. The WAC provides a ground resolution of 100 m/pix at 2000 KM whereas the NAC provides a ground resolution of 0.5 m/pix at 100 KM. These specifications should provide a good set of imaging data for the landing site selection.
 
-The surface imaging is not the primary mission objective so a versatile system has been designed, providing valuable data for other groups and systems, including navigation, lander and attitude control. As two cameras are provided, they can substitute each other to a degree, providing built in redundancy. If one camera fails, the mission can still continue but at a lower performance. However, as the performance will be severely degraded when operating without the wide angle camera, it has been suggested to bring two of this camera type as it is critical for the mission. This will in turn make it possible to increase the surface coverage per flyby and could also open up for the possibility of stereographic imaging of the surface.
+The surface imaging is not the primary mission objective so a versatile system has been designed, providing valuable data for other groups and systems, including navigation, lander and attitude control and providing subsystems that can be valuable for the other designers too. As two cameras are provided, they can substitute each other to a degree, providing built in redundancy. If one camera fails, the mission can still continue but at a lower performance. However, as the performance will be severely degraded when operating without the wide angle camera, it has been suggested to bring two of this camera type as it is critical for the mission. Bringing a space WAC has the added bonus of increasing the surface coverage per flyby.
 
 Enhancing the imaging system with imaging spectroscopy capabilities makes it possible to provide spectral data of the Europa surface. Different systems has been investigated and the most suitable, the wedge spectrometer has been selected for the final design. The sensor used for the camera is expected to capture within the visible region, using a range of 400 to 1000 nm. When imaging spectroscopy is used to assess the surface material composition, the near IR and IR ranges are often used. As the sensor is not capturing in this region, it limits the usability of the spectrometer. While the system is still usable for an ice surface assessment, it is suggested that a different sensors are considered for the final design to expand the spectral data into the IR domain.
 
@@ -1191,8 +1203,8 @@ The flyby duration has been estimated to 32 s. For each flyby, the WAC will gene
 In the final proposal, the spectrometer will only be operating at ground resolution ranges of 5m/pixel to 50m/pixel, as higher resolutions will not be essential for the mission. The WAC will be used for the spectrometry, as it is operating at a low data rate and can supply the required ground resolution. When operating both the WAC and the NAC, a peak data rate of 148.68 MB/s (at 100 KM) must be processed by the imaging system. The spectrometer is enabled at this distance, hence the high data rate. The NAC accounts for the remaining 13.5 MB/s. Each flyby will then generate 65.06 GB of spectral data, a fairly large amount when compared to non spectral imaging. However, only the regions of interest (ROIs) will be investigated further by the ground station, reducing the transferred data significantly. The remaining data can be transferred whenever a communication window is available. 
 
 If all imaging and spectral data are stored, a total of 360 GB (raw data) must be stored on the orbiter,  excluding the buffered data from the lander and penetrator. This may be too much to transfer, even during the total mission lifetime. Therefore, it will be necessary to filter and compress the data before transmission. As the calculations were done using a worst case pixel resolution of 16, reducing this to 8 bits before transmitting the data could also be an efficient way to cut the data load in half.
-\todo[inline]{mass and volume, shielding, power req}
-\todo[inline]{imaging system requirements}
-\todo[inline]{image system conclusion}
+%\todo[inline]{mass and volume, shielding, power req}
+%\todo[inline]{imaging system requirements}
+%\todo[inline]{image system conclusion}
 %\subsection{Calibration and Alignment}
 %\subsection{Calibration and Alignment}
