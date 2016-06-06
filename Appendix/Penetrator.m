@@ -1,8 +1,8 @@
 %% Outer pressure of Penetrator. Solving for a specifc pressure
 clear all 
 close all 
-penetrator = 1;
-submarine = 0; 
+penetrator = 0;
+submarine = 1; 
 
 %Choose metal used for the penetrator 
 Titanium = 1; 
@@ -64,9 +64,9 @@ if penetrator == 1
     strain = (ys/2)/young*100; % deformation in percentage
     
 elseif submarine == 1
-    p_o = 100e6; %Outer pressure set to 12MPa
+    p_o = 140e6; %Outer pressure set to 12MPa
     p_i = 0; %Inner pressure set to zero
-    ro = 0.03; %Outer radius
+    ro = 0.05; %Outer radius
     
     % Calculating inner radius
     ri = ri(p_o,p_i,ro); 
@@ -207,7 +207,7 @@ grid on
 ylabel('Temperature difference [K]','fontweight','bold','fontsize',12)
 xlabel('Length of pipe [m]','fontweight','bold','fontsize',12) 
 
-%% Thermocouple
+%% Thermocouple Area needed
 % Dimension of pellets: 1.4mm*1.4mm*1.12mm 
 %Power from 127 pellets
 P_127 = 7; % W 
@@ -220,9 +220,9 @@ A_rtg = r_rtg*1.2*2*pi*h_rtg %Total circumference of rtg [m^2]
 A_pellet/A_rtg;
 
 %% Calculation of the mass of the heat pipes
-%Inconel
-ys = 170e6; % yield strength Mpa
-rho = 8470; % density kg/m^3
+%Silver
+ys = 140e6; % yield strength Mpa
+rho = 10490; % density kg/m^3
 
 fos = 2; %factor of safety
 
@@ -238,7 +238,6 @@ ri = ri(p_o,p_i,ro);
 ri = double(ri(1));
 thickness_pipe = ro-ri;
 
-%Design of heat pipes: 18 vertical pipes: 6 high, 12 low. 17 toros needed
 h_high = 1.4;
 
 V_pipe = pi*(ro^2-ri^2)*h_high*6;
@@ -246,72 +245,3 @@ Vi_pipe = pi*ri^2*h_high*6;
 
 V_total = V_pipe+Vi_pipe;
 m_pipe=V_pipe*rho
-
-%% Given two inner radii calculate the stree
-% clear all 
-%  
-% p0=80e6;
-% ro = 0.2; 
-% ri = [0.1 0.15];
-% for i = 1:length(ri);
-%     r(:,i) = ri(i):(ro-ri(i))/9:ro;
-%     for j = 1:10;
-%         sigma_r(i,j) = p0*ro^2/(ro^2-ri(i)^2)*(ri(i)^2/r(j,i)^2-1);
-%         sigma_theta(i,j) = -p0*ro^2/(ro^2-ri(i)^2)*(ri(i)^2/r(j,i)^2+1);
-%     end 
-% end
-% 
-% sigma_total = sigma_r + sigma_theta;
-% for k = 1:length(ri)
-%     figure
-%     plot(r(:,k),sigma_r(k,:),r(:,k),sigma_theta(k,:),r(:,k),sigma_total(k,:))
-%     legend('\sigma_r','\sigma_\theta','\sigma_{total}')
-%     title(['ro = 0.2m and ri =' num2str(ri(k)) 'm and Pressure =' num2str(p0) 'Pa'])
-%     xlabel('Radius')  
-%     ylabel('Stress')
-% end 
-% 
-% %% External pressure for one value
-% clear all 
-% 
-% p0=15e6;
-% ro = 0.1; 
-% ri = 0.09; 
-% r = ri:(ro-ri)/9:ro;
-% sigma_r_ex = p0*ro^2/(ro^2-ri^2)*(ri^2./r.^2-1);
-% sigma_theta_ex = -p0*ro^2/(ro^2-ri^2)*(ri^2./r.^2+1);
-% sigma_total_ex = sigma_theta_ex+sigma_r_ex;
-% 
-% p_int = 10e6;
-% sigma_r_int = p_int*ri^2*(1-ro^2./r.^2)/(ro^2-ri^2);
-% sigma_theta_int = p_int*ri^2*(1+ro^2./r.^2)/(ro^2-ri^2);
-% sigma_total_int = sigma_theta_int+sigma_r_int;
-% 
-% sigma_theta= sigma_theta_int+sigma_theta_ex;
-% sigma_r = sigma_r_int + sigma_r_ex;
-% sigma_total = sigma_theta+sigma_r;
-% 
-% subplot(1,2,1)
-% plot(r,sigma_r_ex,r,sigma_theta_ex,r,sigma_total_ex)
-% legend('\sigma_r','\sigma_\theta','\sigma_{total}')
-% title(['ro = 0.2m and ri =0.95m and Pressure =' num2str(p0) 'Pa'])
-% xlabel('Radius')  
-% ylabel('Stress')
-% subplot(1,2,2)
-% plot(r,sigma_r_int,r,sigma_theta_int,r,sigma_total_int)
-% legend('\sigma_r','\sigma_\theta','\sigma_{total}')
-% title(['ro = 0.1m and ri =0.09m and Pressure =' num2str(p_int) 'Pa'])
-% xlabel('Radius')  
-% ylabel('Stress')
-% 
-% figure
-% plot(r,sigma_r,r,sigma_theta,r,sigma_total)
-% legend('\sigma_r','\sigma_\theta','\sigma_{total}')
-% title(['ro = 0.1m and ri =0.09m and Pressure =' num2str(p_int) 'Pa'])
-% xlabel('Radius')  
-% ylabel('Stress')
-% 
-% h = 0.4;
-% V = pi*(ro^2-ri^2)*h;
-% m=V*4.5*1000;
-
