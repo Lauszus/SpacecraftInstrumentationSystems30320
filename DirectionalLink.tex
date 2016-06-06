@@ -238,7 +238,8 @@ Parabolic dish antennas are very directional, high gain antennas, which are used
 \label{table: dish}
 \end{table}
 
-, where G is the gain in dBi, D is the diameter of the parabolic reflector in metres and k is the efficiency factor which is generally around 50\% to 70\%. The parabolic reflector antenna gain efficiency is dependent upon a variety of factors, which are all multiplied together to give the overall efficiency. These factors are radiation efficiency, aperture taper efficiency, spillover efficiency, surface error, cross polarization, etc. The design of a parabolic antenna is way more complex, so in order to achieve very good results optimization of the feed point and a choice between different type of dish implementations must take place. By different type of dish implementations is meant, the Cassegrain, Gregorian or off-axis design. In the context of this section, we will not go any further because as it is clear from the results shown in table \ref{table: dish}, a parabolic antenna in this frequency range and under the restriction in diameter can not be really directional. Although, the gain levels are sufficient if we would like to go with a more wide HPBW.  
+\noindent
+Where G is the gain in dBi, D is the diameter of the parabolic reflector in metres and k is the efficiency factor which is generally around 50\% to 70\%. The parabolic reflector antenna gain efficiency is dependent upon a variety of factors, which are all multiplied together to give the overall efficiency. These factors are radiation efficiency, aperture taper efficiency, spillover efficiency, surface error, cross polarization, etc. The design of a parabolic antenna is way more complex, so in order to achieve very good results optimization of the feed point and a choice between different type of dish implementations must take place. By different type of dish implementations is meant, the Cassegrain, Gregorian or off-axis design. In the context of this section, we will not go any further because as it is clear from the results shown in table \ref{table: dish}, a parabolic antenna in this frequency range and under the restriction in diameter can not be really directional. Although, the gain levels are sufficient if we would like to go with a more wide HPBW.  
 
 
 
@@ -309,23 +310,23 @@ Solving the above equations for different substrates, as seen in figure (\ref{su
 \noindent
 Knowing from antenna theory that the radiating slots of a patch antenna can be seen as two independable dipoles, we can use this approximation to find the gain using the array factor (AF). If we assume a assume a dielectric constant, which compromise size and efficiency, we can choose the RO4003 from \ref{table: subs300} or \ref{table: subs400}. Thus, if the area below our lander vehicle is 1 $m^2$ we can design a 6 element patch array antenna with element's size 377x244 mm if we are go for the lower frequency of 300 MHz. According to Balanis' approximated formulas we can have directivity for each slot equal to 4 dB and around 5.8 dB for the whole antenna (two slots). In order to increase the directivity using the array design of 6 elements we can achieve a half power beamwidth about $40^{\circ}$, as it can be seen in figure (\ref{array}). In case we design the antenna for 400 MHz, the patch size will be smaller, thus more antennas can be placed to the available space. Always we have to consider that higher frequencies correspond to higher losses and in case of patch antennas without any substantial increase in gain and beamwidth.
 
-\begin{figure}[ht]
+\begin{figure}[htb]
 \centering
-\includegraphics[width=.75\textwidth]{figures/Yannis/2results.jpg}
+\includegraphics[trim={0 0 0 2cm},clip,width=.7\textwidth]{figures/Yannis/2results.jpg}
 \caption{Half power beamwidth for an antenna array of 6 microstrip antennas (red curve) and for an antenna array of 12 microstrip antennas (blue curve). Both are pointing at broadside.}
 \label{array}
 \end{figure}
 
 Finally, in order to determine the the gain we have to know the radiating efficiency. As it has stated, taking into account the absence of the necessary dedicated software for antenna analysis, such as HFSS and CST, we are trusted the results from \cite{substrates} as they are shown in figure (\ref{array result}). The last step is to find the gain of the antenna. The designing characteristics of the aforementioned antenna of 6 elements are summing up in table (\ref{table: results}).
 
-\begin{figure}[ht]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=.75\textwidth]{figures/Yannis/results.jpg}
 \caption{Fractional bandwidth, antenna efficiency and radiating efficiency for a single patch antenna. The measurements reported in \cite{substrates} correspond to frequency 10 GHz, although due to poor dependence of these quantities from frequency we can use them for our approximations.}
 \label{array result}
 \end{figure}
 
-\begin{table}[ht]
+\begin{table}[htb]
 \centering
 \begin{tabular}{| c | c | c | c | c | c | c | c |}
 \hline
