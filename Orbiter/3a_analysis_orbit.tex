@@ -7,6 +7,7 @@ The Europa Life Finder Mission starts with launch from the Earth. The launch veh
 \caption{$\Delta V$ – optimized Jupiter gravity assisted trajectories from 2011 to 2031. \cite{petropoulos2000a}}\label{fig:grav_ass_traj}
 \end{figure}
 
+\noindent
 Selecting a favourable flyby path is a factor of minimizing cost and at the same time maximizing payload and time of flight (TOF) time. Also, reducing arrival hyperbolic speed ($V_{\infty}$) means less excess speed for the Jupiter orbiter insertion burn to take out and so less fuel needed for the burn. As we can see from figure 3.1, an opportunity of reaching Jupiter through Venus – Earth – Mars and Earth flybys, launching in May 28, 2023 will provide the least arrival excess speed while keeping the launch $V_{\infty}$ requirement low (Launch $V_{\infty}$=3.25Km/s). The VEGA orbit was used successfully by the latest Jupiter orbiter mission, Galileo as shown in figure 3.2.
 
 \begin{figure}[htb!]
@@ -154,6 +155,7 @@ V_\infty=V_{SC,A}-V_J
 \label{fig:capture}
 \end{figure}
 
+\noindent
 The approach hyperbolas for a specific flyby are varying according to their aiming radius $\Delta$ as can be seen in figure \ref{fig:joihyp}. Our mission incoming asymptote will have a periapsis radius which in our case will be between the orbits of Europa and Ganymede, at a radius of $r_p=865000km$ (12$R_J$) from Jupiter. At this point, we are aiming to be captured into Jupiter orbit with the lowest amount of propellant spent. This will allow the mission to carry the maximum effective payload to Europa. 
 
 \begin{figure}[htb!]
@@ -163,6 +165,7 @@ The approach hyperbolas for a specific flyby are varying according to their aimi
 \label{fig:joihyp}
 \end{figure}
 
+\noindent
 To get into orbit, the spacecraft needs to fire its engine in the anti-velocity (retrograde) direction and remove the excess delta-V at the hyperbolic periapsis. The amount of delta-V reduction is depending on the type of capture orbit we want to achieve. In our case, the most fuel efficient option will be a highly eccentric orbit (e=0.9) around Jupiter with an orbital period of 165 days. The speed at the periapsis of hyperbolic trajectory is given by the formula:
 \begin{equation}
 V_{hyp,p}=\sqrt{V_{\infty}^{2}+\frac{2\mu}{r_p}}
@@ -199,6 +202,7 @@ A_e&:exit/nozzle \text{ area ratio}\\
 \label{fig:rocketim}
 \end{figure}
 
+\noindent
 Dividing the thrust equation with the mass rate, we define the equivalent velocity:
 \begin{equation}
 v_{eq}=\frac{F}{\dot{m}}=v_e+\frac{(p_e-p_o) A_e}{\dot{m}}
@@ -248,6 +252,7 @@ Cassini's engine characteristics and the Europa Life Finder Mission are shown in
   \label{tab:propulsion}%
 \end{table}%
 
+\noindent
 Using the engine thrust equations, the calculated fuel mass for the JOI burn has the requirements specified in table (\ref{tab:joi_burn_req}).
 
 \begin{table}[htb!]
@@ -289,6 +294,7 @@ In order to further reduce the calculated propellant mass required for the JOI b
   \label{tab:joi_burn}%
 \end{table}%
 
+\noindent
 For figures (\ref{fig:joicloseup}), (\ref{fig:joifull}), the STK software was used to simulate and test our calculations for the JOI burn. Initial conditions were given: 1) the spacecraft total wet mass (7300 Kg), 2) the perijove aim radius (865000 Km), 3) burn time (262.7 min). Also the selected propulsion system was used /ref{tab:propulsion}. The The Summary report of the calculation agrees with our estimated parameters, as seen in figure (\ref{fig:stk_report1}) and (\ref{fig:stk_report2})
 
 \begin{figure}[htb!]
@@ -354,6 +360,7 @@ Except Jupiter, the four largest Jovian moons gravity models was used in the sim
     \caption{Gravity models used in simulation(source: NASA, Horizons, NAIF).\cite{Gravm}}\label{tab:gravf}
 \end{table}%
 
+\noindent
 In order to perform the required orbits and manoeuvres calculations by the simulation engine, a series of commands are written in a logical sequence. The software uses a differential corrector to solve a problem of initial conditions, given a set of orbital goals. 
 The core of the commands can be synopsised in the following sequence:
 
@@ -365,6 +372,7 @@ The core of the commands can be synopsised in the following sequence:
   \item Propagate at apoJove
 \end{itemize}
 
+\noindent
 At the end of each iteration, the resulting orbital period is checked. $B\cdot R$ and $B\cdot T$ targets are altered until the desired orbital period is achieved. Then, the same iteration sequence is run for calculating the upcoming Ganymede flyby. The achieved resonances of orbit two, three and four (orbit one equals to capture orbit) are 9:1, 6:1 and 3:1 respectively. 
 Table (\ref{tab:boardm}) shows an overview of the apoJove burns and flyby $\Delta V$ parameters. Assumed 5426Kg wet mass after JOI burn in the Ganymede initial pump-down scenario. The new wet mass after a burn is always taken into account in the calculations. Engine ISP=300s and Engine thrust=500N. OX-BX indicate the apoJove burns, while with GX and EX are noted the in sequence Ganymede and Europa flybys.
 
@@ -477,6 +485,7 @@ and the total $\Delta V$ is perpendicular to the moon velocity (\ref{fig:cotgeo}
     \caption{Flyby geometry}
 \end{figure}
 
+\noindent
 The COT sequence will begin will outbound flybys and cover the anti-jovian facing hemisphere of Europa which is tidally locked. The groundtracks as calculated by Brent Buffigton et al. \cite{cotseq} can be seen at figure \ref{fig:ground_tr} for a 3:1 resonant Europa COT sequence.
 
 \begin{figure}[htb!]
@@ -486,6 +495,7 @@ The COT sequence will begin will outbound flybys and cover the anti-jovian facin
 \label{fig:ground_tr}
 \end{figure}
 
+\noindent
 Furthermore, illumination of the moon is a crucial part of the reconnaissance as long as the landing phase. As Europa rotates around Jupiter the antijovian hemisphere will experience a 3.5 days day-night period. As shown before, the resonant orbit's perijove is also the flyby point. That means that changing the orbit's argument of periapsis ($\omega$) the line of nodes can be rotated. While at the same time keeping the resonance of the orbit, the orbiter can experience different illumination conditions on the antijovian Europa hemisphere. This shift can be achieved by using the COT sequence by cranking up the inclination and pumping down the orbit period in order to use a Europa to Ganymede pi-transfer \cite{cotseq}. As the lander requirements is find a landing spot in the antijovian hemisphere, the lighting conditions change will not require an 180 degree shift for a full moon coverage. Instead a total of 90 degree of Europa illumination rotation would be sufficient.  
 \section{Flyby geometrical configuration}
 As the orbiter flybys Europa, the physical orientation of the spacecraft should be maintained in order to fulfil mission goals. This is especially important in the pre-landing phase of the mission, when the ERIS (Europa Reconnaissance Imaging System) will be used to cover the surface and find candidate landing sites. 
@@ -505,6 +515,8 @@ Depending on the flyby coverate goal, a flyby can either target the leading edge
 \caption{Flyby geometry targeting the trailing edge antijovian hemisphere (Ifikratis Kamenidis, STK software).}
 \label{flyby2}
 \end{figure}
+
+\noindent
 As the orbiter flybys Europa, the orientation of the cameras and so of the spacecraft is paramount for achieving the precise targeting. We are interested in maximizing coverage by the least amount of flybys to prolong mission life (less TID possible) as the mission goal is to land on the surface and reach the subsurface ocean by a penetrator. 
 Two different imaging geometry configurations are considered. 
 
