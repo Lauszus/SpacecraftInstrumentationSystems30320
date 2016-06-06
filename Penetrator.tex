@@ -79,6 +79,15 @@ Søren Jeppesen
 
 Rotary drilling is an alternative to the previously mentioned methods for ice drilling. On Earth, this method is used primarily on rock formations and is suitable for medium and hard drilling environments. Rotary drilling utilizses a sharp and heavy drill bit made with eiter tungsten, steel, or diamond in order to cut up hard rock. This type of drilling leaves little remains, and as most ice drilling is focused on retrieving samples, this method is not commonly employed for this task. For the Europa Life Finder Mission, ice samples from the drill is not an immediate concern and so rotaty drilling could be a better option for drilling than the previously mentioned methods. Figure \ref{fig:drill_bit} features common designs for the drill bit of rotary drills.
 
+\autsubsection{Explosive Drilling}{Ricard Grove}
+Explosive drilling is another drilling method and in the following will be described why explosive drilling is not a valid solution. An explosion is a fast release of a large amount of energy and resulting in an increase in volume. One of the problems by using explosives is that when exploding all the energy that is released will be released in all directions, so if explosions should be efficient it would be a good idea to bury the explosives in the ice. Another problem will then arise because the whole point of drilling is to get vertically down. Therefore one big explosion will be inefficient since a lot of the energy will be released to the sides instead of downwards, which means that many small explosions are needed. If exploding ice the ice will not will but rather crack which also makes it difficult to estimate how deep a hole an explosion will create. After an explosion some kind of device is needed to remove the ice that is blown to pieces and again dig a hole to the new explosives. \\
+
+\noindent
+Additionally another huge problem arises if using explosives, namely that explosives are going to create huge environmental damage and comprises the idea of planetary protection. The mission objective is to find life which will be done partly by observing molecules in the environment. Using explosives it will not only kill the life that could be found on Europa it would also infest Europa with the remains of the explosion and hereby the molecule observations misleading.\\
+
+\noindent
+Playing with the thought that the explosive drilling would be a legit candidate for the drilling method, one of the first consideration to be made is the choice of explosive material. One of the most important characteristics in this case is the sensitivity of the material, i.e. how stable the material is. An explosive material can either detonate when the material is exposed for a shock, friction or if it reaches a specific temperature. In this case a sensitive material has to be chosen because especially at launch on Earth and descend on Europa the whole spaceborne module will be exposed to a high acceleration and temperature. Plastic explosives could hereby be a good choice. Just as an example C-4 has really stable and insensitive to both heat and shock, where the energy released is about 6 MJ/kg. Since the ice will not melt but crack it is difficult to estimate the energy needed to reach through 10 km of ice, but for the melting it requires about $10^{10}J$ to melt the ice. So assuming that all the energy will be delivered to the ice column more than 1.5 ton of c-4. This is without taken into account that a lot of the energy will spread like shock wave through the ice. Experiments with ice explosions is needed if more precise values are wanted, but the negatives or explosive drilling are too high to compete with the other drilling methods.
+
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[scale=0.4]{figures/RCS/drill_bit}
@@ -113,41 +122,61 @@ The weight of drill bit for rotary drill can be seen below on figure \ref{fig:dr
 
 \subsection{Light Concentration Drilling}
 
-%\subsection{Melting Considerations} % Lukas, KSL
 \input{Penetrator/IceSimulation}
 
 \input{Penetrator/DebrisRemoval}
 
-\autsection{RTG design}{Ricard Lladó Grove}
-
-\autsection{Pressure Distribution on Europa}{Ricard Lladó Grove} \label{sec:Pressure}
-Europa's atmosphere is really thin: approximately $10^{-11}$ times smaller than the atmosphere of Earth\cite{hall1995a}. Hereby it can be approximated that there is no pressure on the surface of Europa. Hereby the pressure will only depend on ice-layer above the penetrator which will increase in thickness while descending. The pressure can be calculated by: 
+\autsection{Pressure Distribution on Europa}{Ricard Grove}\label{sec:Pressure}
+Europa's atmosphere is extremely thin: approximately $10^{-11}$ times smaller than the atmosphere of Earth\cite{hall1995a}. Hereby it can be approximated that there is no pressure on the surface of Europa which means that the pressure will only depend on ice-layer above the penetrator which will increase in thickness while descending. The pressure can be calculated by: 
 \begin{equation}
 P = \rho_{ice} g h
 \end{equation}
-where $\rho_{ice}$ is the density of ice and is approximately $\SI{917}{\kilo\gram\per\cubic\metre}$\cite{cutnell2007a}, $g$ is the gravitational acceleration measured in $m/s^2$ and $h$ is the depth of the penetrator. The gravitational acceleration can be calculated by:
+where $\rho_{ice}$ is the density of ice and is approximately $\SI{917}{\kilo\gram\per\cubic\metre}$\cite{cutnell2007a}, $g$ is the gravitational acceleration measured in $m/s^2$ and $h$ is the depth of the penetrator. The gravitational acceleration can be calculated by following equation:
 \begin{equation}\label{eq:graviacc}
 g = \frac{GM}{r^2}
 \end{equation} 
-where $G = 6.67\cdot 10^{-11}\frac{m^3}{s^2 kg}$ is the gravitational constant, $M = 4.8\cdot 10^{22}\text{kg}$ is the mass of Europa and $r = \SI{1569}{\km}$ is the radius of Europa\cite{website:propeuropa}. Equation \ref{eq:graviacc} is only valid if the mass of the penetrator is much smaller than the mass of Europa which is a valid approximation since the total mass of the penetrator will maximum be 180 kg. Since the gravitational acceleration is inversely proportional with the radius squared, $g$ will increase with increasing depth since the radius will decrease. Illustrated in figure \ref{fig:Pressure} the pressure in MPa is plotted as function of depth both for a constant 
-
-
-The mass distribution will also change since now there will be mass above you which will pull you in that direction, but on the other hand you will be closer to the mass on the other side of the planet. Therefore the change in gravitational acceleration depends on the distribution of the mass on Europa, and especially how dense the core is which in this case is unknown. 
- 
-Due to uncertainties of where we land and hereby also the radius of Europa, since Europa is elongated the radius will depend on the landing site. It  
- 
- 
+where $G = 6.67\cdot 10^{-11}\frac{m^3}{s^2 kg}$ is the gravitational constant, $M = 4.8\cdot 10^{22}\text{kg}$ is the mass of Europa and $r = \SI{1569}{\km}$ is the radius of Europa\cite{website:propeuropa}. Equation \ref{eq:graviacc} is only valid if the mass of the penetrator is much smaller than the mass of Europa which is a valid approximation since the total mass of the penetrator will maximum be 180 kg. In the following it is assumed that Europa is a symmetrically sphere. Hereby the gravitational acceleration depends on the depth of the penetrator since the radius of the sphere will decrease and so will the mass. The radius decreases with a factor $r^2$ but since the mass of a sphere is proportional to $r^3$ which means that $g$ is linear proportional to $r$. This means that the gravitational acceleration will decrease the closer to the core of Europa the penetrator is and if in the center of Europa the gravitaional acceleration would be the same in all directions which means they would cancel out. This is a consequence of Newton's shell theorem if assuming that Europa's mass distribution is completely uniform \cite{website:shelltheorem}. This is not the case for Europa since we know that the top layer of Europa is ice. In figure \ref{fig:Pressure} the pressure in MPa inside Europa is plotted as function of depth in km both for a constant gravitational acceleration in blue, and for when $g$ is varying with depth in red.  
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/Ricardo/pressure.eps}
-  \caption{Illustration of distribution of pressure on Europa with both a constant and varying gravitational constant in blue and red, respectively}
+  \caption{Illustration of distribution of pressure on Europa with both a constant and varying gravitational acceleration in blue and red, respectively}
   \label{fig:Pressure}
 \end{figure}
+From figure \ref{fig:Pressure} it is seen that the pressure increases with depth which was expected. With a depth of 10 km it is seen that the pressure is approximately 12 MPa for both cases which is about 118 bars, where 1 bar is 101 kPa. 10 km is what the maximum depth of the ice-layer is and it is therefore crucial that the penetrator can withstand such a pressure. Furthermore it can be seen that using the varying gravitational acceleration we actually get a slightly higher pressure compared to a constant $g$ which is the opposite of what was expected. The varying gravitational acceleration is calculated as following: 
+\begin{equation}\label{eq:varygrav}
+g = \frac{G \left(M - \frac{4}{3} \pi (r^3-(r-h)^3 \cdot \rho _{ice}\right)}{(r-h)^2}
+\end{equation}
+From \ref{eq:varygrav} it can be seen that the mass that is subtracted from the total mass of Europa is calculated using the density of ice. Since the density of ice is lower that the average density of Europa, which is:
+\begin{equation}
+\rho_{Europa} = \frac{M_{Europa}}{V_{Europa}} = \SI{2967}{\kilo\gram\per\cubic\metre}
+\end{equation}
+we will get a lower decrease in gravitational acceleration than expected. If a submarine was to be launched from the penetrator to explore the ocean it would have to withstand a higher pressure than the penetrator if it should go deeper. It is unknown how deep the ocean is but sources expect up to 100 km thick water-layer. The pressure would at 110km depth be between 131 and 141 MPa depending on if a constant or varying gravitational acceleration is chosen where the density for water, $\rho_{water} = \SI{1000}{\kilo\gram\per\cubic\metre}$, is used. Europa is not a perfect sphere but rather closer to an ellipsoid and it is unknown how thick the ice-, water- and rock-layer of Europa are. Therefore the pressure is only a approximation that simplifies the geometry of Europa and hereby the calculations for the pressure. Calculations are showed in appendix \ref{app:ricard}.
 
 
+\autsection{Penetrator thickness}{Ricard Grove} 
+After having chosen the material that is going to be used for the penetrator it is possible to calculate thickness of the penetrator shell to be able to withstand the pressure high pressure that the penetrator would be exposed to. For a cylinder the pressure can be calculated as following\cite{website:cylinderpressure}:  
+\begin{equation}\label{eq:pressure}
+\sigma = -2\frac{r_{outer}^2}{r_{outer}^2-r_{inner}^2}P_{ext} + \frac{(r_{outer}^2+r_{inner}^2)}{(r_{outer}^2-r_{inner}^2)}P_{int}
+\end{equation}
+where $\sigma$ is the stress on the material, $P_{ext}$ and $P_{int}$ is the external and internal pressure, $r_{outer}$ and $r_{inner}$ is the outer and inner radius. The stress that the material can withstand depends on the yield strength of the material which for the titanium was 827 MPa. Yield strength the stress where a material starts to deform permanently, compared to when the material only deforms elastically and will return to its prior shape. In order to ensure that the titanium is able to withstand the pressure, a factor of safety of 2 is used which means that the maximum expected stress exerted on the titanium is only half of the actual yield strength of titanium. The outer radius of the penetrator is set to 10 cm and the outer pressure was found to be 12 MPa at 10 km depth which was the expected maximum thickness of the ice-layer. Assuming an internal pressure of zero it is then possible to isolate the inner radius to calculate the thickness of penetrator shell. 
+\begin{equation}
+r_{inner} = \frac{\sqrt{\sigma(2P_{ext}+\sigma)r_{outer}}}{\sigma} = 0.0971 m
+\end{equation}
+The inner radius is hereby 9.71 cm which gives a thickness of 2.9 mm titanium with a factor of safety of 2, i.e $\sigma = 827/2 = 413.5 \text{MPa}$. Assuming that the tip of the penetrator will be close to spherical which is stronger than a cylindrical it can be assumed that it can withstand the pressure if the cylinder is able to. With a density of $\SI{4.43} {\gram\per\cubic\cm}$ the mass can be calculated since the volume of the shell can be calculated when knowing the dimensions and thickness of the penetrator: 
+\begin{equation}
+\begin{aligned}
+m_{pen} & = V_{pen}\cdot \rho = \left(V_{cyl. shell}+V_{sphere. shell}\right) \cdot \rho_{titanium} \\
+& = \pi(r_{outer}^2-r_{inner}^2)h_{pen} + \frac{4}{3}\pi(r_{outer}^3-r_{inner}^3)\\
+& = 12.9 kg
+\end{aligned}
+\end{equation}
+Hence the mass of the penetrator shell will be 12.9 kg. The inner volume of the penetrator can be calculated as the volume of the penetrator shell where using only the inner radius instead of the difference between the outer and inner radius. An inner volume is found to be 45.3 litres. The calculations above does not take into account the deformation of the titanium. The young modulus of titanium is 114 GPa and the deformation of the titanium can then be calculated assuming that the stress is proportional to strain (Hookes Law): 
+\begin{equation}
+\text{Deformation} = \frac{\text{stress}}{\text{Young modulus}}\cdot 100\% = \frac{413.5MPa}{114GPa} \cdot 100\% = 0.36\%
+\end{equation}
+Hence the deformation will only be 0.36\% and negligible. All calculations can be seen in appendix \ref{app:ricard}. 
 
-\section{RTG design}
-
+\section{RTG design}\label{sec:rtg}
 \autsubsection{Radioactive Sources}{Jean-Paul Breuer}
 A Radioisotope Thermal Generator (RTG), is essentially an nuclear battery that uses thermocouplers to convert the heat released by a selected radioactive source into electricity. Many radioactive sources exist which could serve the purpose of fuel for the RTG specific to this mission, but not all of the known radioactive isotopes would be efficient or viable for the task. There are three important characteristics to keep in mind when attempting to select the ideal radioactive isotopes.
 
@@ -171,9 +200,10 @@ Given the three main criteria, it is possible to exclude many isotopes immediate
 
 As can be seen from the table, Plutonium-238 and Americium-241 would seem like viable candidates for this mission; however, Americium requires further shielding due to it releasing gamma radiation along with the alpha particles. Strontium-90 is readily available as side products of nuclear reactors, but also requires heavy shielding due to the gamma particles, else it might damage the remainder of the electronics and instrumentation in the vicinity. Plutonium-238 is the ideal candidate, but is not currently found on Earth in sufficiently high quantities as it is only produced as a side product during enrichment for deployment in nuclear weapons. To get the materials in sufficiently high quantities, it would be required to reopen the nuclear facilities in Savannah River (USA), which would cost a significantly high amount of money and would also require a possibly annoying trudge through politics and policy.
 
-\autsubsection{Radiation from Pu238}{Ricard Lladó Grove}\label{sec:plutonium}
-After looking at the different materials, Plutonium-238 (Pu238) is the radioactive material that is going to be used for the mission due to the the half-life of 87.7, power production and the minimum radiation of gamma and neutrons. 
+\autsubsection{Radiation from Pu238}{Ricard Grove}\label{sec:plutonium}
+After looking at the different materials, Plutonium-238 (Pu238) is the radioactive material that is going to be used for the mission due to the the half-life of 87.7, power production and the minimum radiation of gamma and neutrons. \\
 
+\noindent
 The probability of a alpha-decay from a Pu238-atom is close to 100\%: 
 \begin{equation}
 ^{238}\text{Ph} \quad \rightarrow \quad ^{234}\text{U} \quad + \quad ^4 \text{He}
@@ -183,7 +213,7 @@ The alpha particle is relatively big with two protons and two neutrons and is th
 \noindent
 A bigger problem is the free neutrons that for example are emitted due to a spontaneous fission.  Neutrons do not have any electric charge and therefore they will not be stopped by an electric field making neutrons extremely penetrating. To stop a neutron it has to be absorbed by a nucleus or collide with a particle with same speed but opposite velocity and mass as the neutron. Since the materials used to shield alpha and beta particles, i.e. lead, has a rather small cross-section and few nuclei per unit mass, hence the neutron can easily pass trough the shielding. Furthermore if the neutron is absorbed in an atom it is possible that the created atom is radioactive as well. Therefore it is important to stop the neutrons, since they can cause a lot of damage if they hit the instruments on board the penetrator. In order to do so protium, a hydrogen atom with no neutron, can be used to absorb the neutron creating in deuterium. Water has a high number density to mass ratio, and is hereby optimal to use as a shielding against the free neutrons.
 
-\autsubsection{Heat Generation}{Ricard Lladó Grove}\label{sec:HeatGeneration}
+\autsubsection{Heat Generation}{Ricard Grove}\label{sec:HeatGeneration}
 After looking at the radiation from a Plutonium atom it was shown that the probability of an alpha decay is extremely high. Therefore it will in the following when calculating the energy outcome from a radiative decay be assumed that plutonium only radiates as an alpha decay. If a more precise result has to be achieved it is necessary to include the other modes of decay and also the whole decay chain since if Pu238 emits an alpha particle U234 is produced. This isotope is also radioactive even though its lifetime is 2.400 years which means that the thermal energy generated is much lower for U234. It is first after 12 decays that the decay chain ends with the stable isotope of lead: Pb206\cite{website:plutonium}. To calculate how much energy one alpha decay will produce, the energy equation derived from Einstein is used:
 \begin{equation}
 \begin{aligned} 
@@ -218,10 +248,12 @@ Hereby the heat production is reduced from 671 J to $671J \cdot 0.865 = 580J$. T
 \begin{equation}
 \frac{A}{A_0} = 2^{\frac{t}{\tau}} = 2^{\frac{7}{87.7}} = 0.946
 \end{equation}
-where  $t$ and $\tau$ are both measured in years. We see that with a half-life of 87.7 years there will after 7 years be 94.6\% of the brought plutonium is left. Hereby each kg of plutonium oxide will produce $580J \cdot 0.946 = 548.7J$ after 7 years which is the time where the RTG will be used to melt though the ice.
+where  $t$ and $\tau$ are both measured in years. We see that with a half-life of 87.7 years there will after 7 years be 94.6\% of the brought plutonium is left. Hereby each kg of plutonium oxide will produce $580J \cdot 0.946 = 548.7J$ after 7 years which is the time where the RTG will be used to melt through the ice.
 
+\autsubsection{Shielding}{Ricard Grove} \label{sec:shielding}
+As mentioned a typical shielding material is lead, but in this case zirconium would be a better choice, first of all because it has a melting temperature that is three times higher than lead, and second of all because the material is lighter but still offers the same quality of shielding. Additionally zirconium is not only really resistant to heat but also corrosion which means that even if it will be radiated heavily upon it will not lose its shielding effect \cite{website:zirc}. Zirconium does not stor the free neutrons, but since water will be used to transfer the heat generated by the PuO2 the water will work as shielding against the free neutrons. Hereby the PuO2 will first be shielded by zirconium and afterwards surronded by water which will be elaborated on in next section.
 
-\autsection{Thermal Design of RTG}{Ricard Lladó Grove}\label{sec:ThermalDesign}
+\autsubsection{Thermal Design of RTG}{Ricard Grove}\label{sec:ThermalDesign}
 The RTG will be used both as the electric generator and the thermal energy generator to melt through the ice. Here it is assumed that the electric power needed is about 150W and that the needed thermal energy required for melting is 2kW in order to get sufficient energy for melting through the ice at the desired rate at 100 days per kilometre. Hereby it is needed to produce 7.5\% extra thermal energy to produce the electrical energy. The energy will be generated by thermocouples which can create a voltage when a temperature difference between two metals that are connected by a wire. The thermocouples will be discussed later in section \ref{sec:thermocouples}. \\
 
 \noindent
@@ -229,60 +261,132 @@ As mentioned each kg of plutonium oxide will produce about 548J each each second
 \begin{equation}
 m_{PuO2} = \frac{2150W}{548 \frac{W}{kg}} = 3.92 kg \approx 4 kg 
 \end{equation}
-Hereby with 4 kg of plutonium dioxide sufficient energy is produced to melt through the ice. With a density of $\rho_{PuO2} = 11.46 g/cm^3$\cite{golovnin2001a} the total volume needed can be calculated for the plutonium rod by $V = m/\rho_{PuO2} \approx 0.34 litres$. Before calculating the radius of the rod consisting of plutonium oxide there has to be space to holes across the PuO2 where water can flow trough to get heated. An illustration of the design is shown in figure \ref{fig:RTGcenter}.
+Hereby with 4 kg of plutonium dioxide sufficient energy is produced to melt through the ice. With a density of $\rho_{PuO2} = \SI{11.46}{\gram\per\cubic\cm}$\cite{golovnin2001a} the total volume needed can be calculated for the plutonium rod by $V = \frac{m}{\rho_{PuO2}} \approx \SI{0.34}{\litre}$. Before calculating the radius of the rod consisting of plutonium oxide there has to be space to holes across the PuO2 where water can flow trough to get heated. An illustration of the design is shown in figure \ref{fig:RTGcenter}.
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.5\textwidth]{figures/Ricardo/RTG3.png}
   \caption{Illustration of the design of the plutonium dioxide with a height of 30cm and a radius of 1.96cm}
   \label{fig:RTGcenter}
 \end{figure}
-Here the PuO2 is shown with 20 small holes with a radius of 1 mm. Many small holes are made to get a large area so the water more efficient will be heated up. Each hole will have a volume: $V = \pi r^2 h$. Since 20 holes are made in the material this volume will be added in the volume of the penetrator in order to get the right radius of the rod. It can be seen that with a height of 30 cm the radius of the rod will be 1.96cm. Hereby 
+Here the PuO2 is shown with 20 small cylindrical holes with a radius of 1 mm. Many small holes are made to get a large area where the water floes close to the PuO2 so it will be heated up more efficiently. Each hole will have a volume of: $V = \pi r^2 h$. Since the 20 holes goes through the PuO2 the volume of them will be added to the volume of RTG in order to calculate the radius of the PuO2. In this way the right volume will be calculated for the PuO2 when calculating the radius. It can be seen that with a height of 30 cm the radius of the rod will be 1.96cm.  A cylindrical rod has been chosen as the design for the radioactive material. As explained earlier a large area is wanted where water is flowing close to the RTG only separated by zirconium that is used as shielding from the radioactivity. With a elongated design of PuO2 it is possible to heat up the water more the same flow than if a square of PuO2 was chosen. Since the penetrator is cylindrical this shape is also chosen for the PuO2 as well. To make the further calculations it is assumed that the thin layer of zirconium shielding will be neglected . 
+
+\subsubsection{System design of the RTG} 
+In the following simplifies calculations will give an approximation of the heat transferred when the water passes through the plutonium oxide while getting heated and when the water delivers its thermal energy to the surroundings. In figure \ref{fig:RTGsystem} the design of the flow of water is illustrated. In the middle the heat is generated by the PuO2 with the structure illustrated in figure \ref{fig:RTGcenter}. Water is pumped through the 20 small holes inside of the PuO2 and furthermore water will surround the PuO2 with an outer radius about 1.2 wider than the radius of the PuO2 corresponding to about 4 mm. When the water has passed the PuO2 it will be divided into 6 pipes with a manifold. The pipes will start in the middle of the penetrator and spread out to the inner shell of the penetrator so the same distance between each of the pipes are achieved. When the hot water flows in the pipes they will transfer the heat to the penetrator shell that will transfer the heat to the ice on the other side of the shell. When the temperature of the water has decreased to the same amount as before heated they will as illustrated in figure \ref{fig:RTGsystem} go back to the PuO2 where the water will be slightly heated. Here we will have a temperature difference due to the hot water on one side and the cold water on the other which makes it an ideal place to but thermocouples to produce thermal energy which will be discussed later in section \ref{sec:thermocouples}. The slightly heated water will be used to keep the top of the penetrator hot enough not to freeze in, where it afterwards returns to the pump and restarts the cycle. 
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/Ricardo/RTG-system.png}
+  \caption{System design of the heat transportation with water flowing in the pipes}
+  \label{fig:RTGsystem}
+\end{figure}
 
 
-
- It is a good idea that the plutonium has a high surface area compared to the volume, because the heat was to be distributed to the water running in the heat pipes(maybe). Furthermore it is a good thing that the plutonium has the same shape as the penetrator. (Explanation to come) 
-
-
-\autsection{Energy generation}{Ricard Lladó Grove} \label{sec:thermocouples}
-In this case the efficiency of the thermocouples does not matter that much since all the thermal energy that are not converted to electrical energy will be used to warm up the water.
-
-\autsubsection{Shielding}{Ricard Lladó Grove} \label{sec:shielding}
-As mentioned a typical shielding material is lead,for this case zirconium would be a better choice, first of all because it has a melting temperature that is three times higher than lead, and second of all because the material is lighter. It is still not possible to stop the free neutrons, where we instead will use water. First the Plutonium will be surrounded by the zirconium, afterwards a layer of water and in the end some thermocouplers will generate electricity from the heat
-
-
-\autsubsection{Heat pipes}{Ricard Lladó Grove}\label{sec:heatpipes}
-To distribute the heat that is generated from the plutonium. In order to do so, the water will be under high pressure. If the pressure inside the pipe system is 50 bar, or around 5 MPa, the water has a boiling temperature at $264^\circ$C. This will give some advantages for the system in the sense that it is almost impossible to maintain a temperature below $100^\circ$C which is waters normal boiling point, when transporting 2kW of heat.\\
+\subsubsection{Heating of water}
+First of all it is possible to calculate how much the water surrounding the PuO2 will be heated up. In order to calculate the heating of the water following assumption is made: all the energy for the melting from the PuO2 will be absorbed by the water. This is a valid assumption because if the energy is not absorbed it will be stored in the PuO2 which increases the temperature of PuO2. When the temperature increases more of the heat generated will be transferred because the temperature difference will be increase. Hereby when the PuO2 has reached a certain temperature there will be an equilibrium where all the energy is absorbed by the water. The energy that the thermocouples uses in order to create electric energy is subtracted from this heating as well.
+The flow of the water in units of $\text{[kg/s]}$ can be calculated as: 
+\begin{equation}
+f = A_{cross} \cdot v \cdot \rho
+\end{equation}
+where $A_{cross}$ is the cross-sectional area of the water pipes and water surrounding the PuO2, $v$ is the velocity of the water which is the variable that can be changed in order to get a decrease or increase of the change in water temperature and $\rho_{water}$ is the density of water. The cross-sectional area can be calculated since all the parameters are known: 
+\begin{equation}
+A_{cross} = \left(r_{holes}^2 \cdot n + \left(1.2r_{PuO2}-r_{PuO2}\right) ^2 \right) \cdot \pi = 0.11 \cdot 10^{-3} m^2
+\end{equation}
+where n is the number of holes in the PuO2, $r_{holes}$ is the radius of the holes and $r_{PuO2}$ is the radius of the PuO2-rod.  The specific heat capacity of water is $C_p = 4219 \, \mathrm{J \, kg^{-1} \, K^{-1}}$ when the water is 100$^o$C \cite{website:water_dens}, which means that 1 kg of water needs 4219 J to increase the temperature with 1 Kelvin. If multiplying the water flow and the specific heat capacity of water it is possible to calculate how much energy is transferred to the water for each Kelvin, and for this case if the flow velocity is set to $\SI{0.03}{\metre\per\second}$ in order to get a comfortable heating of the water: 
+\begin{equation}\label{eq:waterheating}
+\begin{aligned}
+\text{Power per degree} & ={} f \cdot C_p \\
+& = A_{cross} \cdot v \cdot \rho \cdot C_p \\
+& = 0.11\cdot 10^{-3} m^2 \cdot \SI{0.03}{\metre\per\second} \cdot \SI{1000}{\kilo\gram\per\cubic\metre} \cdot 4219 \, \mathrm{J \, kg^{-1} \, K^{-1}} \\
+& = 14.05 \, \mathrm{W \, K^{-1}}
+\end{aligned}
+\end{equation}
+This means that for each Kelvin the temperature will increase, 14.05 W is needed Since the thermal energy for the melting is 2kW the temperature changes will be: 
+\begin{equation}\label{eq:waterheating2}
+\Delta T = \frac{\text{Power}}{\text{Power per degree}} = \frac{2kW}{14.05 \, \mathrm{W \, K^{-1}}} = \SI{142}{K}
+\end{equation}
+So with a velocity of 0.03 m/s which corresponds to the water flows past the PuO2 for 10 seconds since the height is 0.3 m, the temperature will have increased with 142 Kelvin. In this calculation it is also assumed that waters specific heat capacity is independent of the temperature which is not the case but the changes are negligible. Since water is used to transfer the heat, the water would boil if the temperature was to reach more than $100^oC$ as normal pressures, so to be able to heat up the water further, it has to be under a higher pressure. If the pressure inside the pipe system is 50 bar, or around 5 MPa, the water has a boiling temperature at $264^\circ$C. The velocity of the water can be decreased even further but with a 142$^o$C increase of temperature there is a good margin before the water begins to boil if assuming that the water is close to freezing point when entering the PuO2 region. If the water starts to boil the pressure will increase, the flow of the water will be decrease and a higher degree of corrosion could happen which all would be critical to the penetrator. \\
 
 \noindent
-The pipe system will consist of pipes surrounding the RTG in the bottom and middle of the penetrator. Since the RTG is 30 cm long the pipes will be this as well with 18 tubes cut in half. The water will then flow out to the 18 tubes in the outer part of the RTG. Since most of the heat of generated should be directed downwards 12 of the tubes only cover the lowest $1/4$ of the penetrator. The other 6 tubes will go all the way to the top of the penetrator in order to ensure that the penetrator will not freeze in because the top of the penetrator is too cold. With an internal pressure of 5MPa, the thickness of the tubes that have water in them will be around 1 mm depending on the material if the other radius of the tubes are 1.48 cm. The heat pipe system will then weight around 6 kg. Furthermore the system will take up 6.5 liters of space. 
+The flow-rate of the water will with a velocity of 0.03 m/s and an area of $0.11\cdot 10^{-3} m^2$ be 3.3 g/s or 12 litre per hour. With is a really low flow-rate. Furthermore the gravitational acceleration is almost one tenth of the one at Earth's surface and therefore less pumping power is needed. Therefore a customized pump system can be made that uses really low power an really small mass. 
 
-Insert image of top view of the pipe system and RTG. 
-Insert image of a sideways look of the system.
 
-\section{Selected Design}
+\subsubsection{Cooling of water}
+After the heating of the water it has to be deliver the heat to the surroundings. A manifold is a connection between a big pipe and several smaller pipes. In this case a manifold will be dividing the bigger pipe where water has just been heated into 6 smaller pipes. Any number can be chosen as long as the total water flow is the same in the whole water system. If more pipes are wanted the smaller should they be as long as there is symmetry so one side of the penetrator is not heated up more than the other. When the water flows in the pipes they will dissipate heat to the surroundings. Here it is assumed that the water will dissipate its heat only by convective heat transfer which is transfer of heat due to movements of fluid. The basic relation for convective heat transfer is given by:
+\begin{equation}\label{eq:convectiveheat}
+q = h \cdot A \cdot (T_a - T_b)
+\end{equation}
+where $q$ is the heat transferred which in this case will be all the heat that the water has absorbed from the PuO2 i.e. 2kW, $h$ is the convective heat transfer coefficient which for forced convection with a moderate flow of water in a pipe is about $3000 \, \mathrm{W \, m^{-2} \, K^{-1}}$\cite{website:waterconvection}, $A$ is the area of which the water is in contact with the surroundings, $T_a$ is the temperature of the surrounding of the water and $T_b$ is the temperature of the water. The temperature difference between the surroundings and the water can be defined as $\Delta T$. Looking at equation \ref{eq:convectiveheat}, $\Delta T$ is linear proportional to the heat transferred meaning that the higher temperature difference the more energy is transferred. Because of the linearity the average dissipation of energy can be calculated by using the average temperature difference between the surroundings and the water Assuming that the water will have dissipated all the heat that was absorbed when heated before it crosses the thermocouples it is possible to calculate how long the pipe has to be since the average temperature difference will be half of the increase in temperature when the water was heated: $\Delta T_{avg} = \Delta T_{heated} / 2 = 71^o$K. With 6 pipes a diameter of the pipes are chosen to be $1/20$th of the RTG's circumference, which is 6.2mm.
+The area of which is the pipe is in contact with the cold surroundings will be the circumference multiplied with the length of the pipe system. This is only valid if assuming that the material surrounding the water are able to transport the heat to the shell of the penetrator that will dissipate its thermal energy to the ice. With the mentioned approximations the length needed to dissipate the heat can be calculated by isolating the length in equation \ref{eq:convectiveheat}:
+\begin{equation}
+L_{pipe} = \frac{q}{h\cdot D_{pipe} \cdot \pi \cdot \Delta T_{avg} \cdot n} = \frac{2kW}{3000 \, \mathrm{W \, m^{-2} \, K^{-1}} \cdot \SI{0.0062}{\metre} \cdot \pi \cdot 71 \, \mathrm{K} \cdot 6} = \SI{0.08}{\metre}
+\end{equation}
+A length of 8cm is needed in order to dissipate the 2kW using an average temperature approximation. The question is how useful this approximation of the heat dissipation is, since one would think that the last part of the length of the pipe the temperature difference is much smaller than the beginning of the pipe and hence the cooling of the water would be non-linear. Therefore a more mathematical method has been used to estimate the heat dissipation where the flow rate of the water was taken into account to calculate the temperature distribution of the water along the whole length of the pipe. In order to do so a modification of equation \ref{eq:waterheating} and \ref{eq:waterheating2} are being used where the volume of the water times the densty of water are used instead of the flowrate. Hereby the temperature change can be calculated. The derivative of the temperature change will hereby be the change in temperature per second and the heat dissipated per second is given by equation \ref{eq:convectiveheat}. Reducing give following expression:
+\begin{equation}
+\begin{aligned}
+\frac{dT}{dt} & =  \quad {} \frac{q}{V\rho C_p} \quad = \quad \frac{hA\Delta T}{V\rho C_p}  \\
+& = \quad\frac{hA_{circ} dx \Delta T}{A_{cross} dx \rho C_p}\quad =\quad \frac{hA_{circ} \Delta T}{A_{cross} \rho C_p} \\
+& =\quad \frac{2\pi r}{\pi r^2} \frac{h\Delta T}{\rho C_p} \quad=\quad \frac{2}{r} \frac{h\Delta T}{\rho C_p} \\
+\end{aligned}
+\end{equation}
+where $V$ is volume and $v$ is the speed of the water. We end up with a differential equation that easily can be solved both as a function of time and as a function of length of the pipe, since $t = x/v$: 
+\begin{subequations}
+\begin{equation}
+T(t) =  T_0 + exp\left[-\frac{2ht}{r\rho C_p}\right]\cdot \Delta T
+\end{equation}
+\begin{equation}\label{eq:tdiff}
+T(x) =  T_0 + exp\left[-\frac{2hx}{r\rho C_p v}\right]\cdot \Delta T
+\end{equation}
+\end{subequations}
+Since the flow-rate of the water is know the velocity of the water can be calculating by isolating it in $f = A_{cross}\cdot v \cdot \rho \cdot n$, where n is the number of pipes, since the total amount of water will be divided equally in all the pipes. Illustrated in figure \ref{fig:watercool} the temperature difference between the outside and the water has ben plotted as function of the length of the pipe. 
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/Ricardo/watercooling.eps}
+  \caption{The temperature difference as function of length of the pipe}
+  \label{fig:watercool}
+\end{figure}
+It can from equation \ref{eq:tdiff} and figure \ref{fig:watercool} be seen that the temperature will not decrease linearly but exponentially. Additionally it can also be seen that the linear approximation estimated 8 cm length before all heat was dissipated, but with the differential method a length of 25 cm was achieved, where more than 90\% of the heat will be dissipated the first 10 cm which seems to be a more legit pipe length. For both cases it is assumed that the heat that is transferred into the penetrator shell from the hot water will have the same dissipation rate so an equilibrium temperature is achieved. The optimum would be a very good heat conductor as penetrator shell so the heat quickly will be transferred to the ice and a low temperature of the shell is acquired, which also has been discussed earlier. The same consideration should also be made of the material of the heat pipes which would also be most efficient if it had a high heat conductivity. \\
 
-* Sketch of overall design (use 3D models for the ice melting simulations)
+\noindent 
+In the following an estimate of the mass budget of the pipes are calculated. In order to do so equation \ref{eq:pressure} is used to get an estimate of how thick the pipes need to be in order to be strong enough to withstand the internal pressure of 50 bar from the water. In order to get a conservative estimate the factor of safety is 2 and the outer pressure is so to zero. Using a really highly conductive metal as for example silver for the pipe system the mass can be calculated by first calculating the thickness using equation \ref{eq:pressure}, but only looking at an internal pressure of 50 bar. With an outer radius of 3.1mm the inner radius is calculated to be 2.9 mm and the volume of the pipes surrounding the water will be $3.3 \cdot 10^{-5} m^3$, which will give a mass of 0.35 kg when the density of silver is 10.49 $g/cm^3$. 
 
-\subsection{Melting through the ice} % Lukas, KSL
+\subsubsection{Future work}
+With 25 cm the pipes will as illustrated at figure \ref{fig:RTGsystem} go to the inner radius of the penetrator along the bottom, hereafter it will follow the penetrator about 10 cm and hereafter go back to the outside of the RTG where the cold water will be used to get a high temperature difference between the hot water surrounding the RTG which will be used to generate electric energy. The cold water will be heated by the temperature difference and be transported further up through the penetrator to keep it from freezing and return to RTG afterwards. No following calculations of the top part of the heat pipe system will be discussed since much more complex calculations are needed in order to get more accurate values which has to be considered when the final design of the penetrator will be done. Another consideration is that the top of the penetrator will have small RTG's in the beginning due to the relay system. The heat generated from the small RTG's can be used to keep the top of the penetrator from freezing until they are deployed. This also leads to another consideration that has not been discussed for the thermal design of the penetrator, namely that the ice temperature will change with depth. Since the ice in near the surface has a lower temperature than the ice close to the water, more heat has to be used to avoid that the whole penetrator will freeze in. This is fortunate since the relay systems with the small RTG will only be deployed after a certain depth. On the other hand if the ice layer is much thinner than expected the relay systems will not be deployed and which would create problems for the anchoring system.\\
+ 
+\noindent
+All the calculations for the thermal design are only preliminary and it has to be elaborated and expanded in order to calculate the real heat flow. There are though many possibilities to change small parameters in the design in order to customize the heat transportation if the assumptions made in this section shows to be too simple. For example the flow rate could be changed, or the radius of the pipes where the penetrator shell will be heated or maybe change the number of pipes. All in all further testing and experimenting with the thermal design in order to validate the system. All calculations from this section can be seen in appendix \ref{app:ricard}. 
 
-\autsubsection{RTG Placement}{Jean-Paul Breuer and Ricard Lladó Grove}
+\autsubsection{Generation of electric energy}{Ricard Grove} \label{sec:thermocouples}
+As mentioned thermocouples will be used to directly generate electric energy from thermal energy. A current will be created when having a temperature difference between two different thermoelectric materials when they are joined in their ends. The higher the temperature difference the more power will be generated. In this case a tested model of thermocouple are going to be used as reference to the calculations taken from \cite{lau1997a}. A module of 127 couples with dimensions $1.4\text{mm}\times 1.4\text{mm}\times 1.15\text{mm}$ has been tested with the result illustrated in figure \ref{fig:thermocouple}.\\
+
+\begin{figure}[htb]
+  \begin{center}
+  \includegraphics[width=0.5\textwidth]{figures/Ricardo/thermocouples.png}
+  \caption{Graph illustrating the power produced as function of temperature of the hot side, where the cold side is 300K}
+  \label{fig:thermocouple}
+  \end{center}
+\end{figure}
+
+\noindent
+It can from figure \ref{fig:thermocouple} be seen that the the higher temperature difference the more power will be produced which was also the expected. Three different models are used to calculate the power output, where $P_{fea}$ was the most accurate but produced the least power. In our case the maximum temperature difference will be around 140K and at this difference there are almost no difference between the three modes. At this temperature difference each model with 127 pellets will produce around 7-8 W. To get 150 W the number of pellets necessary will be around 2700 pellets with the dimensions $1.4\text{mm}\times 1.4\text{mm}\times 1.15\text{mm}$. An approximation of how big an area the pellets will take can be calculated by multiplying the width and length of one pellet with the total amount of pellets needed. Hereafter it can be compare to the circumference of the water that surrounds the PuO2. Since the outer radius of the water column was designed to be $1.2\cdot r_{rtg}$ the circumference can be calculated. In this case the two ends of the cylinder of the water surrounding the PuO2 will not be taken into account but only the circumference of the tube. 
+\begin{subequations}
+\begin{equation}
+A_{pellet} = \frac{P_{total}}{P_{pellet}} \cdot \text{width} \cdot \text{length} = \frac{150W}{\frac{7W}{127}}\cdot \SI{0.0014}{\metre}\cdot \SI{0.0014}{\metre} = \SI{0.0053}{\square\metre}
+\end{equation}
+\begin{equation}
+A_{PuO2} = 2\pi\cdot 1.2r_{PuO2} h_{PuO2} = 2\pi\cdot \SI{0.0196}{\metre} \cdot \SI{0.3}{\metre} = \SI{0.0443}{\square\metre}
+\end{equation}
+\end{subequations}
+Hereby we see that the area needed to produce 150W easily can fit into on the circumference of the water surrounding the PuO2. It should also be taken into account that the difference in temperature is only 140K at the bottom of the RTG since it is here the surrounding water will be hottest. But since 2700 pellets only fill one eights of the available area the temperature difference will be close to 140K for all the pellets, and more pellets could easily be added to the design. Each pellet is 1.12mm high so the length of the pellets are not going to be any problem either. For the thermocouples it is also seen that the efficiency is about 5\%\cite{lau1997a} which means that only 5\% of the energy used by the thermocouple will actually be converted to electric energy, the rest will be thermal energy due to losses in the thermocouple and it will heat up the components. For generating electrical energy for the instruments in the penetrator it is very fortunate that all the thermal energy generated by the thermocouple actually can be used in order to help melting the ice around the penetrator or keep the body of the penetrator hot enough not to freeze in. 
+
+
+\section{Melting through the ice} % Lukas, KSL
+
+\autsubsection{RTG Placement}{Jean-Paul Breuer}
 The obvious choice for the placement of the RTG within the penetrator would be near the bottom. As the melting mechanism requires going down, having the RTG near the tip would reduce heat loss, maximizing the melting potential of the penetrator, as well as move the center of gravity of the RTG to a more stable position relative to the movement direction. During descent, this lower point of gravity would help with the dirigibility, as the penetrator would be less likely to tip over to one side.
 
 To simply mention as an alternative, there are also pros and cons to having the RTG be placed at the top of the penetrator. Assuming that the RTG is at the top, the instrument suite would be located near the bottom of the penetrator, so it might be already possible to take samples and filter the ice within the column while descending. Once anchored at the bottom of the ice column, having the instrument suite on the bottom of the penetrator would be beneficial in that it would be possible to just dip the tip into the water and have the instrument suite work as intended. Problems with placing the RTG near the top would be the requirement of further and more efficient heat pipes to channel the heat down towards the tip, which would also cause further problems with the instrument suite, as the heat would also have an effect on the instrumentation. It would also cause problems with dirigibility as it would be more probable to fall over to one side, and ultimately end up sideways as a worst case alternative. 
 
-\subsection{Thermal Design}
-
-\subsection{Water Convection}
-
-\autsection{Penetrator thickness}{Ricard Lladó Grove} 
-\begin{equation}\label{eq:pressure}
-\sigma = \frac{-2 P_{ext}\cdot r_{outer}^2}{r_{outer}^2-r_{inner}^2}/ + \frac{P_{int}\cdot (r_{outer}^2+r_{inner}^2)}{(r_{outer}^2-r_{inner}^2)}
-\end{equation}
-where $\sigma$ is the stress on the material, $P_{ext}$ and $P_{int}$ is the external and internal pressure, $r_{outer}$ and $r_{inner}$ is the outer and inner radius. 
-
-
 \section{Anchor Design}
-\autsubsection{Buoyancy}{Ricard Lladó Grove}
+\autsubsection{Buoyancy}{Ricard Grove}
 One way to anchor the penetrator is through buoyancy. In general buoyancy is an upward force that is exerted to an object by the surrounded fluid. For an object immersed in a fluid, the force acting on the object is gravity and buoyancy given by:
 \begin{subequations}
 \begin{equation}\label{eq:bouyancy1}
@@ -314,8 +418,6 @@ Since the penetrator is 48.2 litres the extra required volume is about 132 litre
 \end{figure}
 When the penetrator melts through the last ice the velocity of the penetrator will increase because the it will sink though the water. With a short delay to ensure that the penetrator is surrounded by water, a trigger should inflate a balloon attached to the penetrator. The balloon should have a volume of at least 132 litres since we would probably like a small lift of the buoyancy. The most suitable place for the balloon to be inflated is above the penetrator since the balloon will have the uplift required to cancel out the effect of gravity. Hereby this will be the most stable situation even though it will complicate the communication to the lander since the antenna should be above the balloon. This is doable but not the most desired solution. In this case a volume of 132 litres should be obtained when having the same internal and external pressure. One way to obtain this is by having a pressure vessel with a huge internal pressure. If the volume of the penetrator is 10 litres the pressure inside the vessel should be 13.2 times bigger than the external pressure which is 12MPa in 10 km depth. Hereby an internal pressure of more than 160MPa is needed in the pressure vessel. In this way when the pressure of the pressure vessel is released into the balloon it would expand 13.2 times which is 132 litres. The problem with this solution is that a pressure vessel that can withstand such a pressure has to be relatively big and hereby also heavy. As an example the equation \ref{eq:pressure} can be used to calculate the properties of such a strong pressure vessel.  if using titanium as the pressure vessel and assuming that the vessel is a sphere which is the strongest structure to withstand pressure, the radius would be 9.5 cm and the thickness had to be about 4 cm to withstand the 160MPa internal pressure, which would mean a mass of about 30 kg. This will make the buoyancy anchoring disadvantageous against other anchoring methods. \\
 
-Another way to inflate the balloon is by having a chemical reaction that will produce a quantity of gas.
-
 
 \noindent 
 Even though it is disadvantageous it would be good to see if the buoyancy is even possible for these high pressures since almost all gases are liquid or even solid at these high pressures. Since a liquid is almost incompressible it can be compressed to the desired pressure without taking much space. The problem is then that when released the pressure has to be low enough for the liquid to evaporate. To give an example the gas CO2 can be selected. The Phase diagram of CO2 is illustrated in figure \ref{fig:CO2phase}
@@ -335,7 +437,7 @@ where $P$ is pressure, $V$ is volume, $n$ is how many moles is in the gas, $R$ i
 \begin{equation}\label{eq:massCO2}
 m_{CO2} = \frac{M_{CO2} \cdot P_{water}\cdot V_{balloon}}{R\cdot T_{water}} = \frac{44 \frac{g}{mole} \cdot 35 bar \cdot 132 L}{0.0831  \frac{L\cdot bar}{mole \cdot K} \cdot 273K} = 882.8 g
 \end{equation}
-From equation \ref{eq:massCO2} it is seen that only 0.882 kg CO2 is needed with a pressure of 35 bar, but if the pressure would increase to 120 more CO2 is needed in order to withstand the higher pressure. The ideal gas law should be used with very much care since at these high pressures and it can be discussed whether the result from equation \ref{eq:massCO2} is even useful. Experiments are needed in order to get a more realistic mass needed. If assuming that the buoyancy would work at 2 km depth there are still more things to take into accoutn. First of all there is the material of the balloon. It has to be a really strong material since some of the balloon will be in contact with the ice which will scratch the material. Depending on how pointy the ice will be, it can make a hole in the balloon which will be a mission killer since the the buoyancy force will be lost and the penetrator will sink. If the penetrator sinks it cannot withstand the high pressure and furthermore the communication will also be lost. Besides being really strong the material has to be flexible because it should fill the least space as possible when not inflated, but be able to expand when the pressure inside it expands. Another problem that has to be taken into account is that if the communication should not be lost is that the current that run in Europa's ocean will make the penetrator drift. If it drifts the probability of losing communication would be really high since a directive antenna is used.  Therefore some kind of hook has to be attached to the ice to fix the position of the penetrator. All the problems that arise if using a buoyancy anchor will not be discussed further since buoyancy will not be used as anchor, but if the ice profile were known better and a spot with only 2 km depth were found the buoyancy using CO2 as gas could be used, where the mentioned problems would have to be considered. \\
+From equation \ref{eq:massCO2} it is seen that only 0.882 kg CO2 is needed with a pressure of 35 bar, but if the pressure would increase to 120 more CO2 is needed in order to withstand the higher pressure. The ideal gas law should be used with very much care since at these high pressures and it can be discussed whether the result from equation \ref{eq:massCO2} is even useful. Experiments are needed in order to get a more realistic mass needed. If assuming that the buoyancy would work at 2 km depth there are still more things to take into accoutn. First of all there is the material of the balloon. It has to be a really strong material since some of the balloon will be in contact with the ice which will scratch the material. Depending on how pointy the ice will be, it can make a hole in the balloon which will be a mission killer since the the buoyancy force will be lost and the penetrator will sink. If the penetrator sinks it cannot withstand the high pressure and furthermore the communication will also be lost. Besides being really strong the material has to be flexible because it should fill the least space as possible when not inflated, but be able to expand when the pressure inside it expands. Another problem that has to be taken into account is that if the communication should not be lost is that the current that run in Europa's ocean will make the penetrator drift. If it drifts the probability of losing communication would be really high since a directive antenna is used.  Therefore some kind of hook has to be attached to the ice to fix the position of the penetrator. All the problems that arise if using a buoyancy anchor will not be discussed further since buoyancy will not be used as anchor, but if the ice profile were known better and a spot with only 2 km depth were found the buoyancy using CO2 as gas could be used, where the mentioned problems would have to be considered. All calculations can be seen in appendix \ref{app:ricard}\\
 
 \input{polypropylenefoam}
 
@@ -349,12 +451,32 @@ From equation \ref{eq:massCO2} it is seen that only 0.882 kg CO2 is needed with 
 
 \input{Submarine}
 
-\subsection{Detection of Depth and End of Ice Column}
+\autsubsection{Detection of Depth and End of Ice Column}{Jean-Paul Breuer}
+There is now a method for both navigating and making corrections to the penetrator orientation in the ice column, but now it brings the question of how the penetrator will be able to navigate and avoid rocks or obstacles if there is no way to see anything. More importantly, there has to be a reliable method for determining the end of the ice column, otherwise the final anchoring mechanism may not deploy properly, might deploy at an inconvenient location, or perhaps could completely miss the target and get lost in the subsurface ocean. Mission failure at this point would be a horrific tragedy, not only because of the money spent to put everything together and the headaches taken to acquire the Plutonium-238, but also because of the time investment that it would take to get so far through the ice just to lose everything at the most critical point.
 
-* Echo sounder etc
+Fortunately, there is an elegant solution to this problem. By adding some receivers distributed around the side of the penetrator and utilizing some Geophysical methods, it should be possible to obtain a rough image of the ice based on the returned echoes from the different ice layers. Which kind of receiver specifically will depend on what can create the signal most feasibly. Within Geophysics, research into Earth's subsurface is done through a variety of methods. Seismic research focusing on the deep layers of the mantle and core typically use earthquakes or large explosions to `see' how the waves propagate. Meanwhile, for local subsurface imaging, a large impact from a human with a sledgehammer, or for slightly larger scales, a vibrator-shake truck can be used to see the depth layers. For imaging in the ocean, often a massive blast of compressed air is used to create a signal. When imaging ice and glaciers, for example in the field of radioglaciology, it is more typical to use a ground penetrating radar for imaging than acoustic signals. 
+
+Regarding the use of acoustic methods, a signal could be created via a small explosion, which is problematic for our instrumentation and could compromise the consistency of both the ice and our mission, by some kind of shock, perhaps by having a weight falling onto a metallic plate within the penetrator, or more interestingly
+
+
 
 %\section{Communication Systems}
 
 %\subsection{Communication to Lander}
 
-%\subsection{Relay Systems}
+\autsubsection{Relay Systems}{Jean-Paul Breuer}
+As the Penetrator makes its descent along the ice column, dependent on the chosen landing site and the total depth of the ice, there may be a requirement for several communication relays to send and receive the data from the instrument suite at the bottom of the ice column to the lander near the surface. With regards to the design of the communication relay system, the most ideal configuration would be to keep the $n$ number of relays required positioned near the top of the Penetrator as several cylindrical, detachable sections. Once reaching the appropriate depth, an anchoring mechanism should activate to capture and maintain the relay at that depth, while the remainder of the Penetrator continues it's descent.
+
+Naturally, each of these relay systems will need to be self sustaining, requiring a power source, and perhaps also a hard disk as a failsafe to serve as intermediary storage of the data in case anything unforeseen happens. In regards to a power source, it would be most efficient to use small RTGs with an isotope that has sufficient energy output to power the relay and has a sufficiently long half life that wont require as much mass. Checking Table \ref{tab:isotopes}, Americium-241 would be a reasonable solution, since it has a fairly high availability (cheap), and has a decent half life and power output.
+
+For anchoring, the easiest mechanism would require explosive bolts which would shoot out in several directions into the ice and secure the relay in the correct position and orientation. After several days, the water ice will refreeze over the relay and by then anchoring will have served its purpose. One other consideration for anchoring the relays was to excrete salt or some other chemical compound that might help expedite the freezing process. A `cryo-grenade' that could shock freeze the relays into place or even the expanding foam could also serve for a similar purpose.
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=0.7\columnwidth]{figures/JP/comms_relay.png}
+		\caption{A 3d interpretation of a prototype communication relay, with patch antenna and explosive bolts (not seen: patch antenna underneath).\label{fig:comms_relay}}
+	\end{center}
+\end{figure}
+
+In regards to communication, the best solution would involve having a patch antenna on both the bottom and top of the cylinder, as can be seen in Figure \ref{fig:comms_relay}. Although, for a more powerful transmission it might also be possible to use a helical antenna instead. In the case of the helical antenna, the anchoring mechanism would require additional springs which would uncoil the antennas and secure the relay until being frozen over once more.
+
