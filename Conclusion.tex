@@ -17,21 +17,19 @@ The flyby duration has been estimated to 32 s. For each flyby, the WAC will gene
 In the design proposal, the spectrometer will only be operating at ground resolution ranges of 5m/pixel to 50m/pixel, as higher resolutions will not be useful for the mission. Each flyby will generate 65.06 GB of spectral data, a fairly large amount when compared to non spectral imaging. However, only the regions of interest (ROIs) will be investigated further by the ground station, reducing the transferred data significantly. The remaining data can be transferred whenever a communication window is available. 
 
 If all imaging and spectral data are stored, a total of 360 GB (raw data) must be stored on the orbiter,  excluding the buffered data from the lander and penetrator. This may be too much to transfer, even during the total mission lifetime. Therefore, it will be necessary to filter and compress the data before transmission and these methods should be analysed for a future design.
+
+\autsection{Communication}{Rasmus Lundby Pedersen, Gustavo Feijóo Carrillo, Ioannis Nissopoulos, Kristian Sloth Lauszus}
+
 \autsection{Landing navigation system}{Maja Tomicic}
 A redundant autonomous navigation system has been designed, thus ensuring a pin-point landing on the desired landing spot. Initially, the navigation system uses one of the CHU's as a surface camera together with a database of known surface features (craters, cracks and ridges), two CHU's as star trackers and the integrated IMU system $\mu$IRU. The surface camera is designed to optimize the FOV and resolution for this purpose. This ensures direct position and attitude determination in an Europa fixed frame of reference.
 As the lander approaches the moon surface fewer features in the surface camera FOV can be matched to the database. Therefore the relative velocity navigation system is included which uses the optical flow from unknown surface features to estimate the lander velocity with respect to the lunar surface. This is then integrated to give the position. At altitudes of about 50-100 meters from the surface the laser ranger is used to determine a precise height of the spacecraft relative to the surface. This information is used as hazard avoidance as to avoid deep gorges or steep hills. Finally, as the lander gets the intended landing area in sight, it will navigate relative to a hazard-free landing spot using the last CHU as a surface camera, with optimized optics, together with a laser as a structured light system. 
 
-\autsection{Melting of preliminary hole}{Maja Tomicic}
-Much further work should be done to ensure the feasibility of using a special rocket motor to melt a preliminary hole of $\sim$2 m in the ice. It has shown to be an ideal way of getting the payload out of the radiation environment. However, the amount of propellant needed is substantial and the efficiency of the rocket plume for this purpose in vacuum conditions is currently inconclusive.
-
-\autsection{Communication}{Rasmus Lundby Pedersen, Gustavo Feijóo Carrillo, Ioannis Nissopoulos, Kristian Sloth Lauszus}
-
 Three communication links have been studied under the characteristics of an interplanetary mission. A deep space link for telemetry/telecommand and science data download using the facilities provided by ESA's ESTRACK network, including as well the tracking capabilities for accurate manoeuvring of deep-space spacecraft. X-band and S-band readily available transponder are used. Then a relay from Europa's surface lander and orbiter is used, consisting of multiple crossed half-wave dipole antennas placed on the surface module, and two similar antennas on the orbiter. The system will utilize the orbiters medium/low-gain amplifiers while an amplifier will be located in the surface module, which is embedded a few meters in the ice of Europa. This will create a reliable link between the surface module and the orbiting satellite during the short available communication window.
 \\
 Then with a more critical sense, ice embedded communications were studied, finding that temperature and impurity levels have great effect in performance of antenna radiation patterns, gain and radiation efficiency. A solution with stand-alone transceiver embedded in the ice as the penetrator makes its descent was ruled out for complexity, bulk and power source (RTG) procurement. And, in stead a mix of high-gain antenna on lander with a medium-gain and wide-beamwidth is used in the penetrator. This, in combination with available power from the penetrator RTG allow for a robust link through ice.
- 
 
-
+\autsection{Melting of preliminary hole}{Maja Tomicic}
+Much further work should be done to ensure the feasibility of using a special rocket motor to melt a preliminary hole of $\sim$2 m in the ice. It has shown to be an ideal way of getting the payload out of the radiation environment. However, the amount of propellant needed is substantial and the efficiency of the rocket plume for this purpose in vacuum conditions is currently inconclusive.
 
 \section{Penetrator}
 \autsubsection{Drilling Methods}{Lukas Christensen}
