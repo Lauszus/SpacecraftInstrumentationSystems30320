@@ -1,0 +1,315 @@
+\chapter{RCS}\label{app:SorenMatlab}
+
+
+\begin{lstlisting}
+
+
+% Solid cylinder 
+
+cyl_z =  1/2 *  M * R^2;
+cyl_y = 1/12 * M * (3*R^2 + h^2);
+
+% Hollow cylinder
+
+hcyl_z = M * R^2;
+hcyl_y = 1/12 * M * (6*R^2 + h^2);
+
+
+% Solid cone
+
+cone_z = 3/10 * M_s * R^2;
+cone_y = 3/20 * M_s * R^2 + 1/10 * M_s * h^2;
+
+% Solid frustum cone
+
+cone_z = 3/10 * M1_s * R^2;
+scone_z = 3/10 * M2_s * R2^2
+
+cone_y = 3/20 * M1_s * R^2 + 1/10 * M1_s * a1^2
+scone_y = 3/20 * M2_s * R2^2 + 1/10 * M2_s * a2^2
+
+fcone_z = cone_z - scone_z
+fcone_y = cone_y - scone_y
+
+% Hollow cone
+
+hcone_z = 1/2 * M_h * R^2;
+
+% Hollow frustum cone
+
+hcone_z = 1/2 * M1_h * R^2;
+hscone_z = 1/2 * M2_h * R2^2;
+
+hfcone_z = hcone_z - hscone_z;
+
+%% Cone with centered payload (Solid cylinder)
+
+R = 1;
+M_sc = 1;
+M_hc = 1;
+M_cyl = 1;
+h = 1.5;
+
+% Solid cone with payload
+
+cone_z = 3/10 * M_sc * R^2;
+cone_y = 3/20 * M_sc * R^2 + 1/10 * M * h^2;
+
+cyl_z =  1/2 *  M_cyl * R^2;
+cyl_y = 1/12 * M_cyl * (3*R^2 + h^2);
+
+conep_z = cone_z + cyl_z;
+conep_y = cone_y + cyl_y;
+
+clc;
+close all;
+clear all;
+%%
+% Solid frustum cone with payload (full fuel)
+
+R1 = 1;
+h = 1.5;
+M_cyl = 180;
+R_cyl = 0.1;
+
+A = 75.1;   % Degrees
+a1 = 3.76;  % m
+c1 = 3.89;   % m
+M = 3986;
+
+a2 = 3.76 - h;
+R2 = 0.6;
+
+V_cone_L = 3.94; 
+V_cone_S = 0.85;
+V_cone = 3.09;
+V_cyl = 0.42;
+V_cone_mcyl = 2.67;
+
+rho_cone = (M-M_cyl)/2.67; %1425.46 kg/m^3
+M_cone_fake = rho_cone * V_cone; %4404.67 kg
+M_cyl_fake = rho_cone * V_cyl; %598.69 kg
+M_scone_fake = V_cone_S * rho_cone; %1211.64
+
+M_diff = M_cyl_fake - M_cyl; %418.69 kg
+
+M1 = M_cone_fake;
+M2 = M_scone_fake;
+
+cone_z = 3/10 * M1 * R1^2;
+scone_z = 3/10 * M2 * R2^2
+
+cone_y = 3/20 * M1 * R1^2 + 1/10 * M1 * a1^2
+scone_y = 3/20 * M2 * R2^2 + 1/10 * M2 * a2^2
+
+fcone_z = cone_z - scone_z
+fcone_y = cone_y - scone_y
+
+cyl_z =  1/2 *  M_diff * R_cyl^2;
+cyl_y = 1/12 * M_diff * (3*R_cyl^2 + h^2);
+
+fconep_z = fcone_z - cyl_z;
+fconep_y = fcone_y - cyl_y;
+
+% r F = I alpha
+
+dz = 6.28;
+dy = 4.71;
+Fz = 80;
+Fy = 40;
+r = 1
+
+alpha_z = r * Fz / fconep_z; % rad/s^2
+alpha_y = r * Fy / fconep_y; % rad/s^2
+
+Rot_time_z = sqrt(4*pi/alpha_z);
+Rot_time_y = sqrt(4*pi/alpha_y);
+
+a_z = Fz / M;
+a_y = Fy / M;
+
+
+%%
+% Solid frustum cone with payload (beams, full fuel)
+
+R1 = 1;
+h = 1.5;
+M_cyl = 180;
+R_cyl = 0.1;
+
+A = 75.1;   % Degrees
+a1 = 3.76;  % m
+c1 = 3.89;   % m
+M = 3986;
+
+a2 = 3.76 - h;
+R2 = 0.6;
+
+V_cone_L = 3.94; 
+V_cone_S = 0.85;
+V_cone = 3.09;
+V_cyl = 0.42;
+V_cone_mcyl = 2.67;
+
+rho_cone = (M-M_cyl)/2.67; %1425.46 kg/m^3
+M_cone_fake = rho_cone * V_cone; %4404.67 kg
+M_cyl_fake = rho_cone * V_cyl; %598.69 kg
+M_scone_fake = V_cone_S * rho_cone; %1211.64
+
+M_diff = M_cyl_fake - M_cyl; %418.69 kg
+
+M1 = M_cone_fake;
+M2 = M_scone_fake;
+
+cone_z = 3/10 * M1 * R1^2;
+scone_z = 3/10 * M2 * R2^2
+
+cone_y = 3/20 * M1 * R1^2 + 1/10 * M1 * a1^2
+scone_y = 3/20 * M2 * R2^2 + 1/10 * M2 * a2^2
+
+fcone_z = cone_z - scone_z
+fcone_y = cone_y - scone_y
+
+cyl_z =  1/2 *  M_diff * R_cyl^2;
+cyl_y = 1/12 * M_diff * (3*R_cyl^2 + h^2);
+
+fconep_z = fcone_z - cyl_z;
+fconep_y = fcone_y - cyl_y;
+
+% r F = I alpha
+
+dz = 6.28;
+dy = 4.71;
+Fz = 80;
+Fy = 40;
+r = [0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.9;1];
+
+alpha_z = (1+r) * Fz / fconep_z; % rad/s^2
+alpha_y = (1+r) * Fy / fconep_y; % rad/s^2
+
+Rot_time_z = sqrt(4*pi/alpha_z);
+Rot_time_y = sqrt(4*pi/alpha_y);
+
+a_z = Fz / M;
+a_y = Fy / M;
+
+figure
+plot(alpha_z,'g')
+hold on;
+plot(alpha_y,'r')
+grid on;
+grid minor;
+xlim([1 11]);
+xData = linspace(1,11,11);
+set(gca,'Xtick',xData,'XTickLabel',{'0','0.1','0.2','0.3','0.4','0.5','0.6','0.7','0.8','0.9','1'});
+xlabel('Arm extention [m]');
+ylabel('Angular acceleration [rad/s^2]');
+title('Angular acceleration as function of arm length');
+hold off
+
+%%
+% Solid frustum cone with payload (empty fuel)
+
+R1 = 1;
+h = 1.5;
+M_cyl = 180;
+R_cyl = 0.1;
+
+A = 75.1;   % Degrees
+a1 = 3.76;  % m
+c1 = 3.89;   % m
+M = 1000;
+
+a2 = 3.76 - h;
+R2 = 0.6;
+
+V_cone_L = 3.94; 
+V_cone_S = 0.85;
+V_cone = 3.09;
+V_cyl = 0.42;
+V_cone_mcyl = 2.67;
+
+rho_cone = (M-M_cyl)/2.67; %307.116 kg/m^3
+M_cone_fake = rho_cone * V_cone; %948.98 kg
+M_cyl_fake = rho_cone * V_cyl; %128.98 kg
+M_scone_fake = V_cone_S * rho_cone; %261.04
+
+M_diff = M_cyl - M_cyl_fake; %51.02 kg
+
+M1 = M_cone_fake;
+M2 = M_scone_fake;
+
+cone_z = 3/10 * M1 * R1^2;
+scone_z = 3/10 * M2 * R2^2
+
+cone_y = 3/20 * M1 * R1^2 + 1/10 * M1 * a1^2
+scone_y = 3/20 * M2 * R2^2 + 1/10 * M2 * a2^2
+
+fcone_z = cone_z - scone_z
+fcone_y = cone_y - scone_y
+
+cyl_z =  1/2 *  M_diff * R_cyl^2;
+cyl_y = 1/12 * M_diff * (3*R_cyl^2 + h^2);
+
+fconep_z = fcone_z + cyl_z;
+fconep_y = fcone_y + cyl_y;
+
+% r F = I alpha
+
+dz = 6.28;
+dy = 4.71;
+Fz = 80;
+Fy = 40;
+r = 1;
+
+alpha_z = r * Fz / fconep_z; % rad/s^2
+alpha_y = r * Fy / fconep_y; % rad/s^2
+
+Rot_time_z = sqrt(4*pi/alpha_z);
+Rot_time_y = sqrt(4*pi/alpha_y);
+Rot_time_y_45 = sqrt(pi/alpha_y);
+
+v = sqrt(pi/alpha_y) / (1000/40 - 1000/56)
+
+a_z = Fz / M;
+a_y = Fy / M;
+a2_y = 56.56 / M;
+
+\end{lstlisting}
+
+
+Wall thickness code
+
+\begin{lstlisting}
+
+clear all;
+
+sigma_c = 300*10^6;
+p = 12*10^6;
+r = [0.010;0.015;0.02;0.025;0.03];
+
+%sigmac = p*r/(t);
+%sigmal = p*r/(2*t);
+
+t = (p*r)/(sigma_c);
+t = t * 1000;
+
+
+figure
+plot(t,'r')
+hold on;
+grid on;
+grid minor;
+xlim([1 5]);
+xData = linspace(1,5,5);
+set(gca,'Xtick',xData,'XTickLabel',{'10','15','2','25','3'});
+xlabel('Diameter [mm]');
+ylabel('Wall thickness [mm]');
+title('Wall thickness as function of tube radius');
+hold off
+
+
+\end{lstlisting}
+
+% One can also include a script directly like so:
+	% \lstinputlisting{path/script.m}

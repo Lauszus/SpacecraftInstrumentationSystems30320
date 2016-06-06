@@ -1,12 +1,19 @@
 \chapter{Communication Systems}
+
 \input{gfc/comm-Intro}
 
-\input{Communication/CommRasmus}
+\section{Earth-to-Orbiter}
 
+\input{gfc/comm-deepSpace}
+
+\input{laser-communication}
+
+%This is surface-to-orbiter subsection
+\input{Communication/CommRasmus}
 
 \input{gfc/comm-Pen2Surf}	
 
-\section{Probe-to-Penetrator}
+%\section{Probe-to-Penetrator}
 
 %\subsection{High Directional Link}
 
@@ -27,7 +34,7 @@ CONCLUSION: Fiber optical cable is not a good option, cable is going to be enorm
 -Surface relay:
 -Ground control link:
 One-to-one communication, assuming poor ice conditions, link is possible
-Surface to orbiter. Small tracking possibilities, low directivity antenna is used.
+Surface to orbiter. Small tracking possibilities, low gain antenna (LGA) is used.
 3m high gain antenna.
 CONCLUSION: One-to-one communication must be researched further. More details are needed
             The antenna transmitting down through the ice must be aligned. High risk, as landing site will probably not be flat.
@@ -42,7 +49,7 @@ CONCLUSION: One-to-one communication must be researched further. More details ar
 	* Too complex
 		* Better just use one proper designed unit in the penetrator
 		* Might be a combinations of repeaters and a big antenna at the lander and probe
-		* Will also work better if the probe doesn't move straight
+		* Will also work better if the probe doesn't descent in a straight line.
 
 	* Also a combination of repeaters and tether could be used.
 	* The repeater will also work better if the penetrator move to the side. Repeaters do not risk breaking like the tether.

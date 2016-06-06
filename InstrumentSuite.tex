@@ -192,54 +192,51 @@ The power and weight costs seem to be within reasonable ranges.
 
 \autsection{Light sensor system}{Søren Jeppesen}
 
-Modern light sensors can be highly sensitive, and would therefore be efficient in looking for sources of light underneath the ice. Sources of light could harbor some form of life, of the source itself could be the result of bioluminescence, and it would therefore be relevant to for such sources in order to identify the possibility of life on Europa. Bioluminescence is a common phenomenom in the deep sea on earth, and although life on Europa would not necesarrily be similar to that on Earth, looking for sources of bioluminescence should be considered. The low weight and small size of light sensors such as photomultiplier tubes and avalanche photodiodes combined with their sensitivity makes these the best considerations for a space mission. 
+Modern light sensors can be highly sensitive, and would therefore be effective at looking for sources of light underneath the ice. Sources of light could harbor some form of life, or the source itself could be the result of bioluminescence, and it would therefore be relevant to look for such sources in order to identify the possibility of life on Europa. Bioluminescence is a common phenomenom in the deep sea on earth, and although life on Europa would not necesarrily be similar to that on Earth, the possibility of life on Europa sharing these features should be considered. The low weight and small size of light sensors such as photomultiplier tubes (PMT) and avalanche photodiodes (APD) combined with their sensitivity makes these top considerations for a space mission. 
 
 \subsection{Photomultiplier Tubes}
 
-Photomultiplier tubes are highly sensitive light detectors with high signal-to-noise ratio, belonging to the vacuum tube class. Photomultiplier tubes operate primarily in the near-infrared, visible, and ultraviolet spectrum of light, but are not equally sensitive in he spectral range measured, and will often heavily favour certain spectral regions depending on design. With sufficient voltage, photomultiplier tubes are able to achieve extremely high gain making photomultiplier tubes able to generate a response from single photons.
+Photomultiplier tubes are highly sensitive light detectors with high signal-to-noise ratio, belonging to the vacuum tube class. PMTs operate primarily in the near-infrared, visible, and ultraviolet spectrum of light, but are not equally sensitive in he spectral range measured, and will often heavily favour certain spectral regions depending on design. With sufficient voltage, photomultiplier tubes are able to achieve extremely high gain making photomultiplier tubes able to generate a response from single photons.
 
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[scale=0.6]{figures/RCS/photomultiplier_tube}
-\caption{A common photomultiplier tube}
+\caption{A common photomultiplier tube \cite{PMT_picture}.}
 \label{fig:PMT}
 \end{center}
 \end{figure}
 
-The light sensing part of the photomultiplier tube i the photo-cathode. This part is a negatively charged electrode coated with a photosensitive compound, located  the front of the tube and enveloped in vacuum. Due to the photoelectric effect, electron are emitted when a photon strikes the photo-cathode if the photon has. Electrons emitted in the photo-cathode are picked up by an applied electric field and accelerated towards another electrode in the vacuum envelope, known as a dynode. The dynode works as an electron multiplier through secondary emission. When an electron generated in the photocathode strike the dynode, several new electrons are produced. These new electrons are then accelerated towards a secondary dynode where new electrons are subsequently emitted, thus further multiplying the electron amount. An anode then collects the electrons emitted by the dynodes, which then provides a signal that can be read.
+The light sensing part of the PMT is the photo-cathode. This part is a negatively charged electrode coated with a photosensitive compound, located  the front of the tube and enveloped in vacuum. Due to the photoelectric effect, electron are emitted when a photon strikes the photocathode. Electrons emitted in the photocathode are picked up by an applied electric field and accelerated towards another electrode in the vacuum envelope, known as a dynode. The dynode works as an electron multiplier through secondary emission. When an electron generated in the photocathode strike the dynode, several new electrons are produced. These new electrons are then accelerated towards a secondary dynode where new electrons are subsequently emitted, thus further multiplying the electron amount. An anode then collects the electrons emitted by the dynodes, which provides a signal that can be read.
 
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[scale=0.6]{figures/RCS/PMT}
-\caption{An illustration of how the dynodes strengthen signal.}
+\caption{An illustration of how the dynodes strengthen signal \cite{Dynode}.}
 \label{fig:PMT_dynode}
 \end{center}
 \end{figure}
 
-The strength of the photomultiplier tube is the high gain this device is able to achieve with sufficient voltage. Gain is a term used to describe the amplification of a signal, which in the case of an optical sensor, is the ratio of the incoming photons to measured current output. In a photomultiplier tube, each dynode increases the current
+The strength of the PMT is the high gain this device is able to achieve with sufficient voltage. Gain is a term used to describe the amplification of a signal, which in the case of an optical sensor, is the ratio of the incoming photons to measured current output. In a PMT, each dynode increases the current as
 
 \begin{equation}
-    I_n = d_1 \cdot d_2 cdot d_3 ... d_{n-1} \cdot d_n \cdot I_k
+    I_n = d_1 \cdot d_2 \cdot d_3 ... d_{n-1} \cdot d_n \cdot I_k
 \end{equation}
 
-Where $I_k$ is the photocathode current and $d_1 \rightarrow d_n$ are the dynode amplifications. A photomultiplier  tube is capable of reaching a gain of several tens of millions with enough dynodes and applied voltage as shown in figure \ref{dynode_gain}\\
+Where $I_k$ is the photocathode current and $d_1 \rightarrow d_n$ are the dynode amplifications. A PMT tube is capable of reaching a gain of several tens of millions with enough dynodes and applied voltage as shown in figure \ref{fig:dynode_gain}
 
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[scale=0.6]{figures/RCS/dynodegain}
-\caption{A graph showing how the gain in a PMT increases with increased bias and increased number of dynodes.}
+\caption{A graph showing how the gain in a PMT increases with increased bias and increased number of dynodes \cite{Dynode_gain}.}
 \label{fig:dynode_gain}
 \end{center}
 \end{figure}
 
-Quantum efficiency is a measure for how many percent of the incoming photons that produce a signal in the photocathode. For photomultiplier tubes, the quantum efficiency is around 30\% - 40\% depending on the type and the measured light spectrum, meaning that 60\% - 70\% of incoming photons are not detected. This is much lower than those of comparable light sensors such as CCDs and APDs, with quantum efficiencies around XX and XX respectively.\\
+Quantum efficiency is a measure for how many percent of the incoming photons that produce a signal in the photocathode. For PMTs, the quantum efficiency is around 30\% - 40\% depending on the type and the measured light spectrum, meaning that 60\% - 70\% of incoming photons are not detected. This is much lower than those of comparable light sensors such as APDs, with quantum efficiencies around 80\%.
 
-
-The materials used for the photocathodes and windwos greatly influences the characteristics of the photomultiplier. Most photocathodesare made of alkali metals from group 1 of periodic table known as alkali metals. Some of the common photocathodes are:\\
-
+The materials used for the photocathodes and windwos greatly influences the characteristics of the PMT. Most photocathodesare made of alkali metals from group 1 of periodic table known as alkali metals. Some of the common photocathodes are:
 
 \begin{itemize}
-
 \item Cs-I:\\
 Caesium iodide is a type of ”solar blind” photocathode, meaning that it is not sensitive to solar radiation. Due to having low sensitivity at wavelenghts above 200 nm, this type of photocathode is used for ultraviolet radiation. 
 \\
@@ -253,7 +250,7 @@ Caesium antimony is sensitive in a much broader spectrum, capable of sensing bot
 Antimony-rubidium-caesium and antimony-potassium-caesium photocathodes are useful in both ultraviolet and visible spectrum. Compared to the caesium-antimony photocathode, the bialkali have higher sensitivity and lower dark current.
 \\
 \item Sb-Na-K:\\
-antimony-sodium-potassium bialkali photocathode is sensitive in spectrum similar to the previous bialkali, but has lower sensitivity. This type of photocathode is able to withstand much higher temperatures, up to 175 degrees Celcius, whereas other types of photocathodes usually go up to 50 degrees.
+antimony-sodium-potassium bialkali photocathode is sensitive in spectrum similar to the previous bialkali, but has lower sensitivity. This type of photocathode is able to withstand much higher temperatures, up to 175 $^circ$ Celcius, whereas other types of photocathodes usually go up to 50 degrees.
 \\
 \item Sb-Na-K-Cs:\\
 The multialkali Antimony-sodium-potassium-caesium is useful from ultraviolet to near-infrared. This type of photocathode is also highly sensitive.
@@ -262,123 +259,121 @@ The multialkali Antimony-sodium-potassium-caesium is useful from ultraviolet to 
 Silver-oxygen-caesium is sensitive from visible to near-infrared. This type of photocathode provides slightly lower sensivity in the visible region, but higher sensitivity in the high wavelengths compared to other photocathodes.
 \\
 \item GaAsP (Cs):\\
-Caesium-activated Gallium arsenide phosphide photocathodes has higher quantum efficiency in the visible region. This is offset with no sensivity in the ultraviolet region and high degredation-rate when exposed to high intensity radiation.
+Caesium-activated Gallium arsenide phosphide photocathodes has higher quantum efficiency in the visible region. This is offset with no sensitivity in the ultraviolet region and high degradation-rate when exposed to high intensity radiation.
 \\
 \item GaAs (Cs):\\
-Caesium-activated Gallium arsenide photocathodes provides sensitivity in a broad range, spanning from ultraviolet to near-infrared, with nearly flat, high sensivity in most of this spectral range.
+Caesium-activated Gallium arsenide photocathodes provides sensitivity in a broad range, spanning from ultraviolet to near-infrared, with nearly flat, high sensitivity in most of this spectral range.
 \\
 \item InGaAs:\\ 
-Indium gallium arsenide photocathodes photocathodes are sensitive further into the infrared region than GaAs, while also providing good signal-to-noise ratio than other photocathodes useful in this region.
-
+Indium gallium arsenide photocathodes are sensitive further into the infrared region than GaAs, while also providing good signal-to-noise ratio compared to other photocathodes useful in this region.
 \end{itemize}
 
-Photomultipliers produce a signal even in the absence of light due to dark current arising from thermal emissions of electrons from the photocathode, leakage current between dynodes, as well as stray high-energy radiation. Electronic noise also contributes to the dark current and is often included in the dark-current value. The dark current itself is the relatively small electric current that flows through device even when no photons are entering the device. 
+Due dark current, leakage current between dynodes, or high-energy radiation, PMTs can produce a signal in complete dark. Electronic noise which contributes to the dark current on top of thermally emitted electrons, is often included in the value of the dark current. The dark current is described as the small electric current that exists the device in the complete absence of photons. 
 
 \subsection{Avalanche Photodiodes}
-
-Avalanche photodiodes are a type of semiconductor-based, highly sensitive light detectors. Like photomultiplier tubes, avalanche photodiodes convert radiation to electricity through the photoelectric effect, but operate using reverse voltage (voltage at the cathode is more positive than the voltage at the anode) rather than forward voltage. Avalanche photodiodes exploit the avalanche multiplication in order to generate a readable signal, that is, radiation causes electrons to be excited in the detection material which is then accelerated by the applied electric field and excites more electrons. This process happen in the multiplication region of the device, which is made from a semiconducting material.\\
+Avalanche photodiodes are a type of semiconductor-based, highly sensitive light detectors. Like PMTs, APDs convert radiation to electricity through the photoelectric effect, but operate using reverse voltage (voltage at the cathode is more positive than the voltage at the anode) rather than forward voltage. APDs exploit the avalanche multiplication in order to generate a readable signal, that is, radiation causes electrons to be excited in the detection material which is then accelerated by the applied electric field and excites more electrons. This process happen in the multiplication region of the device, which is made from a semiconducting material.
 
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[scale=0.6]{figures/RCS/APD}
-\caption{A common Avalanche photodiode}
+\caption{A common Avalanche photodiode \cite{APD_pic}.}
 \label{fig:APD}
 \end{center}
 \end{figure}
 
-The gain for avalanche photodiodes is much lower than what is attainable with photomultiplier tubes. At 100-200 volt reverse bias, typical gain values are around 100, and is strongly depend on the supplied voltage.  If the voltage is increased too much, breakdown will occour and the current in the diode will increase exponentially. A gain of this size is too small to detect single photons, but modern doping techniques have allowed for some avanlanche photodiodes to operate at applied voltage greater than 1500 volts allowing for gains up to 1000. These devices are much more sensitive in the near-infrared and visible regions compared to ultraviolet. APDs can reach quantum efficiencies of 80\% - 90\% at peak wavelengths, but as seen on figure \ref{APD_specs}, the quantum efficiency drops sharply on either side of the peak.
+The gain for APDs is much lower than what is attainable with PMT. At 100-200 volt reverse bias, typical gain values are around 100, and is strongly depend on the supplied voltage.  If the voltage is increased too much, breakdown will occur and the current in the diode will increase exponentially. A gain of this size is too small to detect single photons, but modern doping techniques have allowed for some avanlanche photodiodes to operate at applied voltage greater than 1500 volts allowing for gains up to 1000. This is not common APDs though, and these high gain APDs represent a small amount of highly modern APDs. These devices are much more sensitive in the near-infrared and visible regions compared to ultraviolet. APDs can reach quantum efficiencies of 80\% - 90\% at peak wavelengths, but as seen on figure \ref{fig:APD_specs}, the quantum efficiency drops sharply on either side of the peak.
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[scale=0.6]{figures/RCS/APD_specs}
-\caption{Graphs of gain as function of temepature and bias for a highly sensitive, near-infraed, silicon APD (left). Quantum efficiency as function of wavelength for the same device (right).}
+\includegraphics[scale=0.8]{figures/RCS/APD_specs}
+\caption{Graphs of gain as function of temepature and bias for a highly sensitive, near-infrared, silicon APD (left). Quantum efficiency as function of wavelength for the same device (right) \cite{APD_graphs}.}
 \label{fig:APD_specs}
 \end{center}
 \end{figure}
 
-Another way to measure single photons using an avalanche photodiode is activate Geiger mode, which is to operate it carefully just above breakdown voltage. In this state, even a single photon will produce a massive electron avalanche in the device which can then be read. During Geiger mode, the phototide will need to rest between detections, lowering the detection frequency of the device. Thermally generated carriers within the device can also trigger avalanches, triggering counts even in complete darkness.\\
+A way to measure single photons using an APD is activate Geiger mode, which is to operate it carefully just above breakdown voltage. In this state, even a single photon will produce a massive electron avalanche in the device which can then be read. During Geiger mode, the APD will need to rest between detections, lowering the detection frequency of the device. Thermally generated carriers within the device can also trigger avalanches, giving counts even in complete darkness.\\
 
-Avalanche photodiodes suffer from noise due to the nature of the electron avalanche process. This excess noise factor is denoted F, and for k < 0.1 and M > 20 can be approximated by the formula
+APDs suffer from noise due to the nature of the electron avalanche process. This excess noise factor is denoted $F$, and for $k$ < 0.1 and $M$ > 20 can be approximated by the formula \cite{APD_noise}.
 
 \begin{equation}
     F = 2 + k \cdot M
 \end{equation}
 
-where k is carrier ionization ratio and M is the gain of the photodiode. The squareroot of F represents the factor by which the statistical noise of the APD rises abovewhat would be expected from a noiseless multiplier due to only Poissonian statistics.\\
+where $k$ is carrier ionization ratio and $M$ is the gain of the photodiode. The square root of $F$ represents the factor by which the statistical noise of the APD rises above what would be expected from a noiseless multiplier due to only Poissonian statistics.\\
 
-The  multiplication region of the photodiode is typically made of either silicon, germanium or Indium gallium arsenide.
+The  multiplication region of the APD is typically made of either silicon, germanium or Indium gallium arsenide.
 
 \begin{itemize}
 
-\item Si is sensitive in the visible and near-infrared area with low excess noise. Typical gain is 100, although it can be manufactored to attain up to 500. Excess noise factor is around 4.
+\item Si is sensitive in the visible and near-infrared area with low excess noise. Typical gain is 100, although it can be manufactured to attain up to 500. Excess noise factor is around 4.
 \\
 \item Ge is sensitive in the infrared region up to 1700 nm, but with high excess noise. Typical gain is 10 with excess noise factor of 9.
 \\
 \item InGaAs is sensitive in the infrared region. Typical gain is 10 and excess noise factor around 5.
 \\
-\item Gallium nitride can be used for an avalanche phototiode sensitive in the ultraviolet region. 
+\item Gallium nitride can be used for an avalanche photodiode sensitive in the ultraviolet region. 
 
 \end{itemize}
 
 \subsection{The mission}
 
-The purpose of the light sensor system is to search for light sources beneath the ice on Europa. It is interesting to search for light as the two main sources of light beneath the ice will either be from living organisms themselves in the form of bioluminescence, or an energy source that life can potentially feed on. As such, if there is light beneath the ice, it is probable that any existing life will be close by. It is likely that any sources of light beneath the ice are both very rare and very weak. The water itself also has high absorption of light at certain wavelengths,as shown in figure \ref{fig:water_abs}, so it must be expected that it is incredibly difficult to detect the light.\\  
+The purpose of the light sensor system is to search for light sources beneath the ice on Europa. It is interesting to search for light as the two main sources of light beneath the ice will either be from living organisms themselves in the form of bio-luminescence, or an energy source that life can potentially feed on. As such, if there is light beneath the ice, it is probable that any existing life will be close by. It must be expected that light sources will be difficult to find as it is likely that any source of light beneath the ice is both very rare and very weak. The water itself also has high absorption of light at certain wavelengths,as shown in figure \ref{fig:water_abs}, further increasing the difficulty of detecting light.  
 
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[scale=0.8]{figures/RCS/absorption_watef}
-\caption{Graph of the absorption coefficient of water as function of wavelength.}
+\caption{Graph of the absorption coefficient of water as function of wavelength \cite{water_abs}.}
 \label{fig:water_abs}
 \end{center}
 \end{figure}
 
-The light sensor system brought on the mission should therefore be as sensitive as possible in order to maximize the probability of detecting possible sources. Detection capabillity is not the only important parameter however, as weight and volume must be considered due to the limitations of space missions. Previously, two detection devices for light sensor systems has been discussed discussed, the photomultiplier tube and the avalanche phototiode. The table below displays for each device some of parameters that are important to consider for choosing a light sensor system for the mission.\
+The light sensor system brought on the mission should therefore be as sensitive as possible in order to maximize the probability of detecting possible sources. Detection capability is not the only important parameter however, as weight and volume must be considered due to the limitations of space missions. Previously, two detection devices for light sensor systems has been discussed, the photomultiplier tube and the avalanche phototiode. The table below displays for each device some of parameters that are important to consider for choosing a light sensor system for the mission.\
 	
 %% table for PMT and APD parameters
 \begin{center}
 \begin{tabular}{ |c|c|c|c|c|c| } 
  \hline
                & QE & Gain & Mass & Size & Bias \\
- \textbf{PMT:} & 30\% - 40\% & Several million & 50-100 gram & 2 cm diameter x 5 cm height & 1000-2000 V \\ 
- \textbf{APD:} & 80\% - 90\% & A few hundreds & A few grams  & 5 mm x 5 mm x 110 $\mathrm{\mu}m$ & 50-400 V \\
+ \textbf{PMT:} & 30\% - 40\% & Several million & 50-100 gram & Few centimeters & 1000-2000 V \\ 
+ \textbf{APD:} & 80\% - 90\% & A few hundreds & A few grams  & Few mm or microns $\mathrm{\mu}m$ & 50-400 V \\
  \hline
 \end{tabular}
 \end{center}
 	
-The high gain of the photomultiplier tube gives it an advantage over the avalanche phototiode in detecting weak sources. The higher quantum efficiency of the avalanche photodiode gives it an advanage in detecting rare signals as long as the signal is strong enough to warrant a response in the device. The essential difference is in the weight, size, and bias requirement, where the much smaller and lighter avalanche photodiode is more suited for space missions, as it is easier to integrate with the overall system. Despite its limitations in detection, the APD is favorable in every other aspect and is therefore the most suitable detection device for the mission.
+The high gain of the PMT gives it an advantage over the APD in detecting weak sources. The higher quantum efficiency of the APD gives it an advantage in detecting rare signals as long as the signal is strong enough to warrant a response in the device. The essential difference is in the weight, size, and bias requirement, where the much smaller and lighter APD is more suited for space missions, as it is easier to integrate with the overall system. Despite its limitations in detection, the APD is favorable in every other aspect and is therefore the most suitable detection device for the mission.
 
 \subsection{Bias power supply}
-The APD will need a bias power supply to operate. For an APD it will suffice to have 100-400 volt in reverse bias to attain maxium to gain without hitting the breakdown voltage. A bias power supply  further complicates the light sensor system as it increases the mass the and the volume significantly. The Hamamatsu APD module C5658 is a highly sensitive silicon APD build into a working module with a bias power supply, which will be used as baseline for the mass and volume requirements of and APD module. 
+The APD will need a bias power supply to operate. For most APDs it will suffice to have 100-200 volt in reverse bias to attain maxium to gain without hitting the breakdown voltage, but up to 400 V can be needed for some specific high-gain APD. A bias power supply  further complicates the light sensor system as it increases the mass the and the volume significantly. The Hamamatsu APD module C5658 is a highly sensitive silicon APD build into a working module with a bias power supply, which will be used as baseline for the mass and volume requirements of and APD module \cite{APD_module}. 
 
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[scale=0.8]{figures/RCS/APDmodule}
-\caption{The Hamamatsu APD module C5658 APD module.}
+\caption{The Hamamatsu APD module C5658 APD module \cite{APD_module}}
 \label{fig:APD_module}
 \end{center}
 \end{figure}
 
-This APD module weighs 120 g with a dimensional outline of 2.8 cm x 5.0 cm x 6.0 cm for a total volume of 84 $\mathrm{cm^3}$, making it both lightweight and small in size. With some optimization of the electronics, and by removing cover, it should be possible to get below 80 g for the module. 
+This APD module weighs 120 g with a dimensional outline of 2.8 cm x 5.0 cm x 6.0 cm for a total volume of 84 $\mathrm{cm^3}$, making it both lightweight and small in size. With some optimization of the electronics, and by removing cover, it should be possible to get well below 80 g for the module. 
 
 \subsection{Proposed models}
-Two APD models are proposed for the Europa Life Finder Mission. The firs model is for the visible spectrum of light, and the second is for the near-infrared spectrum.
+Two APD types are proposed for the Europa Life Finder Mission. The first model is for the visible spectrum of light, and the second is for the near-infrared spectrum.
 
 \begin{description}
 \item[Excelitas C30739ECERH]:
-The Excelitas C30739ECERH Series APD is a high gain, large area silicon detector optimized for the visible spectrum. At 430 nm, the APD features 75\% quantum efficiency and can reach 450 gain. The chip spans an area of 6.5 mm x 6.5 mm and is operational at temperatures between 0$^circ$ and 50$^circ$ Celsius. The APD requires an operating voltage of 400 V in high gain mode.
+The Excelitas C30739ECERH Series APD is a high gain, large area silicon detector optimized for the visible spectrum. At 430 nm, the APD features 75\% quantum efficiency and can reach 450 gain. The chip spans an area of 6.5 mm x 6.5 mm and is operational at temperatures between 0$^circ$ and 50$^circ$ Celsius. The APD requires an operating voltage of 400 V in high gain mode. \cite{APD_visible}
 \item[Excelitas C30921SH:]
-The Excelitas C30921SH is a high gain near-infrared type silicon APD. This APD reaches 250 gain and the active diameter is 0.25 mm x 0.25 mm.
+The Excelitas C30921SH is a high gain near-infrared type silicon APD. This APD reaches 250 gain and the active diameter is 0.25 mm x 0.25 mm. \cite{APD_infrared}
 \end{description}
 
 The models are chosen specifically due to their high gain in order to minimize the weakness of the APD. The model chosen for the visible spectrum posseses the highest gain, but at the cost of high operating voltage. As the visible spectrum is where the water has the lowest absorption of light, having the best possible detection in this regime should be considered.
 
 \subsection{Shielding}
-The detection device will need to be shielded from the environment on Europa. As APDs function well at the temperature in the environment, the shielding will focused on protecting the device from the water. Sufficient shielding can be made from simple metal tube sealed with a window at the front end made from suprasil, a quartz with high transparency in the ultraviolet, visible, and near-infrared regions. The structure of the tube can be seen in figure \ref{fig:tube} below, with a light filtering lens between the window and the detector, and the electronic components furthest back.
+The detection device will need to be shielded from the environment on Europa. As APDs function well at the low temperature in the environment, the shielding will focused on protecting the device from the water. Sufficient shielding can be made from simple metal tube sealed with a window at the front end made from suprasil, a quartz with high transparency in the ultraviolet, visible, and near-infrared regions. The structure of the tube will feature a light filtering lens between the window and the detector, and the electronic components furthest back.
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[scale=0.8]{figures/RCS/tube_fisheye}
-\caption{An image of a simple aluminum tube as can be used to shield the sensor from water (left). An image of a common fisheye lens as will be used for window (right).}
+\includegraphics[scale=0.6]{figures/RCS/tube_fisheye}
+\caption{An image of a simple aluminum tube as can be used to shield the sensor from water (left). An image of a common fisheye lens as will be used for window (right). \cite{Al_tube} \cite{Fisheye}}
 \label{fig:tube}
 \end{center}
 \end{figure}
@@ -393,7 +388,7 @@ The detection device will need to be shielded from the environment on Europa. As
 \end{center}
 \end{figure}
 
-The wall thickness is calculated from the stress in thin-walled cylinders. The equation is 
+The wall thickness is calculated from the stress in thin-walled cylinders. The equation is \cite{Wall_thickness}
 
 \begin{equation}
     t = \frac{p \cdot r}{\sigma _c}
@@ -401,7 +396,7 @@ The wall thickness is calculated from the stress in thin-walled cylinders. The e
 
 where $t$ is the thickness of the wall, $p$ is the pressure and $\sigma _c$ is the hoop stress. As the yield strength of the aluminum alloy is 414 MPa, a maximum of 300 MPa stress was selected in order to ensure that the high strength of the metal ws utilized, but without causing any permanent to the tube. 
 
-For avalanche photodiodes, the window will have to act as a focusing lens in order to increase the area of detection, and will therefore be designed as a fisheye lens. The window will sealed by placing an O-ring between the window and and tube edge and then bolting the window to the tube itself, a technique similar to that of high-pressure windows in submarines. A fisheye lens made of suprasil with a radius of 2 cm will weight in the area of 5 gram, depending on design. In total, it should be possible to construct an APD modul with shielding and focusing lens with mass and size as seen in table \ref{table:module}. 
+For avalanche photodiodes, the window will have to act as a focusing lens in order to increase the area of detection, and will therefore be designed as a fisheye lens. The window will sealed by placing an O-ring between the window and and tube edge and then bolting the window to the tube itself, a technique similar to that of high-pressure windows in submarines. A fisheye lens made of suprasil with a radius of 2 cm and a density of 2200 $\mathrm{kg/m^3}$ will weight in the area of 5 gram, with a half-sphere design. In total, it should be possible to construct an APD modul with shielding and focusing lens with mass and size as seen in table \ref{table:module}. 
 
 %% table for APD module mass
 \begin{center}
@@ -417,13 +412,18 @@ For avalanche photodiodes, the window will have to act as a focusing lens in ord
 
 \subsection{Conclusion}
 
-This section has discussed possible light sensor systems for the Europa life-finding mission, and how to modify it for use in the environment beneath the ice on Europa. Between two different highly sensitive detection devices, photomultiplier tubes and avalanche photodiodes, the photodiodes were found to be the most suitable for a space mission due to low size, weight, and power consumption. The shielding used for the device is a thin aluminum tube sealed with a suprasil window, which is lightweight and more than able to withstand the pressure. A complete light sensor system unit with electronical components and shielding will be possible at less than 250 grams pr. sensor, making them light enough to be valid considerations for the mission. Due to how the quantum efficiency of APDs vary with wavelength of incoming radiation, it is suggested to use two units with different peak wavelengths such to ensure best possible detection in both the visible spectrum and the near-infrared spectrum. The ultraviolet spetrum can also be investigated, but as water has high absorption and APDs have low detection in spectrum, it will not be as efficient as looking in the visible and near-infrared.
+This section has discussed possible light sensor systems for the Europa life-finding mission, and how to modify it for use in the environment beneath the ice on Europa. Between two different highly sensitive detection devices, photomultiplier tubes and avalanche photo diodes, the photo diodes were found to be the most suitable for a space mission due to low size, weight, and power consumption. The shielding used for the device is a thin aluminum tube sealed with a suprasil window, which is lightweight and more than able to withstand the pressure. A complete light sensor system unit with electrical components and shielding will be possible at less than 250 grams pr. sensor, making them light enough to be valid considerations for the mission. Due to how the quantum efficiency of APDs vary with wavelength of incoming radiation, it is suggested to use two units with different peak wavelengths such to ensure best possible detection in both the visible spectrum and the near-infrared spectrum. The ultraviolet spectrum can also be investigated, but as water has high absorption and APDs have low detection in spectrum, it will not be as efficient as looking in the visible and near-infrared.
 
 \subsection{Further work}
 
+The main discussion points that has been left out of the section are how many light sensor systems the mission should bring, and where to place them on the penetrator. Unlike many of the other life-finding devices, the light sensors will need to be placed so they have view of the outside through the window. This leaves many possible locations on the penetrator itself, but a more interesting set-up would be the robotic arm. Having the light sensor system placed on the arm would add mobility and the capability to search in a much wider area. Due to their light weight and size, it would be worth considering bringing several systems to look in several directions at once, vastly increasing the chances of detecting possible life. Further work in collaboration with the experts the robotic arm and mass budget experts would therefore be required in order to investigate whether these concepts would be possible. 
+
 \input{GasdetectionAgge}
 
-\section{XRF}
+\autsection{X-Ray Flourescence Analyser}{Sebastian Helvig Christensen}
+
+\input{XRFtheory}
+\input{XRFimplementation}
 
 \autsection{HPLC}{Morten Lykke Hilligsøe}
 \label{sec:hplc}
