@@ -456,13 +456,26 @@ There is now a method for both navigating and making corrections to the penetrat
 
 Fortunately, there is an elegant solution to this problem. By adding some receivers distributed around the side of the penetrator and utilizing some Geophysical methods, it should be possible to obtain a rough image of the ice based on the returned echoes from the different ice layers. Which kind of receiver specifically will depend on what can create the signal most feasibly. Within Geophysics, research into Earth's subsurface is done through a variety of methods. Seismic research focusing on the deep layers of the mantle and core typically use earthquakes or large explosions to `see' how the waves propagate. Meanwhile, for local subsurface imaging, a large impact from a human with a sledgehammer, or for slightly larger scales, a vibrator-shake truck can be used to see the depth layers. For imaging in the ocean, often a massive blast of compressed air is used to create a signal. When imaging ice and glaciers, for example in the field of radioglaciology, it is more typical to use a ground penetrating radar for imaging than acoustic signals. 
 
-Regarding the use of acoustic methods, a signal could be created via a small explosion, which is problematic for our instrumentation and could compromise the consistency of both the ice and our mission, by some kind of shock, perhaps by having a weight falling onto a metallic plate within the penetrator, or more interestingly
+Regarding the use of acoustic methods, a signal could be created via a small explosion, which is problematic for our instrumentation and could compromise the consistency of both the ice and our mission, or by some kind of shock, perhaps by having a weight falling onto a metallic plate within the penetrator. Realistically however, making use of radar signals as opposed to acoustic signals would be much more effective in that it is possible to theoretically have a signal that can penetrate for hundreds of meters, if not several kilometers\cite{radar:depth}. The permittivity of ice can be described by the Debye expression,
+\begin{equation}
+\varepsilon^{*} = \varepsilon' - j\varepsilon" = \varepsilon_{\infty}' + \frac{\varepsilon_s' - \varepsilon_{\infty}'}{1 + j\omega\tau}
+\end{equation}
+with the real part,
+\begin{equation}
+\varepsilon'(\omega) = \varepsilon_{\infty}' + (\varepsilon_s' - \varepsilon_{\infty}')\frac{1}{1+\omega^2\tau^2}
+\end{equation}
+and the imaginary part,
+\begin{equation}
+\varepsilon"(\omega) = (\varepsilon_s' - \varepsilon_{\infty}')\frac{\omega\tau}{1+\omega^2\tau^2}
+\end{equation}
+where $\varepsilon_{\infty}'$ is the relative high-frequency-limit dielectric constat, $\varepsilon_s'$ is the relative static dielectric constant, $\tau$ is the relaxation time in seconds, and $\omega$ is the angular frequency in radians per second \cite{permittivity}. Basically, the conductivity of ice is small at radio frequencies, so its dielectric absorption is also small, meaning that at these frequencies the imaging of the ice would be most effective, and would yield results similar to Figure \ref{fig:icebottom}.
 
-
-
-%\section{Communication Systems}
-
-%\subsection{Communication to Lander}
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=0.7\columnwidth]{figures/JP/icebottom.png}
+		\caption{An example of the expected output for the ground penetrating radar.\cite{iceradar} \label{fig:icebottom}}
+	\end{center}
+\end{figure}
 
 \autsubsection{Relay Systems}{Jean-Paul Breuer}
 As the Penetrator makes its descent along the ice column, dependent on the chosen landing site and the total depth of the ice, there may be a requirement for several communication relays to send and receive the data from the instrument suite at the bottom of the ice column to the lander near the surface. With regards to the design of the communication relay system, the most ideal configuration would be to keep the $n$ number of relays required positioned near the top of the Penetrator as several cylindrical, detachable sections. Once reaching the appropriate depth, an anchoring mechanism should activate to capture and maintain the relay at that depth, while the remainder of the Penetrator continues it's descent.
