@@ -127,7 +127,7 @@ LPDAs have a wide 3 dB beamwidth, which most of the times calculated through sim
 \paragraph{Helical Antennas Design}
 Another type of antennas with a lot of potential in our mission is helical antenna. This antenna type is consisting of a conducting wire wound in the form of a helix, which in most cases is mounted over a ground plane. There are two modes that a helical antenna can operate and these are the normal mode and the axial. At normal mode the antenna resembles a monopole or dipole, so it has omnidirectional characteristics and linear polarization. We are interested in directional antennas, thus we will focus on the axial mode. The axial mode provides a directional antenna beam, radiating off the ends of the helix along the antenna's axis (end-fire). Moreover, the latter mode creates a circular polarized wave, which is mandatory for our application. A typical helical antenna with its radiation pattern is depicted in figure \ref{helical}.
 
-\begin{figure}[htb]
+\begin{figure}[htb!]
     \centering
     \captionsetup[subfigure]{width=0.45\textwidth}
     \subfloat[A typical representation of a helical antenna. The most important parameters, which determine its radiation pattern are shown\cite{helix}]{
@@ -237,3 +237,187 @@ Parabolic dish antennas are very directional, high gain antennas, which are used
 \end{table}
 
 , where G is the gain in dBi, D is the diameter of the parabolic reflector in metres and k is the efficiency factor which is generally around 50\% to 70\%. The parabolic reflector antenna gain efficiency is dependent upon a variety of factors, which are all multiplied together to give the overall efficiency. These factors are radiation efficiency, aperture taper efficiency, spillover efficiency, surface error, cross polarization, etc. The design of a parabolic antenna is way more complex, so in order to achieve very good results optimization of the feed point and a choice between different type of dish implementations must take place. By different type of dish implementations is meant, the Cassegrain, Gregorian or off-axis design. In the context of this section, we will not go any further because as it is clear from the results shown in table \ref{table: dish}, a parabolic antenna in this frequency range and under the restriction in diameter can not be really directional. Although, the gain levels are sufficient if we would like to go with a more wide HPBW.  
+
+
+
+\subsubsection{Microstrip Antenna Array}
+%\paragraph{Microstrip Antenna Array}
+\label{microstrip antenna}
+
+Another very famous antenna type is microstrip antennas or patch antennas. This type of antennas are low profile, conformable to planar and non-planar surfaces, simple and inexpensive to manufacture using modern printed-circuit technology. They are also mechanically robust when mounted o rigid surfaces, compatible with MMIC designs and when the particular patch shape and mode are selected they are very versatile in terms of frequency, polarization, pattern and impedance. Moreover, by using adaptive elements multiple resonant frequencies, impedances, polarizations and patterns can be achieved. Major operational disadvantages of microstrip antennas are their low efficiency, low power, high Q (quality factor), poor polarization purity and very narrow, which is typically only a fraction of few percent. In our range of frequencies, 300-400 MHz, patch antennas can be quite large with respect to other applications and frequencies. As it is clear the major reason why to use these antennas is the compactness they offer to our mission. If we can live with their disadvantages then is a fairly good alternative. 
+
+As it happens very often, we use patch antennas in antenna arrays in order to increase their directivity and gain. This can be done also here wherever is this possible. Typically, the radiation of a single patch antenna is not very suitable for a high loss link so the array design is one-way road. Patches transmit in circular polarization if this is necessary with fairly low complexity. Also, circular patches can be designed if this is necessary. 
+
+The modeling of a patch antenna is quite laborious and demands high end software. At this report the fundamental calculations of the dimensions of the antenna have been made without the use of any sophisticated antenna software, but using closed form equations, which can be found in \cite{balanis} chapter 14. The approach it is used called transmission line model and it can model antenna's behaviour acceptably well. After the determination of the desired dimension's an expansion will take place in order to use patch antennas in an array.
+The characteristics of a rectangular microstrip antenna depends mainly on its substrate's dielectric coefficient ($\epsilon_{r}$), its length (L), width (W) and substrate height (h). The choice of $\epsilon_{r}$ should be done judiciously, because the decrease of it corresponds in higher efficiency and larger bandwidth, but larger dimensions. The height h has the opposite behaviour. The following equations (\ref{patch_eq}) were used to find the dimensions of the antenna when the excitation source are in the $TM_{010}$ dominant mode. Once we know the resonant frequency, the dielectric constant of the material we use for substrate and its height we define $\epsilon_{eff}$, W and L.
+\begin{subequations}
+\begin{align}
+   &W=\frac{c}{2f} \sqrt{\frac{2}{\epsilon_{r}+1}} \\
+   &\epsilon_{eff}=\frac{\epsilon_{r}+1}{2}+\frac{\epsilon_{r}-1}{2}[1+12\frac{h}{W}]^{-1/2} \\
+   &\Delta L=0.412 h \frac{(\epsilon_{eff}+0.3)(\frac{W}{h}+0.264)}{(\epsilon_{eff}-0.258)(\frac{W}{h}+0.8)} \\
+   &L_{eff}=\frac{\lambda}{2}+2\Delta L
+\end{align}
+\label{patch_eq}
+\end{subequations}
+, where c is light's speed, $\Delta L$ is length's increase because of $\epsilon_{eff}$.
+
+Solving the above equations for different substrates, as seen in figure (\ref{substrate}), height $h=0.0589 \lambda$ we find the following dimensions.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.75\textwidth]{figures/Yannis/substrate.jpg}
+\caption{Properties of different substrates. \cite{substrates}}
+\label{substrate}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}[width=.75\textwidth]{| c | c | c | c | c | c |}
+\hline
+ - & \textbf{Bakelite} & \textbf{FR4 Glass Epoxy} & \textbf{RO4003} & \textbf{Taconic TLC} & \textbf{RT Duroid} \\ 
+ \hline
+ \textbf{$\epsilon_{r}$} & 4.78 & 4.36 & 3.4 & 3.2 & 2.2 \\  
+ \hline
+ \textbf{L (mm)} & 290.9 & 305.2 & 336.9 & 344.8 & 395 \\
+ \hline
+ \textbf{W (mm)} & 202.7 & 215.3 & 244.2 & 251.7 & 301.8 \\
+ \hline
+\end{tabular}
+\caption{Patch antenna's dimensions for different dielectric constant $\epsilon_{r}$. f=300 MHz}
+\label{table: subs300}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}[width=.75\textwidth]{| c | c | c | c | c | c |}
+\hline
+ - & \textbf{Bakelite} & \textbf{FR4 Glass Epoxy} & \textbf{RO4003} & \textbf{Taconic TLC} & \textbf{RT Duroid} \\ 
+ \hline
+ \textbf{$\epsilon_{r}$} & 4.78 & 4.36 & 3.4 & 3.2 & 2.2 \\  
+ \hline
+ \textbf{L (mm)} & 216.4 & 228.9 & 252.7 & 258.6 & 269.3 \\
+ \hline
+ \textbf{W (mm)} & 150.3 & 161.3 & 183 & 188.6 & 226.1 \\
+ \hline
+\end{tabular}
+\caption{Patch antenna's dimensions for different dielectric constant $\epsilon_{r}$. f=400 MHz}
+\label{table: subs400}
+\end{table}
+
+Knowing from antenna theory that the radiating slots of a patch antenna can be seen as two independable dipoles, we can use this approximation to find the gain using the array factor (AF). If we assume a assume a dielectric constant, which compromise size and efficiency, we can choose the RO4003 from \ref{table: subs300} or \ref{table: subs400}. Thus, if the area below our lander vehicle is 1 $m^2$ we can design a 6 element patch array antenna with element's size 377x244 mm if we are go for the lower frequency of 300 MHz. According to Balanis' approximated formulas we can have directivity for each slot equal to 4 dB and around 5.8 dB for the whole antenna (two slots). In order to increase the directivity using the array design of 6 elements we can achieve a half power beamwidth about $40^{\circ}$, as it can be seen in figure (\ref{array}). In case we design the antenna for 400 MHz, the patch size will be smaller, thus more antennas can be placed to the available space. Always we have to consider that higher frequencies correspond to higher losses and in case of patch antennas without any substantial increase in gain and beamwidth.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.75\textwidth]{figures/Yannis/2results.jpg}
+\caption{Half power beamwidth for an antenna array of 6 microstrip antennas (red curve) and for an antenna array of 12 microstrip antennas (blue curve). Both are pointing at broadside.}
+\label{array}
+\end{figure}
+
+Finally, in order to determine the the gain we have to know the radiating efficiency. As it has stated, taking into account the absence of the necessary dedicated software for antenna analysis, such as HFSS and CST, we are trusted the results from \cite{substrates} as they are shown in figure (\ref{array result}). The last step is to find the gain of the antenna. The designing characteristics of the aforementioned antenna of 6 elements are summing up in table (\ref{table: results}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.75\textwidth]{figures/Yannis/results.jpg}
+\caption{Fractional bandwidth, antenna efficiency and radiating efficiency for a single patch antenna. The measurements reported in \cite{substrates} correspond to frequency 10 GHz, although due to poor dependence of these quantities from frequency we can use them for our approximations.}
+\label{array result}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{| c | c | c | c | c | c | c | c |}
+\hline
+ \textbf{f (MHz)} & \textbf{$\epsilon_{r}$} & \textbf{W (mm)} & \textbf{L (mm)} & \textbf{D (dB)} & \textbf{$\epsilon_{rad}$} & \textbf{G (dB)} & FBW \\ 
+ \hline
+ 300 & 3.4 & 244 & 337 & 5.76 & 70 \% & 4.03 & 7.59 \% \\
+ \hline
+ 400 & 3.4 & 183 & 252 & 9.4 & 70 \% & 6.58 & 7.59 \% \\
+ \hline
+\end{tabular}
+\caption{Design characteristics for a patch antenna array. 300 MHz corresponds to 6 elements array and 400 MHz to 12 elements. D stands for maximum directivity and G for maximum gain.}
+\label{table: results}
+\end{table}
+
+An important part of microstrip antennas (and especially in arrays) is the input impedance and matching. The input admittance of a slot and thus for a patch antenna is given by using Huygens's equivalent principle. The procedure is quite laborious and will not be shown here. Although, a useful consequence is that we can match the input admittance by a very easy technique, using a small inset in each individual patch. Also, if circular polarization is needed many different techniques of feeding can be used. Of course, since we are talking for an array antenna, the appropriate phase differences should be introduced between the array elements. About feeding we can use either uniform or nonuniform antennas, which mean constant or varying magnitude of the elements. Non-uniform arrays are more preferable since they present lower sidelobe and grating lobe levels, but on the other hand worst directivity. Good cases for non-uniform amplitude coefficients are the binomial and Tschebysheff's polynomial. 
+
+\subsection{Penetrator Antenna}
+
+As it was mentioned in \ref{microstrip antenna}, the great advantage of patch antennas are their compact size. Having in mind the extremely limited available space at penetration vessel to place an antenna, the option of a patch antenna or a small array of them seems a good alternative. The analysis is exactly the same as it was done previously, so only minor modifications are necessary. First of all, array's elements must be placed on the sides of the vessel due to limited area on the top. Moreover, the antenna design must be an end-fire, which means that the antenna beam points along the axis where the elements are placed, thus the desired beam will point at $\theta=0$. In order to achieve that properly phase difference should be introduced to the elements. The positive side of that is the possibility of redirecting the beam in case of misalignment between penetrating vessel and lander vehicle antenna. Taking into account the size of the vessel, approximately 10-15 cm outer diameter, the patch antennas should be placed around its periphery. 
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{| c | c | c | c | c | c | c | c |}
+\hline
+ \textbf{f (MHz)} & \textbf{$\epsilon_{r}$} & \textbf{W (mm)} & \textbf{L (mm)} & \textbf{D (dB)} & \textbf{$\epsilon_{rad}$} & \textbf{G (dB)} & FBW \\ 
+ \hline
+ 300 & 3.4 & 244 & 337 & 4.45 & 70 \% & 3.12 & 7.59 \% \\
+ \hline
+ 400 & 3.4 & 183 & 252 & 7.12 & 70 \% & 4.86 & 7.59 \% \\
+ \hline
+\end{tabular}
+\caption{Design characteristics for a patch antenna array of penetrator vessel. 300 MHz corresponds to 3 elements array and 400 MHz to 5 elements. D stands for maximum directivity and G for maximum gain.}
+\label{table: results_pen}
+\end{table}
+
+\subsection{Link Budget Analysis}
+
+The link budget will take place in this section, in order to assess which one of the above configurations is most suitable for our application. In this part we are interested in high directional link with the best possible efficiency and lower possible size, taking into account the ice losses with relation to frequency. Moreover, the necessary data rate should be kept in mind. As it has mentioned above, the period of the orbiter around Europa is approximately 13 days, which means penetrator vessel sends data to the lander vehicle during this period and the latter stored there, until the next pass of the orbiter. The available time, when line of sight between ground and space segment will have been established longs only few hours (around 3 hours), thus we have to deliver any stored data from 13 days in this small interval. This is our main driver concerning data rates and it limits the uploaded data size to 1 Gbit (giga bit) in three hours. Consequently, we can calculate the necessary data rate between penetrator-orbiter should be 1 Kbps (kilo bit per second) to achieve 1 Gb accumulation in 13 days. Although, if demand for higher data rates occurs, we can push the limits of our equipment compromising the signal to noise ratio.
+
+The following link budget calculations are based on Friis formula of propagation, taking into account propagation losses due to the distance (distance in worst case scenario is 10 Km), losses due to ice, as described in \ref{losses}, losses from different components (transmission lines, tranceivers, etc.) and polarization mismatches. Due to indeterministic nature of ice losses, two average estimation will be included in the calculations. The first will be an estimated worst case scenario with ice losses of 8 dB/Km and an intermediate case scenario with 6 dB/Km. Finally, for each different antenna design, the link budget with a 1 dB required $E_{b}/N_{0}$ will be found and then an overall estimation will take place. 
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{| c | c | c | c | c | c |}
+\hline
+ \textbf{Ant. Type} & \textbf{$G_{Tx}$ } & \textbf{$G_{Rx}$ } & \textbf{Add. Losses } & \textbf{Pol. Losses} & $E_{b}/N_{0} $ \\ 
+ \hline
+ Crossed-Yagi & 8.6 dB & 3.12 dB & 0.5 dB & 3 dB & 5.4 dB \\
+ \hline
+ LPDA & 7 dB & 3.12 dB & 0.5 dB & 3 dB & 3.8 dB\\
+ \hline
+ Helical & 7.8 dB & 3.12 dB & 0.5 dB & 0 dB & 7.6 dB\\
+ \hline
+ Parabolic & 7.2 dB & 3.12 dB & 0.5 dB & 0 dB & 7 dB\\
+ \hline
+ Microstrip & 4 dB & 3.12 dB & 0.5 dB & 0 dB & 3.8 dB\\
+ \hline
+\end{tabular}
+\caption{Link budget analysis for the different types of antennas, at frequency of 300 MHz, for the worst case scenario attenuation due to ice losses (8 dB/km). The computations take into account the dielectric constant of the ice, bit rate of 1 Kbps and transmitted power of 10 Watts. The distance which is calculated is 10 km of ice with impurities.}
+\label{table: link_budget}
+\end{table}
+
+\subsubsection{Link Budget Analysis \& Feasibility Assessment}
+\paragraph{Yagi \& LPDA antennas}
+Table \ref{table: link_budget} is a link budget analysis which concentrates on telecommunication characteristics. Beside them we have to take into account also dimensions and the corresponding beamwidth in any case to find out the most suitable antenna, the number of elements/turns, array factor, etc. As mentioned earlier, Yagi and LPDA antennas are quite efficient, but on the other hand they take more space because of the necessary distance between the elements and need a sufficient distance from the first "obstacle" in the near field, ice in our case. Moreover, there is an extra 3 dB loss, due to polarization mismatches in order to be able to receive/transmit circular polarization. These reasons are enough to not consider Yagis and LPDAs as our first priority. 
+\paragraph{Helical antennas}
+Helical antennas are quite promising not only because of their very good gain and efficiency, but also for their extremely good beamwidth in this frequency range. Another advantage of them is the ability to built a planar array, with small footprint, in order to increase the gain and decrease the beamwidth. Finally, we can manipulate each element independently, which provides more freedom to our design. After the above, we can see from  tables \ref{table: Helicals1} and \ref{table: Helicals2} that there are substantial differences between the frequencies and the use of an array of helical antennas. Having in mind the strict limitation of space under our lander vehicle, the most suitable helical antenna is around 340 MHz and N=3 (table \ref{table: Helicals2}). This specific design is a compromise between long antennas, high gain, sufficient beamwidth to consider the antenna directional and fairly low frequency to avoid high ice losses. It is also noticeable that the single element exceeds the performance of an array, which is not strange in these frequencies. We could choose also the respective antenna at 400 MHz, but the increase of ice losses at 400 MHz are far higher than the almost 1 dB extra gain. Last but not least, this design has the advantage that can be folded and unfolded easily. We can have the coil compressed and attached to a wire, in order to provide the necessary tension to keep it folded. When we want to deploy the antenna we will need only a resistor and a very small current to produce some heat and melt the wire, thus our antenna will be deployed as a reaction.
+\paragraph{Parabolic/Dish antennas}
+Parabolic antennas can approach very good efficiencies and provide the necessary gain. Their diameter and shape can fit below our vehicle, although it will be more difficult to fold and unfold this design comparing with helical antennas. Additionally, as it can be seen (table \ref{table: dish}) the beamwidth at the same frequencies as helicals, is much wider, thus these antennas are less directive. The above mentioned reasons are sufficient to exclude this design. 
+\paragraph{Microstrip Antennas}
+Microstrip antennas are well suited when space is high priority with the expense of low quality and small gain. Microstip antennas at 300 MHz present a gain only 4 dB, which cannot be compared with the other designs. Although, their inefficiency can be overlooked in the case of the penetrator vessel where the absence of space does not leave any other option.
+
+Finally, the link budget for the proposed antenna (helical), in the frequency of 340 MHz and with N=3 is shown in table \ref{table:link_budget_helix}.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{| c | c | c | c | c | c |}
+\hline
+ \textbf{Ant. Type} & \textbf{$G_{Tx}$} & \textbf{$G_{Rx}$} & \textbf{Add. Losses} & \textbf{Pol. Losses} & \textbf{$E_{b}/N_{0}$} \\ 
+ \hline
+ Helical & 17.7 dB & 3.12 dB & 0.5 dB & 0 dB & 17.5 dB \\
+ \hline
+\end{tabular}
+\caption{Link budget analysis for a helical antenna, at frequency of 340 MHz, for the worst case scenario attenuation due to ice losses (8 dB/km). The computations take into account the dielectric constant of the ice, bit rate of 1 Kbps and transmitted power of 10 Watts. The distance which is calculated is 10 km of ice with impurities.}
+\label{table:link_budget_helix}
+\end{table}
+
+\subsection{Implementation's hazards}
+As discussed in this section, directivity is a desirable characteristic of antennas when you want to concentrate the beam in a specific direction. Nevertheless, in some cases high directivity can lead to mission failure, especially when the "target" object changes direction rapidly. In our application this is not the case, but misalignments can occur because of different unexpected factors. For instance, while the penetrator will be melting the ice, the heat may not propagating isotropically, thus gradually the penetrator will start diverging from the expected route. If we do not foresee the capability of beam steering and the deviation become large, there is possibility to lose the penetrator vessel from our "field of view". In other cases, may will be desirable to change the route of our penetrator to avoid obstacles, such as rocks, liquid pools, etc. In either cases, we must have the possibility to steer the beam or change its beamwidth in such manner to retain the communication.
+
+Another problem which is possible to come across is the landing on a steep slope, instead of a relative smooth area. In the former case, we must built the antenna under the lander vehicle in order to be able to point at different directions and not only perpendicular to vehicle's surface, as shown in figure \ref{ant steer}. This can be done by placing the antenna onto a steerable ground plane or by steering only the antenna's coil without moving the ground plane. The latter case will result in a slightly squinted beam with respect to the normal unit vector of ground plane, but if we know the desired direction we can compensate for this misalignment, in order to achieve the maximum directivity.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.6\textwidth]{figures/Yannis/normal.jpg}
+\caption{The antenna beam must point at penetrator vessel, even if the landing take place at an inclined surface.}
+\label{ant steer}
+\end{figure}

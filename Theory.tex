@@ -14,22 +14,17 @@ In this chapter some of the different theories about the moon will be presented.
     * Geysers?
 \fi 
 
-\subsection{Radiation Environment} \label{chap:radiation}%  "landing site guys", "orbiter guys"
-
-%* Both for the orbiter and the lander
-
-Radiation: http://zimmer.csufresno.edu/~fringwal/w08a.jup.txt
-
-\autsubsection{Tidal Wave}{Kristian Sloth Lauszus and Lukas Christensen}
 
 \section{Ice characteristics}
 
 In this section the different theories about the ice characteristics will be presented. This includes the structural profile and a simplified calculation of the ice temperature profile. Furthermore the concept of water convection will be presented, as it might eliminate the needs for low-pressure pump system to circulate the water into the different instruments.
 
+\input{Theory/TidalHeating}
+
 \autsubsection{Structural Profile}{Rasmus Lundby Pedersen}\label{sec:structural_profile}
 
-The first space probe flybys took place in the early 1970s, and Europa quickly became one of the main focuses in the search for past or present extraterrestrial life-harbouring environments, within reachable distances. Already in the 1960's were it discovered from earth-based observations, that the surface of Europa was covered in solid ice, not much unlike other satellites located that deep in the cold reaches of our solar-system. However, data recovered from satellite flybys supplied us with new information about the geology and composition of the moon's surface, having since helped us understanding the of Jupiter's, arguably, most interesting moons with respect to life-supporting environments.\\
-\\
+The first space probe flybys took place in the early 1970s, and Europa quickly became one of the main focuses in the search for past or present extraterrestrial life-harbouring environments, within reachable distances. Already in the 1960's were it discovered from earth-based observations, that the surface of Europa was covered in solid ice, not much unlike other satellites located that deep in the cold reaches of our solar-system. However, data recovered from satellite flybys supplied us with new information about the geology and composition of the moon's surface, having since helped us understanding the of Jupiter's, arguably, most interesting moons with respect to life-supporting environments.
+\subsubsection{Current Knowledge}
 The Voayger mission from the late 1970's sent back coarse imagery of Europa with resolution in the ranges of kilometres per pixel, carrying valuable information about the surface of the Jovian satellite\cite{VoyagImg}. More specifically, the images showed a surface resembling that of a ball of string, discarding theories of Europa having a smooth surface, with it in stead being full of bands and ridges.\\%See requested article from DTU Findit
 The Galileo spacecraft was launched in 1989 and entered orbit around Jupiter in 1995. It started transmitting data back to earth, from its extensive remote-sensing instrument suite
 \iffalse 
@@ -54,17 +49,16 @@ The high-resolution measurements showed what seemed to be blocks of ice filled w
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=\textwidth]{figures/Rasmus/SurfCrack}
+	\includegraphics[width=0.75\textwidth]{figures/Orbiter/chaos.png}
 	\caption{Image of Europa's surface taken by the Galileo satellite, showing ridges and disruptions in the surface. \label{fig:SurfCrack}\cite{HidOcean}}
 \end{figure}
 
-% Surface Composition
-As explained in the study made by the Space Studies Board's Committee on Planetary and Lunar Exploration (COMPLEX), the data from Galileo’s Near-Infrared Mapping Spectrometer (NIMS) show that the water-ice absorption of Europa doesn't match with the expected outcome of pure-water ice, even for areas where the level of frozen sulfur oxide is thought to be lowest (The source of this $SO_2$ is presumably volcanic eruption on Io.). There has been some theories on the cause of this, including the presence of salts and other minerals in the ice but recent studies show that bubbles and fractions could result in the same discrepancies and band shifts in the measurements. However, it is still believed that some of the darker spots seen on the moon are observed because of salts and minerals like hexahedrite, epsomite, and natron\cite{SciStrat}. % INDSÆT The identity of that contaminant so far eludes scientists, but sulfur or iron compounds are suspected from Hidden Ocean P. 8
-\\
-\\
-The actual thickness of the theorized ice-crust, and even the complete structural model of the moon, is still subject to many discussions. It was previously (prior to the Galileo mission) believed that the moon could be consisting of a hydrated silicate core coated in a thin layer of water-ice. However, with the measurements of Europa's gravitational field done by the Galileo satellite has this theory since been largely debunked. The current popular belief is that the cores is either a solid or fluid metallic core surrounded by a layer of water and ice of more than 100km due to the estimated density of the Jovian body. \\
-The global ratio between liquid and solid water-ice is still unknown since it must be based on assumptions about the internal structure of the ice, which in themselves are extremely uncertain. The estimates we do have are even based on local imagery, since making them on a global basis requires dedicated orbiter mission, like the planned CLIPPER mission.\\%INDSÆT REFERENCE
-In one study, the impact craters of Europa are analysed and compared with computer simulations to estimate regional crust thickness. The rationale is, that central peaks found in craters on the surface resemble material uplift caused by meteor impacts on extraterrestrial planets\cite{ThickImpact}, as seen on fig. \ref{fig:ImpactPic}. Therefore, it is assumed that the crust is thick enough to prevent complete surface penetration from meteor impact and as such they conclude that the ice at the impact sites must have been more than 	$\mathbf{3-4km}$ thick. Graphical representation of the simulation results can be seen on fig. \ref{fig:ImpactSim}. Another study that also investigated the impact craters, and taken from their introduction: "Stereo topographic profiles suggest that the plateau [a plateau SW of Cilix impact crater] is
+\subsubsection{Ice Composition} 
+As explained in the study made by the Space Studies Board's Committee on Planetary and Lunar Exploration (COMPLEX), the data from Galileo’s Near-Infrared Mapping Spectrometer (NIMS) shows that the water-ice absorption of Europa doesn't match with the expected outcome of pure-water ice, even for areas where the level of frozen sulfur oxide is thought to be lowest (The source of this $SO_2$ is presumably volcanic eruptions on Io). There has been some theories on the causes of this, including the presence of salts and other minerals in the ice but recent studies show that bubbles and fractions could result in the same discrepancies and band shifts in the measurements. However, it is still believed that some of the darker spots seen on the moon are observed because of salts and minerals like hexahedrite, epsomite, and natron\cite{SciStrat}. % INDSÆT The identity of that contaminant so far eludes scientists, but sulfur or iron compounds are suspected from Hidden Ocean P. 8
+\subsubsection{Crust Thickness}
+The actual thickness of the theorized ice-crust, and even the complete structural model of the moon, is still subject to many discussions. It was previously (prior to the Galileo mission) believed that the moon could be consisting of a hydrated silicate core coated in a thin layer of water-ice. The measurements of Europa's gravitational field done by the Galileo satellite has shown that this theory may not be adequate. The current popular belief is that the cores is either a solid or fluid metallic core surrounded by a layer of water and ice of more than $100\,\mathrm{km}$ due to the estimated density of the Jovian moon. \\
+The global thickness ratio between the liquid and solid water-ice is still unknown since calculations must be based on assumptions about the internal structure of the ice, which in themselves are extremely uncertain. The estimates we do have are even based on local imagery, since making them on a global basis requires dedicated orbiter mission, like the planned CLIPPER mission.\\%INDSÆT REFERENCE
+In one study, the impact craters of Europa are analysed and compared with computer simulations to estimate regional crust thickness. The rationale is, that central peaks found in craters on the surface resembles material uplift caused by meteor impacts on extraterrestrial planets\cite{ThickImpact}, as seen on fig. \ref{fig:ImpactPic}. Therefore, it's assumed that the crust is thick enough to prevent complete surface penetration from meteor impact and as such they conclude that the ice at the impact sites must have been more than 	$\mathbf{3-4km}$ thick. Graphical representation of the simulation results can be seen on fig. \ref{fig:ImpactSim}. Another study also investigated the impact craters, and the introduction of their article reads: "Stereo topographic profiles suggest that the plateau [a plateau SW of Cilix impact crater] is
 flexurally supported, with an effective elastic thickness $t_e$ of
 $~6km$. For a conductive temperature profile this $t_e$ value
 implies a solid ice shell thickness of $\mathbf{~15km}$; if the shell is
@@ -78,17 +72,17 @@ the entire satellite."\cite{ThermElast}
 	\caption{Galileo images of Europan central peak craters. (\textbf{A}) Brigid ($11^\circ$N, $80^\circ$W), $D=8.5km$. (\textbf{B}) Grainne ($60^\circ$S, $95^\circ$W), $D=13.5$km. (\textbf{C}) Cilix ($2.6^\circ$N, $182^\circ$W ), $D18.4$km. (\textbf{D}) Amergin ($14^\circ$S, $230^\circ$W), $D=18.6$km. (\textbf{E}) Maeve ($58^\circ$N, $75^\circ$W ), $D=20.4$km. (\textbf{F}) Pwyll ($25^\circ$S, $271^\circ$W), $D=23.7$ km. All images are at a resolution of 250 m/pixel and each is illuminated from the right except Cilix (\textbf{C}), which was observed at high sun
 	\cite{ThickImpact}. D is crater diameter. \label{fig:ImpactPic}}
 \end{figure}
-\begin{figure}[htb]
+\begin{figure}[!htb]
 	\centering
-	\includegraphics[width=1\textwidth]{figures/Rasmus/Impacts2}
+	\includegraphics[width=0.7\textwidth]{figures/Rasmus/Impacts2}
 	\caption{Model results for impacts of large (A through C) and small projectiles (D through F) into 9-km-thick ice (gray) over liquid water (A) and (D), 5-kmthick ice (gray) over liquid water (black) (B) and (E), and 3-kmthick conductive lid (light gray) over convecting ice (dark gray) (C) and (F). Solid, dotted, and dashed lines show the regions of complete vaporization, complete melting, and $50\%$ melting, respectively.
 	\cite{ThickImpact}.\label{fig:ImpactSim}}
 \end{figure}
 \\
-Thermal models has also been used to estimate the average ice shell thickness of Europa. One study is carried out with the assumption of a ice shell decoupled from a silicate core by a layer of liquid water \cite{ThermThick}, so its conclusion may not fit with modern theories. They estimate the shell to have a thickness of $\mathbf{13-25km}$, depending on which thermal rheology model is used (Maxwell and general flow rheology, with and without heat flow from the core). Another thermal model is based on the suggestios of Europa having a metallic core and a silicate mantle, covered by significant layer of liquid water and a thinner ice shell \cite{ThermThick2}. The study heavily relies on convection in the ice, and this complicates the study further. The heat flow through the ice is dependant on the shell thickness, and shell thickness is in turn dependant on the heat flow. This study concludes on the result that the average thickness of a completely frozen shell must be around $\mathbf{36km}$ based on the study's assumptions.
+Thermal models has also been used to estimate the average ice shell thickness of Europa. One study is carried out with the assumption of a ice shell decoupled from a silicate core by a layer of liquid water \cite{ThermThick}, so its conclusion may not fit with modern theories. They estimate the shell to have a thickness of $\mathbf{13-25km}$, depending on which thermal rheology model is used (Maxwell and general flow rheology, with and without heat flow from the core). Another thermal model is based on the suggestios of Europa having a metallic core and a silicate mantle, covered by significant layer of liquid water and a thinner ice shell \cite{ThermThick2}. The study heavily relies on convection in the ice, and this complicates the study further. The heat flow through the ice is dependant on the shell thickness, and shell thickness is in turn dependent on the heat flow. This study concludes on the result that the average thickness of a completely frozen shell must be around $\mathbf{36km}$ based on the study's assumptions.
 \\
-\\ One study carried out by [J.M. Wahr, M.T. Zuber et al., 2006] analyses the tidal effects caused by the differentiating gravitational pull from Jupiter, as Europa travels in its elliptical orbit around the planet. The result of the study is a set of analytical equations estimating the global thickness based on the Love-number of Europa. However, in order to utilize these equations, accurate knowledge of the ice-composition is required, as well as precise estimates of the Love numbers. In the end they even conclude conclude that their results may not be sufficient since they only provide an accuracy of $\pm 5\mathrm{km}$.\\
-\\
+\\ One study carried out by [J.M. Wahr, M.T. Zuber et al., 2006] analyses the tidal effects caused by the differentiating gravitational pull from Jupiter, as Europa travels in its elliptical orbit around the planet. The result of the study is a set of analytical equations estimating the global thickness based on the Love-number of Europa. However, in order to utilize these equations, accurate knowledge of the ice-composition is required, as well as precise estimates of the Love numbers. In the end they even conclude conclude that their results may not be sufficient since they only provide an accuracy of $\pm 5\mathrm{km}$.
+\subsubsection{Internal Lakes}
 Apart from the thickness and elemental composition of the ice, internal structure in the shelf is also highly relevant to the planned penetrator mission. Assuming a completely homogeneous ice-shelf is a crude over-simplification and may be a mission-killer if alternatives aren't considered. 
 \begin{figure}[htb]
 	\centering
@@ -185,6 +179,39 @@ activity. Red curve: peak intensities during active periods. \cite{Grie_meier_20
 
 %added theory (Johannes Linde)
 \input{Orbiter/2_theory}
+
+%added theory
+\input{Orbiter/autonomous_landing_selection}
+
+\autsection{Radiation Shielding Theory}{Jean-Paul Breuer}
+With regards to the instrumentation on board, there will need to be some type of shielding as protection against harmful radiation as well as from the potential heat generated by the RTG. Whenever gamma radiation passes through matter, it undergoes absorption via Compton, photoelectric, and pair-production interactions. Therefore, the intensity of the emitted radiation decreases as a function of thickness and density of the absorbing material, as stated by the Beer-Lambert law,
+\begin{equation}
+I = I_0 e^{-\alpha x}
+\end{equation}
+
+rearranging the relation and taking the log of both sides gives,\\
+\begin{equation}
+\ln\left( \frac{l_0}{l}\right) = \alpha x
+\end{equation}
+
+where then finding the half value layer (HVL), or where the initial intensity is halfed, can be computed through,\\
+\begin{equation}
+\ln(2) = \alpha x_{1/2} \Rightarrow x_{1/2} = \frac{0.693}{\alpha} \label{halfthickness}
+\end{equation}
+In other words, the more dense the material, the less thickness will be required to effectively attenuate the radiation. However, as mentioned previously, whenever radiation passes through matter, there are several interactions that can occur, including X-ray fluorescence.
+
+The transition energy between two electron shells within an atom (typically higher shells K,L,M,+) is the same as the energy of characteristic radiation for that element, which manifests itself as the inner-shell ionization by an accelerated electron. Naturally, ionization can occur in several different electron levels, forming a characteristic spectrum for each element, since all transition energies are unique to each atom. This transition of an excited atom into a lower energy occurs via the photoelectric effect, where radiation ejects inner shell electrons, whereby electrons from the outer shells are transfered into the inner shells to fill in the vacancies, emitting a photon in the X-ray range that is unique to that element with energy equal to the transition energy $E_c = E_m - E_n$. This is the case for elements with higher atomic numbers; however, for elements with low atomic numbers, the Auger effect tends to dominate, where instead of the energy being emitted as a photon, it instead is transfered to another electron which is then ejected from the atom.
+
+The empirical law for the characteristic X-ray emission from an atom is given by Moseley's Law,\\
+\begin{equation}
+E_c= R_h \cdot (Z-\sigma)^2 \left(\frac{1}{n^2} - \frac{1}{m^2}\right)\label{moseley:eq}
+\end{equation}
+
+where $R_h$ is the Rydberg constant, $Z$ is the atomic number, and $\sigma$ is the screening constant of the atom. It is then possible to estimate the energy of a $K_\alpha$ transition via the relation,\\
+\begin{equation}
+E_{K_\alpha} = A \cdot (Z-1)^2 \label{transition}
+\end{equation}
+where $A = 10.22$ eV is the $K_\alpha$ transition in hydrogen. Following Equation \ref{transition}, it is evident that every element has its own characteristic fingerprint, but more importantly, to create an effective shielding, it will be required to use several layers with different materials, to gradually attenuate all of the energy to a point where it will no longer damage the sensitive instrumentation. Given that the Orbiter will be orbiting Jupiter, with a heavy radiation environment, it will be very important to minimize the radiation as much as possible, especially during the Lander phase of the mission when the equipment will be most exposed to the harmful radiation from the planet.
 
 
 %* Water, oil, fat, carbon, energy

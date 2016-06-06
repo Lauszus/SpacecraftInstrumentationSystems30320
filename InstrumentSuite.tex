@@ -6,12 +6,171 @@
 
 
 \autsection{Sample up-concentration \& injection}{Morten Lykke Hilligsøe}\label{sec:water_flow}
-
 Although the instruments selected for the mission have high detection rates, up-concentration of the surrounding waters will enable the detection and quantification of low concentration compounds. To do this, the surrounding water is passed through a ceramic nano filter, which retains any microbes such as bacteria and viruses, as well as most particles. The filter was originally developed in collaboration with NASA, for use in water recycling systems on space missions. After running the surrounding water through this filter for an extended period of time, the water flow is reversed and directed to the instrument suite. When reversing the water flow, the particles on the surface of the filter will be extracted relatively quickly, thereby resulting in an up concentrated sample liquid.
 
-In order to reverse the water flow, a pump is needed. Peristaltic pumps are mechanically very simple and reliable, and therefore suitable for space missions. However the HPLC system described in section \ref{sec:hplc}, requires a pump operating at pressures outside the range of most peristaltic pumps. In order to combine the two pumps of the filtration system and HPLC system, a single high pressure pump \cite{missing?} is used. The suggested high pressure pump has a maximum flow rate of 40ml/min at 500 psi, and most likely higher at lower pressures. 40ml/min isn't a lot, but it accumulates to 57,6l of water per day. If 50l of water is filtered in 1 day, and the filter residue can then be extracted into 50ml of sample water, an up-concentration factor of 1000 has been achieved, which should be sufficient for most experiments.
+In order to reverse the water flow, a pump is needed. Peristaltic pumps are mechanically very simple and reliable, and therefore suitable for space missions. However the HPLC system described in section \ref{sec:hplc}, requires a pump operating at pressures outside the range of most peristaltic pumps. In order to combine the two pumps of the filtration system and HPLC system, a single high pressure pump \cite{hplc_motor} is used. The suggested high pressure pump has a maximum flow rate of 40ml/min at 500 psi, and most likely higher at lower pressures. 40ml/min isn't a lot, but it accumulates to 57,6l of water per day. If 50l of water is filtered in 1 day, and the filter residue can then be extracted into 50ml of sample water, an up-concentration factor of 1000 has been achieved, which should be sufficient for most experiments.
 
 To direct the water flow several valves will also be required. Figure \ref{fig:filter} presents a water filtration system, complete with valves and tubing, which can be implemented inside the penetrator, allowing up-concentration of the surrounding water. In this system, a disk-shaped filter is used in combination with a central valve which open or blocks the water flow into the instrument suite, as well as a system of valves (flaps) which opens or blocks external water flow to up-concentrating side of the filter. After the sample reaches the instrument suite, other valves can direct which specific instruments should receive the sample.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/mlh/filter_multi.PNG}
+	\caption{}
+	\label{fig:filter}
+\end{figure}
+
+A different filtration system was also investigated, in which a pump and a flat filter is used to up-concentrate particles on the surface of the filter, and a mechanical scraper is then used to scrape the surface of the filter, thereby collecting a high concentrate sample. Although a simple solution, the mechanical parts of the scraper might prove less durable than simple valves, and may also end up damaging the filter during operation. 
+
+\autsection{Robot Arm}{Rasmus Lundby Pedersen} % Rasmus
+%\chapterauthor{Rasmus L. Pedersen}
+Sample manipulation, and extraction, is a central part of lander-based extraterrestrial space exploration. Remote sensing measurements are usually based on non-intrusive observations done at large distances, but it's sometimes necessary to get up and close to the subjects of interest for certain types of material analysis. When measuring factors like temperature, salinity and pH values of a material, close proximity is required and this can either be accomplished by moving all, or part, of the instrument suite close to the sample, or by extracting it to a typically larger central-based instrument laboratory. This section covers the design of a robotic sample manipulator that can achieve both scenarios.
+
+\subsection{Considerations and Drivers}
+There are several assumptions that are critical to the design of the robotic sample manipulator. These include, but are not limited to:
+\\ 
+\begin{itemize}
+\item \textbf{High pressure environment}. The manipulator arm is presumably attached to the side of the penetrator, and will be deployed when the vehicle penetrates the bottom of the ice-crust. The common assumption is that the penetrator will experience around 12MPa of pressure at most, but this value may be as high as 36MPa in an absolute worst-case scenario\footnote{$P=\rho g d$, where $\rho\approx 0.92\,\mathrm{kg\cdot m^{-3}}$ for ice-water, $g\approx 1.314\,\mathrm{m\cdot s^{-1}}$ is the approximate gravitational acceleration at Europa's surface and $d=\,30\mathrm{km}$ is the assumed upper limit of the ice-crust thickness}.
+\item \textbf{Possible salt-rich water environment}. Material selection should take possible salt-water corrosion into account, since it could be a potential mission-killer.
+\item \textbf{Mechanical robustness}. The existence of currents and possible turbulence in the water underneath the crust is currently unknown, and thus is it necessary to design for what could be a very violent marine environment. 
+\end{itemize}
+These assumption help build a framework of limitations and possibilities for the following instrument suite.
+\subsubsection{Sample extraction and reach}
+When Earth-based living organisms die and decompose in underwater anaerobic processes, they have shown to form carbon-rich fossil fuels like petroleum and natural gases. These typically exhibit characteristics of having smaller density than water, and will therefore rise to the ice-crust, making the immediate layer underneath the ice an area of interest, with regard to the selection of a sampling location. \\
+The samples of interest are most likely liquid, but we must consider the possibility that some organic material are embedded in the ice, due to frequent melting and refreezing of lowest part of the ice-sheet. Therefore, a mechanical element should be positioned at the tip of the manipulator arm so that a small amount of the frozen ice may be dug out, possibly melted by a heating element, and extracted.
+\\
+\\It must be assumed that the penetrator itself may cause contamination of the surrounding ice when penetrating the crust, as well as introducing a difference in pressure between the water underneath the crust, and the water column melted by the penetrator. The pressure underneath the ice will likely be higher than the pressure in the water column due to possible turbulence, and may suck up a lot of the material located just around the entry-hole. The exact size of the affected area is almost completely unknown since it depends on a myriad of factors, but an approximate reach of $1\,\mathrm{m}$ away from the penetrator should enable us to extract undisturbed ice from the ice-ceiling.
+\\
+\\A small instrument suite should be placed directly in the tip on the arm to measure the water and ice directly, but some of the sample should be extracted and moved to a centralized instrument suite located in the penetrator, due to space restrictions on the arm.
+
+\subsection{Design Considerations}
+With the formulation of the overall goal of the manipulator presented, this section will consider the technical considerations of the arm's design.
+\subsubsection{Drill Head}
+Temperature profiles previously presented for the ice layer shows, that the ice at the boundary of the liquid sea may be just beneath the freezing point of ice. This makes it a lot easier to dig in and serves as a basis for the design of a drill head.\\
+There are several methods for drilling in ice, and this is a central point of discussion with regard to the penetrator descent drilling. The advantages and disadvantages was discussed with the focus of optimizing power-coupling to the ice, and prospective solutions included:
+\begin{itemize}
+\item Mechanical drilling
+\item Laser drilling
+\item Sputtering
+\item Light concentration drilling
+\end{itemize}
+At first, light concentration can quickly be disregarded at the present depth of several kilometres, since transportation of natural light from the surface clearly isn't a viable effective solution. Artificial light concentration would technically be indistinguishable from laser drilling.\\
+\\
+Laser drilling and sputtering are both good alternatives, where the ice would be melted and directly extracted to the penetrator's instrument suite. However, this presents the obstacle that the desired sample-water may be diluted by the surrounding naturally-liquid water and defeat the entire purpose of drilling in the soft ice ceiling. One major advantage is that this method wouldn't require the physical support structure mechanical drilling would.\\
+\\
+Extracting ice samples with a mechanical drill head carries its own problems, since it would both bring considerable weight from the metal materials, and power consumption associated with motorization of the head, as well a structural stability issues. Cutting, or digging, into the ice requires that pressure is applied from the manipulator arm to the ice, which in turn will result in a reactionary force pushing back on the tethered penetrator which the arm is mounted on. However, this may not be a stand-alone problem, since the mobility of the robotic arm will also require stabilizing arms in any case, and thus will that problem be solved.\\
+Power coupling to the ice is also relevant, since the required specific cutting energy varies between methods. The subject of specific cutting energy was touched upon in section covering the penetrator drilling, and is a number that tells us how much energy it takes to remove a unit volume of material. The specific cutting energy is for solid arctic ice, according to [Talalay, Pavel G., 2016]\cite{IceDrill}, (590-680$\,\mathrm{MJ\cdot m^{-3}}$) for thermal drills\footnote{Electric thermal coring drilling and hot-point drilling } and (1.9-4.8$\,\mathrm{MJ\cdot m^{-3}}$) for mechanical drills. It's not clear what type of ice the drill methods were tested in, but this is somewhat irrelevant since the relative specific cutting energy between the methods should be more or less independent of the ice's state.\\ 
+Tests have shown that a $CO_2$ laser at $10.6\,\mathrm{\mu\cdot m}$ was able melt about $0.8\,\mathrm{mm\cdot s^{-1}}$ in solid ice, with an intensity of about $50\,\mathrm{W\cdot cm^{-2}}$. Converted to specific cutting energy, this gives:
+\begin{equation}
+E_{s,laser}=10\cdot\frac{50}{0.8}\,\mathrm{J\cdot cm^{-3}}=625\,\mathrm{MJ \cdot m^{-3}}
+\end{equation} 
+Which is very similar to that of thermal drilling, which lase-drilling would be a sub-set of. Therefore, it seems that mechanical drilling would be around two orders of magnitude more efficient than thermal- and laser drilling, without accounting for the efficiency of the motor driving the drill bit. \\
+\\
+It was mentioned that the extracted samples should be retrieved in liquid form, which the laser drilling method intrinsically does. However, a solution to this with regard to mechanical drilling could be to design the head as a cutting wheel with shovelled teeth that could lead the material to a small tube, that would suck the solid ice in by the use of a peristaltic pump. The isolated solid ice would be melted by a electrical heating element and moved further back to the penetrator instrument suite. \\
+It could also be possible to a regular conveyor belt-type drill to extract the solid ice, but digging into the ice would anchor the drill head and reduce mobility during sampling. A wheel-bucket cutter like the one seen on figure \ref{fig:WheelCut}  would be more free to move around, assuming that only a shallow cut into the ice would be required.  
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.35\textwidth]{figures/Rasmus/WheelCutter}
+	\caption{Bucket-Wheel cutter design \cite{Vonbucket}.
+	\label{fig:WheelCut}}
+\end{figure}
+\\Selection of wheel-drill material both depends on the required hardness of the material in compared to what's being drilled in, as well as resistance to galvanic corrosion in electrolyte-rich environments like the potential salt-water of Europa's ocean. Titanium and Platinum are both excellent drill bit materials, but are excessively heavy and expensive for the current situation. We assume that we only have to drill in soft ice just below the freezing temperature of water, and thus is strength not as critical an issue. However, we do want to be covered in case of misinterpretation, leading to us encountering harder ice than anticipated. Drill bits made from \textbf{stainless steel} are commonly found in commercial ice-drilling due to its high strength and relatively high metal nobility\cite{Corrosion}.\\
+\\
+
+\subsubsection{The Arm and its Degrees of Freedom (DOF)}
+Another design aspect is the number, and complexity of the manipulator arm's joints. The bottom tip of the penetrator will likely be occupied by the RTG heating tip used for melting through the ice, so the robot arm should be mounted at a small off-set from the tip. The exact dimensions are currently not now, but it's assumed around 10cm from the tip. The final design should take this into consideration. As mentioned before, the reach of the arm should be at least around $1\, \mathrm{m}$ away, normal to the length of the body at the end closes to the ice. It can be assumed that it's possible for the manipulator arm to be folded down alongside the length of the penetrator body during descent, covering around 75\% of the body's length. One option is to design it as a human arm with a shoulder joint mounted $75\,\mathrm{cm}$ from the ice when hanging tethered from the anchor in the ice (The anchoring could be designed so that this height is variable), an elbow joint, and a wrist joint serving as a mount for the drill bit, and a few instruments - possible in a finger configuration where the instrument are extruded away from the wrist joint in individual finger elements. With this set-up, the arm could be folded over once by the elbow joint, giving a maximum length of 1.5m and in turn a reach of\\
+\begin{equation}
+R_{reach}=\sqrt{(1.5\,\mathrm{m})^2-(0.75\,\mathrm{m})^2}=1.3\,\mathrm{m}
+\end{equation}
+Which is sufficient with regard to the requirement of $1,\mathrm{m}$.\\
+We are not expecting large variances in the ice composition around the penetrator, which limits the requirement of mobility, since it means we only need to extend the arm straight away from the body. Therefore, are we assuming that no more than one DOF is needed for either the shoulder or elbow joint. The "wrist" joint at the end of the arm, where the drill and an few instruments would be placed should, however, have two DOF's in order to adapt to the possibility of the ice-ceiling being a non-smooth surface with a varying landscape. Pressure sensors mounted on either side of the drill bit could help determine whether the manipulator is in contact with the ice or not, and perhaps help roughly mapping the ice locally around the tip of the arm.\\
+\\
+As mentioned earlier, the mobility of the arm and the reactionary forces from cutting in the ice, would result in stability issues for the penetrator. Therefore, stabilizing arms should be mounted on the body of the penetrator. One possibility is having one spring-loaded arm mounted directly adjacent (180$^\circ$ around the body) to the manipulator, and two arms located 90$^\circ$ around the body from the first stabilizing arm and the manipulator, directly adjacent to each other.\\
+These would, like the robot arms, be folded to the side of the penetrator and released by spring-loaded joints when the penetrator has reached the desired altitude with respect to the ice-ceiling. They should be mounted at the same height of the penetrator body as the manipulator arm and would be extended in a 45$^\circ$ angle from the body when deployed. With a total length of $l_{support}=\frac{0.75\,\mathrm{m}}{cos(45^\circ)}=1.06\,\mathrm{m}$, the tips of the arms would then dig into the ice if the penetrator was to be moved by either water-turbulence or the pushing from the drill bit on the manipulator.
+
+
+\subsubsection{Autonomy}
+Deep-sea remotely operated underwater vehicles (ROV) are usually, as the name suggests, controlled remotely with a live video feed, which is an advantage when investigating unknown sites, underwater structures and animal life. This is primarily due to the need for being able to adapt to the conditions surrounding the ROV. However, this is not possible for the Europa exploration mission, because of the extremely short communication windows and relay times between the penetrator and Earth. The manipulator arm must therefore be autonomous, to a level where it's able to locate, measure and harvest samples by itself when commanded to do so. 
+
+%\subsubsection{Material Extraction}
+
+\subsubsection{Neutral Buoyancy}
+Remotely Operated Underwater Vehicles (ROV) used Earth-based are usually designed to have neutral buoyancy in the water. This gives ROV significantly more manoeuvrability, since the its thrusters won't have to work against the gravity of Earth, due to its ability to free-float in the water. The same criteria is desirable for the manipulator arm on the Europa ice-penetrator, with regard to joint stability and power usage of their actuators. With the arm being buoyancy neutral, the only requirements of the joints in terms of power stems from the desired rotational velocity of the shoulder, elbow and wrist joints, which in turn is dependent of the mass of the arm, the instruments mounted on the wrist joint, and the drill at the tip.\\
+The general method of obtaining neutral buoyancy is by distributing a material with a density significantly lower than that of water, around the object of interest (desirably above the center of mass for stability considerations). For the arm, the weight isn't distributed uniformly along its length, so neither should the buoyancy material be.\\
+Syntactic foam has been widely used and tested for deep-sea high-pressure sea environments. Briefly explained, syntactic foam is a composite material synthesized by infusing a material with hollow gas-containing microballoons. This creates a material with lower overall density and often higher specific strength, which is specifically useful for applications including but not limited to:
+\begin{itemize}
+\item Deep-sea buoyancy foams.
+\item Accoustically attenuating materials.
+\item Blast mitigating materials.
+\end{itemize}
+The strength and low density of the syntactic foam makes it ideal for deep-sea neutral-buoyancy ROV designs, and is therefore worth considering for the penetrator manipulator arm.\\
+As mentioned earlier, the expected amount of pressure underneath the ice-ceiling is around $12\,\mathrm{MPa}$, but the absolute assumed theoretical maximum is $36\,\mathrm{MPa}$ which is the equivalence of approximately $3500\,\mathrm{MSW}$\footnote{$1\, \mathrm{MSW}$ is a non-SI unit roughly equivalent to $1\, \mathrm{bar}$}. The AZ-grade syntactic foam offered by Engineered Syntactic Systems is rated for a depth of $4000\,\mathrm{MSW}$ with a density of $465\,\mathrm{\frac{Kg}{m^3}}$, making it viable as a solution.\\
+We currently don't know the behaviour of syntactic foam in vacuum, so the housing of the manipulator arm may have to be pressurized during the travel to Europa.
+
+\subsection{Implementation and Design Specifications}
+A solution used for scaling reference is the Schilling Robotics TITAN 4 Manipulator \cite{Titan4}, seen on figure \ref{fig:titan4}, driven by hydraulic at the shoulder and an electrical motor at the elbow and wrist joints.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figures/Rasmus/Titan4}
+	\caption{Titan 4 robotic arm structural drawing, including dimension.
+	\label{fig:titan4}}
+\end{figure}
+ It's made from titanium, and is much larger than the available space on the penetrator, but the relative dimensions and design type can be used for reference. The number of joints, their complexity and individual DOF complies with the mentioned design criterias. However, the manipulator claw at its tip should be replaced by the "hand" consisting of the manipulator wheel-cutter and 2-3 external instruments.\\
+The TITAN 4 has a fully extenden arm-length of $2\,\mathrm{m}$, so this could at least be reduced to the required $\mathbf{1.5\,\mathrm{m}}$, $75\,\mathrm{cm}$ per arm section. The storage room for the arm during descent is extremely limited, with the cylinder structure of the penetrator having an outer cross-sectional radius of only $10\,\mathrm{cm}$. Since the penetrator will be filled with other measuring instruments, the arm may only have $300\cdot10^{-3} \,\mathrm{m^3}$ of space, with a folded length of $0.75\,\mathrm{cm}$. This means that the simplified  cross-sectional dimensions must be no more than $2\times 1\,\mathrm{cm}$ (since it would be folded). This is fairly small, and structural analysis on the arm with these dimension would be required for the final solution. From intuition, and not having any experience with mechanical and structual engieering, it does seem like the arm would be too flexible with these dimensions (and movable joints) of $1\times 2\times 150\,\mathrm{cm}$. This may eliminate the possibility of a robotic arm as we want it to be fairly stable in the water.\\ 
+The mass of the full-size arm in air is $100\,\mathrm{kg}$, which would make the modified arm alone:
+\begin{equation}
+m_{arm}=\frac{1.5\,\mathrm{m}}{2\,\mathrm{m}}\cdot\frac{1\,\mathrm{cm}}{30\,\mathrm{cm}}\frac{2\,\mathrm{cm}}{30\,\mathrm{cm}}\cdot 100\,\mathrm{kg}=0.166\,\mathrm{kg}
+\end{equation}
+Which seems very small. It would also be possible to modify the design, in order to make it more efficient, with regard to storage space. Re-designing the elbow joint so that the arm folds the other way, would make the folded arm more or less flush with the extruding mount, and it could also be possible to make the arm wider, but leave space in its center, so that it could be folded within itself.\\
+It is not know how the arms depth rating of $4000\,\mathrm{MSW}$ would be affected by the size scaling, with respect to the hydraulic shoulder joint.\\
+\\
+Assuming the arm is made solely out of titanium, which has a density of $2700\,\frac{\mathrm{kg}}{\mathrm{m^3}}$, the effective volume of the arm will be 
+\begin{equation}
+V_{eff,arm}=\frac{m_{arm}}{\rho_{alu}}=\frac{0.166\,\mathrm{kg}}{2700\,\mathrm{\frac{kg}{m^3}}}=61.5\cdot 10^{-6} \, \mathrm{m^3}
+\end{equation}
+\\
+In order for the arm have neutral buoyancy, the gravitational forces on the arms$+$the buoyancy material must cancel out with the buoyancy forces of the two. We assume that the instruments and the drill bit weighs $m_{drill}=2\,\mathrm{kg}$ and has the density of steel with a volume of $V_{drill}=2\times 2 \times 0.5 \, \mathrm{cm}=2\,\mathrm{cm^3}=2\cdot 10^{-6}m^3$. If the volume of the syntactic foam is denounced by $V_{buoy}$, the equation will for the arm in salt water ($\rho_{saltwater}=1029 \, \mathrm{\frac{kg}{m^3}}$) be:
+\begin{equation}
+\begin{split}
+&m_{arm}+V_{buoy}\cdot \rho_{buoy} + m_{drill}=(V_{buoy}\cdot + V_{arm}+V_{drill})\rho_{saltwater}\\
+&\rightarrow 0.166\,\mathrm{kg}+V_{buoy}\cdot 465 \mathrm{\frac{kg}{m^3}}+2\,\mathrm{kg}=(V_{buoy}+61.5\cdot 10^{-6}\,\mathrm{m^3}+2\cdot 10^{-6}m^3)\cdot 1027 \,\mathrm{\frac{kg}{m^3}}\\
+& \leftrightarrow V_{buoy} = 3.738\cdot 10^{-3}\,\mathrm{m^3}
+\end{split}
+\end{equation}
+Adding more volume to the problem isn't desired, and we may have to conclude that there simply isn't space enough to store the robot arm during descent, for the current design parameters.\\
+With the added syntactic foam of $m_{foam}=3.738\cdot 10^{-3} \,\mathrm{m^3}\cdot 465\mathrm{\frac{kg}{m^3}}=1.7382\,\mathrm{kg}$, and the drill head with a few instruments, the arm will weigh and can take up somewhere around:\
+\begin{subequations}
+\begin{equation}
+m_{arm,total}=0.166\,\mathrm{kg}+2\,\mathrm{kg}+1.7832\,\mathrm{kg}=3.95\,\mathrm{kg}
+\end{equation}
+\begin{equation}
+V_{arm,total}=61.5\cdot 10^{-6}\,\mathrm{m^3}+2\cdot 10^{-6}\,\mathrm{m^3}+3.738\cdot 10^{-3}\,\mathrm{m^3}=3.8\,\mathrm{m^3}
+\end{equation}
+\end{subequations}
+Which shows that most of the space will be taken up by the buoyancy material. This can be solved by using a lighter material like steel, but the stiffness of this material may be too low with respect to the structual dimensions of the arm.\\
+It's unsure how the power consumption of the motors and control systems scale with size, but they are not expected to use more than $P_{arm}=20\,\mathrm{W}$ in total, when running.\\
+A simply estimation of the total mass, volume and power costs of the manipulator arm can be seen on table \ref{tab:Arm}.
+
+\begin{table}[htb]
+\centering
+	\begin{tabular}{| l | l | l | l |}
+	\hline
+	\textbf{Unit}	&	\textbf{Weight ($\mathrm{kg}$)}	&	\textbf{Volume  ($\mathrm{m^3}$})	&	\textbf{Power (W)}\\ \hline
+	Arm structure + joints	& 0.166	&	$61.5\cdot 10^{-6}$	&	\\ \hline
+	Support arm	$\times 3$&	0.5	& $184.5\cdot 10^{-6}$	&	\\ \hline
+	Syntactic foam	&	1.78	&	$3.738\cdot 10^{-3}$	&	\\ \hline
+	Motors + drivers	&	2	&	$0.1\cdot 10^{-3}$	&	20	\\	\hline
+	Drill head	&	0.016	&	$2\cdot 10^{-6}$	&	\\ \hline
+	\hline
+	Total	&	4.13	&	4	&	20\\
+	\hline	
+	%
+	\end{tabular}
+	\caption{Total mass, volume and power costs of the manipulator arm.}
+	\label{tab:Arm}
+\end{table}
+The power and weight costs seem to be within reasonable ranges. 
+\subsubsection{Future Work}
+More studies on the scaling of the TITAN 4 arm are required, as well as a more in-depth structural analysis of the robot arm within the given geometry restrictions.  
 
 \section{Sample handling}
 
@@ -24,7 +183,6 @@ To direct the water flow several valves will also be required. Figure \ref{fig:f
 
 * Order of the instruments
 
-\subsection{Robot Arm} % Rasmus
 
 
 \section{CTD/ADCP}
@@ -33,7 +191,236 @@ To direct the water flow several valves will also be required. Figure \ref{fig:f
 
     * We will properly need more around the body of the penetrator
 
-\section{Light sensor}
+\autsection{Light sensor system}{Søren Jeppesen}
+
+Modern light sensors can be highly sensitive, and would therefore be efficient in looking for sources of light underneath the ice. Sources of light could harbor some form of life, of the source itself could be the result of bioluminescence, and it would therefore be relevant to for such sources in order to identify the possibility of life on Europa. Bioluminescence is a common phenomenom in the deep sea on earth, and although life on Europa would not necesarrily be similar to that on Earth, looking for sources of bioluminescence should be considered. The low weight and small size of light sensors such as photomultiplier tubes and avalanche photodiodes combined with their sensitivity makes these the best considerations for a space mission. 
+
+\subsection{Photomultiplier Tubes}
+
+Photomultiplier tubes are highly sensitive light detectors with high signal-to-noise ratio, belonging to the vacuum tube class. Photomultiplier tubes operate primarily in the near-infrared, visible, and ultraviolet spectrum of light, but are not equally sensitive in he spectral range measured, and will often heavily favour certain spectral regions depending on design. With sufficient voltage, photomultiplier tubes are able to achieve extremely high gain making photomultiplier tubes able to generate a response from single photons.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.6]{figures/RCS/photomultiplier_tube}
+\caption{A common photomultiplier tube}
+\label{fig:PMT}
+\end{center}
+\end{figure}
+
+The light sensing part of the photomultiplier tube i the photo-cathode. This part is a negatively charged electrode coated with a photosensitive compound, located  the front of the tube and enveloped in vacuum. Due to the photoelectric effect, electron are emitted when a photon strikes the photo-cathode if the photon has. Electrons emitted in the photo-cathode are picked up by an applied electric field and accelerated towards another electrode in the vacuum envelope, known as a dynode. The dynode works as an electron multiplier through secondary emission. When an electron generated in the photocathode strike the dynode, several new electrons are produced. These new electrons are then accelerated towards a secondary dynode where new electrons are subsequently emitted, thus further multiplying the electron amount. An anode then collects the electrons emitted by the dynodes, which then provides a signal that can be read.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.6]{figures/RCS/PMT}
+\caption{An illustration of how the dynodes strengthen signal.}
+\label{fig:PMT_dynode}
+\end{center}
+\end{figure}
+
+The strength of the photomultiplier tube is the high gain this device is able to achieve with sufficient voltage. Gain is a term used to describe the amplification of a signal, which in the case of an optical sensor, is the ratio of the incoming photons to measured current output. In a photomultiplier tube, each dynode increases the current
+
+\begin{equation}
+    I_n = d_1 \cdot d_2 cdot d_3 ... d_{n-1} \cdot d_n \cdot I_k
+\end{equation}
+
+Where $I_k$ is the photocathode current and $d_1 \rightarrow d_n$ are the dynode amplifications. A photomultiplier  tube is capable of reaching a gain of several tens of millions with enough dynodes and applied voltage as shown in figure \ref{dynode_gain}\\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.6]{figures/RCS/dynodegain}
+\caption{A graph showing how the gain in a PMT increases with increased bias and increased number of dynodes.}
+\label{fig:dynode_gain}
+\end{center}
+\end{figure}
+
+Quantum efficiency is a measure for how many percent of the incoming photons that produce a signal in the photocathode. For photomultiplier tubes, the quantum efficiency is around 30\% - 40\% depending on the type and the measured light spectrum, meaning that 60\% - 70\% of incoming photons are not detected. This is much lower than those of comparable light sensors such as CCDs and APDs, with quantum efficiencies around XX and XX respectively.\\
+
+
+The materials used for the photocathodes and windwos greatly influences the characteristics of the photomultiplier. Most photocathodesare made of alkali metals from group 1 of periodic table known as alkali metals. Some of the common photocathodes are:\\
+
+
+\begin{itemize}
+
+\item Cs-I:\\
+Caesium iodide is a type of ”solar blind” photocathode, meaning that it is not sensitive to solar radiation. Due to having low sensitivity at wavelenghts above 200 nm, this type of photocathode is used for ultraviolet radiation. 
+\\
+\item Cs-Te:\\
+Caesium telluride is another type of solar blind photocathode. This type of photocathode is sensitive to wavelengths longer than 300 nm however.
+\\
+\item Cs-Sb:
+Caesium antimony is sensitive in a much broader spectrum, capable of sensing both ultraviolet and visible light. Thus type of photocathode is favorable when when the intetnsity of the measured light is high.
+\\
+\item Bialkali (Sb-Rb-Cs, Sb-K-Cs:\\ 
+Antimony-rubidium-caesium and antimony-potassium-caesium photocathodes are useful in both ultraviolet and visible spectrum. Compared to the caesium-antimony photocathode, the bialkali have higher sensitivity and lower dark current.
+\\
+\item Sb-Na-K:\\
+antimony-sodium-potassium bialkali photocathode is sensitive in spectrum similar to the previous bialkali, but has lower sensitivity. This type of photocathode is able to withstand much higher temperatures, up to 175 degrees Celcius, whereas other types of photocathodes usually go up to 50 degrees.
+\\
+\item Sb-Na-K-Cs:\\
+The multialkali Antimony-sodium-potassium-caesium is useful from ultraviolet to near-infrared. This type of photocathode is also highly sensitive.
+\\
+\item Ag-O-Cs:\\ 
+Silver-oxygen-caesium is sensitive from visible to near-infrared. This type of photocathode provides slightly lower sensivity in the visible region, but higher sensitivity in the high wavelengths compared to other photocathodes.
+\\
+\item GaAsP (Cs):\\
+Caesium-activated Gallium arsenide phosphide photocathodes has higher quantum efficiency in the visible region. This is offset with no sensivity in the ultraviolet region and high degredation-rate when exposed to high intensity radiation.
+\\
+\item GaAs (Cs):\\
+Caesium-activated Gallium arsenide photocathodes provides sensitivity in a broad range, spanning from ultraviolet to near-infrared, with nearly flat, high sensivity in most of this spectral range.
+\\
+\item InGaAs:\\ 
+Indium gallium arsenide photocathodes photocathodes are sensitive further into the infrared region than GaAs, while also providing good signal-to-noise ratio than other photocathodes useful in this region.
+
+\end{itemize}
+
+Photomultipliers produce a signal even in the absence of light due to dark current arising from thermal emissions of electrons from the photocathode, leakage current between dynodes, as well as stray high-energy radiation. Electronic noise also contributes to the dark current and is often included in the dark-current value. The dark current itself is the relatively small electric current that flows through device even when no photons are entering the device. 
+
+\subsection{Avalanche Photodiodes}
+
+Avalanche photodiodes are a type of semiconductor-based, highly sensitive light detectors. Like photomultiplier tubes, avalanche photodiodes convert radiation to electricity through the photoelectric effect, but operate using reverse voltage (voltage at the cathode is more positive than the voltage at the anode) rather than forward voltage. Avalanche photodiodes exploit the avalanche multiplication in order to generate a readable signal, that is, radiation causes electrons to be excited in the detection material which is then accelerated by the applied electric field and excites more electrons. This process happen in the multiplication region of the device, which is made from a semiconducting material.\\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.6]{figures/RCS/APD}
+\caption{A common Avalanche photodiode}
+\label{fig:APD}
+\end{center}
+\end{figure}
+
+The gain for avalanche photodiodes is much lower than what is attainable with photomultiplier tubes. At 100-200 volt reverse bias, typical gain values are around 100, and is strongly depend on the supplied voltage.  If the voltage is increased too much, breakdown will occour and the current in the diode will increase exponentially. A gain of this size is too small to detect single photons, but modern doping techniques have allowed for some avanlanche photodiodes to operate at applied voltage greater than 1500 volts allowing for gains up to 1000. These devices are much more sensitive in the near-infrared and visible regions compared to ultraviolet. APDs can reach quantum efficiencies of 80\% - 90\% at peak wavelengths, but as seen on figure \ref{APD_specs}, the quantum efficiency drops sharply on either side of the peak.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.6]{figures/RCS/APD_specs}
+\caption{Graphs of gain as function of temepature and bias for a highly sensitive, near-infraed, silicon APD (left). Quantum efficiency as function of wavelength for the same device (right).}
+\label{fig:APD_specs}
+\end{center}
+\end{figure}
+
+Another way to measure single photons using an avalanche photodiode is activate Geiger mode, which is to operate it carefully just above breakdown voltage. In this state, even a single photon will produce a massive electron avalanche in the device which can then be read. During Geiger mode, the phototide will need to rest between detections, lowering the detection frequency of the device. Thermally generated carriers within the device can also trigger avalanches, triggering counts even in complete darkness.\\
+
+Avalanche photodiodes suffer from noise due to the nature of the electron avalanche process. This excess noise factor is denoted F, and for k < 0.1 and M > 20 can be approximated by the formula
+
+\begin{equation}
+    F = 2 + k \cdot M
+\end{equation}
+
+where k is carrier ionization ratio and M is the gain of the photodiode. The squareroot of F represents the factor by which the statistical noise of the APD rises abovewhat would be expected from a noiseless multiplier due to only Poissonian statistics.\\
+
+The  multiplication region of the photodiode is typically made of either silicon, germanium or Indium gallium arsenide.
+
+\begin{itemize}
+
+\item Si is sensitive in the visible and near-infrared area with low excess noise. Typical gain is 100, although it can be manufactored to attain up to 500. Excess noise factor is around 4.
+\\
+\item Ge is sensitive in the infrared region up to 1700 nm, but with high excess noise. Typical gain is 10 with excess noise factor of 9.
+\\
+\item InGaAs is sensitive in the infrared region. Typical gain is 10 and excess noise factor around 5.
+\\
+\item Gallium nitride can be used for an avalanche phototiode sensitive in the ultraviolet region. 
+
+\end{itemize}
+
+\subsection{The mission}
+
+The purpose of the light sensor system is to search for light sources beneath the ice on Europa. It is interesting to search for light as the two main sources of light beneath the ice will either be from living organisms themselves in the form of bioluminescence, or an energy source that life can potentially feed on. As such, if there is light beneath the ice, it is probable that any existing life will be close by. It is likely that any sources of light beneath the ice are both very rare and very weak. The water itself also has high absorption of light at certain wavelengths,as shown in figure \ref{fig:water_abs}, so it must be expected that it is incredibly difficult to detect the light.\\  
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.8]{figures/RCS/absorption_watef}
+\caption{Graph of the absorption coefficient of water as function of wavelength.}
+\label{fig:water_abs}
+\end{center}
+\end{figure}
+
+The light sensor system brought on the mission should therefore be as sensitive as possible in order to maximize the probability of detecting possible sources. Detection capabillity is not the only important parameter however, as weight and volume must be considered due to the limitations of space missions. Previously, two detection devices for light sensor systems has been discussed discussed, the photomultiplier tube and the avalanche phototiode. The table below displays for each device some of parameters that are important to consider for choosing a light sensor system for the mission.\
+	
+%% table for PMT and APD parameters
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c| } 
+ \hline
+               & QE & Gain & Mass & Size & Bias \\
+ \textbf{PMT:} & 30\% - 40\% & Several million & 50-100 gram & 2 cm diameter x 5 cm height & 1000-2000 V \\ 
+ \textbf{APD:} & 80\% - 90\% & A few hundreds & A few grams  & 5 mm x 5 mm x 110 $\mathrm{\mu}m$ & 50-400 V \\
+ \hline
+\end{tabular}
+\end{center}
+	
+The high gain of the photomultiplier tube gives it an advantage over the avalanche phototiode in detecting weak sources. The higher quantum efficiency of the avalanche photodiode gives it an advanage in detecting rare signals as long as the signal is strong enough to warrant a response in the device. The essential difference is in the weight, size, and bias requirement, where the much smaller and lighter avalanche photodiode is more suited for space missions, as it is easier to integrate with the overall system. Despite its limitations in detection, the APD is favorable in every other aspect and is therefore the most suitable detection device for the mission.
+
+\subsection{Bias power supply}
+The APD will need a bias power supply to operate. For an APD it will suffice to have 100-400 volt in reverse bias to attain maxium to gain without hitting the breakdown voltage. A bias power supply  further complicates the light sensor system as it increases the mass the and the volume significantly. The Hamamatsu APD module C5658 is a highly sensitive silicon APD build into a working module with a bias power supply, which will be used as baseline for the mass and volume requirements of and APD module. 
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.8]{figures/RCS/APDmodule}
+\caption{The Hamamatsu APD module C5658 APD module.}
+\label{fig:APD_module}
+\end{center}
+\end{figure}
+
+This APD module weighs 120 g with a dimensional outline of 2.8 cm x 5.0 cm x 6.0 cm for a total volume of 84 $\mathrm{cm^3}$, making it both lightweight and small in size. With some optimization of the electronics, and by removing cover, it should be possible to get below 80 g for the module. 
+
+\subsection{Proposed models}
+Two APD models are proposed for the Europa Life Finder Mission. The firs model is for the visible spectrum of light, and the second is for the near-infrared spectrum.
+
+\begin{description}
+\item[Excelitas C30739ECERH]:
+The Excelitas C30739ECERH Series APD is a high gain, large area silicon detector optimized for the visible spectrum. At 430 nm, the APD features 75\% quantum efficiency and can reach 450 gain. The chip spans an area of 6.5 mm x 6.5 mm and is operational at temperatures between 0$^circ$ and 50$^circ$ Celsius. The APD requires an operating voltage of 400 V in high gain mode.
+\item[Excelitas C30921SH:]
+The Excelitas C30921SH is a high gain near-infrared type silicon APD. This APD reaches 250 gain and the active diameter is 0.25 mm x 0.25 mm.
+\end{description}
+
+The models are chosen specifically due to their high gain in order to minimize the weakness of the APD. The model chosen for the visible spectrum posseses the highest gain, but at the cost of high operating voltage. As the visible spectrum is where the water has the lowest absorption of light, having the best possible detection in this regime should be considered.
+
+\subsection{Shielding}
+The detection device will need to be shielded from the environment on Europa. As APDs function well at the temperature in the environment, the shielding will focused on protecting the device from the water. Sufficient shielding can be made from simple metal tube sealed with a window at the front end made from suprasil, a quartz with high transparency in the ultraviolet, visible, and near-infrared regions. The structure of the tube can be seen in figure \ref{fig:tube} below, with a light filtering lens between the window and the detector, and the electronic components furthest back.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.8]{figures/RCS/tube_fisheye}
+\caption{An image of a simple aluminum tube as can be used to shield the sensor from water (left). An image of a common fisheye lens as will be used for window (right).}
+\label{fig:tube}
+\end{center}
+\end{figure}
+
+6061 aluminium alloy will be used for the tube, as it low density, and with adequate strength. On figure \ref{fig:wall_thick} is shown the tube wall thickness depending on tube radius at 100 bar pressure. It can be seen that with just a few millimeters of metal, the tube will be more than capable of withstanding the pressure beneath the ice on Europa.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.8]{figures/RCS/Wall_thickness_graph}
+\caption{Graph showing the required wall thickness with increased radius of tube.}
+\label{fig:wall_thick}
+\end{center}
+\end{figure}
+
+The wall thickness is calculated from the stress in thin-walled cylinders. The equation is 
+
+\begin{equation}
+    t = \frac{p \cdot r}{\sigma _c}
+\end{equation}
+
+where $t$ is the thickness of the wall, $p$ is the pressure and $\sigma _c$ is the hoop stress. As the yield strength of the aluminum alloy is 414 MPa, a maximum of 300 MPa stress was selected in order to ensure that the high strength of the metal ws utilized, but without causing any permanent to the tube. 
+
+For avalanche photodiodes, the window will have to act as a focusing lens in order to increase the area of detection, and will therefore be designed as a fisheye lens. The window will sealed by placing an O-ring between the window and and tube edge and then bolting the window to the tube itself, a technique similar to that of high-pressure windows in submarines. A fisheye lens made of suprasil with a radius of 2 cm will weight in the area of 5 gram, depending on design. In total, it should be possible to construct an APD modul with shielding and focusing lens with mass and size as seen in table \ref{table:module}. 
+
+%% table for APD module mass
+\begin{center}
+\label{table:module}
+\begin{tabular}{|c|c|c|c|c|}
+ \hline
+               
+ \textbf{Part:} & APD module & Aluminum tube & Lens & Total \\ 
+ \textbf{Mass:} & 80 g & 7.8 g & 5 g & 92.8 g  \\ 
+ \hline
+\end{tabular}
+\end{center}
+
+\subsection{Conclusion}
+
+This section has discussed possible light sensor systems for the Europa life-finding mission, and how to modify it for use in the environment beneath the ice on Europa. Between two different highly sensitive detection devices, photomultiplier tubes and avalanche photodiodes, the photodiodes were found to be the most suitable for a space mission due to low size, weight, and power consumption. The shielding used for the device is a thin aluminum tube sealed with a suprasil window, which is lightweight and more than able to withstand the pressure. A complete light sensor system unit with electronical components and shielding will be possible at less than 250 grams pr. sensor, making them light enough to be valid considerations for the mission. Due to how the quantum efficiency of APDs vary with wavelength of incoming radiation, it is suggested to use two units with different peak wavelengths such to ensure best possible detection in both the visible spectrum and the near-infrared spectrum. The ultraviolet spetrum can also be investigated, but as water has high absorption and APDs have low detection in spectrum, it will not be as efficient as looking in the visible and near-infrared.
+
+\subsection{Further work}
 
 \input{GasdetectionAgge}
 

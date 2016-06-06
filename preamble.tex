@@ -84,27 +84,34 @@
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % \HRule for special horizontal line
 
 \makeatletter
-\newcommand{\addauthorbelowheading}[1]{%
-	{\parindent0pt\vspace*{-10pt}%
+\newcommand{\addauthorbelowheading}[2]{%
+	{\parindent0pt\vspace*{#2}%
   	\linespread{1.1}\small\scshape#1%
   	\par\nobreak\vspace*{10pt}}%
   	\@afterheading%
 }
 \makeatother
 
+\newcommand\autchapter[2]{%
+	\chapter[#1{\normalfont\tiny\itshape ~- #2}]{#1%
+  		\chaptermark{#1}}%
+	\chaptermark{#1}%
+	\addauthorbelowheading{#2}{-40pt}%
+}
+
 % Use theses command to add section and subsection authors
 \newcommand\autsection[2]{%
 	\section[#1{\normalfont\tiny\itshape ~- #2}]{#1%
 		\sectionmark{#1}}%
 	\sectionmark{#1}%
-	\addauthorbelowheading{#2}%
+	\addauthorbelowheading{#2}{-15pt}%
 }
 
 \newcommand\autsubsection[2]{%
 	\subsection[#1{\normalfont\tiny\itshape ~- #2}]{#1%
   		\subsectionmark{#1}}%
 	\subsectionmark{#1}%
-	\addauthorbelowheading{#2}%
+	\addauthorbelowheading{#2}{-10pt}%
 }
 
 % DTU frieze
@@ -174,7 +181,7 @@
 \author{Aaron Gornott}
 \author{Yannis Nissopoulos}
 \author{Fruzsina Bacsó}
-\author{Ricard Lladó Grove}
+\author{Ricard Grove}
 \author{Gustavo Feijóo Carrillo}
 \author{Johannes Linde}
 \author{Maja Tomicic}
