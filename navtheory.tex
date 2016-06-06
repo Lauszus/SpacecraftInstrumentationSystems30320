@@ -34,27 +34,23 @@ Altitude measurements yield the height of the spacecraft relative to the surface
 
 
 \subsubsection{Radar Altimeter}
-A radar altimeter is a system that measures the distance from the system platform to the surface very accurately. It works on the principle of time of flight. It measures the time delay between a transmitted radar pulse and the detection of the reflected pulse. The altitude of the altimeter, $h$, is related to the time delay of the signal $t_d$ by the simple relationship 
-
+A radar altimeter is a system that measures the distance from the system platform to the surface very accurately. It works on the principle of time of flight. It measures the time delay between a transmitted radar pulse and the detection of the reflected pulse. The altitude of the altimeter, $h$, is related to the time delay of the signal $t_d$ by the simple relationship:
 \begin{equation}
 h=\dfrac{c t_d}{2}
 \end{equation}
-
-where c is the velocity of the signal (speed of light)\cite{henningalt}. The transmitted radar pulse will cover an area on the surface called the radar footprint, $X$, this depends on the height of the altimeter, $h$, and the pulse length, $T$, as follows 
-
+where c is the velocity of the signal (speed of light)\cite{henningalt}. The transmitted radar pulse will cover an area on the surface called the radar footprint, $X$, this depends on the height of the altimeter, $h$, and the pulse length, $T$, as follows:
 \begin{equation}
 X=2\sqrt{cTh}
 \end{equation}
-
 The radar pulse length is normally in the range of a few nanometers, which would yield a footprint of $\sim$ 20 m at $\sim$ 100 m altitude. 
 
 A radar altimeter consist of a transmitting and receiving antenna and a signal processor. Errors in the radar retrieval of altitude are often due to inaccurate modeling of surface penetration or the slope-induced error caused by the large radar footprint \cite{icealti}. The range resolution of a radar altimeter also depends on the accuracy of the processing clock.
-
 
 \subsubsection{Laser altimeter}
 
 The principle of a laser altimeter also known as laser range finder is the same as for the radar altimeter. It measures the time delay between the transmitted and received echo signal. The error on the achieved data therefore also depends on the on-board clock. A laser altimeter is composed of an emitter, a receiver and signal processor. Figure \ref{alti} shows an example of a compact laser altimeter.\\
 
+\noindent
 The footprint of a laser, is significantly smaller than that of a radar pulse. It depends on the beam divergence and the altitude of laser system. This is illustrated in figure \ref{alti}. Because of the small footprint the slope-induced error in the measurements is not a concern.
 
 \begin{figure}[htb]
@@ -66,10 +62,13 @@ The footprint of a laser, is significantly smaller than that of a radar pulse. I
 \end{center}
 \end{figure}
 
+\noindent
 One major drawback of laser altimeters compared to radar altimeters is that the laser beam cannot penetrate cloud cover. This will not affect measurements on Europa because of the non existing atmosphere.\\ 
 
+\noindent
 There are more sophisticated techniques of laser rangers known as Lidar systems. The principle here is to mix the returned and transmitted signal to achieve an interference signal whose frequency is proportional to the target range. These systems are often in combination with laser velocity measurements systems known as Doppler Lidar and will be elaborated on in the following sections. \\
 
+\noindent
 An important property of both the radar and laser altimeter is that they are active sensors and thereby able to exploit more optimal measurement conditions in which surface illumination is controlled by design rather than accommodated by  solar illumination. The downside to this, is that the sensors require more power to run the active illumination compared to a passive instrument. 
 
 \subsection{Velocity}
@@ -79,56 +78,42 @@ Knowing the spacecraft velocity is critical to a soft landing, because it enable
 \subsubsection{Doppler Radar}
 The principle of a Doppler radar velocity sensor is that the frequency shift between the transmitted and received echo signal is directly proportional to the velocity of the spacecraft relative to the reflecting surface. This is shown in the following \cite{henningdoppler}. \\
 
-The radar transmits a continuous signal given by
-
+\noindent
+The radar transmits a continuous signal given by:
 \begin{equation}
 s_t(t)=\cos (2 \pi f_t t)
 \end{equation}
-
-
 where $f_t$ is the frequency of the transmitted signal. The signal travels
 from the radar to the target and back to the radar again, and hence the radar signal
-travels a total distance of 2R at the speed of the signal (speed of light), c. The echo signal received by the radar
-system is then
-
+travels a total distance of 2R at the speed of the signal (speed of light), c. The echo signal received by the radar system is then:
 \begin{equation}
 s_r(t)=a \cos(2 \pi f_t(t-\dfrac{2R(t)}{c}))
 \end{equation}
-
 $a$ is a constant that represents the fraction of the signal transmitted from the radar
-that is returned to the radar again. The phase of the received signal is seen to be 
-
+that is returned to the radar again. The phase of the received signal is seen to be:
 \begin{equation}
 \phi_r(t)=2 \pi f_t(t-\dfrac{2R(t)}{c})
 \end{equation}
-
-
 The frequency of the received signal is found by differentiating the phase with respect
-to time
-
+to time:
 \begin{equation}
 f_r(t)=\dfrac{1}{2 \pi}\dfrac{d\phi}{dt} = f_t - \dfrac{2 f_t}{c}\dfrac{dR(t)}{dt}
 \end{equation}
-
-$-\dfrac{dR(t)}{dt}$ is the radial velocity, $v_r(t)$, of the spacecraft relative to the surface, and the Doppler frequency, $f_d$, is seen to be directly proportional to this velocity
-
+$-\dfrac{dR(t)}{dt}$ is the radial velocity, $v_r(t)$, of the spacecraft relative to the surface, and the Doppler frequency, $f_d$, is seen to be directly proportional to this velocity:
 \begin{equation}
 f_d= f_t\dfrac{2 v_r(t)}{c}
 \end{equation}
-
 As is evident from the description of the principles, a radar altimeter and Doppler velocity sensor can easily be, and are often, combined. \\
 
+\noindent
 Many past landing missions, including Surveyor, Apollo, Mars Science Laboratory relied on radar
 technology for the altitude and velocity data. These systems are heavy and power consuming and future missions are starting to rely more heavily on Doppler lidar systems, which offer major benefits including lower mass, smaller
 size, higher precision and data rate. These qualities are particularly critical for deep space mission, when autonomous hazard avoidance is employed or when “pinpoint landing” is required, such as is the case in this mission.
-
 
 \subsubsection{Doppler Lidar}
 
 The Doppler lidar system is based on the principle of lidar where the frequency shift between transmitted and received signals is used to determine the range of the surface. When the lidar platform is not stationary relative to the surface during the  beam round trip time, the signal frequency will be also shifted due to the Doppler effect. Therefore, by measuring the frequencies of the laser signals, both the target range and velocity can be
 determined. The lidar transmits three separated laser beams in order to determine the three components of the spacecraft velocity, and to accurately measure altitude relative to the surface. 
- 
-
   
 \subsubsection{Optical sensor}
 An camera directed at the surface can provide enough information to calculate the horizontal velocity parameter. The procedure is based on tracking multiple feature points between successive images and estimating the horizontal velocity from the observed displacement. Attitude information from the IMU and star trackers can be used to correct for difference in rotation and camera pointing between the successive images. The method is explained in \cite{alessandro} and illustrated in figure \ref{horvel}.
@@ -141,41 +126,31 @@ An camera directed at the surface can provide enough information to calculate th
 \end{center}
 \end{figure}
 
-
-The spacecraft observes a feature point at time $t_0$ and $t_1$ while moving a distance $d$ in the horizontal direction and descending from altitude $h_0$ to $h_1$. According to this geometry, the horizontal velocity can be found as
-
+\noindent
+The spacecraft observes a feature point at time $t_0$ and $t_1$ while moving a distance $d$ in the horizontal direction and descending from altitude $h_0$ to $h_1$. According to this geometry, the horizontal velocity can be found as:
 \begin{equation}
 v=\dfrac{d}{t}=\dfrac{l_0-l_1}{t}
 \end{equation}
-
 $l_i$ are given by the altitude, the focal length of the camera, the off nadir pitch angle and the rotation corrected point coordinate on the sensor plane, as described in \cite{alessandro}.
-
 
 The optical camera used for horizontal velocity measurements has to be optimized for its purpose. Because of the rapidly changing terrain due to the high velocity, a camera with a wide FOV is desired to ensure that as large an area as possible is covered and that the feature points are repeated in more frames.
 
-
 \subsection{Terrain relative location}
-
 
 The terrain relative navigation consists of two main parts, terrain mapping and navigation software.
 The measurements from the sensors on the spacecraft are input to the terrain mapping algorithm. The estimated position of the spacecraft which is the result of terrain mapping is used as input for the navigation algorithm. The sensors used for terrain mapping is the main focus of the following and the navigation software will not be elaborated on, and could be the subject of future work. 
-
 
 \subsubsection{Optical camera}
 
 When pre-generated maps of the lunar surface are available, a topographic matching approach, can help land the spacecraft accurately to the desired position. Typical approaches identify craters, cracks and ridges in the observed scene and correlate them to the images obtained from previous orbits. This requires sophisticated and complex image analysis software but has been done in the past, and seems to be a promising and constantly improving method of relative navigation. The optical CCD camera is a passive measurement sensor, thus the power and weight of the equipment can be decreased to a low level. The down side to this type of measurements arise from the nature of the sensor, as they are affected by the illumination conditions. The primary light source is the sun and the visibility therefore depends on the local orientation of the sun. Obviously no features are visible during local night time, but the scene appearance can change dramatically between mornings and evenings when the sun is low on the sky, causing long shadows and midday when the sun is high. These issues can be corrected for in software using inputs from attitude sensors, such as the IMU or a sun sensor, which can determine the relative position of the sun.\\
 Prior to the design of such a system, it has to be evaluated if the lightning conditions change during the landing, or if the rotation period is long enough to make variations in lightning conditions during landing negligible. 
 
-
 \subsection{Hazard avoidance}\label{sec:hazard_avoidance}
 
 During the last stage of the landing – the terminal descent – at altitudes between approximately one hundred meters and touchdown, many of the finer structures such as rocks, cliffs and cracks on the surface become detectable. During this phase of the landing the guidance and navigation system has to be able to detect and avoid possible hazards as well as choose a suitable landing point. It can no longer rely on catalougue maps, but has to evaluate the terrain in front of it immediately and autonomously. For this, 3D imaging have great advantages over 2D imaging. 
 
-
-
 \subsubsection{Stereo camera}
 Most low mass low power hazard avoidance sensors, used on e.g. Mars rovers, are stereo camera systems. This approach utilizes triangulation to determine range by matching points in one camera frame to the corresponding point in the other frame. Because the system has no active light source its operation is limited to the daytime. Moreover, stereo correlation algorithms can be sensitive to lighting conditions and contrast of the objects, resulting in ineffective acquiring of 3D data at low contrast or shadowing of the terrain \cite{structuredlight}.
- 
 
 \subsubsection{3D flash Lidar}
 
@@ -197,13 +172,13 @@ One obvious challenge when using structured light is the ambient light that will
 
 \end{enumerate}
 
-
 Structured light systems can be build very compact,have no moving parts, and consume little power compared to the 3D flash lidar. 
 
 \subsection{Optical Navigation}
 
 Optical cameras have shown to be very useful for navigation during EDL in spite of the inherent need for ambient light. This is due to their simplicity and compact size. It is vital to design a camera that will provide the necessary ground coverage/Field Of View and resolution/Ground Sampling Distance. These features depend on the design of the camera, mainly the focal length and sensor characteristics. In the following, a brief analysis of these features will be performed. The analysis can be used to choose fitting camera parameters for the landing module. \\
 
+\noindent
 From geometric optics an analysis of FOV and GSD can be made. Figure \ref{cameramatlab} shows the FOV  and GSD at varying altitudes for cameras of different focal lengths, for the $\mu$ASC sensor. The sensor specifications are shown in table \ref{tab:ASC} and are taken from \cite{alessandro}. It is assumed that an object is resolved if it spans two pixels. The matlab code developed for calculating the parameters is attached in the Appendix \ref{app:majamatlab}.
 
 \begin{table}[htb]
@@ -222,18 +197,21 @@ Optical Bandwidth [nm] & Pixel size [$\mu$m] & Detector size [px]\\
 \end{center}
 \end{table}
 
+\noindent
 From figure \ref{cameramatlab} it is seen that the GSD is improved by increasing the focal length of the camera, and might seem as though we can get an arbitrarily good resolution by increasing the focal length and sensor size. However, this is not the case. Eventually a point is reached where the image becomes larger, but does not gain in detail. The best focused spot of light, that a camera with a circular aperture can make, is limited by the diffraction of light. The diffraction pattern formed by a circular aperture consists of a central bright spot, known as an Airy disk, surrounded by a series of bright and dark rings, as shown in figure \ref{airy} \cite{uniphys}.
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=0.7\textwidth]{figures/navtheory/FOV} 
-\includegraphics[width=0.7\textwidth]{figures/navtheory/GSD}
-\caption{FOV (top) and GSD (bottom) at different altitudes as a function of  camera focal length.}
+\subfloat{
+\includegraphics[width=0.48\textwidth]{figures/navtheory/FOV} 
+}
+\subfloat{
+\includegraphics[width=0.48\textwidth]{figures/navtheory/GSD}
+}
+\caption{FOV (left) and GSD (right) at different altitudes as a function of  camera focal length.}
 \label{cameramatlab}
 \end{center}
 \end{figure}
-
-
 
 \begin{figure}[htb]
 \begin{center}
@@ -243,41 +221,37 @@ From figure \ref{cameramatlab} it is seen that the GSD is improved by increasing
 \end{center}
 \end{figure}
 
+\noindent
 The size of the airy disk depends on the aperture size, $D$, and the wavelength of the focused light, $\lambda$, and can be described in terms of its angular radius $\theta$.
-
 \begin{equation}
 \label{eq:diff}
 \sin \theta = 1.22 \dfrac{\lambda}{D}
 \end{equation}
-
 To determine the resolution of two points from the size of the Airy disks, a widely used criterion is the Rayleigh criterion. It states that two objects are just barely distinguishable if the center of one diffraction pattern coincides with the edge of the Airy disk of the other. Combining the Rayleigh criterion with equation \ref{eq:diff}, the limit of resolution can be determined for an optical system \cite{uniphys}.
 
-A camera system with an aperture of 30 mm and focal length of 7 mm can resolve objects in visible light ($\sim$ 500 nm ) at a distance of 100 km Æ
-
+A camera system with an aperture of 30 mm and focal length of 7 mm can resolve objects in visible light ($\sim$ 500 nm ) at a distance of 100 km:
 \begin{equation}
 \theta\approx \sin \theta=1.22 \dfrac{500 \mathrm{nm}}{30 \mathrm{mm}} = 2 \cdot 10^{-5} \mathrm{rad}
 \end{equation} 
 
-
 \begin{equation}
 2.0 \cdot 10 ^{-5} \mathrm{rad} \cdot 100 \mathrm{km} = 2.0 \mathrm{m} 
 \end{equation}
-
-In the image plane the distance will be
-
+\noindent
+In the image plane the distance will be:
 \begin{equation}
 2.0 \cdot 10 ^{-5} \mathrm{rad} \cdot 7 \mathrm{mm} = 0.14 \mathrm{\mu m} 
 \end{equation}
-
 This is very high resolution, compared most CCD pixel sizes, which are in the $\mu$ m range, and the diffraction limit will not be the limiting factor in this case. 
-
 
 \subsection{Sensor Presentation}
 
 In the following a range of sensors which have been considered and analyzed are presented. \\
 
+\noindent
 The following IMU's have been considered: LN$\-$ 200 FOG Family developed by Northrop Grumman \cite{LN200}, Miniature Internatial Measurement Unit (MIMU) developed by Honeywell \cite{mimu} and the Micro Intertial Reference Unit (MIRU) developed by DTU Space.\\
 
+\noindent
 As describes previously the IMU cannot stand alone, because it provides attitude information in an inertial frame and the error accumulates over time. By combining it with a star tracker the error is corrected for. An integrated system, consisting of a $\mu$ASC star tracker augmented with a novel inertial reference unit is described in \cite{Bjarno} and developed at DTU Space. With both sensors providing attitude measurements the advantage of the combined system is high accuracy and robustness to cases with long periods of vibrations or camera blinding which are undesirable situations for a attitude determination system consisting of stellar reference sensors alone. Figure \ref{miruasc} shows a MIRU augmented $\mu$ASC camera head unit. The MIRU is integrated into the camera head unit of the $\mu$ASC system, making it 40 g heavier and using 130 mW more power, per camera \cite{mirusheet}. 
 
 \begin{figure}[htb]
@@ -320,21 +294,28 @@ APL CLA (Lidar) & 1000 & 7 & No & Yes & Yes & Yes & No& No \\
 \end{flushleft}
 \end{sidewaystable}
 
+\noindent
 For altitude measurements a range of Laser and Radar systems have been considered. Their specifications are listed in table \ref{tab:sensors}. These sensors can perform autonomous operation under any lighting conditions and any landing location.\\
 
+\noindent
 Lightware’s SF02 laser ranger is a lightweight module that provides fast and accurate distance measurements from 0-50 meters, using pulsed-laser time-of-flight measurements \cite{SF02}. The APL compact laser altimeter (CLA) is a suite consisting of a series of laser ranging sensors paired with Doppler radar sensors. The laser rangers offer extremely precise vertical distance and surface-relative attitude information, whereas the radars provide equal precision with respect to vertical and horizontal velocities. Additionally, a fourth, nadir-facing sensor pair could offer component redundancy as well as distance information to the landing site directly below the spacecraft \cite{APLCLA}. The APL CLA is shown in figure \ref{alti}. The Stereo Imaging Laser Altimeter (SILAT) combines two optical cameras with a low-power photon-counting laser altimeter. The result is a multifunctional instrument suite designed for high resolution images for terrain relative navigation, stereoscopic images that can be used for hazard avoidance, and high accuracy altimetry. This combination of instruments will also provide velocity measurements \cite{SILAT}. The SILAT is quite heavy weighing $\sim$ 5 kg, and is therefore ruled out for this mission.A radar altimeter such as the miniature radar altimeter MRA type 1 \cite{MRA1}, has been considered. However it is developed for drone applications and is therefore not qualified for space use yet. Also, as mentioned earlier the footprint of a radar altimeter is larger than that of a laser altimeter, why laser altimeters are more useful for landing purposes.  
 
 \subsection{Final navigation system}
 The main driving forces in the process of choosing the sensors for the GNC system have been to ensure an autonomous soft pin-point landing within a radius of 100 meters of a predetermined landing spot. The sensors should meet these requirements in a somewhat redundant manner while being both weight and power efficient. Table \ref{tab:sensors} is a score table, showing specifications and measurement capabilities of the sensors which were considered. \\
 
+\noindent
 Optical systems provide the information needed for autonomous navigation. Although having to rely on ambient light, they are intrinsically more accurate and less demanding, in terms of power and mass budgets, than the corresponding radar and laser systems. They are easier to operate and more robust because they passively acquire the signal coming from the observed surface rather than actively tracking it. For these reasons, the relative navigation system and hazard avoidance system will rely on optical cameras, more specifically on the $\mu$ASC system, with appropriately designed CHU's and in combination with other light weight sensors such as the MIRU and a compact laser ranger. The choice of focal lenght for the CHU will be a compromise between FOV and GSD. For high altitudes a focal length of 13 mm would yield a FOV of $\sim$50 km$^2$ and a GSD of $\sim$130 m/px, which is acceptable. For the final descent, the CHU used for hazard avoidance will have a focal length of 7 mm which yields a FOV of $\sim$ 10 m$^2$ and GSD of $\sim$ 2.5 cm at 10 m altitude. This CHU will be equipped with a laser and a band pass filter to form a structured light hazard avoidance system. The laser wavelength is chosen in the infrared region, where the ambient light is low. \\
 
+\noindent
 Since the orientation of the spacecraft will be different during different phases of descent and landing, it may be difficult to accommodate the cameras such that they will have a clear view of the ground during the approach phase, when it needs to perform hazard avoidance functions, as well as early descent phase, at high altitudes, when altimetry and terrain relative navigation functions need to be performed. Another advantage of having two CHU's dedicated to terrain imaging is that they can be placed on different position on the spacecraft.\\
 
+\noindent
 The altitude of the spacecraft can be obtained through analysis of optical images in combination with attitude measurements for the initial phases of the landing. Since very precise information is necessary for the final stage, a light weight laser altimeter, such as the SF02 laser ranger, will be placed on the face of the spacecraft pointing downwards during this stage. \\
 
+\noindent
 It has to be evaluated whether an extra flight computer is necessary. The two redundant DPU's should theoretically be able to handle all the processing needs of the landing, however most conventional systems carry an extra flight computer for communication, power, altitude, fail safe conditions etc.\\
 
+\noindent
 The relevant specification for the final instruments are summarized in table \ref{tab:navinst}.
 
 \begin{table}
@@ -362,15 +343,12 @@ Total & 15 & 3040 & $\sim$35.2\\
 \end{center}
 \end{table} 
 
+\noindent
 The cables connecting the sensors and DPU's is assumed to weigh no more than 2 kg, resulting in a navigation system weighing $\sim$5 kg, excluding the possible flight computer. 
 
- 
 \autsection{Power supply on landing module}{Maja Tomicic}
 
 The Guidance Navigation and Control system is powered by a RTG system. The total system requires $\sim$ 35 W if all instruments are running. This power is easily supplied by a RTG system resembling the SNAP-9A or SNAP-19 systems used on missions such as the Pioneer 10 and 11 \cite{wikirtg}. These systems weighed $\sim$ 10-15 kg. We assume that we can design a lighter generator, however this will not be discussed further, but could be subject to future work. The communication system on the surface will also be supplied by this RTG. \\
 
+\noindent
 Solar panels were considered as power supply for the landing and communication system. The solar cells would have to be equipped with Fresnel lenses to concentrate the relatively low solar flux at Europa ($51 W/m^2$). A system resembling the ultralight stretched Fresnel lens solar concentrator described in \cite{fresnel} was considered. However the extreme radiation environment is too harsh for the solar cells to survive for longer periods of time. An option would be to deploy the solar cells down into the ice, and only have the Fresnel lenses in the radiation environment. The process of deploying the large amount of solar cells into the ice was rejected due to its complicated nature. 
-
-
-
-
