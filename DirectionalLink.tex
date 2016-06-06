@@ -45,9 +45,9 @@ Yagi-Uda antennas consist of a single driven element connected to the transmitte
     \caption{}
 \end{figure}
 
-As it is mentioned above, the design of a Yagi-Uda antenna is usually approached with an optimization algorithm based on already existed designs. Mentioning that, the free software "Yagi Calculator" (from VK5DJ radio amateur, \url{http://www.vk5dj.com/yagi.html}) was used, which simulates the antenna and has as an output its gain, beamwidth, antenna length, etc. Our major bottleneck using Yagis will be first of all their boom length. According to many designs, the boom length should be at least 2.2 $\lambda$ in order to achieve the best performance out of the antenna. Our available space is approximately 1 meter, thus our antenna boom should be less than one meter, which corresponds practically to frequencies higher than 600 MHz. As it is clear, frequencies higher than 400 MHz present excessive losses and is impossible to be used for our application. Although, we can decrease boom length according to our desires with a trade off in gain and beamwidth. Another issue that we must take into account is the really close distant of ice from the tip of our antenna. This mean that the ice will be inside the near field of our antenna, which can causes serious troubles to our design. The limit between near and far field is given by Fraunhofer's formula $d=\frac{2D^2}{\lambda}$, where D is the largest dimension of the radiator and $\lambda$ is the wavelength of the radio wave. So, we conclude that in order to eliminate or at least reduce the effect of the near field because of the ice, we have to leave a distance equals d before the ice layer. Usually, this distance is very close to the boom length, thus we could claim that we need d=80\% of boom's length, in best case scenario. 
+As it is mentioned above, the design of a Yagi-Uda antenna is usually approached with an optimization algorithm based on already existed designs. Mentioning that, the free software "Yagi Calculator" (from VK5DJ radio amateur, \url{http://www.vk5dj.com/yagi.html}) was used, which simulates the antenna and has as an output its gain, beamwidth, antenna length, etc. Our major bottleneck using Yagis will be first of all their boom length. According to many designs, the boom length should be at least 2.2 $\lambda$ in order to achieve the best performance out of the antenna. Our available space is approximately 1 meter, thus our antenna boom should be less than one meter, which corresponds practically to frequencies higher than 600 MHz. As it is clear, frequencies higher than 400 MHz present excessive losses and is impossible to be used for our application. Although, we can decrease boom length according to our desires with a trade off in gain and beamwidth. Another issue that we must take into account is the really close distant of ice from the tip of our antenna. This mean that the ice will be inside the near field of our antenna, which can causes serious troubles to our design. The limit between near and far field is given by Fraunhofer's formula $d=\frac{2D^2}{\lambda}$, where D is the largest dimension of the radiator and $\lambda$ is the wavelength of the radio wave. So, we conclude that in order to eliminate or at least reduce the effect of the near field because of the ice, we have to leave a distance equals d before the ice layer. Usually, this distance is very close to the boom length, thus we could claim that we need d=80\% of boom's length, in best case scenario.
 
-Having the length's limitation in mind the following results came up from the software.
+Having the length's limitation in mind the following results came up from the software, as shown in table \ref{table: Yagi}. It can be seen that the beamwidths, even at 430 MHz, are fairly wide and it is difficult to define an antenna with this values as absolutely directional. Moreover, in case of a crossed design the power divided into two radiating dipoles, so we have to subtract 3 dB from each case.
 \begin{table}[htb]
 \begin{tabular}{| c | c | c | c | c |}
 \hline
@@ -63,8 +63,6 @@ Having the length's limitation in mind the following results came up from the so
 \caption{Potential Yagi designs for different frequencies.}
 \label{table: Yagi}
 \end{table}
-
-It is shown from table \ref{table: Yagi} that the beamwidths, even at 430 MHz, are fairly wide and it is difficult to define an antenna with this values as absolutely directional. Moreover, in case of a crossed design the power divided into two radiating dipoles, so we have to substract 3 dB from each case.
 
 \paragraph{LPDA Design}
 In contrast, LPDAs can be operated over a range of frequencies and over this range its electrical characteristics gain, feed-point impedance, front-to-back ratio, etc. will remain more or less constant. The two most important parameters for LPDA are $\tau$ and $\sigma$, where $\tau$ is the ratio of the length of one element to its next longest neighbor and is constant for a given design for all elements and $\sigma$ is known as the “relative spacing constant” and along with $\tau$ determines the angle of the antenna’s apex, a. 
@@ -91,7 +89,8 @@ In order to find out the total length of the antenna and its number of elements 
 \label{eq: LPDA}
 \end{subequations}
 
-,where $l_{max}=\frac{c}{2 \cdot f_{min}}$ is the length of the maximum element and d=1.9 cm, which is the outer diameter of each element. Usually, a balun is needed in order to regulate the input impedance to desired values. 
+\noindent
+Where $l_{max}=\frac{c}{2 \cdot f_{min}}$ is the length of the maximum element and d=1.9 cm, which is the outer diameter of each element. Usually, a balun is needed in order to regulate the input impedance to desired values. 
 
 LPDAs have a wide 3 dB beamwidth, which most of the times calculated through simulations, measurements or empirical tables. One f these tables is shown in figure \ref{hpbw_log}. Because of this wide beamwidth, LPDAs are not the best choice for our directional application, although if directivity is not our main concern there are manufacturers that sell very appealing, foldable antennas, some of them are presented in appendix \ref{LPDA1}. Finally, LPDAs are linear polarized, thus we have to mount two different, orthogonal antenna booms or one crossed design to receive properly the random polarization's orientation. Of course, this mean an extra 3 dB loss. A summary of the most suitable parameters of an LPDA for our mission can be found in table \ref{table: LPDA}.
 
@@ -125,7 +124,7 @@ LPDAs have a wide 3 dB beamwidth, which most of the times calculated through sim
 \end{table}
 
 \paragraph{Helical Antennas Design}
-Another type of antennas with a lot of potential in our mission is helical antenna. This antenna type is consisting of a conducting wire wound in the form of a helix, which in most cases is mounted over a ground plane. There are two modes that a helical antenna can operate and these are the normal mode and the axial. At normal mode the antenna resembles a monopole or dipole, so it has omnidirectional characteristics and linear polarization. We are interested in directional antennas, thus we will focus on the axial mode. The axial mode provides a directional antenna beam, radiating off the ends of the helix along the antenna's axis (end-fire). Moreover, the latter mode creates a circular polarized wave, which is mandatory for our application. A typical helical antenna with its radiation pattern is depicted in figure \ref{helical}.
+Another type of antennas with a lot of potential in our mission is helical antenna. This antenna type is consisting of a conducting wire wound in the form of a helix, which in most cases is mounted over a ground plane. There are two modes that a helical antenna can operate and these are the normal mode and the axial. At normal mode the antenna resembles a monopole or dipole, so it has omnidirectional characteristics and linear polarization. We are interested in directional antennas, thus we will focus on the axial mode. The axial mode provides a directional antenna beam, radiating off the ends of the helix along the antenna's axis (end-fire). Moreover, the latter mode creates a circular polarized wave, which is mandatory for our application. A typical helical antenna with its radiation pattern is depicted in figure \ref{helical}.\\
 
 \begin{figure}[htb!]
     \centering
@@ -141,8 +140,10 @@ Another type of antennas with a lot of potential in our mission is helical anten
     \caption{Helical antenna sketch and radiation pattern.}\label{helical}
 \end{figure}
 
-The main constraints in building and using a helical antenna for our purposes would be again its total length, the beamwidth, the gain and the remaining distance to the ice layer. In order to examine the behaviour of such antennas the definition of the basic characteristics is needed. As it is shown in figure \ref{helix1} D represents antennas diameter, N turns of wire, d radius of wire and S the gap between turns. The overall length is $L=N \cdot S$ and the circumference of a single turn is $C=\pi \cdot D$. Last of the mechanical parameters are pitch angle of helix $a$ and R the reflector size, which must be at least 3/4 of the operating wavelength $\lambda$. In addition, we must take into account some experimentally derived guidelines, such as the value of pitch angle $a$ should be between $12^\circ$ and $14^\circ$. If $a$ is not in the specified range anomalies in the performance can occur. Also, the following formulas (eq. \ref{helical_eq}) are valid for $N \geq 3$ and $<3/4C/\lambda<4/3$ \cite{balanis2}.
+\noindent
+The main constraints in building and using a helical antenna for our purposes would be again its total length, the beamwidth, the gain and the remaining distance to the ice layer. In order to examine the behaviour of such antennas the definition of the basic characteristics is needed. As it is shown in figure \ref{helix1} D represents antennas diameter, N turns of wire, d radius of wire and S the gap between turns. The overall length is $L=N \cdot S$ and the circumference of a single turn is $C=\pi \cdot D$. Last of the mechanical parameters are pitch angle of helix $a$ and R the reflector size, which must be at least 3/4 of the operating wavelength $\lambda$. In addition, we must take into account some experimentally derived guidelines, such as the value of pitch angle $a$ should be between $12^\circ$ and $14^\circ$. If $a$ is not in the specified range anomalies in the performance can occur. Also, the following formulas (eq. \ref{helical_eq}) are valid for $N \geq 3$ and $<3/4C/\lambda<4/3$ \cite{balanis2}.\\
 
+\noindent
 For our design a trade off between total length and the parameters of frequency, C and S must be made. Generally, more turns (higher N) provide higher directivity $D_{0}$ and also the frequency dependence of the input impedance is smaller, but on the other hand the length can be disturbing big. For our mission we experimented with a MATLAB code (appendix \ref{matlab}) in different specifications and we ended up with the most suitable, as they presented in tables \ref{table: Helicals1} and \ref{table: Helicals2}. Additionally, we examined the possibility of using an array of helical antennas, but it can be seen for our frequencies it is more efficient (mainly gain-wise) to use in element. The following equations were used for this design \cite{balanis2}.
 
 \begin{subequations}
@@ -159,8 +160,8 @@ For our design a trade off between total length and the parameters of frequency,
 \label{helical_eq}
 \end{subequations}
 
+\noindent
 Except for a single helical antenna, we are simulated the behaviour of an array of helical antennas to examine if it is beneficial to use this implementation. The extra equations for an array are shown below (eq. \ref{helical_array}). Two approaches for the directivity were used, a simple one ($D_{array}$) and one taking into account the Hansen-Woodyard ($D_{HW}$) approximation. As it is presented in \ref{table: Helicals1} and \ref{table: Helicals2}, the array design it is not that useful for our frequencies, because in order to have better performance than the single helical antenna, more than 5 elements are needed.
-
 \begin{subequations}
 \begin{align}
     &dis=1.5 \cdot \lambda \\
@@ -169,7 +170,7 @@ Except for a single helical antenna, we are simulated the behaviour of an array 
 \end{align}
 \label{helical_array}
 \end{subequations}
-, where $N_{elem}$ is the number of array's elements and $dis$ is the distance between them. 
+Where $N_{elem}$ is the number of array's elements and $dis$ is the distance between them. 
 
 \begin{table}[htb]
 \centering
@@ -204,6 +205,7 @@ Except for a single helical antenna, we are simulated the behaviour of an array 
 \caption{Helical antenna with 3 turns (N=3) specifications. The last column shows the values of gain in dBi for an array of 4 elements.}
 \label{table: Helicals2}
 \end{table}
+\noindent
 A more detailed table for helical antennas can be found in appendix \ref{table: Helicals}.
 
 As it is shown from tables \ref{table: Helicals1} and \ref{table: Helicals2}, the most suitable case is in frequency 340 MHz, where the total length of the antenna is 750 mm, the maximum gain is 17.7 dBi and the half power beamwidth is 42.8$^\circ$. There is also 250 mm free space between the end of the antenna and the ice, which could be enough to ignore ice as a near field obstacle. The gain exceeds our expectation, but bibliography states that these values may be exaggerated. But even in these case, the gain is still more than enough and helical antennas can receive or transmit circular polarization without the need of any modifications or additional losses. So, up to now it seems that a helical antenna is the most appealing option.
@@ -259,7 +261,7 @@ The characteristics of a rectangular microstrip antenna depends mainly on its su
 \end{align}
 \label{patch_eq}
 \end{subequations}
-, where c is light's speed, $\Delta L$ is length's increase because of $\epsilon_{eff}$.
+Where c is light's speed, $\Delta L$ is length's increase because of $\epsilon_{eff}$.
 
 Solving the above equations for different substrates, as seen in figure (\ref{substrate}), height $h=0.0589 \lambda$ we find the following dimensions.
 
@@ -304,6 +306,7 @@ Solving the above equations for different substrates, as seen in figure (\ref{su
 \label{table: subs400}
 \end{table}
 
+\noindent
 Knowing from antenna theory that the radiating slots of a patch antenna can be seen as two independable dipoles, we can use this approximation to find the gain using the array factor (AF). If we assume a assume a dielectric constant, which compromise size and efficiency, we can choose the RO4003 from \ref{table: subs300} or \ref{table: subs400}. Thus, if the area below our lander vehicle is 1 $m^2$ we can design a 6 element patch array antenna with element's size 377x244 mm if we are go for the lower frequency of 300 MHz. According to Balanis' approximated formulas we can have directivity for each slot equal to 4 dB and around 5.8 dB for the whole antenna (two slots). In order to increase the directivity using the array design of 6 elements we can achieve a half power beamwidth about $40^{\circ}$, as it can be seen in figure (\ref{array}). In case we design the antenna for 400 MHz, the patch size will be smaller, thus more antennas can be placed to the available space. Always we have to consider that higher frequencies correspond to higher losses and in case of patch antennas without any substantial increase in gain and beamwidth.
 
 \begin{figure}[ht]
@@ -337,6 +340,7 @@ Finally, in order to determine the the gain we have to know the radiating effici
 \label{table: results}
 \end{table}
 
+\noindent
 An important part of microstrip antennas (and especially in arrays) is the input impedance and matching. The input admittance of a slot and thus for a patch antenna is given by using Huygens's equivalent principle. The procedure is quite laborious and will not be shown here. Although, a useful consequence is that we can match the input admittance by a very easy technique, using a small inset in each individual patch. Also, if circular polarization is needed many different techniques of feeding can be used. Of course, since we are talking for an array antenna, the appropriate phase differences should be introduced between the array elements. About feeding we can use either uniform or nonuniform antennas, which mean constant or varying magnitude of the elements. Non-uniform arrays are more preferable since they present lower sidelobe and grating lobe levels, but on the other hand worst directivity. Good cases for non-uniform amplitude coefficients are the binomial and Tschebysheff's polynomial. 
 
 \subsection{Penetrator Antenna}

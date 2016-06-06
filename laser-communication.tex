@@ -25,7 +25,7 @@ The LLCD mission’s real breakthrough, however, was its demonstration that such
 	\item Diode-pumped solid state laser has much lower power efficiency compared to RF amplifiers (10 \% vs 40 \%). EDFA technology can potentially achieve a better efficiency (20 \%). However, reduction in antenna gain and receiver sensitivity more than compensate for the increased efficiency. 
 	\item Optical system is much more sensitive to pointing loss and atmospheric attenuation.
 \end{enumerate}
-\begin{figure}[H]
+\begin{figure}[htb]
 \begin{center}
 \includegraphics[width=1\columnwidth]{figures/laser-communication/bh3.jpg}
 \caption{Comparison of optical and ka-band system performance}
@@ -56,7 +56,7 @@ Transmit optical aperture diameters ranging from 30 cm to 90 cm are evaluated. A
 \subsubsection{Wavelength}
 
 Selection of wavelengths for optical communications depends on an understanding of the propagation channel, both through free space and atmosphere, and on the availability of components and subsystems including lasers, detectors, and optics. Additionally, issues pertaining to availability and reliability of components, especially lasers and detectors for user spacecraft, are critical to the selection of a viable communications wavelength. Considerations of missions and operational issues can also profoundly affect the choice of wavelength. Free space propagation loss decreases with wavelength, and provides the single most compelling reason to choose shorter wavelengths for laser communications. The angular beam diameter for a diffraction limited beam as measured by the first Airy disk of the diffraction pattern for a circular aperture is given by $\tfrac{\lambda}{D}$, where D is the diameter of the transmitting aperture and $\lambda$ is the wavelength. Energy density at the receiver is inversely proportional to the square of the beam diameter. For a given distance z and transmitting aperture, the received energy density increases as $\lambda^{-2}$ below Fig., shows that the energy density decreased by three orders of magnitude as the wavelength increases from 0.4 to 12.5 micro m. This provides a strong argument to choose shorter wavelengths for laser communications \cite{article:wavelength}.
-\begin{figure}[H]
+\begin{figure}[htb]
 \begin{center}
 \includegraphics[width=0.7\columnwidth]{figures/laser-communication/bh4.jpg}
 \caption{wavelength and power density}
@@ -70,7 +70,7 @@ optical detection receiver, is proposed to provide a highly power-efficient high
 A high-power laser source at each wavelength can be implemented using a conventional laser diode followed by an EDFA power amplifier to produce 5 watts of launch power. Link closure at a 1.55-micron wavelength is then achieved for a 2.4 m receive aperture at data rates ranging from 2.5 Mbps for a 30 cm transmit aperture to 25 Mbps for a 90 cm transmit aperture. Increasing the receive aperture to 3.6 m increases the corresponding data transmission rates.
 \subsubsection{Tx and Rx Aperture}
 A single receiving telescope on the Earth-orbiting relay satellite is required with an optical aperture size that must be large enough to collect a sufficient amount of propagated light ,As we can see, the total telemetry data rate increased by increasing the transmitter aperture and receiver aperture, and adding more laser diode will increase the data rate. 
-\begin{figure}[H]
+\begin{figure}[htb]
 \begin{center}
 \includegraphics[width=0.7\columnwidth]{figures/laser-communication/bh5.png}
 \caption{Achievable Data Return for laser Communication System}
@@ -82,7 +82,7 @@ A single receiving telescope on the Earth-orbiting relay satellite is required w
 Due to high data rates and reliability, the stability of the laser beam pointing is still a key technique which needs to be solved; otherwise, the beam pointing jitter noise would reduce the communication quality or, even worse, would make the inter-satellite laser communication impossible. 
 \subsubsection{Weight, size, and power requirements}
 The weight, size, and power requirements for a JIMO transmitter employing two wavelengths are estimated using extrapolation from previous work performed at The Aerospace Corporation.
-\begin{figure}[H]
+\begin{figure}[htb]
 \begin{center}
 \includegraphics[width=1\columnwidth]{figures/laser-communication/bh11.jpg}
 \caption{weight, size, and power requirements}

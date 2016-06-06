@@ -192,9 +192,9 @@ It is also noticeable that the energy required to melt the ice will be higher in
 \\
 A further study of the ice temperature profile will be presented in chapter \ref{sec:temp_simulation}, which will do a simulation based on the concepts introduced in this chapter.
 
-\subsubsection{Pressure Profile}
-
-* What is the outside pressure?
+%\subsubsection{Pressure Profile}
+%
+%* What is the outside pressure?
 
 \input{Theory/IceProfile2}
 
@@ -239,7 +239,7 @@ If the Rayleigh number is larger than a certain critical value, natural convecti
 In an effort to evaluate the feasibility of using passive thermal convection as a pumping system, a CFD (Computational Fluid Dynamics) analysis has been performed. The software Autodesk CFD 2017 was utilized for this purpose. 
 \\
 \\
-Figure \ref{fig:3d_model} shows a CAD model of a potential penetrator design. The model was simplified to have several channels serving the same purpose as the flutes in figure \ref{fig:penetrator_model}, i.e., resulting in water being guided into the intakes and further inside the penetrator. However, due to the complexity a even simpler model was made, as shows in Figure \ref{fig:simplified_3d_model}. 
+Figure \ref{fig:3d_model} shows a CAD model of a potential penetrator design. The model was simplified to have several channels serving the same purpose as the flutes in figure \ref{fig:penetrator_model}, i.e., resulting in water being guided into the intakes and further inside the penetrator. However, due to the complexity an even simpler model was made, as shown in Figure \ref{fig:simplified_3d_model}. 
 \\
 \begin{figure}[htb]
 	\centering
@@ -253,7 +253,7 @@ Figure \ref{fig:3d_model} shows a CAD model of a potential penetrator design. Th
 	\label{fig:3d_model}
 \end{figure}
 \\
-The simplified model is made of a totally separated heating element in the front of a hollow cylinder. This means that heat will not be conducted from the heater into the bulk of the penetrator. While this is not very realistic, it provides the best possible scenario for convection as it leads to a very large temperature gradient along the length of the penetrator.
+The simplified model is made of a totally separated heating element in the front of a hollow cylinder. This means that heat will not be conducted from the heater into the bulk of the penetrator. While this is not very realistic, it should provide the best possible scenario for convection as it leads to a very large temperature gradient along the length of the penetrator.
 \\
 \begin{figure}[htb]
 	\centering
@@ -280,7 +280,7 @@ The penetrator is modelled as being 1.5 m long with an external diameter of 20 c
 \\
 \\
 By using these boundary conditions a steady-state CFD analysis was made, the result of which is displayed in Figures \ref{fig:cfd_temperature} and \ref{fig:cfd_velocity}. It should be noted that an adaptive mesh was used to ensure maximum simulation resolution within the penetrator.
-It can be seen that the heating element reaches a temperature of around 100 \textdegree C and the back of the penetrator stabilizes near 15 \textdegree C. This results in a natural convection flow through the penetrator at only 0.4 cm/s or 200 s/L. Considering that this result was obtained using unrealistically favourable conditions and with no resistances inside the penetrator, like for example a filtering system, it points toward natural convection being of limited use. Thus, a pump system, such as a peristaltic pump, is probably needed to ensure proper water flow to the different instruments in the penetrator. This will be discussed more in detail in section \ref{sec:water_flow}.
+It can be seen that the heating element reaches a temperature of around 100 $^\circ C$ and the back of the penetrator stabilizes near 15 $^\circ C$. This results in a natural convection flow through the penetrator at only 0.4 cm/s or 200 s/L. Considering that this result was obtained using unrealistically favourable conditions and with no resistances inside the penetrator, like for example a filtering system, it points toward natural convection being of limited use. Thus, a pump system, such as a peristaltic pump, is probably needed to ensure proper water flow to the different instruments in the penetrator. This will be discussed in more detail in section \ref{sec:water_flow}.
 
 % TODO: Comment on different assumptions
 	% I følge simuleringen så bliver den cirka 100 grader (celsius). Reelt vil det nok være mindre, fordi varmen skal fordeles rundt i hele penetratoren
