@@ -3,7 +3,7 @@
 \subsubsection{X-ray source}
 To incite fluorescence in heavy elements, a high energetic source is needed, as high energy photons is needed to knock their electron out of their orbit. To achieve this a x-ray tube with an Ag anode with an output spectrum as seen in figure \ref{fig:AgSpectra} is recommended. The high energy of the peaks enable the source to achieve fluorescence from elements up to Ag (Z=47), with lesser efficiency up to Sm (Z=62, 40keV).
 
-\begin{figure}[h]
+\begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.75\textwidth]{figures/XRF/minix50_ag6.png}
 	\caption{Output spectrum for a x-ray tube using an Ag anode at different voltages.\citep{AmptekSource}}
@@ -22,7 +22,7 @@ The lower end of the energy spectrum is caused by bremsstrahlung in the anode, a
 
 The output spectrum of the x-ray tube have to significant peaks at ~23keV and ~25keV. This is the characteristic lines of Ag when subjected to electron radiation. Knowing these line enables us to take them into account as they will show up as noise in measurements. Focusing on the remaining peaks, and using equation \ref{eq:ComtonEQ}, the Compton scattering resulting from the incident spectrum can be estimated in figure \ref{fig:AgSpectraCompton}.
 
-\begin{figure}[h]
+\begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.6\textwidth]{figures/XRF/estComptonAgPeaks.png}
 	\caption{Estimated Compton scattering of the source spectrum.}
@@ -42,7 +42,7 @@ The listed weight and volume is without additional protection from the high pres
 \subsubsection{X-ray detector}
 When considering the detector the range of encountered photons should be considered. The lighter elements $K_\alpha$ lines are only a few hundred keV apart, to differentiate these a suitable resolution is needed. Detectors also do not perform equally across all energies. The lower limit of the detector is determined by the detector window, as low energy photons are quickly attenuated. The higher limit is determined by the detector material. If we used a polycapillary lens, a window of 25um Be can be used. The detector material can be chosen as Si, as it provides a greater range than what we expect to achieve fluorescence from. In figure \ref{fig:AmptekDetector} a plot of differing detector can be observed. The resolution of the 25um Be SI-PIN detector is sufficient to distinguish elements heavier than Na Z=11.
 
-\begin{figure}[h]
+\begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/XRF/EnergyRes.png}
 	\caption{Energy resulution and detection ranges of differing detector types.\cite{AmptekDetector}}
