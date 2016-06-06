@@ -11,7 +11,7 @@ Three stages in the process of the penetrator descending through the ice crust c
 
 The second phase, would be the penetrator complete buried within the crust and on the melting process to reach the ocean, this might be the longest duration stage depending on the thickness of the crust at the landing site. In this phase, a big risk is the effect of the "slushy" ice trail behind the penetrator. This watery ice would have an increased conductivity and it poses as an obstacle in the path of communication from the penetrator vehicle to the lander. This obstacle mainly affects the antenna pattern characteristics but its effect is greatly dependant on the dimensions of the "slushy" ice trail. On the other hand, a tethered solution would be driven by cable mass necessary for depth goals and to withstand the mechanical forces from being frozen in the ice crust, specially the shear stresses (from sideways motion of ice sheets).
 
-Third, reaching the ocean interface where the main transceiver in the penetrator is left embedded at a safe distance from the interface with the anchoring mechanism for the penetrator and instruments suite. A tether enabled for communications will serve as link from the instruments to the main transceiver and relay the science data and telemetry to surface.
+Third, reaching the ocean interface where the main transceiver in the penetrator is left embedded at a safe distance from the interface with the anchoring mechanism for the penetrator and instruments suite. A tether/cable enabled for communications will serve as link from the instruments to the main transceiver and relay the science data and telemetry to surface.
 
 \begin{figure}[htb]
 	\centering
@@ -29,12 +29,12 @@ Third, reaching the ocean interface where the main transceiver in the penetrator
 % Wireless links
 \autsubsection{Ice embedded wireless communications}{Gustavo Feijóo Carrillo}
 
-In a previous study from JPL's Cryobot concept regarding ice communications \cite{iceLink-scott}, we find the assumption of the communication transceiver relays being allowed to refreeze in the ice but there is no deeper details on this matter. The main subject here is the behaviour of the "slushy" or water and ice mixture above the descending penetrator, since this trail has a meaningful effect on the antenna performance of the penetrator communication subsystem as we shown in Figures \ref{fig:unaffected}, \ref{fig:smallSlush} \& \ref{fig:bigSlush}.
+In a previous study from JPL's Cryobot concept regarding ice communications \cite{iceLink-scott}, we find the assumption of the communication transceiver relays being allowed to refreeze in the ice but there is no deeper details on this matter. The main subject here is the behaviour of the "slushy ice" or water and ice mixture above the descending penetrator, since this trail has a meaningful effect on the antenna performance of the penetrator communication subsystem as shown in Figures \ref{fig:unaffected}, \ref{fig:smallSlush} \& \ref{fig:bigSlush}. The concentration levels of impurities in the water/ice mixture also has an impact but will be leaved for future works, in the present study a salty water of $15ppt$ is used as a simplified model.
 
 %   Fig. Slush trail diagram
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=\textwidth]{figures/comms/slushTrail}
+	\includegraphics[width=.66\textwidth]{figures/comms/slushTrail}
 	\caption{This figure based on the melting profile simulation, it can be seen from the temperature gradient trailing the penetrator that in the close proximity a column of melt water first (red), followed by a mix warm ice and water which is referred as "slush" (white) forms the obstacle discussed in this section. The profile shown spans almost 4 days.}
 	\label{fig:through-ice_comms}
 \end{figure}
@@ -84,9 +84,9 @@ In a previous study from JPL's Cryobot concept regarding ice communications \cit
 
 
 % Effect on link design
-\autsubsection{Considerations for Link Sizing and Antenna choice}{Gustavo Feijóo Carrillo}
+\subsubsection{Considerations for Link Sizing and Antenna choice}
 
-\subsubsection{High Directivity Link}
+\paragraph{High Directivity Link}
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{figures/comms/iceLink-p2p-HighD}
