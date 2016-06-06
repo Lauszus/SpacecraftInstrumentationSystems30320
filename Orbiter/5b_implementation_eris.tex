@@ -83,6 +83,7 @@ The two structures are compared in table (\ref{tab:score_system_structure}). It 
   \label{tab:score_system_structure}%
 \end{table}%
 
+\noindent
 From the score table (\ref{tab:score_system_structure}), it can be seen how the overall performance will be better with the second approach. The dual camera approach will require more physical resources and more from the support systems. However, it performs well at both the primary and the secondary objectives and it operates the high and low resolution cameras at the same time, avoiding multiple flybys. In addition, it contains redundancy to a certain degree. If one camera fails, all objectives can still be completed but the system will operate at a lower performance. If the WAC fails, it may be difficult to get a large enough coverage of the surface, due to the narrow field of view of the remaining camera. It will also require clever post-processing\footnote{Such as Image stitching, combined with averaging to create low resolution maps from the high resolution imaging.} of the high resolution images, to make up for the lack of surface coverage. If the NAC fails, it will be more complicated to provide high resolution imaging, due to the small focal length of the WAC. In this case, it will be necessary to operate the WAC at a lower altitude.
 
 To improve the redundancy and the reliability of the system structure, an extra WAC should be included in the design, as this is the most important and smallest camera\footnote{The WAC is assumed to be refracting, due to the relatively large field of view} of the two. It could even be operated together with the primary WAC, to increase the surface coverage or to capture stereo imaging. The NAC is also important, as it makes it possible to generate high resolution images at the same time as the WAC operates. However, due to physical constraints, it is not possible to bring two complete telescope\footnote{Due to the large focal length required by the NAC, a telescope is assumed.} assemblies. As an alternative, multiple detectors can be added to the telescope, making it possible to switch if one detector fails. As it is most likely that only the detector will fail due to the radiation and not the telescope assembly itself, this is a good and efficient solution to the redundancy problem. 
@@ -164,6 +165,7 @@ Most imaging spectrometers rely on complex optical systems to split the light in
     \caption{A comparison between spectrometer types. Source:\cite{puschell1999a}.}\label{fig:spec_compare}
 \end{figure}
 
+\noindent
 The Wedge Imaging Spectrometer could be a suitable candidate for the system, as it will certainly require much less mass than the alternatives while providing better spectral resolution, compared to the simple filter wheel approach. Filter based spectrometers, such as the wedge type (\ref{fig:spec_wedge_acq}) uses a linear variable filter (LVF), where the spectral properties vary linearly on the wedge\cite{joseph2015building}. The filter is constructed by overlaying layers of dielectric film with high and low refractive indexes in a specific pattern. Because of the tapered dielectric coatings of the film, the passband center wavelength for the thin-film stack will essentially depend on the thickness of the stack. Therefore, the center wavelength of the radiation passing through the wedge filter will vary linearly along the tapered edge of the wedge filter\cite{joseph2015building}. This concept is illustrated in figure (\ref{fig:spec_wedge2}).
 
 \begin{figure}[htb]
@@ -173,6 +175,7 @@ The Wedge Imaging Spectrometer could be a suitable candidate for the system, as 
 \label{fig:spec_wedge2}
 \end{figure}
 
+\noindent
 From the figure, it can be seen how the wedge filter is coupled very close to a 2D detector array, with the coated surface facing the array. A blocking filter, covering the spectral region of interest is mounted on the opposite side of the substrate, to remove out-of-band radiation. Each detector row in the spatial dimension is aligned with a given spectral band, using an even spacing between each band. Therefore, the rows will receive light at different wavelengths.
 
 The filter wheel requires several moving parts and a therefore a larger mass. However, it offers an increased amount of flexibility as the system can easily operate with or without filters applied to the imaging sensor. This makes the method very suitable for the secondary objectives, where a filter is not strictly necessary.
@@ -226,7 +229,7 @@ When considering what spectrometer to use for the imaging system, it is not just
     \caption{A comparison between acquisition methods. Adapted from:\cite{nieke1997a}.}\label{fig:spec_acquisition_compare}
 \end{figure}
 
-The first method (\ref{fig:spec_dispersion_acq}) uses gratings or prisms as the dispersion element. The element separates the incoming electromagnetic radiation into different wavelengths. A single ground pixel is dispersed and focused onto different locations on the array detector\cite{nieke1997a}, resulting in a whisk-broom acquisition but with each "whisk" covering a specific spectral band. This
+The first method (\ref{fig:spec_dispersion_acq}) uses gratings or prisms as the dispersion element. The element separates the incoming electromagnetic radiation into different wavelengths. A single ground pixel is dispersed and focused onto different locations on the array detector\cite{nieke1997a}, resulting in a whisk-broom acquisition but with each "whisk" covering a specific spectral band.
 
 The wedge spectrometer is realised by mounting the detector filter assembly in the focal plane of the imaging optics (\ref{fig:spec_wedge_acq}), \cite{joseph2015building} and \cite{nieke1997a}. By placing the wedge filter along the direction of movement, the imaging system is able able to capture a frame of each cross strip from $x_1$ to $x_n$. With With $n$ strips covering different surface areas, each cross strip will correspond to a specific spectral band, depending on the region on the wedge filter. If a 1D array detector is used (i.e a detector that is 1 pixel wide), the spectrometer will be acquiring each spectral band in a whisk-broom fashion. By using a 2D array detector instead, the spectrometer will acquire the spectral bands in a push-broom fashion. Each recorded frame will contain $n$ different ground strips corresponding to each of the spectral bands in the filter. When the spacecraft moves, each ground strip will be imaged by different positions on the wedge filter, thus creating multispectral data for each surface area.
 
@@ -239,6 +242,7 @@ Unlike the dispersive type, where the full spectra of a single pixel is recorded
 \label{fig:wedge_filt_img_sequence}
 \end{figure}
 
+\noindent
 At time $T$, the ground area will be viewed by channel $\lambda_7$, at $T+\tau$ the area is viewed by channel $\lambda_6$ and so on. Therefore, it is necessary to use post-processing to link the spectral data together. As the raw data cannot be transmitted due to communication constraints, they must be processed and reordered on the spacecraft. A large part of the image system is therefore to design an efficient and fast processing system that can process and store the images faster than they are generated.
 
 When operating the spectrometer as a push-broom imager, a large amount of data will be generated. Additionally, the dispersion spectrometer and the wedge spectrometer generates data in a different order, when compared to the simpler filter wheel method, apparent from figure (\ref{fig:wedge_filt_img_sequence}). Each section of the imaging sensor is dedicated to a specific spectral band. 
@@ -385,6 +389,7 @@ A thermionic converter made of 572 silicon-germanium thermoelectric elements use
 \label{fig:rtg}
 \end{figure}
 
+\noindent
 The power system design of the orbiter integrates the second RTG module on board the lander, in order to compensate any power needs higher than the available output of the orbiters power source. The imaging system will not be the primary design driver for this part, as the power system will be required - with or without an imaging system. It is also important to consider that the imaging system will mainly be operating, when the penetrator and lander is still docked on the orbiter. At this point, the penetrator and its instruments will not be operating.
 \subsection{Radiation Shielding}
 The radiation environment of Jupiter can be very demanding for any mission in respect to the necessary protection needed against highly energetic particles. Protons and other heavy ions fluxes appear similar to other interplanetary missions. On the other hand, high electron fluxes should be considered the main danger of this mission.
@@ -431,6 +436,7 @@ Results are summarized on table \ref{tab:particleflux}.
 
 For an effective shielding against radiation, three levels of protection are advised. Spacecraft structure along with the side mounted fuel tanks will provide the first level collateral protection against the external radiation. However, external shielding can only be limited, due to mass constrains and structural limitations, thus making a second level protection necessary. 
 
+\noindent
 A vault-like structure in the heart of the spacecraft,containing all the electronic components, will offer the second level protection. Wall thickness of the vault will be 6-cm thick and be constructed out of aluminum. This configuration will bring the annual TID of the internal electronics to approximately 100 krad, based on the obtained results (table \ref{tab:thicknessalum} and fig. \ref{fig:shield}) for one year of radiation exposure under the selected orbit near Europa. Assuming the use of existing aerospace radiation hardened components rated at 300 krad, orbiter's lifetime will be limited to at least three years on a near Europa orbit. Localized shielding with high-Z materials on individual components , will form the third level of protection. Sensitive electronics, such as Single-Level-Cell Flash Memories, under a TID exceeding 65 krad, present retention errors and block erase fails, thus the use of local protection is vital. 
  
 % Table generated by Excel2LaTeX from sheet 'Sheet1'
@@ -589,6 +595,7 @@ The second paper focuses on assessment of snow and glaciers using imaging spectr
     \caption{A set of example spectra illustrating a contaminated ice surface. Source:\cite{negi2015a}.}\label{fig:ice_assessment_spectra2}
 \end{figure}
 
+\noindent
 When using imaging spectroscopy for surface material composition analysis, it is often required to work in the near IR and IR ranges to cover the spectral data identifying the material. This can be seen in fig (\ref{fig:material_assessment_spectra}), where most of the spectral details are found in the near IR and IR ranges.
 \begin{figure}[htb!]
 \centering
@@ -829,6 +836,7 @@ Combining the data rate from the WAC and the NAC, the peak data rates that must 
 \label{fig:imaging_data_peak_throughput}
 \end{figure}
 
+\noindent
 This method assumes that it is possible to switch from full frame mode to spectral mode, either by switching the detector or wedge filter. Reducing the spectral resolution instead may be possible instead, if the processing system and the sensor supports reading and storing individual rows.
 
 For the final part of the analysis, the expected ground coverage and the accumulated data generated has be calculated. This will give a good idea of imaging system performance and the requirements from the processing system. First, it is necessary to calculate the expected flyby time. For this estimate, a linear approximation of the flyby is used. This concept is illustrated in figure (\ref{fig:linear_flyby}). 
@@ -888,6 +896,7 @@ T_{flyby,s} = \frac{dist_{flyby}}{V_{avg}}
   \label{tab:flyby_init_cond}%
 \end{table}%
 
+\noindent
 The resulting initial conditions for the flyby are found in table (\ref{tab:flyby_init_cond}). From this, the linear approximation of the flyby can be used to calculate the amount of data that will be generated during one flyby. The distance to CA changes, as the spacecraft moves. The new distance is calculated from the current velocity and the time it takes to get there, according to (\ref{eq:fa_to_ca}).
 \begin{equation}\label{eq:fa_to_ca}
 dist_{CA} = dist_{CA,prev}-V_{avg}\cdot T_{flyby,s}
@@ -902,7 +911,6 @@ altitude = \sqrt{dist_{cen,CA}^2+dist_{CA}^2}-R
 \caption{Calculating the new position.}
 \label{fig:linear_flyby_move}
 \end{figure}
-
 By calculating the ground distance according to the altitude, as it was done in table \ref{tab:rate_vs_dist_wac}, the imaging rate can then be calculated according to equation (\ref{eq:imaging_rate_calc}). The total number of frames can then be calculated from the time between the two intervals and the frame rate. The total data generated during an interval and a flyby is also calculated using this way. The results are shown in table (\ref{tab:wac_flyby_data}).
 \begin{table}[htb!]
   \centering
@@ -1063,6 +1071,7 @@ When recording multi spectral data, the coverage will be the same as the previou
   \label{tab:nac_flyby_data_spectrometer}%
 \end{table}%
 
+\noindent
 From the results, it can be seen that splitting the task between both cameras was not a very good idea. The NAC is already operating at a high frame rate, even without the spectrometer and adding the spectrometer will only make things worse. The NAC will generate excessive amounts of data due to the high frame rate required to keep up with the spacecraft movement. As the WAC is not loaded very much and as it can supply the required ground resolution, using the spectrometer on the WAC alone is a better choice. Comparing the two cameras graphically makes it clear, that the load distribution should be improved further (\ref{fig:data_gen_wac_nac_compare2}).
 
 \begin{figure}[htb!]
