@@ -74,15 +74,16 @@ Figures \ref{fig:ICD}, \ref{fig:HWD} and \ref{fig:CTDI} illustrates the three me
   \label{fig:CTDI}
 \end{figure}
 
+\clearpage
 \subsubsection{Rotary drilling}
-Søren Jeppesen
+$Søren \, Jeppesen$
+\\
+Rotary drilling is an alternative to the previously mentioned methods for ice drilling. On Earth, this method is used primarily on rock formations and is suitable for medium and hard drilling environments. Rotary drilling utilises a sharp and heavy drill bit made with either tungsten, steel, or diamond in order to cut up hard rock. This type of drilling leaves little remains, and as most ice drilling is focused on retrieving samples, this method is not commonly employed for this task. For the Europa Life Finder Mission, ice samples from the drill is not an immediate concern and so rotaty drilling could be a better option for drilling than the previously mentioned methods. Figure \ref{fig:drill_bit} features common designs for the drill bit of rotary drills.
 
-Rotary drilling is an alternative to the previously mentioned methods for ice drilling. On Earth, this method is used primarily on rock formations and is suitable for medium and hard drilling environments. Rotary drilling utilizses a sharp and heavy drill bit made with eiter tungsten, steel, or diamond in order to cut up hard rock. This type of drilling leaves little remains, and as most ice drilling is focused on retrieving samples, this method is not commonly employed for this task. For the Europa Life Finder Mission, ice samples from the drill is not an immediate concern and so rotaty drilling could be a better option for drilling than the previously mentioned methods. Figure \ref{fig:drill_bit} features common designs for the drill bit of rotary drills.
-
-\begin{figure}[htb]
+\begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.4]{figures/RCS/drill_bit}
-\caption{Image of drill bits for rotary drills.}
+\caption{Image of drill bits for rotary drills \cite{RotDrillBit}.}
 \label{fig:drill_bit}
 \end{center}
 \end{figure}
@@ -90,15 +91,21 @@ Rotary drilling is an alternative to the previously mentioned methods for ice dr
 The weight of drill bit for rotary drill can be seen below on figure \ref{fig:drill_bit_weight}. For a drill with a diameter of 20 cm, the weight of steel tooth tricone bit would come up to 32.2 kg. Additionally, there would need to be a motor system for operating the drill, and a transport system for the ice cutting, all adding additional weight. The system would also need power which the RTG would provide, however, as the conversion efficiency of heat energy to electrical energy is only around 7\% for the RTG, the energy needed would be
 
 \begin{equation}
-	tmp
+	\frac{1.130}{0.07} \, \frac{\mathrm{MJ}}{km} = 16.14 \, \frac{\mathrm{MJ}}{km}
 \end{equation}
 
-3571.6
+Rotary drill bit needs weight applied to them from to drill properly. The weight on drill for a rotary drill bit can be estimated using specifications from the Atlas Copco F4 Tungsten Carbide Insert drill bit. This drill bit has a minimum weight on bit of 178.58 kg/cm (of diameter), which is the absolute lowest of the Atlas Copco drill bits \cite{RotBit_weightOn}. For a 20 cm diameter drill bit, this would give
 
-\begin{figure}[htb]
+\begin{equation}
+178.58 \, \frac{\mathrm{kg}}{\mathrm{cm}} \cdot 20 \, \mathrm{cm} = 3571.6 \, \mathrm{kg}
+\end{equation}
+
+As the gravity on Europa is 7.46  times lower than on Earth, the weight required on Europa in order for a rotary drill to function properly makes rotary drilling a poor choice for going through the ice. Another drawback of using a mechanical drill is the added risk of failure due to consisting of many smaller parts, where just one breakdown could stop the drill completely. While rotary drilling could be an improvement to the ice drilling methods discussed earlier, it is still not advised to use mechanical drilling in the Europa Life Finding Mission. 
+
+\begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.9]{figures/RCS/drill_bit_weight}
-\caption{Table of weights for drill bits.}
+\caption{Table of weights for drill bits \cite{RotDrillWieght}.}
 \label{fig:drill_bit_weight}
 \end{center}
 \end{figure}
@@ -117,6 +124,59 @@ The weight of drill bit for rotary drill can be seen below on figure \ref{fig:dr
 \input{Penetrator/IceSimulation}
 
 \input{Penetrator/DebrisRemoval}
+
+\autsection{Materials}{Paul Connetable}
+
+It of crucial importance to choose the best suited and existing possible materials for the different parts of the penetrator, in order to ensure the mission's success and optimize the weight of the penetrator. Each part of the penetrator has indeed its importance and its own mission, and choosing the good material for it can make a big difference. In this part are presented the different materials that can be used to compose the penetrator, for either their mechanical properties, to compose the penetrator structure itself, or their thermal properties, for the melter part and heat pipes.
+
+\subsection{Materials for the penetrator structure}
+
+In order to resist the pressure, the penetrator has to be done in a resistant material, while being at the same time the lightest possible. A cylindrical vessel under pressure handles both hoop and radial stresses. In order to find the right material to compose the penetrator structure, the first thing to look at is the specific stiffness of materials, which is their Young Modulus divided by their density. The specific stiffness highlights both light and resistant materials. It is then also crucial to look at the yield strength of the materials, defined as the stress at which a material has a 0.2~\% deformation. It is commonly used for sizing matters, as the criterion of maximum stress to be handled by a material. This criterion does not take into account fatigue issues. However, fatigue is not a decisive factor of our study, since the penetrator will only be exposed to a slowly increasing pressure, and not to repetitive cycles.
+
+Finally, since the material has to handle both hoop and radial stress, we need to use an isotropic material. This discards some plastic and composit materials which have very high specific stiffnesses, but are not suited for the mission. An array of the most interesting materials is presented in \ref{materarray}.
+
+\begin{table}[htb]
+\centering
+\caption{Table of materials and their mechanical properties}
+\label{materarray}
+\begin{tabular}{l|l|l|l|l|}
+\cline{2-5}
+                                      & \begin{tabular}[c]{@{}l@{}}Young modulus \\ (GPa)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Density\\ (g/cm3)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Specific stiffness \\ (GPa*cm3/g)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Yield strength\\  (MPa)\end{tabular} \\ \hline
+\multicolumn{1}{|l|}{Aluminium}       & 69                                                             & 2.7                                                       & 26                                                                        & \begin{tabular}[c]{@{}l@{}}From 200\\ to 600 MPa\end{tabular}   \\ \hline
+\multicolumn{1}{|l|}{Steel}           & 200                                                            & 7.9                                                       & 25                                                                        &                                                                 \\ \hline
+\multicolumn{1}{|l|}{Titanium alloy}  & 114                                                            & 4.43                                                      & 26                                                                        & 827                                                             \\ \hline
+\multicolumn{1}{|l|}{Molybdene}       & 329                                                            & 10.28                                                     & 32                                                                        & 450                                                             \\ \hline
+\multicolumn{1}{|l|}{Silicon carbide} & 450                                                            & 3.21                                                      & 140                                                                       &                                                                 \\ \hline
+\multicolumn{1}{|l|}{Beryllium}       & 287                                                            & 1.85                                                      & 155                                                                       &                                                                 \\ \hline
+\end{tabular}
+\end{table}
+
+The Titanium alloy presented here is the Ti-6AI-4V.
+Both silicon carbide and beryllium seem to be very good candidates to compose the penetrator structure, since they are both very light, have a high specific resistance and present very interesting properties. However, they are both very hard and brittle: they handle shocks badly.
+The choice beetween molybdene, aluminium, steel and titanium is difficult to make looking only at the specific stiffness. However, a look at the yield strength shows that the titanium alloy presented here seems to be the best candidate.
+Titanium also have several advantages compared to the other materials. It is indeed very resistant to corrosion, from all kind of solutions, and especially, water and sea water. This characteristic is absolutely essential for our mission, which will take place in water. Moreover, it is also resistant to corrosion against acids, or rocket propellants, which is not the case of the other materials. Since Titanium has a good specific stiffness, is chemically resistant against aqueous solutions and doesn't present any weakness against shocks, it is the best suited material for this mission.
+
+This is why the overall structure of the penetrator is made out of Titanium Ti-6AI-4V. Titanium, however, is not suited for composing the melter.
+
+\subsection{Materials for the melter}
+
+The melter will most likely be composed of a small part going out of the penetrator, at its bottom, directly in contact with the ice. It would be heated directly by the RTG in the penetrator and convey the heat to the ice. Even if we use liquids to convey heat in heat pipes, we will need an interface between this liquid and the penetrator exterior.It hence needs to be done in a material with a good thermal conductivity, resistant to corrosion, with good mechanical properties, and as light as possible.
+
+The materials with the highest thermal conductivities are copper, silver and gold. Since copper can very easily be corroded, it does not constitute a good choice for this use. Silver is resistant to many chemicals, but can be corroded by sulfur, acids and by salty water. Therefore, gold, which is resistant to corrosion when it is pure, seems to be the best choice to put at the interface between the ice and heat pipes, even if it is heavy. However, inside the penetrator, things are different: the pipes can be done in other materials than gold, since they are in contact only with the liquid present in the pipes. They could then be done in silver, which is notably lighter than gold, and has a very good thermal conductivity.
+
+Finally, we also need to investigate what material can isolate the heat pipes and the RTG from the rest of the penetrator, in order to protect all the instruments. A very good material for this use is mineral wool with ceramic fibers. Also called high temperature insulation wool, it has an excellent thermal resistance, and handle temperatures higher than 1200 °C, which is near the maximum temperature of the RTG. It is also very light. With this material as insulator, the heat would not radiate towards the other parts of the penetrator.
+
+\subsection{Additional geometry}
+
+It is possible to improve the penetrator resistance by adding a pattern in it, helping it to resist the pressure. Adding inside the penetrator regularly a structure with a second strapping, with an octagon in it (so that the circle is the octagon's circumcicle) can improve the structure resistance. In this pattern, we can add carbon fiber lines connecting all the octagon's corners. This way, a good part of the stress due to the external pressure can be handled by the carbon fiber, which had an extremely good specific stiffness. A scheme of this pattern is presented in Figure \ref{patternpene}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{figures/Paul/pattern.png}
+\caption{Scheme to improve the penetrator's resistance}
+\label{patternpene}
+\end{figure}
+
 
 \autsection{RTG design}{Ricard Lladó Grove}
 
