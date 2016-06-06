@@ -129,7 +129,7 @@
     }
 }
 
-\newcommand{\logoElektro}{%
+\newcommand{\logoSpace}{%
     \AddToShipoutPicture*{
         \put(20,-50){
             \parbox[b][\paperheight]{\paperwidth}{%
@@ -159,19 +159,22 @@
 	{\normalfont \large \@date}
 	\end{center}
 	\frieze
-	\logoElektro
+	\logoSpace
     \newpage % Back of front page
     \thispagestyle{empty}
+    \begin{center}
+        \topskip0pt
+        \vspace*{\fill}
+        \large\textsc{Editor: Kristian Sloth Lauszus}
+        \vspace*{\fill}
+	\end{center}
 	\frieze % Added watermark
-	\hspace*{-1cm}
-	\parbox[b][\paperheight]{\paperwidth}{%
-		{\sf Technical University of Denmark}\\
-		{\sf DTU Space}\\
-		{\sf National Space Institute}\\
-		{\sf Elektrovej, building 327-328}\\
-		{\sf 2800 Kongens Lyngby, Denmark}
-	    \vspace*{10cm}
-	}
+	{\sf Technical University of Denmark}\\
+	{\sf DTU Space}\\
+	{\sf National Space Institute}\\
+	{\sf Elektrovej, building 327-328}\\
+	{\sf 2800 Kongens Lyngby, Denmark}
+	\vspace*{4cm}
 }
 \makeatother
 
