@@ -6,7 +6,7 @@ branches:
         - /^sharelatex-.*$/
 
 install:
-    - sudo apt-get install -y --no-install-recommends texlive-latex-recommended texlive-latex-extra texlive-science texlive-fonts-recommended texlive-fonts-extra texlive-lang-german latex-xcolor pgf
+    - sudo apt-get install -y --no-install-recommends texlive-latex-recommended texlive-latex-extra texlive-science texlive-fonts-recommended texlive-lang-german latex-xcolor pgf
 
 before_script:
     - wget http://mirrors.ctan.org/macros/latex/contrib/tablefootnote.zip

@@ -126,7 +126,7 @@ The weight of drill bit for rotary drill can be seen below on figure \ref{fig:dr
 
 \input{Penetrator/DebrisRemoval}
 
-\autsection{Pressure Distribution on Europa}{Ricard Lladó Grove} \label{sec:Pressure}
+\autsection{Pressure Distribution on Europa}{Ricard Grove}\label{sec:Pressure}
 Europa's atmosphere is extremely thin: approximately $10^{-11}$ times smaller than the atmosphere of Earth\cite{hall1995a}. Hereby it can be approximated that there is no pressure on the surface of Europa which means that the pressure will only depend on ice-layer above the penetrator which will increase in thickness while descending. The pressure can be calculated by: 
 \begin{equation}
 P = \rho_{ice} g h
@@ -162,7 +162,7 @@ where $\sigma$ is the stress on the material, $P_{ext}$ and $P_{int}$ is the ext
 \begin{equation}
 r_{inner} = \frac{\sqrt{\sigma(2P_{ext}+\sigma)r_{outer}}}{\sigma} = 0.0971 m
 \end{equation}
-The inner radius is hereby 9.71 cm which gives a thickness of 2.9 mm titanium with a factor of safety of 2, i.e $\sigma = 827/2 = 413.5 \text{MPa}$. Assuming that the tip of the penetrator will be close to spherical which is stronger than a cylindrical it can be assumed that it can withstand the pressure if the cylinder is able to. With a density of $\SI{4.43} {\g\per\cm^3}$ the mass can be calculated since the volume of the shell can be calculated when knowing the dimensions and thickness of the penetrator: 
+The inner radius is hereby 9.71 cm which gives a thickness of 2.9 mm titanium with a factor of safety of 2, i.e $\sigma = 827/2 = 413.5 \text{MPa}$. Assuming that the tip of the penetrator will be close to spherical which is stronger than a cylindrical it can be assumed that it can withstand the pressure if the cylinder is able to. With a density of $\SI{4.43} {\gram\per\cubic\cm}$ the mass can be calculated since the volume of the shell can be calculated when knowing the dimensions and thickness of the penetrator: 
 \begin{equation}
 \begin{aligned}
 m_{pen} & = V_{pen}\cdot \rho = \left(V_{cyl. shell}+V_{sphere. shell}\right) \cdot \rho_{titanium} \\
@@ -261,7 +261,7 @@ As mentioned each kg of plutonium oxide will produce about 548J each each second
 \begin{equation}
 m_{PuO2} = \frac{2150W}{548 \frac{W}{kg}} = 3.92 kg \approx 4 kg 
 \end{equation}
-Hereby with 4 kg of plutonium dioxide sufficient energy is produced to melt through the ice. With a density of $\rho_{PuO2} = \SI{11.46}{\g\per\cm^3}$\cite{golovnin2001a} the total volume needed can be calculated for the plutonium rod by $V = \frac{m}{\rho_{PuO2}} \approx \SI{0.34}{litres}$. Before calculating the radius of the rod consisting of plutonium oxide there has to be space to holes across the PuO2 where water can flow trough to get heated. An illustration of the design is shown in figure \ref{fig:RTGcenter}.
+Hereby with 4 kg of plutonium dioxide sufficient energy is produced to melt through the ice. With a density of $\rho_{PuO2} = \SI{11.46}{\gram\per\cubic\cm}$\cite{golovnin2001a} the total volume needed can be calculated for the plutonium rod by $V = \frac{m}{\rho_{PuO2}} \approx \SI{0.34}{\litre}$. Before calculating the radius of the rod consisting of plutonium oxide there has to be space to holes across the PuO2 where water can flow trough to get heated. An illustration of the design is shown in figure \ref{fig:RTGcenter}.
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.5\textwidth]{figures/Ricardo/RTG3.png}
@@ -290,18 +290,18 @@ where $A_{cross}$ is the cross-sectional area of the water pipes and water surro
 \begin{equation}
 A_{cross} = \left(r_{holes}^2 \cdot n + \left(1.2r_{PuO2}-r_{PuO2}\right) ^2 \right) \cdot \pi = 0.11 \cdot 10^{-3} m^2
 \end{equation}
-where n is the number of holes in the PuO2, $r_{holes}$ is the radius of the holes and $r_{PuO2}$ is the radius of the PuO2-rod.  The specific heat capacity of water is $C_p = \SI{4219}{\J\per\kg\per\K}$ when the water is 100$^o$C \cite{website:water_dens}, which means that 1 kg of water needs 4219 J to increase the temperature with 1 Kelvin. If multiplying the water flow and the specific heat capacity of water it is possible to calculate how much energy is transferred to the water for each Kelvin, and for this case if the flow velocity is set to $\SI{0.03}{\m\per\s}$ in order to get a comfortable heating of the water: 
+where n is the number of holes in the PuO2, $r_{holes}$ is the radius of the holes and $r_{PuO2}$ is the radius of the PuO2-rod.  The specific heat capacity of water is $C_p = 4219 \, \mathrm{J \, kg^{-1} \, K^{-1}}$ when the water is 100$^o$C \cite{website:water_dens}, which means that 1 kg of water needs 4219 J to increase the temperature with 1 Kelvin. If multiplying the water flow and the specific heat capacity of water it is possible to calculate how much energy is transferred to the water for each Kelvin, and for this case if the flow velocity is set to $\SI{0.03}{\metre\per\second}$ in order to get a comfortable heating of the water: 
 \begin{equation}\label{eq:waterheating}
 \begin{aligned}
 \text{Power per degree} & ={} f \cdot C_p \\
 & = A_{cross} \cdot v \cdot \rho \cdot C_p \\
-& = 0.11\cdot 10^{-3} m^2 \cdot \SI{0.03}{\m\per\s} \cdot \SI{1000}{\kg\m^{-3}} \cdot \SI{4219}{\J\per\kg\per\K} \\
-& = \SI{14.05} {\W\per\K} 
+& = 0.11\cdot 10^{-3} m^2 \cdot \SI{0.03}{\metre\per\second} \cdot \SI{1000}{\kilo\gram\per\cubic\metre} \cdot 4219 \, \mathrm{J \, kg^{-1} \, K^{-1}} \\
+& = 14.05 \, \mathrm{W \, K^{-1}}
 \end{aligned}
 \end{equation}
 This means that for each Kelvin the temperature will increase, 14.05 W is needed Since the thermal energy for the melting is 2kW the temperature changes will be: 
 \begin{equation}\label{eq:waterheating2}
-\Delta T = \frac{\text{Power}}{\text{Power per degree}} = \frac{2kW}{\SI{14.05} {\W\per\K} } = \SI{142}{K}
+\Delta T = \frac{\text{Power}}{\text{Power per degree}} = \frac{2kW}{14.05 \, \mathrm{W \, K^{-1}}} = \SI{142}{K}
 \end{equation}
 So with a velocity of 0.03 m/s which corresponds to the water flows past the PuO2 for 10 seconds since the height is 0.3 m, the temperature will have increased with 142 Kelvin. In this calculation it is also assumed that waters specific heat capacity is independent of the temperature which is not the case but the changes are negligible. Since water is used to transfer the heat, the water would boil if the temperature was to reach more than $100^oC$ as normal pressures, so to be able to heat up the water further, it has to be under a higher pressure. If the pressure inside the pipe system is 50 bar, or around 5 MPa, the water has a boiling temperature at $264^\circ$C. The velocity of the water can be decreased even further but with a 142$^o$C increase of temperature there is a good margin before the water begins to boil if assuming that the water is close to freezing point when entering the PuO2 region. If the water starts to boil the pressure will increase, the flow of the water will be decrease and a higher degree of corrosion could happen which all would be critical to the penetrator. \\
 
@@ -314,10 +314,10 @@ After the heating of the water it has to be deliver the heat to the surroundings
 \begin{equation}\label{eq:convectiveheat}
 q = h \cdot A \cdot (T_a - T_b)
 \end{equation}
-where $q$ is the heat transferred which in this case will be all the heat that the water has absorbed from the PuO2 i.e. 2kW, $h$ is the convective heat transfer coefficient which for forced convection with a moderate flow of water in a pipe is about $\SI{3000}{\W\per\m^2\per\K}$\cite{website:waterconvection}, $A$ is the area of which the water is in contact with the surroundings, $T_a$ is the temperature of the surrounding of the water and $T_b$ is the temperature of the water. The temperature difference between the surroundings and the water can be defined as $\Delta T$. Looking at equation \ref{eq:convectiveheat}, $\Delta T$ is linear proportional to the heat transferred meaning that the higher temperature difference the more energy is transferred. Because of the linearity the average dissipation of energy can be calculated by using the average temperature difference between the surroundings and the water Assuming that the water will have dissipated all the heat that was absorbed when heated before it crosses the thermocouples it is possible to calculate how long the pipe has to be since the average temperature difference will be half of the increase in temperature when the water was heated: $\Delta T_{avg} = \Delta T_{heated} / 2 = 71^o$K. With 6 pipes a diameter of the pipes are chosen to be $1/20$th of the RTG's circumference, which is 6.2mm.
+where $q$ is the heat transferred which in this case will be all the heat that the water has absorbed from the PuO2 i.e. 2kW, $h$ is the convective heat transfer coefficient which for forced convection with a moderate flow of water in a pipe is about $3000 \, \mathrm{W \, m^{-2} \, K^{-1}}$\cite{website:waterconvection}, $A$ is the area of which the water is in contact with the surroundings, $T_a$ is the temperature of the surrounding of the water and $T_b$ is the temperature of the water. The temperature difference between the surroundings and the water can be defined as $\Delta T$. Looking at equation \ref{eq:convectiveheat}, $\Delta T$ is linear proportional to the heat transferred meaning that the higher temperature difference the more energy is transferred. Because of the linearity the average dissipation of energy can be calculated by using the average temperature difference between the surroundings and the water Assuming that the water will have dissipated all the heat that was absorbed when heated before it crosses the thermocouples it is possible to calculate how long the pipe has to be since the average temperature difference will be half of the increase in temperature when the water was heated: $\Delta T_{avg} = \Delta T_{heated} / 2 = 71^o$K. With 6 pipes a diameter of the pipes are chosen to be $1/20$th of the RTG's circumference, which is 6.2mm.
 The area of which is the pipe is in contact with the cold surroundings will be the circumference multiplied with the length of the pipe system. This is only valid if assuming that the material surrounding the water are able to transport the heat to the shell of the penetrator that will dissipate its thermal energy to the ice. With the mentioned approximations the length needed to dissipate the heat can be calculated by isolating the length in equation \ref{eq:convectiveheat}:
 \begin{equation}
-L_{pipe} = \frac{q}{h\cdot D_{pipe} \cdot \pi \cdot \Delta T_{avg} \cdot n} = \frac{2kW}{\SI{3000}{\W\per\m^2\per\K} \cdot \SI{0.0062}{m} \cdot \pi \cdot \SI{71}{K} \cdot 6} = \SI{0.08}{m}
+L_{pipe} = \frac{q}{h\cdot D_{pipe} \cdot \pi \cdot \Delta T_{avg} \cdot n} = \frac{2kW}{3000 \, \mathrm{W \, m^{-2} \, K^{-1}} \cdot \SI{0.0062}{\metre} \cdot \pi \cdot 71 \, \mathrm{K} \cdot 6} = \SI{0.08}{\metre}
 \end{equation}
 A length of 8cm is needed in order to dissipate the 2kW using an average temperature approximation. The question is how useful this approximation of the heat dissipation is, since one would think that the last part of the length of the pipe the temperature difference is much smaller than the beginning of the pipe and hence the cooling of the water would be non-linear. Therefore a more mathematical method has been used to estimate the heat dissipation where the flow rate of the water was taken into account to calculate the temperature distribution of the water along the whole length of the pipe. In order to do so a modification of equation \ref{eq:waterheating} and \ref{eq:waterheating2} are being used where the volume of the water times the densty of water are used instead of the flowrate. Hereby the temperature change can be calculated. The derivative of the temperature change will hereby be the change in temperature per second and the heat dissipated per second is given by equation \ref{eq:convectiveheat}. Reducing give following expression:
 \begin{equation}
@@ -369,10 +369,10 @@ As mentioned thermocouples will be used to directly generate electric energy fro
 It can from figure \ref{fig:thermocouple} be seen that the the higher temperature difference the more power will be produced which was also the expected. Three different models are used to calculate the power output, where $P_{fea}$ was the most accurate but produced the least power. In our case the maximum temperature difference will be around 140K and at this difference there are almost no difference between the three modes. At this temperature difference each model with 127 pellets will produce around 7-8 W. To get 150 W the number of pellets necessary will be around 2700 pellets with the dimensions $1.4\text{mm}\times 1.4\text{mm}\times 1.15\text{mm}$. An approximation of how big an area the pellets will take can be calculated by multiplying the width and length of one pellet with the total amount of pellets needed. Hereafter it can be compare to the circumference of the water that surrounds the PuO2. Since the outer radius of the water column was designed to be $1.2\cdot r_{rtg}$ the circumference can be calculated. In this case the two ends of the cylinder of the water surrounding the PuO2 will not be taken into account but only the circumference of the tube. 
 \begin{subequations}
 \begin{equation}
-A_{pellet} = \frac{P_{total}}{P_{pellet}} \cdot \text{width} \cdot \text{length} = \frac{150W}{\frac{7W}{127}}\cdot \SI{0.0014}{m}\cdot \SI{0.0014}{m} = \SI{0.0053}{\m^2}
+A_{pellet} = \frac{P_{total}}{P_{pellet}} \cdot \text{width} \cdot \text{length} = \frac{150W}{\frac{7W}{127}}\cdot \SI{0.0014}{\metre}\cdot \SI{0.0014}{\metre} = \SI{0.0053}{\square\metre}
 \end{equation}
 \begin{equation}
-A_{PuO2} = 2\pi\cdot 1.2r_{PuO2} h_{PuO2} = 2\pi\cdot \SI{0.0196}{\m} \cdot \SI{0.3}{m} = \SI{0.0443}{\m^2}
+A_{PuO2} = 2\pi\cdot 1.2r_{PuO2} h_{PuO2} = 2\pi\cdot \SI{0.0196}{\metre} \cdot \SI{0.3}{\metre} = \SI{0.0443}{\square\metre}
 \end{equation}
 \end{subequations}
 Hereby we see that the area needed to produce 150W easily can fit into on the circumference of the water surrounding the PuO2. It should also be taken into account that the difference in temperature is only 140K at the bottom of the RTG since it is here the surrounding water will be hottest. But since 2700 pellets only fill one eights of the available area the temperature difference will be close to 140K for all the pellets, and more pellets could easily be added to the design. Each pellet is 1.12mm high so the length of the pellets are not going to be any problem either. For the thermocouples it is also seen that the efficiency is about 5\%\cite{lau1997a} which means that only 5\% of the energy used by the thermocouple will actually be converted to electric energy, the rest will be thermal energy due to losses in the thermocouple and it will heat up the components. For generating electrical energy for the instruments in the penetrator it is very fortunate that all the thermal energy generated by the thermocouple actually can be used in order to help melting the ice around the penetrator or keep the body of the penetrator hot enough not to freeze in. 
@@ -454,15 +454,32 @@ From equation \ref{eq:massCO2} it is seen that only 0.882 kg CO2 is needed with 
 \autsubsection{Detection of Depth and End of Ice Column}{Jean-Paul Breuer}
 There is now a method for both navigating and making corrections to the penetrator orientation in the ice column, but now it brings the question of how the penetrator will be able to navigate and avoid rocks or obstacles if there is no way to see anything. More importantly, there has to be a reliable method for determining the end of the ice column, otherwise the final anchoring mechanism may not deploy properly, might deploy at an inconvenient location, or perhaps could completely miss the target and get lost in the subsurface ocean. Mission failure at this point would be a horrific tragedy, not only because of the money spent to put everything together and the headaches taken to acquire the Plutonium-238, but also because of the time investment that it would take to get so far through the ice just to lose everything at the most critical point.
 
-Fortunately, there is an elegant solution to this problem. By adding some receivers distributed around the side of the penetrator and utilizing some Geophysical methods, it should be possible to obtain a rough image of the ice based on the returned echoes from the different ice layers. Which kind of receiver specifically will depend on what can create the signal most feasibly. Within Geophysics, research into Earth's subsurface is done through a variety of methods. Seismic research focusing on the deep layers of the mantle and core typically use earthquakes or large explosions to `see' how the waves propagate. Meanwhile, for local subsurface imaging, a large impact from a human with a sledgehammer, or for slightly larger scales, a vibrator-shake truck can be used to see the depth layers. For imaging in the ocean, often a massive blast of compressed air is used to create a signal. When imaging ice and glaciers, for example in the field of radioglaciology, it is more typical to use a ground penetrating radar for imaging than acoustic signals. 
+Fortunately, there is an elegant solution to this problem. By adding some receivers distributed around the side of the penetrator and utilizing some Geophysical methods, it should be possible to obtain a rough image of the ice based on the returned echoes from the different ice layers. Adding a receiver to the tip of the Penetrator would also be possible, but due to the RTG taking up the space near the tip for heating, receivers along the side are as practical, and would not cause so much loss of signal ($\sim \sqrt{2}$ due to the angle of the that the wave has to the receiver).
 
-Regarding the use of acoustic methods, a signal could be created via a small explosion, which is problematic for our instrumentation and could compromise the consistency of both the ice and our mission, by some kind of shock, perhaps by having a weight falling onto a metallic plate within the penetrator, or more interestingly
+Which kind of receiver specifically will depend on what can create the signal most feasibly. Within Geophysics, research into Earth's subsurface is done through a variety of methods. Seismic research focusing on the deep layers of the mantle and core typically use earthquakes or large explosions to `see' how the waves propagate. Meanwhile, for local subsurface imaging, a large impact from a human with a sledgehammer, or for slightly larger scales, a vibrator-shake truck can be used to see the depth layers. For imaging in the ocean, often a massive blast of compressed air is used to create a signal. When imaging ice and glaciers, for example in the field of radioglaciology, it is more typical to use a ground penetrating radar for imaging than acoustic signals. 
 
+Regarding the use of acoustic methods, a signal could be created via a small explosion, which is problematic for our instrumentation and could compromise the consistency of both the ice and our mission, or by some kind of shock, perhaps by having a weight falling onto a metallic plate within the penetrator. Realistically however, making use of radar signals as opposed to acoustic signals would be much more effective in that it is possible to theoretically have a signal that can penetrate for hundreds of meters, if not several kilometers\cite{radar:depth}. The permittivity of ice can be described by the Debye expression,
+\begin{equation}
+\varepsilon^{*} = \varepsilon' - j\varepsilon" = \varepsilon_{\infty}' + \frac{\varepsilon_s' - \varepsilon_{\infty}'}{1 + j\omega\tau}
+\end{equation}
+with the real part,
+\begin{equation}
+\varepsilon'(\omega) = \varepsilon_{\infty}' + (\varepsilon_s' - \varepsilon_{\infty}')\frac{1}{1+\omega^2\tau^2}
+\end{equation}
+and the imaginary part,
+\begin{equation}
+\varepsilon"(\omega) = (\varepsilon_s' - \varepsilon_{\infty}')\frac{\omega\tau}{1+\omega^2\tau^2}
+\end{equation}
+where $\varepsilon_{\infty}'$ is the relative high-frequency-limit dielectric constat, $\varepsilon_s'$ is the relative static dielectric constant, $\tau$ is the relaxation time in seconds, and $\omega$ is the angular frequency in radians per second \cite{permittivity}. Basically, the conductivity of ice is small at radio frequencies, so its dielectric absorption is also small, meaning that at these frequencies the imaging of the ice would be most effective, and would yield results similar to Figure \ref{fig:icebottom}.
 
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=0.7\columnwidth]{figures/JP/icebottom.png}
+		\caption{An example of the expected output for the ground penetrating radar.\cite{iceradar} \label{fig:icebottom}}
+	\end{center}
+\end{figure}
 
-%\section{Communication Systems}
-
-%\subsection{Communication to Lander}
+In regards to placement of the receivers, th
 
 \autsubsection{Relay Systems}{Jean-Paul Breuer}
 As the Penetrator makes its descent along the ice column, dependent on the chosen landing site and the total depth of the ice, there may be a requirement for several communication relays to send and receive the data from the instrument suite at the bottom of the ice column to the lander near the surface. With regards to the design of the communication relay system, the most ideal configuration would be to keep the $n$ number of relays required positioned near the top of the Penetrator as several cylindrical, detachable sections. Once reaching the appropriate depth, an anchoring mechanism should activate to capture and maintain the relay at that depth, while the remainder of the Penetrator continues it's descent.
