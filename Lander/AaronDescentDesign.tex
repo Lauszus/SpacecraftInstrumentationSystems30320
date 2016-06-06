@@ -10,14 +10,14 @@ Three types of fuel are used for different purposes and are selected with a focu
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{Lander/aaronfueltank}
-	\caption{Fuel tanks side view (height 2m, max width 2m, min width 1.2m, hollow cilinder diameter 30cm): yellow - nitrogen tetroxide (N2O4), orange - unsymmetrical dimethylhydrazine (UDMH), green - High Performance Green Propellant \label{fig:afuelTank}}
+	\caption{Fuel tanks side view (height 2m, max width 2m, min width 1.2m, hollow cylinder diameter 35cm): yellow - dinitrogen tetroxide (N2O4), orange - unsymmetrical dimethylhydrazine (UDMH), green - High Performance Green Propellant \label{fig:afuelTank}}
 \end{figure}
 
 To kill the main delta v two component hypergolic propellant will be used and stored in tiers of fuel tanks on top of each other as shown in figure \ref{fig:afuelTank} Fuel tanks side view. The conservative choice of hydrazine + dinitrogen tetroxide enables the  use of broadly available COTS (Commercial of the Shelf) propulsion components. However propulsion components involved in the final touchdown phase will operate with HPGP mono propellant (High Performance Green Propellant (e.g. LMP-103S)). With HPGP landing site contamination of toxic hydrazine is avoided. Especially the propulsive ice melting gains big benefits from this green propellant, particularly avoiding hydrazine which is extreme deadly for Earth water organisms. The RCS (Reaction control System) operates during touchdown and therefore also has to use HPGP. Luckily HPGP is compatible with most construction materials used in Hydrazine COTS components and propulsion systems. In the final phase before touchdown the bipropellant tanks are expected to be empty, to increase stability at surface contact the green propellant fuel tanks will be located at the bottom of the lander to keep a low the center of mass.\\
 Delivering propellant from the tanks to the thrusters in microgravity comes not for free and needs a technical system. Due to the complex conical and toroidal tank shape piston or inflatable bladders will not be practicable. A diaphragm is very adaptable to non trivial shapes and will push the propellant through pipe outlets and opened propellant valves. Helium containing spheres  are responsible to apply pressure on the empty site of the fuel tank diaphragm. It is necessary to regulate tank pressure with a helium valve system.\\
 
 \subsection{Propulsion System}
-The lander features three distinctive rocket motor systems with unique rolls: 1 - main breaking engine, 2 - touchdown engine, 3 - RCS (see RCS section \ref{XXX}).
+The lander features three distinctive rocket motor systems with unique rolls: 1 - main breaking engine, 2 - touchdown engine, 3 - RCS (see RCS section \ref{chap:RCS}).
 
 \begin{figure}[htb]
 	\centering
@@ -25,14 +25,14 @@ The lander features three distinctive rocket motor systems with unique rolls: 1 
 	\caption{Propulsion system (left - side view, right - bottom view): light red - main breaking engine, light orange - touchdown engine, dark red - RCS, light green - ice penetrator, dark blue - navigation instruments for main descent phase (arrow indicates sensor direction that avoids main breaking engine exhaust plume), light blue - navigation instruments for touchdown (arrow indicates sensor direction that avoids touchdown engine exhaust plume)\label{fig:alanderprop}}
 \end{figure}
 
-\subsubsection{Bain Breaking Engine} 
+\subsubsection{Main Breaking Engine} 
 Overall intended thrust for the main braking is 25 kN. The chosen design features three scaffolds outstretching from the spacecraft with each scaffold has two rocket motors attached. Close to the predefined performance of 4.17 kN is the KRD-442 \cite{AstronauticaKRD} N2O4/UDMH rocket engine with 4.38 kN, currently flying on the international space station module Zarya. A KRD-442 weights 52kg and we need six units, this is way beyond our propulsion mass limit, but it is realistic to develop a similar engine with only half of the mass by relinquishing unnecessary features and using modern production techniques as well as materials. For instance the KRD-442 can throttle down to extreme low 0.17 kN, we do not need such a flexible design.\\
 The main propulsion system architecture is a result of practical consideration laid out in the following. To create maximum stability during the breaking burn we choose not to place the breaking engine at the bottom where high precision balancing of the top-heavy spacecraft is necessary. Instead the breaking force should be applied from a point of attack higher than the center of mass to enable the whole system to balance itself. For weight saving and complexity reduction all thruster are fix attached to the structure scaffold without any gimbal mechanism. Select a three armed scaffold structure resulted from the need of a two axis rotation redundancy. Assuming all thrusters are orientated in the same direction, with one fixed thruster no rotation in possible through thrust modification. Two fixed thrusters allow for one axis of rotation, and three or more allow for two axis rotation. Not choosing more than three arms minimizes structure overhead that would accrue without additional benefit, moreover dividing the same thrust among more thrusters also worsens the mass to thrust ratio. Finally the split of two rocket engines per arm is another level of redundancy as well as a aspect of the commercial availability in the needed thrust range. For redundancy it is to consider that if a main engine fails two at the other arms has to be shut down as well for balancing purposes. This gives a theoretical failure tolerance of three main engines. Of course any initial intended landing profile will no longer be executable with only 50\% of the expected thrust, but with high enough fuel and radiation shielding margins that can exceed time and delta v requirements new emergency possibilities can become possible. Similar to the recently saved Akatsuki \cite{AkatsukiRescue} probe whose Venus orbit insertion thrusters failed to fire in 2010 but orbit insertion was achieved in 2015 only with its attitude control thrusters.\\
 
 \subsubsection{Touchdown Engine} 
-Reducing the horrizontal delta v required high thrust, whereas in the the final descent phase before touchdown propulsion requirements change. For this reason our descent vehicle has it own engines for this final phase. The new minimal thurst requirement have to provide enought force to enable hoover manuvers to avoid late detected ground hazzards. Needed thrust can be calculated by multipliing the lander mass with its gravitation environment. Additionaly to this minimum value other facotrs has to be accounted for. As stated before to prevent landing site contamination HPGP is used for the touchdown engines. Their exhaust becomes a danger for the lander and the payload when pointed straight to the ground, if recoiling ground particles hit sensible components. Another problem with ground faceing engines during touchdown is that the Navigation instruments have to operate though the exhaust plume. Depending on the instruments this can lower the data qualitiy or prevent operation at all. To avoid or minimise this issuees the touchdown engines are angles 22.5° this reduces the efective fuel use by 25\%. Atop of this loss there is the lower ISP caused by the propellant this means there is a high incentive to use the main breaking engine as long as possible. To have any matematical justification for the handover time that swtiches to the touchdown engine the horrizontal and vertical velocity is split and after the equivalent of horrizontal v is slowed down the engine handover occurs. The notion "equivalent of horrizontal" means that also some of this thrust during the gravity turn is used vertivaly. In theory this becomes important in staged descent profiles that a small remaining horizontal v ensures the contamined rocket mortors do not crash where the lander intens to land, right under the lander (This is only not relevant for the choosen lander design, in the landing profile section we argument why we do not use staging).\\
-The touchdown engines are attached to the bottom fuel tank structure this is the widest point of the lander (exept landing legs and main engine scaffold arms). Low attachment makes sense because the HPGP tank is also at the bottom. Whereas the N2O4/UDMH tanks are emtey and therefore the center of mass has shifted to the bottom.Four engines will be used, recall that three are necesarry for two axis controll plus the fouth to increse manuvrebility. Increasing thrust points adds up more flexibility on executing manuveres within the engine configuration. Rough manuvres can by executed with thrust throtteling again there is no additional gimbal mechansim. Fine manuveres are executes by the RCS\\
-Based on the initial minimal thrust reqirement with all constrains combined it can expeted that roughly double the performance is needed (margin). The following calculation used the lander wet-mass after the main breaking engine stops firering.
+Reducing the horizontal delta v required high thrust, whereas in the final descent phase before touchdown propulsion requirements change. For this reason our descent vehicle has its own engines for this final phase. The new minimal thrust requirement have to provide enough force to enable hover maneuvers to avoid late detected ground hazards. Needed thrust can be calculated by multiplying the lander mass with its gravitation environment. Additionally to this minimum value other factors has to be accounted for. As stated before to prevent landing site contamination HPGP is used for the touchdown engines. Their exhaust becomes a danger for the lander and the payload when pointed straight to the ground, if recoiling ground particles hit sensible components. Another problem with ground facing engines during touchdown is that the Navigation instruments have to operate though the exhaust plume. Depending on the instruments this can lower the data quality or prevent operation at all. To avoid or minimize this issues the touchdown engines are angles 22.5° this reduces the effective fuel use by 25\%. Atop of this loss there is the lower ISP caused by the propellant this means there is a high incentive to use the main breaking engine as long as possible. To have any mathematical justification for the handover time that switches to the touchdown engine the horizontal and vertical velocity is split and after the equivalent of horizontal v is slowed down the engine handover occurs. The notion "equivalent of horizontal" means that also some of this thrust during the gravity turn is used vertically. In theory this becomes important in staged descent profiles that a small remaining horizontal v ensures the contaminated rocket motors do not crash where the lander intends to land, right under the lander (This is only not relevant for the chosen lander design, in the landing profile section we argument why we do not use staging).\\
+The touchdown engines are attached to the bottom fuel tank structure this is the widest point of the lander (except landing legs and main engine scaffold arms). Low attachment makes sense because the HPGP tank is also at the bottom. Whereas the N2O4/UDMH tanks are empty and therefore the center of mass has shifted to the bottom. Four engines will be used, recall that three are necessary for two axis control plus the fourth to increase maneuverability. Increasing thrust points adds up more flexibility on executing maneuvers within the engine configuration. Rough manures can by executed with thrust throttling again there is no additional gimbal mechanism. Fine maneuvers are executes by the RCS\\
+Based on the initial minimal thrust requirement with all constrains combined it can expected that roughly double the performance is needed (margin). The following calculation used the lander wet-mass after the main breaking engine stops to fire.
 $$2 * 1102 kg * 1.315 m/s^2 = 2898 N = 4 * 725 N$$
 Currently there is no 725 N HPGP engine available, but it is possible to develop one. The hydrazine engine LEROS 1b in the same thrust class (635 N, 4.5kg) can give us a good reference about the expected weight of roughly 5kg.
 
@@ -43,10 +43,10 @@ Landing legs provide a stable structure for the touchdown, some also absorb the 
 \\
 A similar minimalistic approach in not having classical landing legs is simply landing on the vehicles structure. Google Lunar XPRIZE team Moon Express utilizes such a landing platform that is intended to land on in tank structure with an energy absorbing material at its bottom. Not having outstretching legs safes weight and space, but increases the overall risk of tipping over unless the design is not flat and wide (This limits the possible vehicle architectures). Despite these limitation the critical argument against landing on the core structure (or even worse: airbags) is that the propulsive ice melting needs free space for the rocket exhaust and should also avoid accumulating refreezing ice on sensitive vehicle components (like the penetrator release mechanism).\\
 \\
-Outstretching landing legs allow to build taller lander architectures. Most comely are four or three legged designs. The four legged Luna 16 probe or the three legged Surveyor moon probes are a good example for this height to diameter ratio. Surveyors height was 3 m and its footpads extended out 4.3 m. More legs means more stability, therefore design with less legs need increased leg length (and strength) to compare in stability. This implies if you add additional legs you not necessarily add more weight. However longer legs are beneficial by increasing the distance to the exhaust of the propulsive melting. \\
+Outstretching landing legs allow to build taller lander architectures. Most comely are four or three legged designs. The four legged Luna 16 \cite{ZaryaLuna} probe or the three legged Surveyor \cite{NASASur} moon probes are a good example for this height to diameter ratio. Surveyors height was 3 m and its footpads extended out 4.3 m. More legs means more stability, therefore design with less legs need increased leg length (and strength) to compare in stability. This implies if you add additional legs you not necessarily add more weight. However longer legs are beneficial by increasing the distance to the exhaust of the propulsive melting. \\
 A three legged design is chosen as suitable lander design for our Europa lander. The three legs itself consisting out of three rods similar to the Luna 16 design. Two rods will spread toward the lower end of the lander and the third one is attached at a higher point. The legs will stretch out 1.3 meter from the spacecrafts fuel tank (2 meter diameter).  Launched under the 5 m Atlas V fairing there is no need for a fold up mechanism.\\
 \\
-JPL proposed a six legged vehicle in its Europa Lander 2012 Report that features a very useful footpad design. They call it "skid \& tip over mitigation feet" the food is lengthened by a curved tongue that can reduce the tip over risk and adjust the vehicles orientation. We chose to adapt the curved tongue part of the feet that can slide on the ice in case of a suboptimal touchdown, but do not adapt the skid part at the bottom site. Instead of the bottom skid we have some ice spikes cause we have to prevent post landing movement under all circumstances (losing the penetrator/communication hole). Harsh breaking by spikes increases the tip over risk but the tip over mitigation tongue is a useful countermeasure.
+JPL proposed a six legged vehicle in its Europa Lander 2012 Report \cite{JPLEuropaRep} that features a very useful footpad design. They call it "skid \& tip over mitigation feet" the foot is lengthened by a curved tongue that can reduce the tip over risk and adjust the vehicles orientation. We chose to adapt the curved tongue part of the feet that can slide on the ice in case of a suboptimal touchdown, but do not adapt the skid part at the bottom site. Instead of the bottom skid we have some ice spikes cause we have to prevent post landing movement under all circumstances (losing the penetrator/communication hole). Harsh breaking by spikes increases the tip over risk but the tip over mitigation tongue is a useful countermeasure.
 
 \begin{figure}[htb]
 	\centering
@@ -55,25 +55,25 @@ JPL proposed a six legged vehicle in its Europa Lander 2012 Report that features
 \end{figure}
 
 \subsection{Mechanisms}
-..
+The lander carries a set of one time activation devices for specialized purposes.
 
+\subsubsection{Penetrator Release Mechanism}
+When the lander reach the surface the propulsive ice melting starts. Sublimating ice can refreeze at the lander, especially endangered is the tight radiation vault where refreezing ice can jam the penetrator. Therefore a hatch protects the radiation vault exit. This hatch can be opened with a explosive charge that is able to overcomes a ice layer at its closure. It is important to emphasize that the hatch will only open and not be detached, otherwise it could cause troubles by getting between the penetrator and the ice.\\
+After the hatch is opened the penetrator fixing mechanism get released. The penetrator is fixated through four clamps that also opens with a small explosive charge. Finally the penetrator with the ground communication electronics on the top free falls in the prepared hole. A cable connects the, now protected, sensible electronics to the radiation tolerant components (antenna-to-orbiter and sonar-to-penetrator operate both at the moon surface). As soon as the penetrator starts is ice descent the electronics detach and hang 4 m deep in the hole.\\
 
-\subsubsection{Probe Release Mechanism}
-...
-
-and orbiter adpter
-...
 
 \subsubsection{Ice Communication Boom}
-...
+Sonar signals from or to the penetrator cannot be transmitted through water. In consequence of the steady melting process and permanent presence of water atop the penetrator. Only viable option is to deploy the surface sonar component beside the lander.\\
+During cruise the sonar rests at the outer fuel tank wall. A 1 m fold up boom, located parallel to one of the landing legs, can be used to deploy the sonar. A whip hinge mechanism attached to the footpad releases its tension as soon the sonar gets detached from the fuel tank wall. This positions the sonar approximately 3 m away from the center of the melting hole.
 
 \subsubsection{Launch Vehicle Adapter}
-...
+Comparing wet mass of orbiter and lander (as calculated in section \ref{lapran} Landing Profile Analyses) it turns out that the lander consumes almost 4 tons from the available 7.3 tons to Jupiter (max Atlas V capacity). Therefore the lander will be placed right atop the LV and the orbiter will be stacked to the top of the lander. Two circular launch adapter are needed and do integrate easy with the flat top and bottom. Furthermore the radiation vault provides a solid basis for enlarged load stresses. 
+
 
 \subsection{Mass Allocation}
-The mass allocation for our proposed lander
-\\
-TOTAL MASS (on the surface) 1000 kg:
+Mass allocation for our proposed lander:
+\begin{itemize} 
+\item TOTAL MASS (on the surface) 1000 kg
 \begin{itemize}  
 \item Payload (Surface module + ice-descent vehicle + power) 180 kg
 \item Navigation 10 kg
@@ -84,49 +84,30 @@ TOTAL MASS (on the surface) 1000 kg:
 \item Mechanism 25 kg
 \item Ice melting propellant 150 kg
 \item Margin 50kg
+\end{itemize}  
 \end{itemize}
 
 
-
-
-\subsection{Landing Profile Analyses}
-
-
-By numerically analyzing different landing profiles we can compare fuel requirements and 
-
-
-bruning fuel
-suspension mechanism
-
-comunication to penetrator mechanism   
-
-
-
-thruster parameters position strength, angle fuel
-
-
-input parameter:
-\begin{itemize} 
-\item initial eliptical orbit perigee hight = 100 km
-\item initial eliptical orbit perigee velocity = 3.3 km/s
-\item orbit direction syncron with Europa rotation = true
-\item intendet parking orbit hight = 10 km
-\item main breaking engine ISP: 310 s
-\item touchdown engine ISP = 234 s
-\item effective useable thrust for touchdown burn = 75\%
-\end{itemize}
-
-
-profile 5\\
-Staged Mass  - 60 kg\\
-Staging Mechanism + 10 kg\\
+\subsection{Landing Profile Analyses}\label{lapran}
+By numerically analyzing different landing profiles we can compare fuel requirements, consider safety aspects and select an reasonable solution.\\
 \\
-profile 3 and 6\\
-Staged Mass  - 40 kg\\
-"Staging Mechanism" + 5 kg \\
-"only one engine savings" - 20 kg
+Fixed input parameter for all profiles:
+\begin{itemize} 
+\item Initial elliptical orbit perigee height = 100 km
+\item Initial elliptical orbit perigee velocity = 3.3 km/s
+\item Orbit direction synchronous with Europa rotation = true (32 m/s at the equator)
+\item Main breaking engine ISP = 310 s
+\item Touchdown engine ISP = 234 s
+\item Effective useable thrust for touchdown burn = 75\%
+\end{itemize}
 
+Figure \ref{fig:acomparison} "Landing profile comparison" features different lander masses on the surface, this is a result of evaluating two main thruster staging approaches: 
+\begin{description}
+\item [Profile 5] Staged mass ejected 60 kg; staging mechanism additional dry weight 10 kg
+\item [Profile 3 \& 6] Staged mass ejected 40 kg, Staging Mechanism additional dry weight 5 kg, propulsion system mass reduction to use only one central engine 20 kg
+\end{description}
 
+Empty fuel tanks are not considered to be staged because of their key role in providing radiation shielding.
 
 \begin{figure}[htb]
 	\centering
@@ -138,9 +119,13 @@ Staged Mass  - 40 kg\\
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{Lander/aaronlandingprofile}
-	\caption{Selected landing profile (4)\label{fig:alandingprofile}}
+	\caption{Selected landing profile (4): grey - Europa surface, blue - parking orbit, red - descent path, dashed line - environment as seen by human eye, continuous line - inverse projection of dashed line that makes it possible to read the distances from the left scale\label{fig:alandingprofile}}
 \end{figure}
 
+
+The "Landing profile comparison" shows that doing a direct descent instead of lowering altitude with a transfer maneuver costs more fuel ((1)2985 kg vs. (2) 2292 kg). Whereas accelerating back to a circular parking orbit is not so expensive ((2) vs. (4) = 23 kg). A parking orbit is our favored choice because it adds flexibility to decent schedule. This can be useful to configure the navigation instruments and adds safety if a component fails. As stated before, due to the fluid water layer over Europa we assume there will be no big gravity anomalies and we can go as chose a orbit as low as 10 km.\\ 
+Staging however is not very desirable because the main engines gets ejected very late in the descent. It only requires a relative small extra mass to provide staging, but the touchdown thruster are so inefficient that the they do not allow for earlier activation. Comparing profile (4) and (5) shows that carrying a additional staging mechanism is worse than no staging at all.\\
+Substituting the six main thruster with one central main engine is the most efficient solution from parking orbit (6) as well as direct descent (3). Nevertheless we will adopt profile (4) because a single central thruster is a big failure risk, and moreover it reintroduces the stability and tip over issue.
 
 
 \begin{lstlisting}[caption={Simulation details from profile (4)}, label=acalcoutput]
@@ -157,7 +142,7 @@ Staged Mass  - 40 kg\\
 > Hohmann transfer to 10.0 km
    dv1: 19.4686094861 m/s
    dv2: 20.018574823 m/s
-   transfer duration: 3606.52080051 s (60.1086800085 min)
+   non-propulsive transfer duration: 3606.52080051 s (60.1086800085 min)
 
    circular orbit velocity: 1427.52062194 m/s
    circular orbit period: 6913.82480145 s (115.230413358 min)
@@ -184,7 +169,7 @@ Staged Mass  - 40 kg\\
 > LANDED semi dry mass (lander + fuel margin left): 1000.05106939 kg
 \end{lstlisting}
 
-
+Final mass with all margins:
 \begin{itemize}  
 \item 860 kg (descent vehicle dry mass)
 \item + 2318 kg (optimal landing profile propellant)
@@ -193,43 +178,31 @@ Staged Mass  - 40 kg\\
 \item + 150 kg (ice melting propellant)
 \item = 3986 kg (TOTAL)
 \end{itemize}  
-
-Dry mass
-
-landing profile
-overall design with weights 
-	
-	structure
-	material
-	landing legs
-thermal environment
-
+These are very conservative estimation since the margins are based on an already conservative architecture. If future mission planning requires more mass e.g. for the orbiter it is easy to redistribute resources.
 
 \subsection{Descent Validation}
-
-Validation by comparison 
-
-proofing claims
-	lander design by comparison
-	descent profile by analysis
-
-
-Target gravity: Europa 1,315 m/s²
-
-List of all bodies where S/C performed a controlled landing (to prove valid design)
-
-Landings with atmosphere a.k.a. cheating the  delta v away:
+To validate our mission parameters we compared them with similar space exploration projects.\\
+Target gravity: Europa 1,315 m/s²\\
+List of all bodies where S/C performed a controlled landing (to prove valid design):
+\begin{itemize}
+\item Descent with atmosphere (not comparable)
 \begin{itemize}  
 \item Venus 8,87 m/s²
 \item Mars 3,711 m/s²
 \item Titan 1,352 m/s²
 \end{itemize}
 
-Pure propulsion landings:
+\item Pure propulsion landings
 \begin{itemize}
 \item Moon 1,622 m/s²
-\item 433-Eros 0.0059 m/s² (asteriod landing with highest gravity so far)
+\item 433-Eros 0.0059 m/s² (asteroid landing with highest gravity so far)
 \item Phobos 0,0057 m/s² (3 failed probes)
-\item Churyumov–Gerasimenko ~0.001 m/s²
-\item 25143-Itokawa ~0.0001 m/s² (sample return)
+\item Churyumov–Gerasimenko 0.001 m/s²
+\item 25143-Itokawa 0.0001 m/s² (sample return)
 \end{itemize}
+\end{itemize}
+
+To draw design similarities only the moon is a suitable candidate, but also with limitation since a earth moon landing requires only half the delta v in contrast to a Europa mission. Whereas considering the mass allocation of flown systems helps to define all S/C components. Despite a lot of independent choices our mass distribution scheme is fairly similar to the planed ESA moon lander, just scaled up. Physics dictates those parameter.\\
+On the other hand planned Europa lander vary widely in some aspects. JPLs \cite{JPLEuropaRep} 560kg lander proposal provides a 35.40 kN (Star 30E) main descent thruster. In contrast to a Russian \cite{AnatolyZakEurop} 660kg lander proposal featuring a 3kN thruster.
+
+

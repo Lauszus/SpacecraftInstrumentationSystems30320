@@ -8,7 +8,7 @@ The International Telecommunications Union (ITU) defines Deep Space (DS) to star
     \item Ka-Band: 34.2-34.7 GHz uplink, 31.8-32.3GHz downlink.
 \end{itemize}
 
-
+\noindent
 ESA's effor to carry out interplanetary missions like Rosetta or Kepler Observatory as well as Icy Moon Exploration (JUICE). The capability of supporting present and future DS missions is the consequence of well established plan to expand the network of $15m$ tracking antennas into the deep space distances. The plan consisting on deploying three $35m$ DS antennas over the world, ensuring around the clock coverage to all interplanetary missions, which has been recently completed. These three DS antennas, DSA1 located in New Norcia (Australia), DSA2 in Cebreros (Spain) and DSA3 in Malargue (Argentina), are in operation since 2002, 2005 and 2013 respectively.
 
 The DSA1-3 network will provide telecommand and telemetry links for a Europa mission but as important as the data links, is the tracking of the SC since the DSA-2 is equipped with Delta DOR (Delta Differential One-Way Ranging) capability, a new technology enabling highly precise spacecraft location and tracking.
@@ -39,20 +39,17 @@ A two-axis steerable medium gain antenna (MGA) is to be provided to allow for co
 	\label{fig:DS-a}
 \end{figure}
 
-\subsubsection{Link Budget X-band}
+\subsubsection{X- and Ka-band Link Budget}
 
-\begin{figure}[H]
+\begin{figure}[htb]
 	\centering
-	\includegraphics[width=\textwidth]{figures/comms/linkBudget-Xband}
-	\caption{X-band link budget.}
-	\label{fig:budget-X}
-\end{figure}
-
-\subsubsection{Link Budget Ka-band}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{figures/comms/linkBudget-Kband}
-	\caption{Ka-band link budget.}
-	\label{fig:budget-K}
+	\subfloat[X-band link budget]{
+		\includegraphics[width=.48\textwidth]{figures/comms/linkBudget-Xband}
+		\label{fig:budget-X}
+	}
+	\subfloat[Ka-band link budget]{
+		\includegraphics[width=.48\textwidth]{figures/comms/linkBudget-Kband}
+		\label{fig:budget-K}
+	}
+	\caption{Link budget for X- and Ka-band}
 \end{figure}

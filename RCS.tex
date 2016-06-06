@@ -2,12 +2,12 @@
 
 The reaction control system (RCS) of the lander is the system of thrusters that control the attitude and provide minor translation control. The system uses a series of small engines to provide three-axis control of the lander to correct minor position and velocity errors, divergence from the optimal descent profile, and to to ensure that the rotational properties of the lander are ideal. The RCS is additionally to provide precise maneuvering during the landing stage to ensure safe and proper landing at the designated target.\\
 
+\noindent
 This section will form an overview of the RCS envisioned for the Europa Life Finder Mission as well as some of its capabilites. A detailed schematic of the thrusters, fuel pump system, electrical power system and such will not be discussed. These design can instead be taken from already existing RCS designed for similar needs, and then modified to suit the Europa mission.
 
 \subsection{Design}
 
 The RCS envisioned for the Europa mission has been chosen from its similarities to lunar landing missions. As the Moons gravity is almost the same as Europas, lunar descent vehicles will serve as good inspiration for the capability needs of the RCS. Particularly, the ESA Lunar Lander and Chang'e 3 lunar descent vehicles have been used to model the RCS for the Europa mission \cite{ESA_pic} \cite{Chang_e_3}. In figure \ref{fig:landers} are seen the RCS for these missions.\\
-
 
 \begin{figure}[htb]
 \begin{center}
@@ -17,9 +17,10 @@ The RCS envisioned for the Europa mission has been chosen from its similarities 
 \end{center}
 \end{figure}
 
-
+\noindent
 Based on these missions, the RCS for the Europa mission will consist of 16 thrusters each providing 20 N of thrust. The thrusters are positioned in four clusters of four thrusters each, positioned around the center of gravity for the lander. The total thrust output this setup can generate is larger than that of the ESA Lunar Lander, but smaller than that of Chang'e 3 \cite{ESA_pic} \cite{Chang_e_3}. This is off-set  by the differences weight. Figure \ref{fig:RCS_thruster} shows a cluster as well as a single thruster belonging to the cluster.\\
 
+\noindent
 The thrusters use the green propellant as opposed to the bi-propellant used by the main engines. The properties of the propellant is outlined in the fuel section, but in short, with its high specific impulse this propellant should be well suited for the RCS without the risk of contaminating the landing site. The choice of green propellant over bi-propellant increases the difficulty of designing the RCS as most common systems use a hydrazine propellant along with an oxidizer, thus limiting the already existing schematics that can be drawn on.
 
 \begin{figure}[htb]
@@ -29,7 +30,6 @@ The thrusters use the green propellant as opposed to the bi-propellant used by t
 \label{fig:RCS_thruster}
 \end{center}
 \end{figure}
-
 
 \subsection{Rotational capabilities}
 
@@ -43,9 +43,8 @@ Analyzing the rotational ability of the RCS is done using a simplifed model of t
 \end{center}
 \end{figure}
 
-
-The moment of inertia for this structure is
-
+\noindent
+The moment of inertia for this structure is:
 \begin{equation}
 \begin{split}
    & I_{z} = \frac{3}{10} \cdot M_{1} \cdot R_{1}^2 - \frac{3}{10} \cdot M_{2} \cdot R_{2}^2 + \frac{1}{2} \cdot M_{diff} \cdot R_{cyl}^2\\
@@ -53,7 +52,6 @@ The moment of inertia for this structure is
    &     - \frac{1}{10} \cdot M_{2} \cdot h_{cone2}^2 + \frac{1}{2} \cdot M_{diff} \cdot R_{cyl}^2
 \end{split}
 \end{equation}
-
 With $I_x$ being identical to $I_y$ due to symmetry. The moment of inertia for the frustum cone is found by using the moment of inertia for a large, regular cone consisting of both the frustum cone and a smaller, regular cone. From this large, regular cone, is then subtracted the moment of inertia of the small regular cone. 
 
 \begin{itemize}
@@ -67,14 +65,14 @@ With $I_x$ being identical to $I_y$ due to symmetry. The moment of inertia for t
 \item $R_{cyl}$ is the height of the cylinder, which is 1.5 m.
 \end{itemize}
 
-The moments of inetia with fuel are then $I_{y,x}$ = 6124 $\mathrm{kg/m^2}$ and $I_{z}$ $\mathrm{kg/m^2}$ = 1188.5, and the moments of inertia without fuel are $I_{y,x}$ = 1346.3 $\mathrm{kg/m^2}$ and $I_{z}$ = 256.75. $\mathrm{kg/m^2}$ With the moment inertia, the angular acceleration of the lander can be calculated from
-
+\noindent
+The moments of inetia with fuel are then $I_{y,x}$ = 6124 $\mathrm{kg/m^2}$ and $I_{z}$ $\mathrm{kg/m^2}$ = 1188.5, and the moments of inertia without fuel are $I_{y,x}$ = 1346.3 $\mathrm{kg/m^2}$ and $I_{z}$ = 256.75. $\mathrm{kg/m^2}$ With the moment inertia, the angular acceleration of the lander can be calculated from:
 \begin{equation}
     I \alpha = r \times F
 \end{equation}
-    
 here, $I$ is the moment of inertia, $\alpha$ is the angular acceleration, $R$ is the position vector of the point where the force is applied, and $F$ is the force vector. In the $x$ and $y$ directions, the RCS is capable of providing 40 N of thrust, and in the $z$ direction the RCS can proviode 80 N of thrust. The angular acceleration that the RCS can deliver is then 0.0065 $\mathrm{rad/s^2}$ in the $x$ and $y$ directions, and 0.067 $\mathrm{rad/s^2}$ in the z direction at the lower edge of the lander. This in turn makes the rotation period of the lander 43.8 s in $x$ and $y$ directions, and 13.6 s in the $z$ direction.\\
 
+\noindent
 To decrease the rotation period of the lander, the thrusters can instead be placed on beams stretching out from the lander a seen on figure \ref{fig:arms}. Given 1 m long beams, the rotation period instead becomes 31.01 s in the $x$ and $y$ directions, and 9.66 in the $z$ direction.
 
 \begin{figure}[htb]
@@ -85,11 +83,12 @@ To decrease the rotation period of the lander, the thrusters can instead be plac
 \end{center}
 \end{figure}
 
+\noindent
 Figure \ref{fig:arms_graph} shows how the rotational acceleration of the lander increases with arm length. Using arm extensions adds additional weight to the lander. Longer arms must also  be thicker to be able to support the lander when the RCS is used.
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[scale=0.8]{figures/RCS/arm_graph}
+\includegraphics[scale=0.6]{figures/RCS/arm_graph}
 \caption{Graph of the increase in angular acceleration of the lander due to increase in arm length.}
 \label{fig:arms_graph}
 \end{center}
@@ -105,12 +104,13 @@ In the final stage of the descent, the RCS can be used to prevent horizontal sli
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[scale=0.8]{figures/RCS/Lunar_slide}
+\includegraphics[scale=0.6]{figures/RCS/Lunar_slide}
 \caption{Simple sketch showing the lander sliding above the ice surface with a velocity $V_{slide}$ parallel to the surface plane.}
 \label{fig:lunar_slide}
 \end{center}
 \end{figure}
 
+\noindent
 Alternatively, the lander can turn 45 degrees and activate another two thrusters to counter sliding. At this angle, each of the four sliders will provide 14.14 N of thrust in the direction opposite the sliding, for a total of 56.56 N. The horizontal acceleration is then 0.06 $\mathrm{m/s^2}$. With 10.28 seconds required to turn this angle, using this method will be more effective if the lander has a velocity parallel to the surface of 1.44 $\mathrm{m/s}$. This maneuver comes at the cost of increased fuel usage as additional thrusters must be utilized.
 
 \begin{figure}[htb]

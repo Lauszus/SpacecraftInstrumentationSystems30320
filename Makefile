@@ -14,7 +14,7 @@ LINT_OPTIONS = -q
 
 MAIN = main
 FIGDIR = figures
-CHAPDIR = Appendix Communication gfc Lander Orbiter Penetrator Theory
+CHAPDIR = Appendix Communication gfc Lander Orbiter Penetrator Theory Fruzsi
 
 FILES = $(notdir $(wildcard *.tex)) $(foreach dir,$(CHAPDIR),$(dir)/*.tex) bibliography/biblio.bib
 FIGURES = $(shell find $(FIGDIR) -iname '*.png') $(shell find $(FIGDIR) -iname '*.jpg') $(shell find $(FIGDIR) -iname '*.pdf') $(shell find $(FIGDIR) -iname '*.eps') $(shell find $(FIGDIR) -iname '*.gif')
