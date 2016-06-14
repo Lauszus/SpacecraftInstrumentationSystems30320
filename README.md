@@ -1,7 +1,7 @@
 # Spacecraft Instrumentation Systems 30320
 #### June, 2016
 _________
-[![Build Status](https://travis-ci.com/Lauszus/SpacecraftInstrumentationSystems30320.svg?token=ppc6rHRAs23cjxNFyjc1&branch=master)](https://travis-ci.com/Lauszus/SpacecraftInstrumentationSystems30320)
+[![Build Status](https://travis-ci.org/Lauszus/SpacecraftInstrumentationSystems30320.svg?branch=master)](https://travis-ci.org/Lauszus/SpacecraftInstrumentationSystems30320)
 
 If you use Git, then please do __NOT__ commit to the master branch. Instead make a separate branch and send a [pull request](https://help.github.com/articles/using-pull-requests), then it will be merged into master if there is no conflicts. I would recommend the following GUI if you are new to Git: <https://www.sourcetreeapp.com>.
 
